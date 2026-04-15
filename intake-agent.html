@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Intake Agent — Eric Huang</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="auth.js"></script>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Eric Huang</a>
+    <ul class="nav-links">
+      <li><a href="index.html#work">Work</a></li>
+      <li><a href="index.html#philosophy">Philosophy</a></li>
+      <li><a href="resume.pdf" target="_blank" rel="noopener" class="nav-resume">Resume ↗</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ─── BREADCRUMB ─── -->
+<div class="breadcrumb">
+  <a href="index.html">← All projects</a>
+  <span class="sep">/</span>
+  <span class="current">Intake Agent</span>
+</div>
+
+<!-- ─── CASE STUDY ─── -->
+<section class="case-study standalone">
+
+  <div class="cs-header">
+    <div class="cs-year-badge">Case Study 01 · 2026</div>
+    <h2>Intake <em>Agent</em></h2>
+    <div class="cs-meta-strip">
+      <div class="cs-meta-item"><div class="cs-meta-key">Company</div><div class="cs-meta-val">Workday</div></div>
+      <div class="cs-meta-item"><div class="cs-meta-key">My Role</div><div class="cs-meta-val">Lead UX Designer</div></div>
+      <div class="cs-meta-item"><div class="cs-meta-key">Platform</div><div class="cs-meta-val">Desktop Web</div></div>
+      <div class="cs-meta-item"><div class="cs-meta-key">Duration</div><div class="cs-meta-val">2025 – 2026</div></div>
+    </div>
+    <div class="cs-header-meta">
+      <span class="tag accent">Responsible AI System</span>
+      <span class="tag">UX Design</span>
+      <span class="tag">Info Architecture</span>
+      <span class="tag">Decision Confidence</span>
+      <span class="tag">Collaboration</span>
+      <span class="tag">Desktop</span>
+    </div>
+    <p>A decision-assistive AI agent that orchestrates purchase decisions across different platforms, building trust and confidence at enterprise scale.</p>
+  </div>
+
+  <!-- My Role -->
+  <div class="my-role-block">
+    <div class="my-role-icon">👤</div>
+    <div class="my-role-content">
+      <div class="block-label">My Contributions</div>
+      <p>I owned end-to-end UX design — from defining the LLM interaction model and trust framework to designing the admin configuration console, query playground, and analytics dashboard. I drove alignment across PM, engineering, and data science, and established the design principles governing how the agent communicates confidence and sources to end users.</p>
+      <div class="my-role-chips">
+        <span class="chip">Problem Framing</span>
+        <span class="chip">LLM UX Research</span>
+        <span class="chip">IA &amp; Flows</span>
+        <span class="chip">Interaction Design</span>
+        <span class="chip">Admin Console Design</span>
+        <span class="chip">Stakeholder Alignment</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Problem → Vision -->
+  <div class="block">
+    <div class="block-label">The Problem</div>
+    <h3>Confusion &amp; lengthy support turnaround</h3>
+    <p>Procurement teams were drowning in a backlog of routine "where do I find X?" queries. Support turnaround was slow, and employees had no confident path forward for purchase decisions — leading to delays, escalations, and frustrated end-users.</p>
+  </div>
+
+  <div class="callout accent-left">
+    <div class="block-label">The Vision</div>
+    <p style="font-size:17px; font-weight:600; color:var(--ink); line-height:1.5; margin-bottom:8px;">No wait. 100% accurate suggestions.</p>
+    <p style="color:var(--ink-secondary); font-size:15px;">An intelligent intake agent that understands requester intent, suggests the right route, and gives procurement managers the admin tools to configure, test, and optimize — all with zero hallucination risk.</p>
+  </div>
+
+  <!-- Today's Focus -->
+  <div class="block">
+    <div class="block-label">Scope · Today's Focus</div>
+    <h3>Requester experience &amp; admin control surface</h3>
+  </div>
+
+  <div class="focus-grid">
+    <div class="focus-item">
+      <strong>Requester — LLM Intent Understanding</strong>
+      Natural language processing to understand what the requester actually needs.
+    </div>
+    <div class="focus-item">
+      <strong>Requester — Route Suggestion</strong>
+      LLM + route logic to surface the best path for each purchase request.
+    </div>
+    <div class="focus-item">
+      <strong>Admin — Route Table Configuration</strong>
+      Intuitive admin console for configuring routing rules and fallback responses.
+    </div>
+    <div class="focus-item">
+      <strong>Admin — LLM Query Playground</strong>
+      A testing sandbox so admins can validate LLM responses before they go live.
+    </div>
+    <div class="focus-item">
+      <strong>Admin — Data Dashboard</strong>
+      Analytics to monitor route performance and continuously optimize decisions.
+    </div>
+    <div class="focus-item">
+      <strong>Future — Predictive Requests</strong>
+      Predict upcoming requests based on user group patterns (next phase).
+    </div>
+  </div>
+
+  <!-- Before → After -->
+  <div class="block">
+    <div class="block-label">Design Evolution</div>
+    <h3>From ChatGPT-like to a hybrid experience</h3>
+    <p>Early prototypes mimicked a general chat interface — users had to know what to ask. We shifted to a hybrid model that meets both casual and power users where they are.</p>
+  </div>
+
+  <div class="comparison-grid">
+    <div class="comparison-card">
+      <div class="comp-label">Before</div>
+      <h4>ChatGPT-like Experience</h4>
+      <ul>
+        <li>ML-generated sample questions only</li>
+        <li>Users must know what to ask</li>
+        <li>No admin-defined guidance</li>
+        <li>One-size-fits-all for all roles</li>
+      </ul>
+    </div>
+    <div class="comparison-card after">
+      <div class="comp-label">After</div>
+      <h4>Hybrid Experience</h4>
+      <ul style="list-style:none;">
+        <li style="display:flex;gap:8px;align-items:flex-start;font-size:14px;color:var(--ink-secondary);">
+          <span style="color:var(--accent-green);font-weight:700;flex-shrink:0;">✓</span>
+          Admin-defined Quick Links for common actions
+        </li>
+        <li style="display:flex;gap:8px;align-items:flex-start;font-size:14px;color:var(--ink-secondary);">
+          <span style="color:var(--accent-green);font-weight:700;flex-shrink:0;">✓</span>
+          ML-generated Q&amp;A tailored by user role
+        </li>
+        <li style="display:flex;gap:8px;align-items:flex-start;font-size:14px;color:var(--ink-secondary);">
+          <span style="color:var(--accent-green);font-weight:700;flex-shrink:0;">✓</span>
+          Designed for both casual &amp; power users
+        </li>
+        <li style="display:flex;gap:8px;align-items:flex-start;font-size:14px;color:var(--ink-secondary);">
+          <span style="color:var(--accent-green);font-weight:700;flex-shrink:0;">✓</span>
+          Trust-first — accuracy is non-negotiable
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Trust Building -->
+  <div class="callout accent-left">
+    <div class="block-label">Core Design Principle</div>
+    <p style="font-size:17px; font-weight:600; color:var(--ink); line-height:1.5; margin-bottom:8px;">Trust building is key.</p>
+    <p style="color:var(--ink-secondary); font-size:15px;">Financial and procurement decisions require absolute accuracy. We designed explicit transparency mechanisms — source citations, confidence indicators, and admin-controlled fallback responses — to ensure users never had to guess whether to trust the agent.</p>
+  </div>
+
+  <!-- Research -->
+  <div class="block">
+    <div class="block-label">Research &amp; Insights</div>
+    <h3>What we learned from procurement teams</h3>
+  </div>
+
+  <ul class="insight-list">
+    <li>
+      <div class="insight-icon">📊</div>
+      <span>Procurement admins spend <strong>50%+ of their time</strong> answering basic queries like "where do I find X?" — instead of focusing on strategic work.</span>
+    </li>
+    <li>
+      <div class="insight-icon">📚</div>
+      <span>Internal documentation and training materials become outdated quickly, requiring <strong>costly, time-consuming retraining</strong> cycles.</span>
+    </li>
+    <li>
+      <div class="insight-icon">🔒</div>
+      <span>Financial support demands accuracy above all else. Procurement teams <strong>distrust bots and LLMs</strong> due to hallucination risk — making transparency and accuracy non-negotiable design constraints.</span>
+    </li>
+  </ul>
+
+  <!-- Quote -->
+  <div class="quote-block">
+    <div class="quote-mark">"</div>
+    <blockquote>"I've been so eager to see this — I just spent the last 4 hours playing around with it. So far, it's AWESOME!"</blockquote>
+    <div class="quote-source">— Procurement manager at a major U.S. healthcare provider, on first use</div>
+  </div>
+
+  <!-- Metrics -->
+  <div class="block">
+    <div class="block-label">Outcome &amp; Impact</div>
+    <h3>Measurable results after launch</h3>
+  </div>
+
+  <div class="metrics-grid">
+    <div class="metric-card">
+      <div class="metric-number">−60%</div>
+      <div class="metric-label">Time spent creating &amp; associating rules to a user group</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-number">−90%</div>
+      <div class="metric-label">Time spent selecting a compliance item</div>
+    </div>
+  </div>
+
+  <!-- Key Highlights -->
+  <div class="block">
+    <div class="block-label">Key Highlights</div>
+    <h3>What made this project stand out</h3>
+  </div>
+
+  <div class="kh-grid">
+    <div class="kh-card">
+      <div class="kh-number">01</div>
+      <h4>The hybrid model beat pure chat by meeting every user where they are</h4>
+      <p>Blending admin-defined Quick Links with ML-generated Q&amp;A served both first-time requesters and power users without sacrificing either experience.</p>
+    </div>
+    <div class="kh-card">
+      <div class="kh-number">02</div>
+      <h4>Admin tooling is as critical as the end-user experience</h4>
+      <p>Without a robust configuration console, query playground, and fallback system, trust in the agent would have broken down before launch.</p>
+    </div>
+    <div class="kh-card">
+      <div class="kh-number">03</div>
+      <h4>Trust in AI isn't promised — it's earned through explainability at every step</h4>
+      <p>Source citations, confidence signals, and admin-controlled fallbacks were the design decisions that turned skeptics into advocates.</p>
+    </div>
+  </div>
+
+  <!-- Reflection -->
+  <div class="reflection-block">
+    <div class="ref-label">Reflection</div>
+    <p>"Context isn't just another table of data — it's part of the experience of creating a compliant procurement group. Aligning rules with users is such a game changer."</p>
+    <div class="next-steps">
+      <strong>Next steps:</strong> After collecting initial early-adopter feedback, the roadmap includes <strong>Live Preview</strong> (so admins can see changes before publishing) and <strong>ML feedback loops</strong> to intelligently suggest rules based on user behavior patterns.
+    </div>
+  </div>
+
+  <!-- More to the story -->
+  <div class="more-story">
+    <div class="more-story-text">
+      <strong>There's more to the story...</strong>
+      <span>This case study covers the core narrative. Detailed wireframes, annotated prototypes, LLM interaction models, and stakeholder alignment artifacts are available upon request.</span>
+    </div>
+    <div class="more-story-badge">Request full case study →</div>
+  </div>
+
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <h2>Let's connect.</h2>
+  <p>Open to senior IC and lead design roles in enterprise software, AI products, and complex systems.</p>
+  <a href="mailto:Eric.chakho.wong@gmail.com">Get in touch →</a>
+  <div class="footer-note">Eric Huang · Senior Product Designer · Workday · 2026</div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    }),
+    { threshold: 0.1 }
+  );
+  document.querySelectorAll('.block, .callout, .quote-block, .metrics-grid, .comparison-grid, .insight-list, .reflection-block, .solution-table, .focus-grid, .checklist, .cs-meta-strip, .my-role-block, .kh-grid, .more-story').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity .5s ease, transform .5s ease';
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>

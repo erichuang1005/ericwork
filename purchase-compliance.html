@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Purchase Compliance — Eric Huang</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="auth.js"></script>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Eric Huang</a>
+    <ul class="nav-links">
+      <li><a href="index.html#work">Work</a></li>
+      <li><a href="index.html#philosophy">Philosophy</a></li>
+      <li><a href="resume.pdf" target="_blank" rel="noopener" class="nav-resume">Resume ↗</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ─── BREADCRUMB ─── -->
+<div class="breadcrumb">
+  <a href="index.html">← All projects</a>
+  <span class="sep">/</span>
+  <span class="current">Purchase Compliance</span>
+</div>
+
+<!-- ─── CASE STUDY ─── -->
+<section class="case-study standalone">
+
+  <div class="cs-header">
+    <div class="cs-year-badge">Case Study 02 · 2025</div>
+    <h2>Purchase <em>Compliance</em></h2>
+    <div class="cs-meta-strip">
+      <div class="cs-meta-item"><div class="cs-meta-key">Company</div><div class="cs-meta-val">Workday</div></div>
+      <div class="cs-meta-item"><div class="cs-meta-key">My Role</div><div class="cs-meta-val">Lead UX Designer</div></div>
+      <div class="cs-meta-item"><div class="cs-meta-key">Platform</div><div class="cs-meta-val">Desktop Web</div></div>
+      <div class="cs-meta-item"><div class="cs-meta-key">Duration</div><div class="cs-meta-val">2024 – 2025</div></div>
+    </div>
+    <div class="cs-header-meta">
+      <span class="tag accent">Workflow Simplification</span>
+      <span class="tag">Scalable Design</span>
+      <span class="tag">Research</span>
+      <span class="tag">UX Design</span>
+      <span class="tag">Collaboration</span>
+      <span class="tag">Desktop</span>
+    </div>
+    <p>Turning a slow, manual compliance rule-building process into a contextual, scalable framework that actually matches how procurement admins think and work.</p>
+  </div>
+
+  <!-- My Role -->
+  <div class="my-role-block">
+    <div class="my-role-icon">👤</div>
+    <div class="my-role-content">
+      <div class="block-label">My Contributions</div>
+      <p>I led research, IA strategy, solution architecture evaluation, and full interaction design — from mapping the decision journey of procurement admins to designing the guided rule-building flow. I facilitated concept model reviews with stakeholders and partnered with PM and engineering leads to validate the user-group-based model was both technically sound and adoption-ready.</p>
+      <div class="my-role-chips">
+        <span class="chip">User Research</span>
+        <span class="chip">IA Strategy</span>
+        <span class="chip">Concept Modelling</span>
+        <span class="chip">Solution Evaluation</span>
+        <span class="chip">Interaction Design</span>
+        <span class="chip">Stakeholder Reviews</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Context -->
+  <div class="block">
+    <div class="block-label">Context &amp; Challenge</div>
+    <h3>80% of admin time lost to manual compliance work</h3>
+    <p>Procurement admins were executing compliance entirely by hand — manually reviewing every purchase request, writing internal guidelines from scratch, and personally conducting user training. The existing system technically worked, but it fundamentally lacked the empathy and scale needed for real enterprise use.</p>
+  </div>
+
+  <div class="callout accent-left">
+    <div class="block-label">The Core Problem</div>
+    <p style="font-size:15px; color:var(--ink-secondary); line-height:1.75;">
+      The existing solution was <strong style="color:var(--ink);">technically functional but unusable at scale</strong> — it lacked contextual understanding of how procurement admins actually build compliance, and its rule management had no connection to the organizational structures admins already work within.
+    </p>
+  </div>
+
+  <!-- Research -->
+  <div class="block">
+    <div class="block-label">Research Insights</div>
+    <h3>What admins actually needed</h3>
+  </div>
+
+  <ul class="insight-list">
+    <li>
+      <div class="insight-icon">🔁</div>
+      <span>Admins struggled with <strong>inconsistent rule setup</strong> and were overwhelmed by the volume of manual, repetitive compliance work.</span>
+    </li>
+    <li>
+      <div class="insight-icon">⚙️</div>
+      <span>The solution needed to <strong>automate repetitive manual work</strong> while keeping onboarding simple enough for non-technical admins.</span>
+    </li>
+    <li>
+      <div class="insight-icon">📈</div>
+      <span><strong>Scalability was a hard requirement</strong> — the design had to grow with the organization without creating performance bottlenecks.</span>
+    </li>
+    <li>
+      <div class="insight-icon">🛠</div>
+      <span>Engineering complexity had to stay low — a <strong>maintainable architecture</strong> was as important as the user experience.</span>
+    </li>
+  </ul>
+
+  <!-- Solution Exploration -->
+  <div class="block">
+    <div class="block-label">Solution Exploration</div>
+    <h3>Three architectural approaches evaluated</h3>
+    <p>We explored three distinct models for how compliance rules could be structured. Each had real trade-offs in precision, adoption, and scalability.</p>
+  </div>
+
+  <table class="solution-table">
+    <thead>
+      <tr>
+        <th>Approach</th>
+        <th>Precision</th>
+        <th>Scalability</th>
+        <th>Adoption</th>
+        <th>Performance</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Item-Based</strong><br/><span style="font-size:12px;color:var(--ink-muted);">Rules per item</span></td>
+        <td><span class="pill-good">High</span></td>
+        <td><span class="pill-bad">Low</span></td>
+        <td><span class="pill-bad">Low</span></td>
+        <td><span class="pill-bad">Issues</span></td>
+      </tr>
+      <tr>
+        <td><strong>Item-Rule Based</strong><br/><span style="font-size:12px;color:var(--ink-muted);">Rules per item + category/vendor</span></td>
+        <td><span class="pill-good">High</span></td>
+        <td><span class="pill-mid">Partial</span></td>
+        <td><span class="pill-mid">Moderate</span></td>
+        <td><span class="pill-mid">Moderate</span></td>
+      </tr>
+      <tr class="selected">
+        <td><strong>User Group-Based</strong><span class="selected-badge">Selected</span><br/><span style="font-size:12px;color:var(--accent);">Rules per user group</span></td>
+        <td><span class="pill-good">Highest</span></td>
+        <td><span class="pill-good">Scalable</span></td>
+        <td><span class="pill-good">High</span></td>
+        <td><span class="pill-good">High</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout green-left">
+    <p style="font-size:14px; color:var(--ink-secondary); line-height:1.75;">
+      <strong style="color:var(--ink);">Why User Group-Based?</strong> It leverages existing org data — user hierarchy, cost centres, reporting lines — that admins already understand. This dramatically lowers the learning curve, improves precision, and aligns naturally with how organizations are structured.
+    </p>
+  </div>
+
+  <!-- Before/After -->
+  <div class="block">
+    <div class="block-label">Design Transformation</div>
+    <h3>From aimless rule-linking to guided, targeted configuration</h3>
+  </div>
+
+  <div class="comparison-grid">
+    <div class="comparison-card">
+      <div class="comp-label">Before</div>
+      <h4>Non-Guided Rule Building</h4>
+      <ul>
+        <li>No clear starting point or progression</li>
+        <li>Rules disconnected from user groups</li>
+        <li>Aimless linking between items and rules</li>
+        <li>No contextual guidance or scaffolding</li>
+      </ul>
+    </div>
+    <div class="comparison-card after">
+      <div class="comp-label">After</div>
+      <h4>Guided, Contextual Configuration</h4>
+      <ul style="list-style:none;">
+        <li style="display:flex;gap:8px;align-items:flex-start;font-size:14px;color:var(--ink-secondary);">
+          <span style="color:var(--accent-green);font-weight:700;flex-shrink:0;">✓</span>
+          Step-by-step guided rule-building experience
+        </li>
+        <li style="display:flex;gap:8px;align-items:flex-start;font-size:14px;color:var(--ink-secondary);">
+          <span style="color:var(--accent-green);font-weight:700;flex-shrink:0;">✓</span>
+          Default + Exception context model (ordered priority)
+        </li>
+        <li style="display:flex;gap:8px;align-items:flex-start;font-size:14px;color:var(--ink-secondary);">
+          <span style="color:var(--accent-green);font-weight:700;flex-shrink:0;">✓</span>
+          Rules aligned to user groups &amp; org structure
+        </li>
+        <li style="display:flex;gap:8px;align-items:flex-start;font-size:14px;color:var(--ink-secondary);">
+          <span style="color:var(--accent-green);font-weight:700;flex-shrink:0;">✓</span>
+          Targeted configuration with clear scoping
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Quote -->
+  <div class="quote-block">
+    <div class="quote-mark">"</div>
+    <blockquote>"I've been so eager to see this — I just spent the last 4 hours playing around with it. So far, it's AWESOME!"</blockquote>
+    <div class="quote-source">— Procurement manager at a major U.S. healthcare provider, on first use</div>
+  </div>
+
+  <!-- Metrics -->
+  <div class="block">
+    <div class="block-label">Outcome &amp; Impact</div>
+    <h3>Dramatic reduction in time and friction</h3>
+  </div>
+
+  <div class="metrics-grid">
+    <div class="metric-card">
+      <div class="metric-number">−94.2%</div>
+      <div class="metric-label">Reduction in time to configure compliance rules</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-number">100%</div>
+      <div class="metric-label">Task completion rate in usability testing</div>
+    </div>
+  </div>
+
+  <!-- Key Highlights -->
+  <div class="block">
+    <div class="block-label">Key Highlights</div>
+    <h3>What made this project stand out</h3>
+  </div>
+
+  <div class="kh-grid">
+    <div class="kh-card">
+      <div class="kh-number">01</div>
+      <h4>Solving conflicting priorities through org-structure alignment</h4>
+      <p>By anchoring rules to existing user groups — rather than items or categories — we resolved the tension between precision and scalability in a single architectural decision.</p>
+    </div>
+    <div class="kh-card">
+      <div class="kh-number">02</div>
+      <h4>The right IA model had an outsized impact on adoption</h4>
+      <p>Switching from item-based to user-group-based rules transformed onboarding from a steep cliff into a guided walk — dramatically increasing admin confidence and adoption speed.</p>
+    </div>
+    <div class="kh-card">
+      <div class="kh-number">03</div>
+      <h4>Context isn't a field on a form — it's the frame that makes rules meaningful</h4>
+      <p>Visualizing how rules apply to specific user groups in real time was the single most impactful design decision for building admin trust in the system.</p>
+    </div>
+  </div>
+
+  <!-- Reflection -->
+  <div class="reflection-block">
+    <div class="ref-label">Reflection</div>
+    <p>"User context isn't just another table of data — it's part of the experience!"</p>
+    <div class="next-steps">
+      <strong>Next steps:</strong> The roadmap includes <strong>ML-driven rule suggestions</strong> that learn from existing org patterns, and a <strong>Live Preview</strong> mode so admins can see the impact of rule changes on user groups before publishing.
+    </div>
+  </div>
+
+  <!-- More to the story -->
+  <div class="more-story">
+    <div class="more-story-text">
+      <strong>There's more to the story...</strong>
+      <span>This case study covers the core narrative. Research synthesis, concept model diagrams, IA deliverables, and usability testing artifacts are available upon request.</span>
+    </div>
+    <div class="more-story-badge">Request full case study →</div>
+  </div>
+
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <h2>Let's connect.</h2>
+  <p>Open to senior IC and lead design roles in enterprise software, AI products, and complex systems.</p>
+  <a href="mailto:Eric.chakho.wong@gmail.com">Get in touch →</a>
+  <div class="footer-note">Eric Huang · Senior Product Designer · Workday · 2026</div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    }),
+    { threshold: 0.1 }
+  );
+  document.querySelectorAll('.block, .callout, .quote-block, .metrics-grid, .comparison-grid, .insight-list, .reflection-block, .solution-table, .focus-grid, .checklist, .cs-meta-strip, .my-role-block, .kh-grid, .more-story').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity .5s ease, transform .5s ease';
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>

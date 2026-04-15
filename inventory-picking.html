@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inventory Stock Picking — Eric Huang</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="auth.js"></script>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Eric Huang</a>
+    <ul class="nav-links">
+      <li><a href="index.html#work">Work</a></li>
+      <li><a href="index.html#philosophy">Philosophy</a></li>
+      <li><a href="resume.pdf" target="_blank" rel="noopener" class="nav-resume">Resume ↗</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ─── BREADCRUMB ─── -->
+<div class="breadcrumb">
+  <a href="index.html">← All projects</a>
+  <span class="sep">/</span>
+  <span class="current">Inventory Stock Picking</span>
+</div>
+
+<!-- ─── CASE STUDY ─── -->
+<section class="case-study standalone">
+
+  <div class="cs-header">
+    <div class="cs-year-badge">Case Study 03 · 2024</div>
+    <h2>Inventory <em>Stock Picking</em></h2>
+    <div class="cs-meta-strip">
+      <div class="cs-meta-item"><div class="cs-meta-key">Company</div><div class="cs-meta-val">Workday</div></div>
+      <div class="cs-meta-item"><div class="cs-meta-key">My Role</div><div class="cs-meta-val">Senior UX Designer</div></div>
+      <div class="cs-meta-item"><div class="cs-meta-key">Platform</div><div class="cs-meta-val">Mobile (iOS &amp; Android)</div></div>
+      <div class="cs-meta-item"><div class="cs-meta-key">Duration</div><div class="cs-meta-val">2023 – 2024</div></div>
+    </div>
+    <div class="cs-header-meta">
+      <span class="tag accent">Workflow Automation</span>
+      <span class="tag">Operational Efficiency</span>
+      <span class="tag">Visual Design</span>
+      <span class="tag">Info Architecture</span>
+      <span class="tag">Mobile</span>
+    </div>
+    <p>Transforming a linear, click-heavy inventory flow into an adaptive, automated mobile experience that boosts efficiency and decision clarity for warehouse workers.</p>
+  </div>
+
+  <!-- My Role -->
+  <div class="my-role-block">
+    <div class="my-role-icon">👤</div>
+    <div class="my-role-content">
+      <div class="block-label">My Contributions</div>
+      <p>I led the mobile UX redesign end-to-end — conducting the usability audit, driving the paradigm shift from a list-based to a scanner-driven flow, and iterating through two major design directions before landing on the final solution. I also led Design System component updates for high-density financial use cases, extending the impact of this work beyond the warehouse context.</p>
+      <div class="my-role-chips">
+        <span class="chip">Usability Audit</span>
+        <span class="chip">Mobile IA</span>
+        <span class="chip">Interaction Design</span>
+        <span class="chip">Design Systems</span>
+        <span class="chip">Usability Testing</span>
+        <span class="chip">Engineering Collaboration</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Context -->
+  <div class="block">
+    <div class="block-label">Context &amp; Problem</div>
+    <h3>Warehouse workers spending more time clicking than picking</h3>
+    <p>A warehouse stock-picking workflow on Workday's mobile app had become a bottleneck for high-volume operations. Workers were fighting the interface instead of focusing on the work itself — causing delays, errors, and frustration on the floor.</p>
+  </div>
+
+  <div class="callout accent-left">
+    <div class="block-label">Root Causes</div>
+    <p style="font-size:15px; color:var(--ink-secondary); line-height:1.75;">Three compounding issues were identified: <strong style="color:var(--ink);">missing contextual information</strong> left workers guessing; <strong style="color:var(--ink);">outdated design system components</strong> built for low-density workflows created excessive whitespace and scrolling; and a <strong style="color:var(--ink);">click-heavy workflow model</strong> that required constant tapping just to progress.</p>
+  </div>
+
+  <!-- Usability Breakdown -->
+  <div class="block">
+    <div class="block-label">Usability Audit</div>
+    <h3>Why the old design failed</h3>
+  </div>
+
+  <ul class="insight-list">
+    <li>
+      <div class="insight-icon">📜</div>
+      <span><strong>Excessive information density issues</strong> — a huge banner consumed prime screen real estate, making it hard to know where to start or what had been picked.</span>
+    </li>
+    <li>
+      <div class="insight-icon">📦</div>
+      <span><strong>Components built for low-volume workflows</strong> — large padding, wide input fields, and excessive whitespace made the interface unfit for fast-paced, high-volume warehouse tasks.</span>
+    </li>
+    <li>
+      <div class="insight-icon">🔎</div>
+      <span><strong>Unclear hierarchy</strong> — users couldn't immediately identify the primary action (picking) from secondary information, creating cognitive friction on every interaction.</span>
+    </li>
+    <li>
+      <div class="insight-icon">👆</div>
+      <span><strong>Scroll, click, scroll, click</strong> — key actions were buried under visual noise, forcing a repetitive, error-prone pattern for every single pick.</span>
+    </li>
+  </ul>
+
+  <!-- Issue 1 -->
+  <div class="block">
+    <div class="block-label">Issue 1 — System-Level Inefficiency</div>
+    <h3>Components built for the wrong density</h3>
+    <p>The design system components were engineered for low-density, general-purpose workflows — not the high-speed, bulk-operation context of warehouse picking. This created excessive scrolling, unclear hierarchy, and low efficiency precisely where speed matters most.</p>
+  </div>
+
+  <!-- Issue 2 -->
+  <div class="block">
+    <div class="block-label">Issue 2 — Missing Key Actions</div>
+    <h3>Task actions buried under visual noise</h3>
+    <p>Critical task actions — like confirming a pick, skipping an item, or marking a bin complete — were buried deep in the visual hierarchy. The screen was overloaded with secondary information, making primary actions hard to find under time pressure.</p>
+  </div>
+
+  <!-- Iterations -->
+  <div class="block">
+    <div class="block-label">Design Iterations</div>
+    <h3>From categorized lists to scanner-driven UX</h3>
+  </div>
+
+  <div class="callout accent-left" style="margin-bottom:16px;">
+    <strong style="font-size:13px; color:var(--ink-secondary); text-transform:uppercase; letter-spacing:.06em; font-weight:700;">Iteration 1</strong>
+    <p style="font-size:15px; font-weight:600; color:var(--ink); margin-top:8px; margin-bottom:6px;">High-Density List + Categorized Items</p>
+    <p style="font-size:14px; color:var(--ink-secondary); line-height:1.65;">Replaced the legacy task view with a high-density list, removed the oversized banner, and grouped items by aisle and bin to reduce scanning time. <em>Problem: Same scroll-and-click behavior, key actions still unclear.</em></p>
+  </div>
+
+  <div class="callout accent-left" style="margin-bottom:56px; border-left-color: var(--accent-green);">
+    <strong style="font-size:13px; color:var(--accent-green); text-transform:uppercase; letter-spacing:.06em; font-weight:700;">Iteration 2 → Final</strong>
+    <p style="font-size:15px; font-weight:600; color:var(--ink); margin-top:8px; margin-bottom:6px;">Single-Item Scanner-Driven Flow</p>
+    <p style="font-size:14px; color:var(--ink-secondary); line-height:1.65;">Showed one item at a time — "Now Picking / Up Next" — driven by bin scanning. Added clear user to-do actions, automated quantity pre-fill, and a numeric keypad confirmation step. <em>Result: Massively reduced clicks, maximum focus on the current task.</em></p>
+  </div>
+
+  <!-- Final -->
+  <div class="block">
+    <div class="block-label">Final Solution</div>
+    <h3>A balanced, scalable mobile-first task flow</h3>
+  </div>
+
+  <ul class="checklist" style="margin-bottom:56px;">
+    <li>Less clicks, more scans — scanner-driven progression eliminated most touch interactions</li>
+    <li>Less data, more context — surface only what's needed at each step</li>
+    <li>Automated quantity pre-fill — reduced manual input by predicting expected quantities</li>
+    <li>Led Design System component updates for the Financial use case as part of this work</li>
+  </ul>
+
+  <!-- Key Highlights -->
+  <div class="block">
+    <div class="block-label">Key Highlights</div>
+    <h3>What made this project stand out</h3>
+  </div>
+
+  <div class="kh-grid">
+    <div class="kh-card">
+      <div class="kh-number">01</div>
+      <h4>Designing for high-speed environments requires rethinking density, not just layout</h4>
+      <p>The problem wasn't the visual design — it was components built for the wrong use case. Fixing density unlocked everything else.</p>
+    </div>
+    <div class="kh-card">
+      <div class="kh-number">02</div>
+      <h4>Scanner-driven thinking unlocked a completely different UX paradigm</h4>
+      <p>Shifting from "show all items, let the user navigate" to "show one item, let the scanner drive" cut cognitive load and interaction steps simultaneously.</p>
+    </div>
+    <div class="kh-card">
+      <div class="kh-number">03</div>
+      <h4>Constraints on a small screen force better decisions about what actually matters</h4>
+      <p>Every element had to justify its presence. The discipline of mobile IA made the design sharper — and the principles transferred directly to the Design System.</p>
+    </div>
+  </div>
+
+  <!-- Reflection -->
+  <div class="reflection-block">
+    <div class="ref-label">Reflection</div>
+    <p>"Simplifying doesn't mean reducing — it means focusing on what drives action."</p>
+    <div class="next-steps">
+      Designing information architecture within a tight mobile screen pushed me to think deeply about <strong>info hierarchy and clarity</strong>. Every pixel had to earn its place. The biggest insight: constraints aren't limitations — they're the forcing function for better decisions.
+    </div>
+  </div>
+
+  <!-- More to the story -->
+  <div class="more-story">
+    <div class="more-story-text">
+      <strong>There's more to the story...</strong>
+      <span>This case study covers the core narrative. Usability audit findings, iteration walkthroughs, scanner-flow prototypes, and Design System impact documentation are available upon request.</span>
+    </div>
+    <div class="more-story-badge">Request full case study →</div>
+  </div>
+
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <h2>Let's connect.</h2>
+  <p>Open to senior IC and lead design roles in enterprise software, AI products, and complex systems.</p>
+  <a href="mailto:Eric.chakho.wong@gmail.com">Get in touch →</a>
+  <div class="footer-note">Eric Huang · Senior Product Designer · Workday · 2026</div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    }),
+    { threshold: 0.1 }
+  );
+  document.querySelectorAll('.block, .callout, .quote-block, .metrics-grid, .comparison-grid, .insight-list, .reflection-block, .solution-table, .focus-grid, .checklist, .cs-meta-strip, .my-role-block, .kh-grid, .more-story').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity .5s ease, transform .5s ease';
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>
