@@ -217,6 +217,42 @@ nav {
   background: linear-gradient(180deg, transparent, var(--border) 12%, var(--border) 88%, transparent);
 }
 
+/* Home: subtle “Apple-adjacent” load choreography (no scroll-jank) */
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes hero-rise {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 20px, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  .hero-kicker {
+    animation: hero-rise 0.78s cubic-bezier(0.22, 1, 0.36, 1) 0.04s both;
+  }
+  .hero h1 {
+    animation: hero-rise 0.88s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
+  }
+  .hero-subtitle {
+    animation: hero-rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.18s both;
+  }
+  .hero-meta {
+    animation: hero-rise 0.92s cubic-bezier(0.22, 1, 0.36, 1) 0.26s both;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-kicker,
+  .hero h1,
+  .hero-subtitle,
+  .hero-meta {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
 /* ─── SECTION LABEL ─── */
 .section-label {
   font-size: 11px;
@@ -231,13 +267,15 @@ nav {
 .index-section {
   max-width: calc(var(--max-w) + 80px);
   margin: 0 auto;
-  padding: 0 var(--page-pad) clamp(72px, 12vw, 100px);
+  padding: clamp(20px, 4vw, 32px) var(--page-pad) clamp(72px, 12vw, 100px);
   width: 100%;
+  background: #f5f5f7;
+  border-radius: 0 0 clamp(24px, 4vw, 36px) clamp(24px, 4vw, 36px);
 }
 .index-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 16px;
+  gap: clamp(18px, 2.5vw, 24px);
 }
 .index-card {
   background: var(--bg-card);
@@ -320,58 +358,181 @@ nav {
 .index-card:hover .index-card-arrow { transform: translate(3px, -3px); color: var(--accent); }
 .index-card.wide { grid-column: span 2; }
 
-/* Featured tile: product frame (image + copy), Apple-style clarity */
+/* Featured tile: product frame + copy — Apple “store card” inspired */
 .index-card--visual {
   padding: 0;
   gap: 0;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: clamp(22px, 3vw, 30px);
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.04),
+    0 12px 40px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.45s cubic-bezier(0.22, 1, 0.36, 1), transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.35s ease;
+}
+.index-card--visual:hover {
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.05),
+    0 20px 48px rgba(0, 0, 0, 0.09);
+  transform: translateY(-4px);
+  border-color: rgba(0, 0, 0, 0.08);
+}
+@media (prefers-reduced-motion: reduce) {
+  .index-card--visual:hover {
+    transform: none;
+  }
+  .index-card--visual:hover .index-card-arrow {
+    transform: none;
+  }
 }
 .index-card-visual {
   position: relative;
   overflow: hidden;
-  border-radius: calc(var(--radius) - 1px) calc(var(--radius) - 1px) 0 0;
-  background: linear-gradient(160deg, #eef2f6 0%, #e2e8f0 45%, #f8fafc 100%);
+  border-radius: 0;
+  background: linear-gradient(165deg, #eef2f6 0%, #e8ecf2 42%, #f4f6f9 100%);
 }
-.index-card-visual img {
+
+/* Web tiles: Apple “Explore the lineup”-style soft scenes + window chrome */
+.index-card-visual--scene {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(20px, 4vw, 28px) clamp(14px, 3vw, 20px);
+  height: clamp(220px, 30vw, 268px);
+}
+/* Lavender (lineup purple card) — ~12% richer than prior wash */
+.index-card-visual--intake {
+  background:
+    radial-gradient(ellipse 110% 90% at 50% 100%, #d4c5ec 0%, transparent 56%),
+    linear-gradient(180deg, #f6f2fb 0%, #ebe4f5 40%, #dfd5f0 100%);
+}
+.index-card-visual--intake::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 70% 18%, rgba(255, 255, 255, 0.42) 0%, transparent 40%);
+}
+/* Airy blue (lineup blue card) */
+.index-card-visual--purchase {
+  background:
+    radial-gradient(ellipse 110% 88% at 50% 100%, #c8daf0 0%, transparent 56%),
+    linear-gradient(180deg, #f3f9fc 0%, #e5eef6 44%, #d3e1ee 100%);
+}
+.index-card-visual--purchase::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 22% 22%, rgba(255, 255, 255, 0.38) 0%, transparent 42%);
+}
+/* Soft pink (lineup pink card) */
+.index-card-visual--orchestration {
+  background:
+    radial-gradient(ellipse 110% 88% at 50% 100%, #f2d0dc 0%, transparent 56%),
+    linear-gradient(180deg, #fff8fa 0%, #fceef2 42%, #f5d5de 100%);
+}
+.index-card-visual--orchestration::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 78% 24%, rgba(255, 255, 255, 0.36) 0%, transparent 38%);
+}
+/* Warm sand (mobile / inventory card) */
+.index-card-visual--inventory {
+  background:
+    radial-gradient(ellipse 110% 90% at 50% 100%, #e8dac8 0%, transparent 56%),
+    linear-gradient(180deg, #fdfaf5 0%, #f7f0e5 42%, #ede0ce 100%);
+}
+.index-card-visual--inventory::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.42) 0%, transparent 42%);
+}
+/* Scene screenshot — fills the fixed-height scene zone */
+.index-scene-shot {
+  position: relative;
+  z-index: 1;
   display: block;
   width: 100%;
-  height: clamp(148px, 26vw, 220px);
+  max-width: min(100%, 480px);
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: 10px;
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.08),
+    0 10px 28px rgba(0, 0, 0, 0.1);
+  transform: scale(1);
+  transition: transform 0.55s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+.index-card--visual:hover .index-scene-shot {
+  transform: scale(1.025);
+}
+/* Inventory: dual Zebra-style phone mocks floating in a light scene */
+.index-warehouse-phone-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: flex-end;
+  gap: clamp(12px, 3vw, 22px);
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+/* Zebra-style rugged phone frame */
+.index-device-frame--phone {
+  flex: 0 1 auto;
+  padding: 8px 8px 13px;
+  border-radius: 18px 18px 22px 22px;
+  background: linear-gradient(160deg, #888892 0%, #6e6e72 45%, #5a5a5c 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    inset 0 -2px 5px rgba(0, 0, 0, 0.28),
+    0 12px 28px rgba(0, 0, 0, 0.15),
+    0 3px 8px rgba(0, 0, 0, 0.08);
+}
+.index-device-frame--phone img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: clamp(164px, 22vw, 204px);
+  border-radius: 12px;
+  object-fit: contain;
+  object-position: bottom center;
+  transform: scale(1);
+  transition: transform 0.55s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+.index-card--visual:hover .index-device-frame--phone img {
+  transform: scale(1.04);
+}
+.index-card-visual > img {
+  display: block;
+  width: 100%;
+  height: clamp(158px, 28vw, 236px);
   object-fit: cover;
   object-position: top center;
   transform: scale(1);
   transition: transform 0.55s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
-/* Two mobile screens, zoomed out — full portrait shape (contain), not a tight crop */
-.index-card-visual--dual {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: flex-end;
-  gap: clamp(10px, 3vw, 20px);
-  padding: clamp(16px, 4vw, 24px) clamp(12px, 3vw, 20px) clamp(14px, 3vw, 18px);
-  min-height: clamp(168px, 28vw, 228px);
-}
-.index-card-visual--dual img {
-  width: auto;
-  max-width: 44%;
-  height: auto;
-  max-height: min(210px, 34vw);
-  object-fit: contain;
-  object-position: bottom center;
-}
-.index-card--visual:hover .index-card-visual--dual img {
-  transform: scale(1.035);
-}
-.index-card-visual--dual::after {
-  background: linear-gradient(180deg, transparent 35%, rgba(255, 255, 255, 0.45) 100%);
-}
-.index-card--visual:hover .index-card-visual img {
+.index-card--visual:hover .index-card-visual > img {
   transform: scale(1.03);
 }
 @media (prefers-reduced-motion: reduce) {
-  .index-card-visual img,
-  .index-card--visual:hover .index-card-visual img,
-  .index-card-visual--dual img,
-  .index-card--visual:hover .index-card-visual--dual img {
+  .index-card-visual > img,
+  .index-card--visual:hover .index-card-visual > img,
+  .index-device-frame--phone img,
+  .index-card--visual:hover .index-device-frame--phone img,
+  .index-scene-shot,
+  .index-card--visual:hover .index-scene-shot {
     transition: none;
     transform: none;
   }
@@ -383,6 +544,18 @@ nav {
   pointer-events: none;
   background: linear-gradient(180deg, transparent 45%, rgba(255, 255, 255, 0.65) 100%);
 }
+.index-card-visual.index-card-visual--intake::after {
+  background: linear-gradient(180deg, transparent 36%, rgba(255, 255, 255, 0.5) 100%);
+}
+.index-card-visual.index-card-visual--purchase::after {
+  background: linear-gradient(180deg, transparent 36%, rgba(255, 255, 255, 0.55) 100%);
+}
+.index-card-visual.index-card-visual--orchestration::after {
+  background: linear-gradient(180deg, transparent 36%, rgba(255, 255, 255, 0.52) 100%);
+}
+.index-card-visual.index-card-visual--inventory::after {
+  background: linear-gradient(180deg, transparent 36%, rgba(255, 255, 255, 0.5) 100%);
+}
 .index-card-body {
   position: relative;
   padding: 24px 32px 32px;
@@ -390,9 +563,80 @@ nav {
   flex-direction: column;
   gap: 12px;
 }
+.index-card--visual .index-card-body {
+  padding: clamp(26px, 3.5vw, 34px) clamp(28px, 4vw, 40px) clamp(28px, 3.5vw, 36px);
+  padding-right: clamp(56px, 9vw, 76px);
+  gap: clamp(10px, 1.2vw, 14px);
+}
+.index-card--visual.coming-soon .index-card-body {
+  padding-right: clamp(28px, 4vw, 40px);
+}
+.index-card--visual:not(.coming-soon) .index-card-badge {
+  text-transform: none;
+  letter-spacing: 0.04em;
+  font-weight: 600;
+  font-size: 11px;
+  color: #6e6e73;
+}
+.index-card--visual h3 {
+  font-size: clamp(20px, 2.3vw, 26px);
+  font-weight: 600;
+  letter-spacing: -0.034em;
+  line-height: 1.16;
+  color: var(--ink);
+}
+.index-card--visual .index-card-body p {
+  font-size: clamp(14px, 1vw + 13px, 16px);
+  line-height: 1.5;
+  color: #6e6e73;
+}
+.index-card--visual .index-card-tags {
+  margin-top: 4px;
+  gap: 8px;
+}
+.index-card--visual .tag {
+  background: rgba(0, 0, 0, 0.04);
+  color: #52525c;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+.index-card--visual .tag.accent {
+  background: var(--accent-light);
+  color: var(--accent);
+  border-color: rgba(26, 86, 219, 0.14);
+}
+.tag--ai {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.tag-sparkle {
+  width: 11px;
+  height: 11px;
+  flex-shrink: 0;
+  opacity: 0.9;
+}
 .index-card--visual .index-card-arrow {
-  top: 24px;
-  right: 28px;
+  top: auto;
+  bottom: clamp(22px, 3.5vw, 30px);
+  right: clamp(22px, 4vw, 32px);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #1d1d1f;
+  color: #fff;
+  font-size: 17px;
+  font-weight: 300;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.18);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease, background 0.25s ease;
+}
+.index-card--visual:hover .index-card-arrow {
+  transform: scale(1.07);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.24);
 }
 
 /* ─── DIVIDER ─── */
@@ -1425,6 +1669,15 @@ nav {
   }
 }
 
+/* Purchase + Inventory case studies: no faux-bold in body copy (class on <body>) */
+body.cs-plain-prose strong {
+  font-weight: 400 !important;
+  color: inherit;
+}
+body.cs-plain-prose .case-study .callout p {
+  font-weight: 400 !important;
+}
+
 /* ─── FOOTER ─── */
 footer {
   background: var(--ink);
@@ -1464,8 +1717,20 @@ footer .footer-inline-links a:hover {
   color: #fff;
   transform: none;
 }
+.footer-cta-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  max-width: min(22rem, 100%);
+  margin: 0 auto;
+}
 footer a.footer-cta {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   background: var(--accent);
   color: #fff;
   text-decoration: none;
@@ -1475,7 +1740,39 @@ footer a.footer-cta {
   font-size: 15px;
   transition: opacity var(--transition), transform var(--transition);
 }
+/* Standalone CTA in footer (case studies): centered, same max width as home row */
+footer > a.footer-cta {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: min(22rem, 100%);
+  width: 100%;
+  box-sizing: border-box;
+}
 footer a.footer-cta:hover { opacity: .85; transform: translateY(-1px); }
+.footer-cta-row > a.footer-cta,
+.footer-cta-row > a.footer-cta.footer-cta--secondary {
+  align-self: stretch;
+  justify-content: center;
+}
+footer a.footer-cta--secondary {
+  background: transparent;
+  color: rgba(255, 255, 255, 0.7);
+  border: 1.5px solid rgba(255, 255, 255, 0.22);
+  font-weight: 500;
+}
+footer a.footer-cta--secondary img {
+  filter: brightness(0) invert(1);
+  opacity: 0.7;
+  width: 16px;
+  height: 16px;
+}
+footer a.footer-cta--secondary:hover {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.5);
+  opacity: 1;
+}
+footer a.footer-cta--secondary:hover img { opacity: 1; }
 .footer-note { font-size: 12px; margin-top: 36px; opacity: .35; line-height: 1.5; }
 
 /* ─── RESPONSIVE ─── */
