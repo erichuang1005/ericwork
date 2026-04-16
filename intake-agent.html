@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Intake Agent — Agentic procurement UX (Eric Huang)</title>
+  <title>Intake Agent — Enterprise assistant UX (Eric Huang)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&display=swap" rel="stylesheet" />
@@ -35,6 +35,9 @@
 <section class="case-study standalone">
 
   <div class="cs-header">
+    <div class="cs-header-brand">
+      <img class="cs-brand-logo" src="images/workday-logo.jpg" width="56" height="56" alt="Workday" decoding="async" loading="eager" />
+    </div>
     <div class="cs-year-badge">Case Study 01 · First shipped ~2024</div>
     <h2>Intake <em>Agent</em></h2>
     <div class="cs-meta-strip">
@@ -44,29 +47,29 @@
       <div class="cs-meta-item"><div class="cs-meta-key">Timeline</div><div class="cs-meta-val">2024 – 2026</div></div>
     </div>
     <div class="cs-header-meta">
-      <span class="tag accent">Agentic / Conversational UX</span>
+      <span class="tag accent">Chat assistant UX</span>
       <span class="tag">Responsible AI</span>
-      <span class="tag">Multi-turn dialogue</span>
-      <span class="tag">Info Architecture</span>
+      <span class="tag">Multi-step conversations</span>
+      <span class="tag">Page &amp; navigation design</span>
       <span class="tag">Trust &amp; transparency</span>
       <span class="tag">Desktop</span>
     </div>
     <div class="cs-overview">
       <div class="cs-overview-item">
         <div class="block-label">Design problem</div>
-        <p>Requesters hunted answers across tools and Slack; procurement policy was hard to apply consistently, and “AI” answers weren’t trusted without proof and guardrails.</p>
+        <p>Employees bounced between wikis, forms, and chat to figure out <em>what they were allowed to do</em>. Generic “AI” answers felt risky without proof.</p>
       </div>
       <div class="cs-overview-item">
         <div class="block-label">Outcome</div>
-        <p>Shipped in Workday from ~2024: a hybrid entry (Quick Links + search + assistant), then Phase 2 in-thread catalog and forms—plus admin routing, testing, and analytics so behavior could be governed in production.</p>
+        <p>Shipped ~2024 onward: one page with shortcuts + search + an assistant, then shopping and forms <em>inside the same chat</em>. Admins set rules, test prompts, and watch usage.</p>
       </div>
       <div class="cs-overview-item">
         <div class="block-label">My contributions</div>
-        <p>Lead UX for dialogue and trust (sources, limits, fallbacks), hybrid IA, and the admin stack. Partnered end-to-end with PM, engineering, research, and data science.</p>
+        <p>Lead UX for chat patterns, trust (sources, “don’t guess”), page structure, and admin tools—with PM, engineering, research, and data science.</p>
       </div>
     </div>
     <p>
-      Buyers and requesters were <strong>jumping across tools</strong> for answers that had to match <strong>procurement policy</strong>. I led UX for the <strong>Intake Agent</strong>: grounded replies with <strong>sources</strong>, clear next steps, safe fallbacks when the model shouldn’t guess, and <strong>Phase 2 in-chat ordering</strong>—plus <strong>admin</strong> routing, testing, and analytics. Outcome: <strong>one thread</strong> instead of intranet + Slack scavenger hunts.
+      I led UX for an assistant that answers company buying questions using official docs, suggests a clear next step, and later keeps checkout-style tasks in one thread. Admins control where people go when the model should stop.
     </p>
   </div>
 
@@ -75,13 +78,12 @@
     <div class="my-role-icon">👤</div>
     <div class="my-role-content">
       <div class="block-label">My Contributions</div>
-      <p><strong>Owned</strong> dialogue + trust UX—questions, answers, errors, fallbacks, <strong>sources</strong>, “don’t guess” states—and the <strong>admin stack</strong> (routing, playground, analytics). Cross-functional lead with PM, engineering, research, and data science to ship explainable agent experiences.</p>
+      <p>I owned how each reply looks and behaves—errors, sources, when to ask instead of guess—and the admin side (routing, test sandbox, analytics). Day-to-day with PM, engineering, research, and data science.</p>
       <div class="my-role-chips">
-        <span class="chip">Conversational &amp; agentic UX</span>
-        <span class="chip">Intent &amp; dialogue flows</span>
-        <span class="chip">Evaluation &amp; QA</span>
-        <span class="chip">IA &amp; hybrid UI</span>
-        <span class="chip">Admin &amp; tooling</span>
+        <span class="chip">Chat &amp; assistant UX</span>
+        <span class="chip">Trust &amp; safety patterns</span>
+        <span class="chip">Page layout (shortcuts + chat)</span>
+        <span class="chip">Admin tools</span>
         <span class="chip">Cross-functional lead</span>
       </div>
     </div>
@@ -91,93 +93,88 @@
   <div class="block">
     <div class="block-label">The Problem</div>
     <h3>Too many doors, not enough answers</h3>
-    <p>Employees asked the same basic questions again and again. Answers lived in different sites and Slack threads—slow to get, easy to get wrong. There was no clear place to start.</p>
+    <p>People asked the same questions over and over. Answers were scattered across tools and Slack—slow to find and easy to get wrong.</p>
   </div>
 
   <!-- Research: context for exploration + solution -->
   <div class="block">
     <div class="block-label">Research &amp; Insights</div>
-    <h3>What procurement told us</h3>
+    <h3>What interviews made obvious</h3>
+    <p>We paired research with working sessions across PM, engineering, research, and data science—so v1 shipped guardrails for when the assistant must stop, not only happy-path chat.</p>
   </div>
 
   <ul class="insight-list">
     <li>
       <div class="insight-icon">📊</div>
-      <span>Admins said <strong>half their week</strong> went to repeat “how do I…?” questions—not strategic work.</span>
+      <span>Internal support teams said half their week was repeat “how do I…?” questions.</span>
     </li>
     <li>
       <div class="insight-icon">📚</div>
-      <span>Static docs go stale; retraining people is slow and expensive.</span>
+      <span>Written guides go out of date quickly; training everyone again doesn’t scale.</span>
     </li>
     <li>
       <div class="insight-icon">🔒</div>
-      <span>Finance and procurement <strong>don’t trust “AI” by default</strong>—wrong answers aren’t acceptable, so explainability wasn’t optional.</span>
+      <span>Wrong buying guidance is costly—people wanted proof (where an answer came from), not vibes.</span>
     </li>
   </ul>
 
-  <div class="block">
-    <div class="block-label">Alignment</div>
-    <h3>From research signals to shared product bets</h3>
-    <p>Alongside interviews and pilots, we ran structured working sessions with PM, engineering, research, and data science to pressure-test user jobs, failure modes, and what had to ship in v1—including admin rules for when the assistant should stop, escalate, or refuse instead of guessing.</p>
+  <div class="callout accent-left">
+    <div class="block-label">The Vision</div>
+    <p style="font-size:17px; font-weight:600; color:var(--ink); line-height:1.5; margin-bottom:8px;">Right answer, right path—fast.</p>
+    <p style="color:var(--ink-secondary); font-size:15px;">Help people finish buying tasks with a clear answer and a sensible next click. Give admins ways to configure and test before anything hits employees.</p>
   </div>
 
   <!-- Legacy-first draft — bridges problem → vision -->
   <div class="block">
     <div class="block-label">Exploration</div>
-    <h3>Legacy-style flow (exploration)</h3>
+    <h3>Early idea: form-first</h3>
     <p>
-      We prototyped a familiar pattern: search, then <strong>radio buttons</strong> (type, cost, vendor) before any answer. It matched old tools but made people <strong>label their own request</strong> first—OK for experts, slow for most.
+      We tried search → radio buttons before any answer. Experts liked it; most people had to guess labels before they even knew what they needed.
     </p>
     <figure class="cs-figure cs-figure-legacy">
-      <img src="images/intake-agent/06-legacy-start-purchase-draft.png" alt="Previous design draft: Start New Purchase with catalog search, radio-button triage for type, cost, and vendor, then a prescribed action" width="852" height="942" loading="lazy" decoding="async" />
-      <figcaption>Mid-fidelity draft: search → radios → prescribed action (placeholder copy from exploration).</figcaption>
+      <img src="images/intake-agent/06-legacy-start-purchase-draft.png" alt="Exploration screen: search, radio options for request type, then a fixed next action" width="852" height="942" loading="lazy" decoding="async" />
+      <figcaption>Exploration: search → radios → fixed next step (placeholder copy).</figcaption>
     </figure>
-  </div>
-
-  <div class="callout accent-left">
-    <div class="block-label">The Vision</div>
-    <p style="font-size:17px; font-weight:600; color:var(--ink); line-height:1.5; margin-bottom:8px;">Right answer, right path—fast.</p>
-    <p style="color:var(--ink-secondary); font-size:15px;">Help employees finish procurement tasks with clear answers and the right next step. Give admins control to configure and test behavior—<strong>accuracy first</strong>.</p>
   </div>
 
   <!-- Today's Focus -->
   <div class="block">
     <div class="block-label">Scope</div>
-    <h3>End users and admins</h3>
+    <h3>What we optimized for</h3>
   </div>
 
   <div class="focus-grid">
     <div class="focus-item">
-      <strong>Understand the question</strong>
-      Interpret what someone is asking in natural language.
+      <span class="focus-item-title">Plain-language questions</span>
+      Let people type how they talk.
     </div>
     <div class="focus-item">
-      <strong>Suggest the path</strong>
-      Point people to the right procurement route for their case.
+      <span class="focus-item-title">Point to the right place</span>
+      Suggest the internal flow or page that fits their case.
     </div>
     <div class="focus-item">
-      <strong>Configure rules (admin)</strong>
-      Set up routing and safe fallbacks when the model shouldn’t guess.
+      <span class="focus-item-title">Admin: rules</span>
+      Decide where people go—and when the assistant should stop.
     </div>
     <div class="focus-item">
-      <strong>Test before launch (admin)</strong>
-      Try prompts and answers in a sandbox before they reach employees.
+      <span class="focus-item-title">Admin: sandbox</span>
+      Try prompts before employees see them.
     </div>
     <div class="focus-item">
-      <strong>Measure what works (admin)</strong>
-      See how routes perform and where to improve.
+      <span class="focus-item-title">Admin: metrics</span>
+      See what works and what breaks.
     </div>
     <div class="focus-item">
-      <strong>Later: smarter routing</strong>
-      Use patterns (e.g. by team) to anticipate common requests—future phase.
+      <span class="focus-item-title">Later</span>
+      Smarter suggestions from real usage (future work).
     </div>
   </div>
 
   <!-- Before → After -->
   <div class="block">
     <div class="block-label">Design Evolution</div>
-    <h3>From generic chat to a guided hybrid</h3>
-    <p>Early ideas were <strong>chat-only</strong>—tough without procurement vocabulary. We moved to <strong>Quick Links + search + assistant</strong>: shortcuts for repeat tasks, plus the agent for open questions.</p>
+    <h3>Why we didn’t ship “chat only”</h3>
+    <p>Open chat forced people to know internal jargon. We shipped Quick Links + search + assistant: shortcuts for repeat tasks, chat for everything else.</p>
   </div>
 
   <div class="comparison-grid">
@@ -187,7 +184,7 @@
       <ul>
         <li>Sample prompts, but no shortcuts</li>
         <li>Easy to get stuck if you don’t know the jargon</li>
-        <li>Admins couldn’t steer common flows</li>
+        <li>Admins couldn’t pin common tasks</li>
         <li>Same experience for every role</li>
       </ul>
     </div>
@@ -195,10 +192,10 @@
       <div class="comp-label">After</div>
       <h4>Hybrid (shortcuts + assistant)</h4>
       <ul>
-        <li>Quick Links for frequent procurement tasks (admin-curated)</li>
-        <li>Role-aware suggested questions and answers</li>
-        <li>Works for first-timers and power users</li>
-        <li>Accuracy over “creative” answers</li>
+        <li>Quick Links for repeat tasks (admin-curated)</li>
+        <li>Suggested questions tuned to the person’s role</li>
+        <li>Works for newcomers and power users</li>
+        <li>Correct, boring answers beat clever guesses</li>
       </ul>
     </div>
   </div>
@@ -206,31 +203,31 @@
   <!-- First ship UI — illustrates hybrid model above -->
   <div class="block">
     <div class="block-label">Phase 1 · First ship · ~2024</div>
-    <h3>Routing, answers, and next steps</h3>
+    <h3>First ship: one page, three entry points</h3>
     <p>
-      <strong>Phase 1 (shipped):</strong> One page—<strong>Quick Links</strong>, search, and the <strong>Intake Agent</strong> panel. Users get policy-backed answers, sources, and a suggested next step (often opening catalog or another system). Goal: <strong>right path, fast</strong>.
+      Phase 1: Quick Links, search, and a side assistant. Replies tie back to uploaded company docs, show sources, and offer a next step (e.g. open an internal catalog or form).
     </p>
 
     <div class="cs-gallery">
       <figure class="cs-figure">
-        <img src="images/intake-agent/01-landing-quick-links.png" alt="Procurement landing page with greeting, search, and Quick Links for NDA, requisition, catalog, and more" width="1024" height="711" loading="lazy" decoding="async" />
-        <figcaption>Landing: search + Quick Links for common intake paths.</figcaption>
+        <img src="images/intake-agent/01-landing-quick-links.png" alt="Landing page with greeting, search, and shortcut links for common buying tasks" width="1024" height="711" loading="lazy" decoding="async" />
+        <figcaption>Landing: search + shortcuts for common tasks.</figcaption>
       </figure>
       <figure class="cs-figure">
-        <img src="images/intake-agent/02-search-po-query.png" alt="Same landing with a natural language query about creating a purchase order" width="1024" height="711" loading="lazy" decoding="async" />
-        <figcaption>Same page: type a question (e.g. how to create a PO).</figcaption>
+        <img src="images/intake-agent/02-search-po-query.png" alt="Same landing with a typed question about how to create a purchase order" width="1024" height="711" loading="lazy" decoding="async" />
+        <figcaption>Same page: ask in plain language (example: how to create a purchase order).</figcaption>
       </figure>
       <figure class="cs-figure">
-        <img src="images/intake-agent/03-agent-thinking.png" alt="Procurement Intake Agent chat panel with user question and loading indicator" width="1024" height="711" loading="lazy" decoding="async" />
-        <figcaption>Side panel: assistant processes the question.</figcaption>
+        <img src="images/intake-agent/03-agent-thinking.png" alt="Side chat panel with the user’s question and a loading state" width="1024" height="711" loading="lazy" decoding="async" />
+        <figcaption>Side panel: assistant is working.</figcaption>
       </figure>
       <figure class="cs-figure">
         <img src="images/intake-agent/04-agent-po-answer.png" alt="Agent response explaining purchase orders with sources and feedback controls" width="1024" height="711" loading="lazy" decoding="async" />
-        <figcaption>Answer with sources—steps that used to take many clicks to find.</figcaption>
+        <figcaption>Answer + sources—so people can verify before they act.</figcaption>
       </figure>
       <figure class="cs-figure">
-        <img src="images/intake-agent/05-agent-catalog-action.png" alt="Agent suggesting Search Catalog Items action for a laptop request" width="1024" height="711" loading="lazy" decoding="async" />
-        <figcaption>Suggested action (e.g. open catalog) to stay on-policy.</figcaption>
+        <img src="images/intake-agent/05-agent-catalog-action.png" alt="Assistant suggesting opening the approved-items catalog for a laptop request" width="1024" height="711" loading="lazy" decoding="async" />
+        <figcaption>Suggested action (e.g. browse approved items).</figcaption>
       </figure>
     </div>
   </div>
@@ -238,23 +235,23 @@
   <!-- Phase 2: In-agent transactions (catalog + non-catalog forms) -->
   <div class="block">
     <div class="block-label">Phase 2 · Requester experience</div>
-    <h3>More in one place (Phase 2)</h3>
+    <h3>Phase 2: finish the task in chat</h3>
     <p>
-      <strong>Phase 2</strong> keeps shopping, forms, and submission in the <strong>same thread</strong>—not other sites or apps.
+      People can pick items, fill structured forms, and get confirmations without leaving the thread.
     </p>
 
     <div class="cs-gallery">
       <figure class="cs-figure">
-        <img src="images/intake-agent/13-phase2-catalog-requisition.png" alt="Intake Agent showing catalog line items with quantities, Submit Requisition, and confirmation with requisition number" width="1024" height="711" loading="lazy" decoding="async" />
-        <figcaption><strong>Catalog → requisition</strong> — items pulled from catalog; user reviews quantities and submits; confirmation and REQ ID in-thread.</figcaption>
+        <img src="images/intake-agent/13-phase2-catalog-requisition.png" alt="Chat thread showing catalog line items, submit button, and in-thread confirmation with reference number" width="1024" height="711" loading="lazy" decoding="async" />
+        <figcaption>Approved catalog → submit request — review quantities, submit, confirmation in-thread.</figcaption>
       </figure>
       <figure class="cs-figure">
-        <img src="images/intake-agent/14-phase2-noncatalog-request-form.png" alt="Non-catalog request embedded form with supplier fields, description, spend category, and Next Step" width="1024" height="711" loading="lazy" decoding="async" />
-        <figcaption><strong>Non-catalog</strong> — structured request form in the chat when there’s no catalog match.</figcaption>
+        <img src="images/intake-agent/14-phase2-noncatalog-request-form.png" alt="Structured request form embedded in the chat for items not in the catalog" width="1024" height="711" loading="lazy" decoding="async" />
+        <figcaption>Off-catalog request — structured form in chat when there’s no standard item.</figcaption>
       </figure>
       <figure class="cs-figure">
-        <img src="images/intake-agent/15-phase2-noncatalog-pricing.png" alt="Pricing step for non-catalog request with quantity, price, unit of measure, and confirm pricing" width="1024" height="711" loading="lazy" decoding="async" />
-        <figcaption><strong>Follow-on step</strong> — pricing details to continue a non-catalog flow without dropping context.</figcaption>
+        <img src="images/intake-agent/15-phase2-noncatalog-pricing.png" alt="Pricing step in the same chat thread with quantity, price, and confirm action" width="1024" height="711" loading="lazy" decoding="async" />
+        <figcaption>Next step in the same thread — e.g. pricing — without losing context.</figcaption>
       </figure>
     </div>
   </div>
@@ -262,39 +259,35 @@
   <!-- Admin console: policy, routing URLs, fallbacks, evaluation -->
   <div class="block">
     <div class="block-label">Admin experience</div>
-    <h3>What admins configure</h3>
+    <h3>What admins control</h3>
     <p>
-      Admins use <strong>Maintain Routing Rules</strong> to govern <strong>Phase 1</strong> handoffs and what <strong>Phase 2</strong> is allowed to automate.
+      Admins upload official documents (so answers aren’t invented), set where each topic sends people (stay in-product or open another trusted URL), define when the assistant must stop, test prompts in a sandbox, then use analytics after launch.
     </p>
-    <p><strong>Policy</strong> — Upload procurement docs so answers stay grounded; the model isn’t inventing policy.</p>
-    <p><strong>Routes</strong> — Per topic, keep users in Workday or send them to an <strong>external URL</strong> (another Workday page, ServiceNow, etc.).</p>
-    <p><strong>Fallbacks</strong> — When the AI should stop, escalate, or refuse instead of guessing.</p>
-    <p><strong>Rollout</strong> — Upload policy, update the routing table and Quick Links, validate prompts in the playground, then use analytics after launch to tune what employees see.</p>
 
     <div class="cs-gallery">
       <figure class="cs-figure">
-        <img src="images/intake-agent/07-admin-upload-document.png" alt="Admin Upload Document: policy name, pasted content, and file drop for DOCX or PDF for the language model" width="1024" height="686" loading="lazy" decoding="async" />
-        <figcaption><strong>Upload document</strong> — policy content for grounded answers (DOCX/PDF or paste).</figcaption>
+        <img src="images/intake-agent/07-admin-upload-document.png" alt="Admin screen to name and upload source documents for assistant answers" width="1024" height="686" loading="lazy" decoding="async" />
+        <figcaption>Upload document — source material for answers (DOCX/PDF or paste).</figcaption>
       </figure>
       <figure class="cs-figure">
-        <img src="images/intake-agent/08-admin-policy-processing.png" alt="Processing state while policy document is analyzed for the learning model" width="1024" height="686" loading="lazy" decoding="async" />
+        <img src="images/intake-agent/08-admin-policy-processing.png" alt="Processing state while an uploaded document is analyzed" width="1024" height="686" loading="lazy" decoding="async" />
         <figcaption>Processing state—sets expectations for long uploads.</figcaption>
       </figure>
       <figure class="cs-figure">
-        <img src="images/intake-agent/09-admin-routing-table.png" alt="Routing table listing routes such as Requisition, Intake NDA, Service Hub with route option and Quick Link visibility" width="1024" height="679" loading="lazy" decoding="async" />
-        <figcaption><strong>Routing table</strong> — at-a-glance routes, in-app vs external, Quick Link on/off.</figcaption>
+        <img src="images/intake-agent/09-admin-routing-table.png" alt="Routing table overview showing topics, destinations, and whether each appears as a home-page shortcut" width="1024" height="679" loading="lazy" decoding="async" />
+        <figcaption>Routing table — at-a-glance routes, in-app vs external, Quick Link on/off.</figcaption>
       </figure>
       <figure class="cs-figure">
-        <img src="images/intake-agent/10-admin-routing-rules-editor.png" alt="Maintain Routing Rules editor with route option dropdown for Requisition, External Link with URL field, and Quick Link display settings" width="1024" height="685" loading="lazy" decoding="async" />
-        <figcaption><strong>Route detail</strong> — internal path vs <strong>external URL</strong> (Spend, ServiceNow, etc.); Quick Link text for the home page.</figcaption>
+        <img src="images/intake-agent/10-admin-routing-rules-editor.png" alt="Route editor: stay in app or open an external link, plus shortcut label settings" width="1024" height="685" loading="lazy" decoding="async" />
+        <figcaption>Route detail — in-app vs external link; text for the home-page shortcut.</figcaption>
       </figure>
       <figure class="cs-figure">
-        <img src="images/intake-agent/11-admin-testing-playground.png" alt="Testing Playground: validate routing table by entering prompts to test AI routing" width="1024" height="679" loading="lazy" decoding="async" />
-        <figcaption><strong>Testing playground</strong> — validate prompts against routing before employees see them.</figcaption>
+        <img src="images/intake-agent/11-admin-testing-playground.png" alt="Sandbox where admins type sample questions to test routing before launch" width="1024" height="679" loading="lazy" decoding="async" />
+        <figcaption>Test sandbox — try prompts before go-live.</figcaption>
       </figure>
       <figure class="cs-figure">
-        <img src="images/intake-agent/12-admin-analytics-dashboard.png" alt="Analytics dashboard for concierge actions: suggested solution click rate, user reported issues with update routing rules action, and frequent questions" width="1024" height="790" loading="lazy" decoding="async" />
-        <figcaption><strong>Analytics</strong> — what worked, what failed, where to fix rules.</figcaption>
+        <img src="images/intake-agent/12-admin-analytics-dashboard.png" alt="Analytics dashboard showing suggested-action clicks, reported issues, and frequent questions" width="1024" height="790" loading="lazy" decoding="async" />
+        <figcaption>Analytics — what’s working, what’s breaking.</figcaption>
       </figure>
     </div>
   </div>
@@ -302,21 +295,23 @@
   <!-- Conversational design (maps to principal conversational / agentic roles) -->
   <div class="block">
     <div class="block-label">Conversational design</div>
-    <h3>Designing the conversation—not only the layout</h3>
+    <h3>Conversation design, not just pixels</h3>
     <p>
-      Mockups show <strong>where</strong> the assistant sits. <strong>Conversational design</strong> is what happens <strong>inside each turn</strong>: answer shape, when to clarify, and—in Phase 2—how to carry <strong>multi-step tasks</strong> (catalog buy, non-catalog forms) without dropping context.
+      Layout is <em>where</em> the chat lives; conversation design is <em>what each turn does</em>. Beyond the frame, I defined how assistant turns read, what controls appear in a turn, and how state carries across steps. Ambiguous question? Ask first, don’t bluff.
     </p>
+
+    <h4 class="aspect-title">From text replies to text + action</h4>
     <p>
-      The bar was <strong>real work</strong>, not a demo: citeable answers, a useful <strong>next step</strong> when it mattered, and <strong>no inventing policy</strong>. If a question was ambiguous, the agent <strong>asked first</strong> instead of guessing.
+      Early patterns centered on a <em>scannable text answer</em>: short paragraphs, tight hierarchy, and plain language so people could compare what they read to what they already knew. The next iteration paired that text with a <em>primary call-to-action button</em>—one obvious “do this next” control so the path forward wasn’t buried at the end of a long message.
     </p>
-    <div class="convo-flow">
+    <div class="convo-flow" aria-label="Mockup: text answer plus primary action">
       <div class="convo-turn user">
         <div class="convo-role">User</div>
-        “How do I create a PO after my requisition is approved?”
+        I need a laptop for my new hire.
       </div>
       <div class="convo-turn agent convo-mockup">
         <div class="convo-role">Reply pattern</div>
-        <div class="reply-pattern-mock" role="img" aria-label="Wireframe mockup: short answer, then sources, then optional feedback controls">
+        <div class="reply-pattern-mock" role="img" aria-label="Wireframe: direct answer and primary action button">
           <div class="rpm-block rpm-answer">
             <span class="rpm-block-label">Direct answer</span>
             <div class="rpm-skeleton-lines" aria-hidden="true">
@@ -325,19 +320,178 @@
               <span class="rpm-bar rpm-bar--short"></span>
             </div>
           </div>
-          <div class="rpm-block rpm-sources">
-            <span class="rpm-block-label">Sources</span>
-            <ul class="rpm-source-rows" aria-hidden="true">
-              <li><span class="rpm-link"></span></li>
-              <li><span class="rpm-link"></span></li>
-            </ul>
+          <div class="rpm-block">
+            <span class="rpm-block-label">Primary action</span>
+            <div class="rpm-cta-row" aria-hidden="true">
+              <div class="rpm-cta-pill"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h4 class="aspect-title">Richer turn types in Phase 2</h4>
+    <p>
+      As work moved into the same thread, assistant turns had to behave more like lightweight UI, not only prose. I introduced and stress-tested structured patterns inside the chat: <em>in-chat form fields</em> for requests that need specifics, <em>dropdowns and option lists</em> when the safest path is a constrained choice, and <em>catalog-style layouts</em> (line items, quantities, summaries) so people could review what they were buying without jumping to another surface. Each type had to preserve thread context so a multi-step flow still felt like one conversation.
+    </p>
+    <div class="convo-flow" aria-label="Mockup: in-chat form, dropdown choice, and catalog lines in one turn">
+      <div class="convo-turn user">
+        <div class="convo-role">User</div>
+        Add two monitors and ship them to my office.
+      </div>
+      <div class="convo-turn agent convo-mockup">
+        <div class="convo-role">Reply pattern</div>
+        <div class="reply-pattern-mock" role="img" aria-label="Wireframe: structured fields, constrained choice, catalog layout">
+          <div class="rpm-block">
+            <span class="rpm-block-label">In-chat form</span>
+            <div class="rpm-field-rows" aria-hidden="true">
+              <div class="rpm-field-row">
+                <span class="rpm-field-label"></span>
+                <div class="rpm-field-input"></div>
+              </div>
+              <div class="rpm-field-row">
+                <span class="rpm-field-label"></span>
+                <div class="rpm-field-input"></div>
+              </div>
+              <div class="rpm-field-row">
+                <span class="rpm-field-label"></span>
+                <div class="rpm-field-input"></div>
+              </div>
+            </div>
+          </div>
+          <div class="rpm-block">
+            <span class="rpm-block-label">Constrained choice</span>
+            <div class="rpm-dropdown-row" aria-hidden="true"></div>
+          </div>
+          <div class="rpm-block">
+            <span class="rpm-block-label">Catalog lines</span>
+            <div class="rpm-catalog-rows" aria-hidden="true">
+              <div class="rpm-cat-row">
+                <span class="rpm-cat-line"></span>
+                <div class="rpm-cat-box"></div>
+                <div class="rpm-cat-box"></div>
+              </div>
+              <div class="rpm-cat-row">
+                <span class="rpm-cat-line rpm-cat-line--short"></span>
+                <div class="rpm-cat-box"></div>
+                <div class="rpm-cat-box"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h4 class="aspect-title">Thumbs up / down as a tuning signal</h4>
+    <p>
+      I explored lightweight per-reply feedback—thumb up and thumb down—so we could pair qualitative signal with routing and analytics. The intent was never “vote on the model”; it was to help admins see <em>where answers routinely missed</em>, prioritize policy or rule updates, and later support finer-grained tuning of assistant behavior without reading every transcript.
+    </p>
+    <div class="convo-flow" aria-label="Mockup: answer with thumb feedback for admin roll-up">
+      <div class="convo-turn user">
+        <div class="convo-role">User</div>
+        Why was my request sent back?
+      </div>
+      <div class="convo-turn agent convo-mockup">
+        <div class="convo-role">Reply pattern</div>
+        <div class="reply-pattern-mock" role="img" aria-label="Wireframe: direct answer and optional thumbs">
+          <div class="rpm-block rpm-answer">
+            <span class="rpm-block-label">Direct answer</span>
+            <div class="rpm-skeleton-lines" aria-hidden="true">
+              <span class="rpm-bar"></span>
+              <span class="rpm-bar rpm-bar--mid"></span>
+            </div>
           </div>
           <div class="rpm-block rpm-feedback">
             <span class="rpm-block-label">Optional feedback</span>
             <div class="rpm-thumbs" aria-hidden="true">
-              <span class="rpm-thumb-btn" title="Up"></span>
-              <span class="rpm-thumb-btn" title="Down"></span>
+              <span class="rpm-thumb-btn" title="Helpful"></span>
+              <span class="rpm-thumb-btn" title="Not helpful"></span>
             </div>
+            <div class="rpm-admin-hint">Rolls up to analytics so admins can spot weak answers without reading every thread.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h4 class="aspect-title">How we showed sources</h4>
+    <p>
+      Trust hinged on making “where did this come from?” feel normal, not forensic. I explored how to display sources alongside the answer: readable titles, short excerpts, clear ordering, and expansion when someone needed more—enough to verify quickly, without crowding out the answer or the next step. The goal was a default people could skim, with depth on demand.
+    </p>
+    <div class="convo-flow" aria-label="Mockup: answer with expandable source cards">
+      <div class="convo-turn user">
+        <div class="convo-role">User</div>
+        What’s the policy on gifts and entertainment?
+      </div>
+      <div class="convo-turn agent convo-mockup">
+        <div class="convo-role">Reply pattern</div>
+        <div class="reply-pattern-mock" role="img" aria-label="Wireframe: direct answer and source cards with snippets">
+          <div class="rpm-block rpm-answer">
+            <span class="rpm-block-label">Direct answer</span>
+            <div class="rpm-skeleton-lines" aria-hidden="true">
+              <span class="rpm-bar"></span>
+              <span class="rpm-bar rpm-bar--short"></span>
+            </div>
+          </div>
+          <div class="rpm-block">
+            <span class="rpm-block-label">Sources</span>
+            <div class="rpm-source-cards" aria-hidden="true">
+              <div class="rpm-source-card">
+                <div class="rpm-source-title"></div>
+                <div class="rpm-source-snippet">
+                  <span class="rpm-snip-line"></span>
+                  <span class="rpm-snip-line"></span>
+                  <span class="rpm-snip-line"></span>
+                </div>
+              </div>
+              <div class="rpm-source-card">
+                <div class="rpm-source-title"></div>
+                <div class="rpm-source-snippet">
+                  <span class="rpm-snip-line"></span>
+                  <span class="rpm-snip-line"></span>
+                  <span class="rpm-snip-line"></span>
+                </div>
+              </div>
+            </div>
+            <div class="rpm-source-more">Show more</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h4 class="aspect-title">Full page versus side panel</h4>
+    <p>
+      I also explored <em>where</em> the assistant should live relative to the rest of the experience. A <em>side panel</em> next to search and Quick Links kept landing-page context in view for quick questions and shallow tasks. A <em>dedicated full-page chat</em> was considered for long, multi-step flows where people need uninterrupted focus and more vertical room for forms and catalog layouts. The shipped experience leaned on the hybrid shell that best matched real usage: context when you need it, room to work when a thread gets heavy.
+    </p>
+    <div class="shell-compare" role="img" aria-label="Side-by-side wireframe: landing with assistant panel versus full-page chat">
+      <div class="shell-mock">
+        <div class="shell-mock-cap">Side panel + landing</div>
+        <div class="shell-mock-body">
+          <div class="shell-side-inner">
+            <div class="shell-main-col">
+              <span class="shell-col-label">Search &amp; shortcuts</span>
+              <div class="shell-mini-bar"></div>
+              <div class="shell-mini-bar"></div>
+              <div class="shell-mini-bar"></div>
+            </div>
+            <div class="shell-panel-col">
+              <span class="shell-col-label">Assistant thread</span>
+              <div class="shell-mini-bar"></div>
+              <div class="shell-mini-bar"></div>
+              <div class="shell-chat-chrome"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="shell-mock">
+        <div class="shell-mock-cap">Full-page chat</div>
+        <div class="shell-mock-body">
+          <div class="shell-full-inner">
+            <span class="shell-col-label">Dedicated thread</span>
+            <div class="shell-mini-bar"></div>
+            <div class="shell-mini-bar"></div>
+            <div class="shell-mini-bar"></div>
+            <div class="shell-mini-bar"></div>
+            <div class="shell-chat-chrome"></div>
           </div>
         </div>
       </div>
@@ -348,20 +502,20 @@
   <div class="callout green-left">
     <div class="block-label">Core design principle</div>
     <p style="font-size:17px; font-weight:600; color:var(--ink); line-height:1.5; margin-bottom:8px;">Trust has to be designed in.</p>
-    <p style="color:var(--ink-secondary); font-size:15px;">Procurement is high stakes. Users saw <strong>sources</strong>, <strong>uncertainty</strong> when relevant, and <strong>safe fallbacks</strong>—not blind trust in the model.</p>
+    <p style="color:var(--ink-secondary); font-size:15px;">Buying rules are high stakes. The UI shows sources, admits uncertainty when needed, and uses safe fallbacks—not blind trust in the model.</p>
   </div>
 
   <div class="block">
     <div class="block-label">Inclusive interaction</div>
-    <h3>Keyboard, focus, and readable disclosure</h3>
-    <p>Chat and side-panel patterns were designed with sensible focus order, visible focus states, and legible source disclosure—so “trust the answer” was an interaction problem we refined with engineering against Workday accessibility expectations, not only a model-quality problem.</p>
+    <h3>Accessibility</h3>
+    <p>Keyboard order, visible focus, and readable “sources” blocks—so trust wasn’t only a model problem; it was something we built with engineering.</p>
   </div>
 
   <!-- Quote -->
   <div class="quote-block">
     <div class="quote-mark">"</div>
-    <blockquote>“I’m not bouncing between three systems to figure out if I’m allowed to buy something—the answer comes with <strong>sources</strong>, and the next step actually moves the request forward.”</blockquote>
-    <div class="quote-source">— Requester in a procurement pilot, after first week on the Intake Agent</div>
+    <blockquote>“I’m not bouncing between three systems—the answer comes with sources, and the next step actually moves things forward.”</blockquote>
+    <div class="quote-source">— Pilot participant, first week</div>
   </div>
 
   <!-- Evaluation & iteration (agentic / conversational IC signals) -->
@@ -369,14 +523,11 @@
     <div class="block-label">Evaluation &amp; iteration</div>
     <h3>Test, ship, measure, fix</h3>
     <p>
-      Good answers aren’t “write once.” Admins used the <strong>playground</strong> to test prompts before launch; after launch, <strong>analytics</strong> showed what worked and what failed. User <strong>feedback</strong> on replies helped prioritize updates to rules and policy.
-    </p>
-    <p>
-      That evidence also helped the team sequence what to harden next versus what could wait until more real usage—so design, data, and product could align on near-term roadmap without guessing.
+      Admins used the sandbox before launch; after launch, analytics and thumbs on replies told us what to fix in rules and docs.
     </p>
     <ul class="checklist" style="margin-top:12px;max-width:var(--prose-max);">
-      <li>Test risky paths before employees see them</li>
-      <li>Be explicit when the system must not guess</li>
+      <li>Rehearse risky paths before employees see them</li>
+      <li>Spell out when the system must not guess</li>
       <li>Iterate with PM, engineering, and data—not one-and-done copy</li>
     </ul>
   </div>
@@ -390,11 +541,11 @@
   <div class="metrics-grid">
     <div class="metric-card">
       <div class="metric-number">2</div>
-      <div class="metric-label">Shipped phases: hybrid assistant + Quick Links, then in-thread catalog, forms, and confirmations</div>
+      <div class="metric-label">Two major releases: hybrid page first, then in-chat shopping and forms</div>
     </div>
     <div class="metric-card">
       <div class="metric-number">1</div>
-      <div class="metric-label">Primary thread for answers and next steps—grounded in policy, with governed handoffs when the model shouldn’t guess</div>
+      <div class="metric-label">One primary place for answers, next steps, and (later) checkout—doc-grounded, with clear stop rules</div>
     </div>
   </div>
 
@@ -408,43 +559,43 @@
     <div class="kh-card">
       <div class="kh-number">01</div>
       <h4>Shortcuts + chat</h4>
-      <p>Quick Links for repeat tasks; the assistant for messy questions—works for new and power users.</p>
+      <p>Repeat tasks get buttons; messy questions get the assistant.</p>
     </div>
     <div class="kh-card">
       <div class="kh-number">02</div>
-      <h4>Admin tools shipped with v1</h4>
-      <p>Rules, testing, and fallbacks had to launch with the chat—early wrong answers would kill trust.</p>
+      <h4>Admin shipped with v1</h4>
+      <p>Rules and testing weren’t “phase 3”—bad first answers would sink the product.</p>
     </div>
     <div class="kh-card">
       <div class="kh-number">03</div>
-      <h4>Explain everything important</h4>
-      <p>Sources and clear limits beat flashy model demos for real adoption.</p>
+      <h4>Show your work</h4>
+      <p>Sources and clear limits beat a flashy demo.</p>
     </div>
     <div class="kh-card">
       <div class="kh-number">04</div>
-      <h4>Reusable patterns</h4>
-      <p>Intent → grounded answer → next action → safe recovery—designed to scale to other workflows, not a one-off.</p>
+      <h4>Reusable pattern</h4>
+      <p>Understand → answer with proof → suggest next step → safe recovery.</p>
     </div>
     <div class="kh-card">
       <div class="kh-number">05</div>
-      <h4>Platform, not hero UI</h4>
-      <p>When broader Workday patterns skewed toward lighter surfaces, flows and prototypes showed where procurement density, agent panels, and admin tables had to diverge—so we could align design system and engineering on a shell that still fit real buying work.</p>
+      <h4>Fit the real job</h4>
+      <p>Default product patterns were too “light” for dense admin + chat. We prototyped until design system and engineering agreed on a shell that matched real buying work.</p>
     </div>
   </div>
 
   <!-- Reflection -->
   <div class="reflection-block">
     <div class="ref-label">Reflection</div>
-    <p>“Getting rules and real user behavior aligned isn’t a back-office task—it’s the product experience for compliance.”</p>
+    <p>“If the rules don’t match real behavior, the ‘AI’ part doesn’t matter—the experience breaks.”</p>
     <div class="next-steps">
-      <strong>Next:</strong> <strong>Live preview</strong> for admins before changes go live; <strong>smarter rule suggestions</strong> from real usage.
+      Next: admin live preview; smarter rule hints from usage.
     </div>
   </div>
 
   <!-- More to the story -->
   <div class="more-story">
     <div class="more-story-text">
-      <strong>There's more to the story...</strong>
+      <span class="more-story-lead">There's more to the story...</span>
       <span>Extra artifacts (flows, eval notes, wireframes) available on request.</span>
     </div>
     <div class="more-story-badge">Request full case study →</div>
@@ -455,7 +606,7 @@
 <!-- ─── FOOTER ─── -->
 <footer>
   <h2>Let's connect.</h2>
-  <p>Open to <strong>principal / senior IC</strong> roles in <strong>workflow-heavy</strong> and <strong>agentic enterprise UX</strong>—mobile, web, and systems thinking.</p>
+  <p>Open to principal / senior IC roles in workflow-heavy and agentic enterprise UX—mobile, web, and systems thinking.</p>
   <div class="footer-inline-links">
     <a href="resume.pdf?v=20260320" target="_blank" rel="noopener">Resume PDF</a>
     <span aria-hidden="true"> · </span>
