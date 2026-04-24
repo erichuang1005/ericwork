@@ -57,229 +57,191 @@
     </div>
     <div class="cs-overview">
       <div class="cs-overview-item">
-        <div class="block-label">Design problem</div>
-        <p>High-volume warehouse teams were stuck in click-heavy mobile flows: low-density patterns, buried primaries, and scroll-tap loops that slowed picks on the floor.</p>
+        <div class="block-label">The problem</div>
+        <p>Warehouse staff spend full shifts on a phone app that was styled like a casual mobile app—big buttons, lots of empty space. Our users are <em>pros</em>, and every extra tap adds up.</p>
       </div>
       <div class="cs-overview-item">
-        <div class="block-label">Outcome</div>
-        <p>Shipped in Workday (2023–2024): scanner-led single pick in production, then a React batch-pick path for multi-line work—plus design-system updates so dense mobile patterns could extend beyond the warehouse.</p>
+        <div class="block-label">What shipped</div>
+        <p>After a first, tighter pass didn’t go far enough, I designed a <em>new mobile design system for pro users</em>—denser components built on top of Workday’s web and older mobile libraries. I then applied it to batch pick, with scanner-driven control and auto-advancing fields.</p>
       </div>
       <div class="cs-overview-item">
-        <div class="block-label">My contributions</div>
-        <p>Owned mobile UX end to end: usability audit, two design iterations, shipped interaction model with engineering, usability testing, and design-system collaboration for high-density components.</p>
+        <div class="block-label">My role</div>
+        <p>Led research, design, and component-level UX with engineering. Built the pro-user mobile library. Later used <em>Cursor</em> (an AI coding assistant) to extend the same library across 21 inventory tasks.</p>
       </div>
     </div>
-    <p>Warehouse pickers were <strong>fighting the phone</strong>—wrong component density and buried actions on the floor. I led <strong>audit → two iterations</strong>, shipped <strong>scanner-led single pick</strong> (live), then a <strong>React batch-pick</strong> flow for multi-line work. Outcome: <strong>fewer taps</strong>, clearer “what now,” and <strong>design-system</strong> patterns that extended past the warehouse.</p>
+    <p>The page follows it in order: <strong>1.</strong> what was wrong · <strong>2.</strong> the first attempt · <strong>3.</strong> building a mobile design system for pros (<a href="#live-demo">try it live</a>) · <strong>4.</strong> the final batch-pick flow · <strong>5.</strong> scaling it with Cursor.</p>
   </div>
 
-  <!-- My Role -->
-  <div class="my-role-block">
-    <div class="my-role-icon">👤</div>
-    <div class="my-role-content">
-      <div class="block-label">My Contributions</div>
-      <p><strong>Owned</strong> mobile UX end-to-end: usability audit, IA and interaction for the scanner-led single-pick flow, <strong>batch pick</strong> UI (cards, sheets, tabs) with engineering, and <strong>design system</strong> updates for high-density patterns—used beyond the warehouse.</p>
-      <div class="my-role-chips">
-        <span class="chip">Usability Audit</span>
-        <span class="chip">Mobile IA</span>
-        <span class="chip">Interaction Design</span>
-        <span class="chip">Design Systems</span>
-        <span class="chip">Usability Testing</span>
-        <span class="chip">Engineering Collaboration</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- Context -->
+  <!-- 1. Problem (with the current/old mobile screens to show "before") -->
   <div class="block">
-    <div class="block-label">Context &amp; Problem</div>
-    <h3>Too much tapping, not enough picking</h3>
-    <p>High-volume warehouse teams were stuck in a <strong>click-heavy</strong> mobile flow: <strong>low-density components</strong> (meant for calmer UIs) wasted space, <strong>primary actions</strong> sat under banners and noise, and workers repeated scroll-tap loops instead of moving stock.</p>
-  </div>
-
-  <div class="block">
-    <div class="block-label">Usability Audit</div>
-    <h3>What the audit surfaced</h3>
-  </div>
-
-  <ul class="insight-list">
-    <li>
-      <div class="insight-icon">📜</div>
-      <span><strong>Hierarchy</strong> — oversized chrome made it unclear what to do next and what was already picked.</span>
-    </li>
-    <li>
-      <div class="insight-icon">📦</div>
-      <span><strong>Wrong density</strong> — padding and patterns built for slow admin tasks, not fast floor work.</span>
-    </li>
-    <li>
-      <div class="insight-icon">👆</div>
-      <span><strong>Buried actions</strong> — confirm / skip / move on lived under secondary detail, so every pick felt slower than it should.</span>
-    </li>
-  </ul>
-
-  <div class="block">
-    <div class="block-label">Alignment</div>
-    <h3>Scan-first bets with PM and engineering</h3>
-    <p>Working sessions with PM and engineering aligned on when scan should advance the task, what had to ship before peak season, and how batch UI could follow without destabilizing the live single-pick path workers already relied on.</p>
-  </div>
-
-  <!-- Iterations (summary first, then screenshots = same shipped single-pick) -->
-  <div class="block">
-    <div class="block-label">Design Iterations</div>
-    <h3>From categorized lists to scanner-driven UX</h3>
-    <p>
-      We tried <strong>two directions</strong> in design—summarized in the callouts below. The <strong>single-pick screenshots</strong> that come next are <strong>not</strong> the legacy app; they are the <strong>live product</strong> from the second direction (scanner-led flow). Batch pick follows as a <strong>separate</strong> multi-line experience.
-    </p>
-  </div>
-
-  <div class="callout accent-left" style="margin-bottom:16px;">
-    <strong style="font-size:13px; color:var(--ink-secondary); text-transform:uppercase; letter-spacing:.06em; font-weight:700;">Iteration 1</strong>
-    <p style="font-size:15px; font-weight:600; color:var(--ink); margin-top:8px; margin-bottom:6px;">Denser list + grouping</p>
-    <p style="font-size:14px; color:var(--ink-secondary); line-height:1.65;">Tighter list, smaller banner, items grouped by location. <em>Still too much navigate-by-scroll; primary actions weren’t obvious.</em></p>
-  </div>
-
-  <div class="callout accent-left" style="margin-bottom:56px; border-left-color: var(--accent-green);">
-    <strong style="font-size:13px; color:var(--accent-green); text-transform:uppercase; letter-spacing:.06em; font-weight:700;">Iteration 2 → Shipped (single pick)</strong>
-    <p style="font-size:15px; font-weight:600; color:var(--ink); margin-top:8px; margin-bottom:6px;">Scanner-led, one item at a time</p>
-    <p style="font-size:14px; color:var(--ink-secondary); line-height:1.65;"><strong>Now picking / up next</strong>, bin scan to advance, keypad to confirm quantity—fewer taps, attention on the current line. The screens below are this <strong>live</strong> path.</p>
-  </div>
-
-  <!-- Shipped single-pick (Iteration 2) -->
-  <div class="block">
-    <div class="block-label">Single pick (today)</div>
-    <h3>Shipped flow — iteration 2 in production</h3>
-    <p>Site → task → lines → <strong>confirm quantity</strong>. Same pattern described in the green callout above; batch pick is covered in the next section.</p>
+    <div class="block-label">1 · The problem</div>
+    <h3>A phone app built for casual users, used by pros</h3>
+    <p>These screens are the current warehouse picking flow—pick a site, open your list, confirm each item. The layout is perfectly fine if you touch the app now and then. Our users live in it all shift, and the patterns underneath it were shared with consumer-style mobile apps: airy rows, soft generous padding, one action per screen. Every extra tap multiplies across thousands of picks a day.</p>
   </div>
 
   <div class="cs-gallery cs-gallery-phone">
     <figure class="cs-figure">
-      <img src="images/inventory-picking/01-inventory-site.png" alt="Inventory site picker: list of warehouses with one site selected" width="576" height="1024" loading="lazy" decoding="async" />
-      <figcaption><strong>Site</strong> — worker selects an inventory site before starting.</figcaption>
+      <img src="images/inventory-picking/01-inventory-site.png" alt="Existing app: inventory site picker" width="576" height="1024" loading="lazy" decoding="async" />
+      <figcaption><strong>Before — site picker</strong> — airy list, lots of padding.</figcaption>
     </figure>
     <figure class="cs-figure">
-      <img src="images/inventory-picking/02-pick-inventory-setup.png" alt="Pick Inventory task: required inventory site and picking list fields with scan action" width="576" height="1024" loading="lazy" decoding="async" />
-      <figcaption><strong>Task setup</strong> — site and picking list, then scan to continue.</figcaption>
+      <img src="images/inventory-picking/02-pick-inventory-setup.png" alt="Existing app: pick inventory task setup" width="576" height="1024" loading="lazy" decoding="async" />
+      <figcaption><strong>Before — task setup</strong> — full-width fields, thumb has to travel.</figcaption>
     </figure>
     <figure class="cs-figure">
-      <img src="images/inventory-picking/03-picking-list-lines.png" alt="Picking list with line items, quantities, and search" width="576" height="1024" loading="lazy" decoding="async" />
-      <figcaption><strong>Lines</strong> — items to pick for the active task.</figcaption>
+      <img src="images/inventory-picking/03-picking-list-lines.png" alt="Existing app: picking list with line items" width="576" height="1024" loading="lazy" decoding="async" />
+      <figcaption><strong>Before — line list</strong> — few lines visible; lots of scroll.</figcaption>
     </figure>
     <figure class="cs-figure">
-      <img src="images/inventory-picking/04-item-quantity-keypad.png" alt="Single item pick: product image, stocking location, and numeric keypad to confirm quantity" width="576" height="1024" loading="lazy" decoding="async" />
-      <figcaption><strong>Confirm pick</strong> — item context and quantity entry.</figcaption>
+      <img src="images/inventory-picking/04-item-quantity-keypad.png" alt="Existing app: single item pick with numeric keypad" width="576" height="1024" loading="lazy" decoding="async" />
+      <figcaption><strong>Before — confirm pick</strong> — big keypad, one line at a time.</figcaption>
     </figure>
   </div>
 
-  <!-- Batch pick: new React mobile UI (Instacart-inspired patterns) -->
+  <!-- 2. First attempt -->
   <div class="block">
-    <div class="block-label">Batch pick</div>
-    <h3>Multi-line task, new React UI</h3>
-    <p>
-      <strong>Batch pick</strong> lets workers move through <strong>many lines in one run</strong>. New <strong>React</strong> mobile components—<strong>cards</strong>, <strong>To-Do / Picked</strong>, <strong>bottom sheets</strong> for scan and confirm—borrow from <strong>consumer pickup apps</strong> (Instacart-style): big product art, clear counts, one obvious next step.
+    <div class="block-label">2 · First attempt</div>
+    <h3>One item per screen — cleaner, still too spacey</h3>
+    <p>The first direction kept the existing mobile components and just simplified the flow: one pick at a time, scanner up top, big quantity keypad. It helped, but we were still tightening steps inside a design system built for casual users. The <em>screen itself</em> stayed airy. The team agreed: to really move the needle for pros, we had to change the building blocks, not just the flow.</p>
+  </div>
+
+  <!-- 3. Highlighted: building a mobile design system for pro users -->
+  <div class="cs-cursor-chapter">
+    <div class="block-label">3 · The real fix</div>
+    <h3>Building a mobile design system for pro users</h3>
+    <p>Workday already had two component libraries I could stand on: a mature <em>web component library</em> and an <em>older mobile kit</em> built around casual, consumer-style phone use. I used both as a starting point—same colors, same rules, same accessibility baseline—and designed a new pro-user layer on top: tighter action bars, compact item rows, inline form fields, a first-class <em>scanner input</em>, and a multi-value container so one screen can hold a whole batch. Denser, but still familiar.</p>
+    <p>The preview below is that library running live. Tap <strong>Pattern library</strong> to browse every component I built, or jump into a real task to see them composed together. It’s the same React code that ships—not a deck.</p>
+  </div>
+
+  <!-- Live interactive embed of the pro-user mobile design system -->
+  <div class="cs-live-demo" id="live-demo">
+    <div class="cs-live-demo-header">
+      <div>
+        <div class="block-label">Try it yourself</div>
+        <h4>Live preview — the pro-user mobile library</h4>
+        <p class="cs-live-demo-hint">Real components, real React. Start with <strong>Pattern library</strong> to see the building blocks, then drop into a task to see them in action.</p>
+      </div>
+      <div class="cs-live-demo-jump" role="tablist" aria-label="Jump to screen">
+        <button type="button" class="cs-jump-btn is-active" data-hub-route="/design-system">Pattern library</button>
+        <button type="button" class="cs-jump-btn" data-hub-route="/find-inventory-balance">Find balance</button>
+        <button type="button" class="cs-jump-btn" data-hub-route="/adjust-inventory">Adjust</button>
+        <button type="button" class="cs-jump-btn" data-hub-route="/ad-hoc-par-count">Par count</button>
+        <button type="button" class="cs-jump-btn" data-hub-route="/assign-label-printer">Printer</button>
+        <button type="button" class="cs-jump-btn" data-hub-route="/">Roadmap (21 tasks)</button>
+      </div>
+    </div>
+    <div class="cs-phone-frame">
+      <iframe
+        id="hub-iframe"
+        src="hub/index.html#/design-system"
+        title="Mobile design system — live preview"
+        loading="lazy"
+        allow="clipboard-write"
+      ></iframe>
+    </div>
+    <p class="cs-live-demo-foot">
+      A few components worth poking at: <em>action bar</em> (scanner + primary), <em>form fields</em> (auto-advancing quantity), <em>multi-value container</em>, and <em>item list</em>. Prefer full screen? <a href="hub/index.html#/design-system" target="_blank" rel="noopener">Open the app in a new tab ↗</a>
     </p>
+  </div>
+
+  <!-- 4. Final design: batch pick -->
+  <div class="block">
+    <div class="block-label">4 · The final design</div>
+    <h3>Batch pick with the new library — denser, scanner-led</h3>
+    <p>With the pro-user components in place, batch pick holds many more lines in one thumb’s reach without feeling cramped. On top of that, I added two task-specific touches: the <em>barcode scanner drives the next step</em> on its own, and required fields <em>auto-advance</em>—type quantity, move to the tote field, scan, move on—so your thumb never hunts for the next box. This runs in a webview, so engineering could ship it without a full native rebuild.</p>
   </div>
 
   <div class="cs-gallery cs-gallery-phone">
     <figure class="cs-figure">
-      <img src="images/inventory-picking/batch-01-list-start.png" alt="Batch Pick task: To-Do and Picked tabs, product cards, Start Picking button" width="498" height="1024" loading="lazy" decoding="async" />
-      <figcaption><strong>List</strong> — tabs, line cards, <strong>Start Picking</strong>.</figcaption>
+      <img src="images/inventory-picking/batch-webview-01.jpg" alt="Final batch pick: BATCH-20 header with confirm location, quantities, scan, and Next Item" width="503" height="1024" loading="lazy" decoding="async" />
+      <figcaption><strong>Final — line in progress</strong> — denser rows; action bar with scan + Next.</figcaption>
     </figure>
     <figure class="cs-figure">
-      <img src="images/inventory-picking/batch-02-scan-location.png" alt="Scan Location bottom sheet with bin ID and item summary" width="498" height="1024" loading="lazy" decoding="async" />
-      <figcaption><strong>Scan location</strong> — sheet confirms bin before pick.</figcaption>
+      <img src="images/inventory-picking/batch-webview-02.jpg" alt="Final batch pick with Surgical Face Mask line and numeric keypad" width="503" height="1024" loading="lazy" decoding="async" />
+      <figcaption><strong>Final — auto-advance</strong> — quantity accepted, next field focuses on its own.</figcaption>
     </figure>
     <figure class="cs-figure">
-      <img src="images/inventory-picking/batch-03-item-picked-adjust.png" alt="NOW PICKING card with Item Picked sheet showing quantity adjustment" width="498" height="1024" loading="lazy" decoding="async" />
-      <figcaption><strong>Pick + confirm</strong> — current line and <strong>Item Picked</strong> with quantity correction.</figcaption>
+      <img src="images/inventory-picking/batch-webview-03.jpg" alt="Final batch pick with tote tag and Prev/Next Item actions" width="503" height="1024" loading="lazy" decoding="async" />
+      <figcaption><strong>Final — scanner drives flow</strong> — scan the tote; app advances the step.</figcaption>
     </figure>
     <figure class="cs-figure">
-      <img src="images/inventory-picking/batch-04-item-picked-summary.png" alt="Item Picked summary with multiple stock lines and Finish action" width="498" height="1024" loading="lazy" decoding="async" />
-      <figcaption><strong>Summary</strong> — exceptions and stock splits; <strong>Finish</strong>.</figcaption>
+      <img src="images/inventory-picking/batch-webview-04.jpg" alt="Final batch pick Exam Gloves line with keypad" width="460" height="1024" loading="lazy" decoding="async" />
+      <figcaption><strong>Final — next line</strong> — same components, different task, no retraining.</figcaption>
     </figure>
-  </div>
-
-  <div class="block">
-    <div class="block-label">Inclusive interaction</div>
-    <h3>Touch, glare, and one-handed reach</h3>
-    <p>Targets, “now picking” focus, and bottom sheets were sized for gloved hands and one-handed reach on the floor—paired with engineering on contrast and motion so counts and locations stayed legible under warehouse lighting.</p>
-  </div>
-
-  <div class="block">
-    <div class="block-label">Evidence in the cycle</div>
-    <h3>What we learned changed the ship order</h3>
-    <p>Audit clips and usability rounds steered iteration 2 into production first; batch React UI shipped as a follow-on once the core pick loop stabilized, so we didn’t overload change management for frontline teams.</p>
   </div>
 
   <!-- Outcomes -->
   <div class="block">
-    <div class="block-label">Outcomes</div>
-    <h3>What changed</h3>
+    <div class="block-label">Outcomes at Workday</div>
+    <h3>What improved</h3>
+    <p>Fewer taps per pick, many more lines visible at once for pros, and a reusable pro-user mobile library that other Workday mobile teams could pull from instead of re-solving density themselves.</p>
   </div>
 
   <div class="metrics-grid">
     <div class="metric-card">
-      <div class="metric-number">2</div>
-      <div class="metric-label">Design iterations—from denser lists to scanner-led single pick—before batch pick</div>
+      <div class="metric-number">1</div>
+      <div class="metric-label">Pro-user mobile component library, built on top of Workday web + mobile base</div>
     </div>
     <div class="metric-card">
-      <div class="metric-number">1</div>
-      <div class="metric-label">High-density mobile pattern set extended to other Workday surfaces after the warehouse</div>
+      <div class="metric-number">2</div>
+      <div class="metric-label">Design rounds — tighter flow first, new component system second</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-number">+</div>
+      <div class="metric-label">Scanner-driven control and auto-field advancement layered on top</div>
     </div>
   </div>
 
-  <ul class="checklist" style="margin-bottom:56px;">
-    <li><strong>Single pick:</strong> scanner-first flow, less navigation noise, faster quantity confirm</li>
-    <li><strong>Batch pick:</strong> React UI tuned for multi-line work—tabs, cards, sheets, clear primary actions</li>
-    <li><strong>Design system:</strong> high-density patterns extended to other product areas (e.g. financial flows)</li>
-  </ul>
+  <!-- 5. Scaling with Cursor -->
+  <div class="block">
+    <div class="block-label">5 · Scaling the library</div>
+    <h3>Stretching the same components across 21 inventory tasks with Cursor</h3>
+    <p>A design system is only real if it holds up under load. I used <em>Cursor</em> (an AI coding assistant) to wire these same components into <strong>21 inventory tasks</strong>—count, receive, put-away, par count, label printer, find balance, and more—in the live app above. Cursor sped up the scaffolding, refactors, and docs; I still owned naming, layout rules, and review. The Pattern library tab you just tapped through is the same registry engineers use. One source of truth.</p>
+  </div>
 
-  <!-- Key Highlights -->
+  <!-- Takeaways -->
   <div class="block">
     <div class="block-label">Takeaways</div>
-    <h3>What I’d repeat on the next mobile ops project</h3>
+    <h3>What I carry into the next project</h3>
   </div>
 
   <div class="kh-grid">
     <div class="kh-card">
       <div class="kh-number">01</div>
-      <h4>Density is the brief</h4>
-      <p>Warehouse UX fails when components assume “office” pacing. Fixing density and hierarchy came before polish.</p>
+      <h4>Design for who actually uses it</h4>
+      <p>The same mobile patterns can be right for casual users and wrong for pros. When the flow can’t get denser, the <em>system</em> is the thing to redesign.</p>
     </div>
     <div class="kh-card">
       <div class="kh-number">02</div>
-      <h4>Let the scan drive the step</h4>
-      <p>Single-pick got simpler when the UI followed bin scan → confirm, not endless list scrolling.</p>
+      <h4>Build on what’s already there</h4>
+      <p>The new pro-user library stood on Workday’s existing web and mobile libraries. Same tokens, same rules—just new proportions.</p>
     </div>
     <div class="kh-card">
       <div class="kh-number">03</div>
-      <h4>Batch = familiar commerce patterns</h4>
-      <p>For multi-line picks, cards and sheets borrowed from consumer pickup apps so workers could parse work at a glance.</p>
+      <h4>Small task touches go a long way</h4>
+      <p>Scanner-driven control and auto-field advancement aren’t components—they’re behaviors. The library made room for them without bending the rules.</p>
     </div>
     <div class="kh-card">
       <div class="kh-number">04</div>
-      <h4>Engineering, early and often</h4>
-      <p>Cards, sheets, and tabs were defined alongside mobile engineering so React components landed closer to final density, motion, and edge cases—not a handoff wallpaper exercise.</p>
-    </div>
-    <div class="kh-card">
-      <div class="kh-number">05</div>
-      <h4>Design system ripple</h4>
-      <p>High-density layouts and components drafted for warehouse work became the reference for other financial mobile flows that needed the same “fewer taps, more signal” discipline.</p>
+      <h4>Use Cursor to scale, not to skip thinking</h4>
+      <p>Cursor helped me extend the library across 21 inventory tasks quickly. Naming, layout rules, and review still belong to the designer.</p>
     </div>
   </div>
 
   <!-- Reflection -->
   <div class="reflection-block">
     <div class="ref-label">Reflection</div>
-    <p>"Simplifying doesn't mean reducing — it means focusing on what drives action."</p>
+    <p>“When the flow can’t get denser, redesign the system—not the screen.”</p>
     <div class="next-steps">
-      Tight mobile IA forced every control to earn its place; the same discipline fed the <strong>design system</strong> work.
+      The picking redesign started as a layout fix and became a new mobile design system for pro users—then scaled across a whole inventory roadmap.
     </div>
   </div>
 
   <!-- More to the story -->
   <div class="more-story">
     <div class="more-story-text">
-      <strong>More detail on request</strong>
-      <span>Full audit notes, prototypes, and engineering partnership artifacts available in a deeper walkthrough.</span>
+      <strong>Want to go deeper</strong>
+      <span>Audit clips, the component spec, or a live tour of the pro-user library and the 21-task practice app—happy to walk through any of it.</span>
     </div>
     <div class="more-story-badge">Request full case study →</div>
   </div>
@@ -311,12 +273,27 @@
     }),
     { threshold: 0.1 }
   );
-  document.querySelectorAll('.block, .callout, .quote-block, .metrics-grid, .comparison-grid, .insight-list, .reflection-block, .solution-table, .focus-grid, .checklist, .cs-meta-strip, .my-role-block, .kh-grid, .more-story, .cs-gallery, .cs-overview').forEach(el => {
+  document.querySelectorAll('.block, .callout, .quote-block, .metrics-grid, .comparison-grid, .insight-list, .reflection-block, .solution-table, .focus-grid, .checklist, .cs-meta-strip, .my-role-block, .kh-grid, .more-story, .cs-gallery, .cs-overview, .cs-cursor-chapter, .cs-live-demo').forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(20px)';
     el.style.transition = 'opacity .5s ease, transform .5s ease';
     observer.observe(el);
   });
+
+  // Live demo: quick-jump buttons change the iframe's hash route
+  (function () {
+    const iframe = document.getElementById('hub-iframe');
+    const buttons = document.querySelectorAll('.cs-jump-btn');
+    if (!iframe || !buttons.length) return;
+    buttons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const route = btn.getAttribute('data-hub-route') || '/';
+        iframe.src = 'hub/index.html#' + route;
+        buttons.forEach((b) => b.classList.remove('is-active'));
+        btn.classList.add('is-active');
+      });
+    });
+  })();
 </script>
 
 </body>
