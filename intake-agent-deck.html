@@ -247,12 +247,76 @@
       line-height: 1.15;
     }
     .s-overview-card p { font-size: 1.12cqi; line-height: 1.38; color: var(--ink-secondary); }
+
+    /* Problem slide — editorial quote-list with a cost band */
+    .slide--problem .problem-list { display: flex; flex-direction: column; gap: 1.8cqi; margin-top: 0.6cqi; flex: 1; justify-content: center; min-height: 0; }
+    .slide--problem .problem-row { display: flex; align-items: baseline; gap: 2cqi; padding-left: 1.6cqi; border-left: 3px solid var(--accent); }
+    .slide--problem .problem-row .q {
+      font-family: 'Fraunces', Georgia, serif; font-size: 2.7cqi; font-weight: 400; font-style: italic;
+      color: var(--ink); line-height: 1.12; letter-spacing: -0.01em; flex: 0 0 34%; max-width: 34%;
+    }
+    .slide--problem .problem-row .why { font-size: 1.55cqi; line-height: 1.4; color: var(--ink-secondary); align-self: center; }
+    .slide--problem .problem-row .why strong { color: var(--ink); font-weight: 700; }
+    .slide--problem .problem-cost {
+      margin-top: 0.4cqi; padding: 1.3cqi 1.8cqi; border-radius: 1cqi; background: var(--accent-light);
+      font-size: 1.7cqi; line-height: 1.4; color: var(--ink); font-weight: 500; flex-shrink: 0;
+    }
+    .slide--problem .problem-cost strong { color: var(--accent); font-weight: 700; }
+
+    /* Agenda slide — three connected nodes on one thread */
+    .slide--agenda .agenda-wrap { flex: 1; min-height: 0; display: flex; align-items: center; }
+    .slide--agenda .agenda-thread { width: 100%; position: relative; display: flex; align-items: flex-start; justify-content: space-between; }
+    .slide--agenda .agenda-thread::before {
+      content: ''; position: absolute; left: 16%; right: 16%; top: 2.3cqi; height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-green)); z-index: 0;
+    }
+    .slide--agenda .agenda-node {
+      position: relative; z-index: 1; flex: 1; padding: 0 1.4cqi;
+      display: flex; flex-direction: column; align-items: center; text-align: center; gap: 0.5cqi;
+    }
+    .slide--agenda .agenda-node .dot {
+      width: 4.6cqi; height: 4.6cqi; border-radius: 50%; background: var(--bg-card);
+      border: 2px solid var(--accent); color: var(--accent);
+      display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 2cqi;
+      box-shadow: var(--shadow-md); margin-bottom: 0.8cqi;
+    }
+    .slide--agenda .agenda-node .part { font-size: 1.05cqi; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: var(--accent); }
+    .slide--agenda .agenda-node h3 { font-size: 2.1cqi; font-weight: 600; color: var(--ink); letter-spacing: -0.015em; line-height: 1.12; }
+    .slide--agenda .agenda-node p { font-size: 1.35cqi; line-height: 1.4; color: var(--ink-secondary); max-width: 24ch; }
     .eu-action-stack { display: flex; flex-direction: column; gap: 0.85cqi; flex: 1; min-height: 0; overflow: hidden; }
     .eu-action-stack .s4-shipped { flex-shrink: 0; }
     .eu-action-stack .s4-shipped .deck-shot { max-height: 13cqi; min-height: 8cqi; }
     .eu-action-stack .s6-flow { max-height: 31cqi; flex: 1; min-height: 0; }
     .admin-shots { display: grid; grid-template-columns: 1fr 1fr; gap: 1cqi; margin-top: 0.6cqi; flex: 1; min-height: 0; max-height: 26cqi; }
     .admin-shots .deck-shot { max-height: 100%; min-height: 0; }
+
+    /* Visual-first showcase slides (few words, big screenshots) */
+    .slide--showcase { gap: 0.9cqi; flex: 1; min-height: 0; }
+    .showcase-figure { flex: 1; min-height: 0; display: flex; margin-top: 0.4cqi; }
+    .showcase-figure .deck-shot { flex: 1; min-height: 0; max-height: 100%; box-shadow: var(--shadow-md); }
+    .showcase-cap { margin-top: 0.9cqi; font-size: 1.55cqi; line-height: 1.38; color: var(--ink-secondary); display: flex; align-items: baseline; gap: 1.3cqi; flex-shrink: 0; }
+    .showcase-cap strong { color: var(--ink); font-weight: 600; }
+    .showcase-cap .tag { font-size: 1.05cqi; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: var(--accent); flex-shrink: 0; }
+    .showcase-trio { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.4cqi; flex: 1; min-height: 0; margin-top: 0.4cqi; }
+    .showcase-trio .showcase-col { display: flex; flex-direction: column; gap: 0.7cqi; min-height: 0; }
+    .showcase-trio .deck-shot { flex: 1; min-height: 0; max-height: 100%; box-shadow: var(--shadow-md); }
+    .showcase-step { font-size: 1.15cqi; line-height: 1.3; color: var(--ink-secondary); display: flex; align-items: baseline; gap: 0.8cqi; flex-shrink: 0; }
+    .showcase-step .n { font-size: 1cqi; letter-spacing: 0.12em; font-weight: 700; color: var(--accent); flex-shrink: 0; }
+    .showcase-step strong { color: var(--ink); font-weight: 600; }
+    .cause-effect { display: grid; grid-template-columns: 1fr auto 1fr; gap: 1.6cqi; align-items: stretch; flex: 1; min-height: 0; margin-top: 0.4cqi; }
+    .cause-effect .showcase-col { display: flex; flex-direction: column; gap: 0.7cqi; min-height: 0; }
+    .cause-effect .deck-shot { flex: 1; min-height: 0; max-height: 100%; box-shadow: var(--shadow-md); }
+    .cause-effect .ce-arrow { align-self: center; font-size: 3.4cqi; line-height: 1; font-weight: 300; color: var(--accent); }
+    .cause-effect .ce-label { font-size: 1.2cqi; color: var(--ink-secondary); display: flex; align-items: baseline; gap: 0.8cqi; flex-shrink: 0; }
+    .cause-effect .ce-label .tag { font-size: 1cqi; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; color: var(--accent); flex-shrink: 0; }
+    .cause-effect .ce-label strong { color: var(--ink); font-weight: 600; }
+    .slide--showcase .s-lede { font-size: 1.5cqi; line-height: 1.4; color: var(--ink-secondary); max-width: 72ch; margin: 0.3cqi 0 0; flex-shrink: 0; }
+    .slide--showcase .s-lede strong { color: var(--ink); font-weight: 600; }
+    .slide--appendix .s-eyebrow .kicker { color: var(--accent-green); }
+    .appendix-stats { display: flex; gap: 1.2cqi; margin: 0.6cqi 0 0; flex-shrink: 0; }
+    .appendix-stats .stat { flex: 1; padding: 0.9cqi 1.1cqi; border: 1px solid rgba(24,24,27,0.1); border-radius: 0.9cqi; background: rgba(24,24,27,0.02); display: flex; flex-direction: column; gap: 0.25cqi; }
+    .appendix-stats .stat .v { font-size: 1.7cqi; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+    .appendix-stats .stat .k { font-size: 1.2cqi; color: var(--ink-secondary); line-height: 1.3; }
     .s2-body p {
       font-size: 1.45cqi;
       line-height: 1.42;
@@ -862,7 +926,7 @@
         </div>
         <div>
           <h1 class="s1-title">Intake <em>Agent</em></h1>
-          <p class="s1-sub">Three mini case studies: employee UI, admin, prompts &amp; in-thread design.</p>
+          <p class="s1-sub">A connected procurement loop, in three parts.</p>
         </div>
         <div class="s1-foot">
           <div>
@@ -870,385 +934,190 @@
             <div class="meta"><span>Web</span><span>2024–2026</span></div>
           </div>
           <div class="s1-tags">
-            <span class="s1-tag is-accent">Case study</span>
-            <span class="s1-tag">Agentic</span>
-            <span class="s1-tag">Enterprise</span>
+            <span class="s1-tag is-accent">Phase 1</span>
+            <span class="s1-tag">Phase 2</span>
+            <span class="s1-tag">Compliance Console</span>
           </div>
         </div>
       </section>
 
-      <!-- ====== SLIDE 2 — THREE THREADS ====== -->
-      <section class="slide slide--who" data-slide="2" aria-label="Three parallel case threads">
-        <div class="s-eyebrow">How I’ll use our time</div>
-        <h2 class="s2-headline">Three <em>parallel</em> threads · one product contract.</h2>
-        <div class="s-overview">
-          <div class="s-overview-card">
-            <div class="star">1 · Employee UI</div>
-            <h3>Situation → Task → Action → Result</h3>
-            <p>Fragmented guidance → bar for the page → hybrid IA + side assistant → Phase 1 ship.</p>
+      <!-- ====== SLIDE 2 — THE PROBLEM ====== -->
+      <section class="slide slide--who slide--problem" data-slide="2" aria-label="The problem">
+        <div class="s-eyebrow">The problem</div>
+        <h2 class="s2-headline">Buying something at work is <em>confusing.</em></h2>
+        <div class="problem-list">
+          <div class="problem-row">
+            <div class="q">“Where do I start?”</div>
+            <div class="why">No clear path — people <strong>guess, ask around, or give up</strong>.</div>
           </div>
-          <div class="s-overview-card">
-            <div class="star">2 · Admin</div>
-            <h3>Situation → Task → Action → Result</h3>
-            <p>LLM can be wrong → no “knowledge” setup pattern yet → wizard + playground → shipped with v1.</p>
+          <div class="problem-row">
+            <div class="q">“Is this allowed?”</div>
+            <div class="why">Policy is buried — easy to <strong>buy off-contract by mistake</strong>.</div>
           </div>
-          <div class="s-overview-card">
-            <div class="star">3 · Prompts / LLM</div>
-            <h3>Situation → Task → Action → Result</h3>
-            <p>Q&amp;A wasn’t the whole job → same “show work + one step” habit → catalog / forms / pricing in-thread → Phase 2 + reuse.</p>
+          <div class="problem-row">
+            <div class="q">“This takes forever.”</div>
+            <div class="why">Slow and manual — <strong>hunting across portals and people</strong>.</div>
+          </div>
+        </div>
+        <div class="problem-cost">The cost: <strong>stalled requests, off-contract spend, and wasted time.</strong></div>
+        <div class="s-footer">
+          <div class="left"><strong>Intake Agent</strong> · The problem</div>
+          <div class="right">02 / 09</div>
+        </div>
+      </section>
+
+      <!-- ====== SLIDE 3 — AGENDA ====== -->
+      <section class="slide slide--who slide--agenda" data-slide="3" aria-label="Three parts">
+        <div class="s-eyebrow">Agenda</div>
+        <h2 class="s2-headline">Three parts, <em>one thread.</em></h2>
+        <div class="agenda-wrap">
+          <div class="agenda-thread">
+            <div class="agenda-node">
+              <div class="dot">1</div>
+              <div class="part">Phase 1</div>
+              <h3>Answer + one action</h3>
+              <p>Text reply, text + CAT, and admin setup.</p>
+            </div>
+            <div class="agenda-node">
+              <div class="dot">2</div>
+              <div class="part">Phase 2</div>
+              <h3>Richer content in-thread</h3>
+              <p>Catalog items + non-catalog forms.</p>
+            </div>
+            <div class="agenda-node">
+              <div class="dot">3</div>
+              <div class="part">Console</div>
+              <h3>Control the order</h3>
+              <p>Rules set how catalog ranks in Intake.</p>
+            </div>
           </div>
         </div>
         <div class="s-footer">
-          <div class="left"><strong>Intake Agent</strong> · Map</div>
-          <div class="right">02 / 15</div>
+          <div class="left"><strong>Intake Agent</strong> · Agenda</div>
+          <div class="right">03 / 09</div>
         </div>
       </section>
 
-      <!-- ====== SLIDE 3 — EU SITUATION ====== -->
-      <section class="slide slide--problem" data-slide="3" aria-label="End user situation">
+      <!-- ====== SLIDE 4 — PHASE 1 FLOW ====== -->
+      <section class="slide slide--showcase" data-slide="4" aria-label="Phase 1 flow">
         <div class="s-head">
-          <div class="s-eyebrow">End user UI · Situation</div>
+          <div class="s-eyebrow"><span class="kicker">Part 1</span> · Phase 1</div>
         </div>
-        <h2 class="s-headline">No <em>closed loop</em> for buying truth.</h2>
-        <div class="s3-grid">
-          <div class="s3-left">
-            <div class="label">Reality</div>
-            <p>Wikis, Slack, PDFs, wrong path on forms. <strong>Compliance + money</strong> on the line.</p>
-            <p>Bad answers did not route back into <strong>rule change</strong> fast enough.</p>
+        <h2 class="s-headline">Ask once → <em>text answer, or text + CAT.</em></h2>
+        <p class="s-lede">An employee asks a buying question; the assistant replies in a side panel and cites its source. The reply comes in two shapes — <strong>plain text</strong>, or <strong>text + one action (CAT)</strong> that moves work forward.</p>
+        <div class="showcase-trio">
+          <div class="showcase-col">
+            <div class="deck-shot"><img src="images/intake-agent/02-search-po-query.png" alt="Ask a question in plain language" loading="lazy" /></div>
+            <div class="showcase-step"><span class="n">01</span><span>Ask in plain language</span></div>
           </div>
-          <table class="s3-table">
-            <thead><tr><th>Signal</th><th>So we…</th></tr></thead>
-            <tbody>
-              <tr><td>Repeat “how do I?” tickets</td><td>Scale in product, not headcount</td></tr>
-              <tr><td>Docs go stale</td><td>Admin-owned source of truth</td></tr>
-              <tr><td>Trust in guidance</td><td>Cite sources; user can verify</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="s3-insight">
-          <div class="label">Pivot</div>
-          <div class="quote">Workflow first. Q&amp;A second.</div>
+          <div class="showcase-col">
+            <div class="deck-shot"><img src="images/intake-agent/04-agent-po-answer.png" alt="Text answer with source" loading="lazy" /></div>
+            <div class="showcase-step"><span class="n">02</span><span>Text answer + source</span></div>
+          </div>
+          <div class="showcase-col">
+            <div class="deck-shot"><img src="images/intake-agent/05-agent-catalog-action.png" alt="Text answer plus a single call-to-action" loading="lazy" /></div>
+            <div class="showcase-step"><span class="n">03</span><span><strong>Text + CAT</strong></span></div>
+          </div>
         </div>
         <div class="s-footer">
-          <div class="left"><strong>Intake Agent</strong> · Employee · Situation</div>
-          <div class="right">03 / 15</div>
+          <div class="left"><strong>Intake Agent</strong> · Phase 1</div>
+          <div class="right">04 / 09</div>
         </div>
       </section>
 
-      <!-- ====== SLIDE 4 — EU TASK ====== -->
-      <section class="slide slide--who slide--task" data-slide="4" aria-label="End user task">
-        <div class="s-eyebrow">End user UI · Task</div>
-        <h2 class="s2-headline">What the page had to <em>prove.</em></h2>
-        <div class="s2-body s2-body--task">
-          <p><strong>Workflow first</strong> · Routing + audit, not a chat demo.</p>
-          <p><strong>Bar</strong> · Grounded answers, citations, <strong>one</strong> governed next step per turn.</p>
-          <p><strong>IA</strong> · Same policy context for Quick Links, open ask, assistant — no full-page dump.</p>
-          <p><strong>Out</strong> · Category gate before “allowed?” · full-page chat (weak handoff, trust risk).</p>
-        </div>
-        <div class="s-footer">
-          <div class="left"><strong>Intake Agent</strong> · Employee · Task</div>
-          <div class="right">04 / 15</div>
-        </div>
-      </section>
-
-      <!-- ====== SLIDE 5 — EU ACTION ====== -->
-      <section class="slide slide--rejected" data-slide="5" aria-label="End user action">
+      <!-- ====== SLIDE 5 — PHASE 1 ADMIN CONSOLE ====== -->
+      <section class="slide slide--showcase" data-slide="5" aria-label="Phase 1 admin console">
         <div class="s-head">
-          <div class="s-eyebrow">End user UI · Action</div>
+          <div class="s-eyebrow"><span class="kicker">Part 1</span> · Phase 1 · Admin</div>
         </div>
-        <h2 class="s-headline">Hybrid IA + <em>side assistant</em> + sequence.</h2>
-        <div class="eu-action-stack">
-          <div class="s4-options">
-            <div class="s4-card">
-              <span class="tag">Out</span>
-              <h3>Form-first</h3>
-              <ul>
-                <li>Category before “is this allowed?”</li>
-              </ul>
-            </div>
-            <div class="s4-card">
-              <span class="tag">Out</span>
-              <h3>Full-page chat</h3>
-              <ul>
-                <li>Weak routing; wrong-but-confident</li>
-              </ul>
-            </div>
+        <h2 class="s-headline">A wizard guides admins to a <em>trusted agent.</em></h2>
+        <p class="s-lede">Rather than a blank config screen, a step-by-step wizard walks admins from <strong>ingesting policy</strong> to <strong>testing before launch</strong> — so they build with confidence.</p>
+        <div class="showcase-trio">
+          <div class="showcase-col">
+            <div class="deck-shot"><img src="images/intake-agent/07-admin-upload-document.png" alt="Admin uploads a policy document" loading="lazy" /></div>
+            <div class="showcase-step"><span class="n">01</span><span>Ingest policy</span></div>
           </div>
-          <div class="s4-tradeoff">
-            <span class="label">Pick</span>
-            <span class="body">Outcome over “AI-native” optics.</span>
+          <div class="showcase-col">
+            <div class="deck-shot"><img src="images/intake-agent/10-admin-routing-rules-editor.png" alt="Admin defines routing rules" loading="lazy" /></div>
+            <div class="showcase-step"><span class="n">02</span><span>Define routes &amp; output</span></div>
           </div>
-          <div class="s4-shipped">
-            <p><strong>Hybrid</strong>Quick Links + open ask + side slot. Invariant: answer · source · one handoff.</p>
-            <div class="deck-shot"><img src="images/intake-agent/01-landing-quick-links.png" alt="Hybrid landing" loading="lazy" /></div>
-          </div>
-          <div class="s6-flow">
-            <div class="s6-frame">
-              <div class="s6-shot"><img src="images/intake-agent/02-search-po-query.png" alt="Question" loading="lazy" /></div>
-              <div class="s6-cap"><span class="step">01</span><span class="label">Ask.</span></div>
-            </div>
-            <div class="s6-frame">
-              <div class="s6-shot"><img src="images/intake-agent/03-agent-thinking.png" alt="Loading" loading="lazy" /></div>
-              <div class="s6-cap"><span class="step">02</span><span class="label">Panel; page stays put.</span></div>
-            </div>
-            <div class="s6-frame">
-              <div class="s6-shot"><img src="images/intake-agent/04-agent-po-answer.png" alt="Answer" loading="lazy" /></div>
-              <div class="s6-cap"><span class="step">03</span><span class="label">Answer + source + next step.</span></div>
-            </div>
+          <div class="showcase-col">
+            <div class="deck-shot"><img src="images/intake-agent/11-admin-testing-playground.png" alt="Admin tests in the playground before launch" loading="lazy" /></div>
+            <div class="showcase-step"><span class="n">03</span><span><strong>Test before launch</strong></span></div>
           </div>
         </div>
         <div class="s-footer">
-          <div class="left"><strong>Intake Agent</strong> · Employee · Action</div>
-          <div class="right">05 / 15</div>
+          <div class="left"><strong>Intake Agent</strong> · Phase 1 · Admin</div>
+          <div class="right">05 / 09</div>
         </div>
       </section>
 
-      <!-- ====== SLIDE 6 — EU RESULT ====== -->
-      <section class="slide slide--phase1" data-slide="6" aria-label="End user result">
+      <!-- ====== SLIDE 6 — PHASE 2 CATALOG ====== -->
+      <section class="slide slide--showcase" data-slide="6" aria-label="Phase 2 catalog">
         <div class="s-head">
-          <div class="s-eyebrow">End user UI · Result</div>
+          <div class="s-eyebrow"><span class="kicker">Part 2</span> · Phase 2</div>
         </div>
-        <h2 class="s-headline">Phase 1 <em>on the page.</em></h2>
+        <h2 class="s-headline">Pick <em>catalog items</em> in the same thread.</h2>
+        <p class="s-lede">Phase 2 brings catalog browsing into the conversation — <strong>select lines and submit</strong> without switching tools.</p>
+        <div class="showcase-figure">
+          <div class="deck-shot"><img src="images/intake-agent/13-phase2-catalog-requisition.png" alt="Catalog selection inside the assistant" loading="lazy" /></div>
+        </div>
+        <div class="s-footer">
+          <div class="left"><strong>Intake Agent</strong> · Phase 2</div>
+          <div class="right">06 / 09</div>
+        </div>
+      </section>
+
+      <!-- ====== SLIDE 7 — PHASE 2 NON-CATALOG ====== -->
+      <section class="slide slide--showcase" data-slide="7" aria-label="Phase 2 non-catalog form">
+        <div class="s-head">
+          <div class="s-eyebrow"><span class="kicker">Part 2</span> · Phase 2</div>
+        </div>
+        <h2 class="s-headline">Fill <em>non-catalog forms</em> in-thread.</h2>
+        <p class="s-lede">For off-catalog buys, the structured request form renders <strong>right inside the assistant</strong> — no jump to another screen.</p>
+        <div class="showcase-figure">
+          <div class="deck-shot"><img src="images/intake-agent/14-phase2-noncatalog-request-form.png" alt="Non-catalog request form inside the assistant" loading="lazy" /></div>
+        </div>
+        <div class="s-footer">
+          <div class="left"><strong>Intake Agent</strong> · Phase 2</div>
+          <div class="right">07 / 09</div>
+        </div>
+      </section>
+
+      <!-- ====== SLIDE 8 — COMPLIANCE CAUSE → EFFECT ====== -->
+      <section class="slide slide--showcase" data-slide="8" aria-label="Compliance Console controls ranking">
+        <div class="s-head">
+          <div class="s-eyebrow"><span class="kicker">Part 3</span> · Compliance Console</div>
+        </div>
+        <h2 class="s-headline">Set the rule → <em>Intake shows that order.</em></h2>
+        <p class="s-lede">Admins configure catalog ranking in the Compliance Console; Intake Agent displays results in <strong>exactly that order</strong>.</p>
+        <div class="cause-effect">
+          <div class="showcase-col">
+            <div class="deck-shot"><img src="images/purchase-compliance/console-display-rules.png" alt="Compliance Console display rules" loading="lazy" /></div>
+            <div class="ce-label"><span class="tag">Console</span><span>Admin sets <strong>catalog ranking</strong>.</span></div>
+          </div>
+          <div class="ce-arrow" aria-hidden="true">→</div>
+          <div class="showcase-col">
+            <div class="deck-shot"><img src="images/purchase-compliance/catalog-search-compliance-ranking.png" alt="Catalog ranking shown in Intake Agent" loading="lazy" /></div>
+            <div class="ce-label"><span class="tag">Intake</span><span>Items appear in the <strong>governed order</strong>.</span></div>
+          </div>
+        </div>
+        <div class="s-footer">
+          <div class="left"><strong>Compliance Console</strong> · Ranking</div>
+          <div class="right">08 / 09</div>
+        </div>
+      </section>
+
+      <!-- ====== SLIDE 9 — CLOSE ====== -->
+      <section class="slide slide--outcomes slide--result" data-slide="9" aria-label="Recap">
+        <div class="s-head">
+          <div class="s-eyebrow">One loop</div>
+        </div>
+        <h2 class="s-headline">Answer → action → <em>governed order.</em></h2>
         <div class="s2-body s2-body--task" style="margin-top: 0.6cqi; flex: 1;">
-          <p><strong>Shipped</strong> · Hybrid front door + assistant PMs could demo without apologizing for handoff.</p>
-          <p><strong>Signal</strong> · One door for “how do I buy X?” — fewer scatter-channel loops (metric if shareable).</p>
-          <p><strong>Primitive</strong> · Answer + source + one action — reused on other surfaces later.</p>
-        </div>
-        <div class="s-footer">
-          <div class="left"><strong>Intake Agent</strong> · Employee · Result</div>
-          <div class="right">06 / 15</div>
-        </div>
-      </section>
-
-      <!-- ====== SLIDE 7 — ADMIN SITUATION ====== -->
-      <section class="slide slide--system" data-slide="7" aria-label="Admin situation">
-        <div class="s-head">
-          <div class="s-eyebrow">Admin · Situation</div>
-        </div>
-        <h2 class="s-headline">The LLM could answer — <em>we needed a clear way to control it.</em></h2>
-        <div class="s5-loop">
-          <div class="s5-node s5-node--admin">
-            <span class="who">What we had</span>
-            <span class="what">An LLM helping employees · can be wrong or off-script</span>
-          </div>
-          <span class="s5-arrow">→</span>
-          <div class="s5-node s5-node--user">
-            <span class="who">What was missing</span>
-            <span class="what">No simple “add knowledge + safe setup” story for admins yet</span>
-          </div>
-          <span class="s5-arrow">→</span>
-          <div class="s5-node">
-            <span class="who">What we needed</span>
-            <span class="what">Step-by-step setup + test before launch</span>
-          </div>
-        </div>
-        <div class="s5-grid">
-          <div class="s5-quote">
-            <div class="label">Plain story</div>
-            <div class="text">Linear wizard: load data → define what comes out → set up what employees see → try it in a playground → then go live.</div>
-            <div class="attrib">Same idea as “knowledge” in assistants today — we had to design the path early.</div>
-          </div>
-          <table class="s5-table">
-            <thead><tr><th>The problem</th><th>So we…</th></tr></thead>
-            <tbody>
-              <tr><td>Model can hallucinate</td><td>Control what it’s allowed to use</td></tr>
-              <tr><td>Admins weren’t sure how to start</td><td>One ordered path, not 50 settings at once</td></tr>
-              <tr><td>Launch felt risky</td><td>Playground to verify before employees use it</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="s-footer">
-          <div class="left"><strong>Intake Agent</strong> · Admin · Situation</div>
-          <div class="right">07 / 15</div>
-        </div>
-      </section>
-
-      <!-- ====== SLIDE 8 — ADMIN TASK ====== -->
-      <section class="slide slide--who slide--task" data-slide="8" aria-label="Admin task">
-        <div class="s-eyebrow">Admin · Task</div>
-        <h2 class="s2-headline">Give admins a path they can <em>trust.</em></h2>
-        <div class="s2-body s2-body--task">
-          <p><strong>Order of operations</strong> · Data in → answers &amp; routing → employee-facing experience → <strong>testing playground</strong> → go live.</p>
-          <p><strong>Control</strong> · Make allowed sources and allowed “next steps” <strong>explicit</strong> — not something the model guesses in the moment.</p>
-          <p><strong>After launch</strong> · Let admins see what happened and adjust in a maintainable way.</p>
-        </div>
-        <div class="s-footer">
-          <div class="left"><strong>Intake Agent</strong> · Admin · Task</div>
-          <div class="right">08 / 15</div>
-        </div>
-      </section>
-
-      <!-- ====== SLIDE 9 — ADMIN ACTION ====== -->
-      <section class="slide slide--system" data-slide="9" aria-label="Admin action">
-        <div class="s-head">
-          <div class="s-eyebrow">Admin · Action</div>
-        </div>
-        <h2 class="s-headline">We built the <em>wizard</em> and the screens behind it.</h2>
-        <div class="s5-grid" style="flex: 0 0 auto;">
-          <div class="s5-quote" style="padding-top: 0;">
-            <div class="label">Flow</div>
-            <div class="text" style="font-size: 1.35cqi;">Add data → define answers &amp; routing → configure employee UI → playground → go live → refine from usage.</div>
-          </div>
-          <table class="s5-table">
-            <thead><tr><th>Step</th><th>In plain terms</th></tr></thead>
-            <tbody>
-              <tr><td>Add your data</td><td>What the assistant is allowed to learn from</td></tr>
-              <tr><td>Routing &amp; outputs</td><td>What people hear and where “next” goes</td></tr>
-              <tr><td>Playground</td><td>Run real questions before employees do</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="admin-shots">
-          <div class="deck-shot"><img src="images/intake-agent/09-admin-routing-table.png" alt="Routing table" loading="lazy" /></div>
-          <div class="deck-shot"><img src="images/intake-agent/11-admin-testing-playground.png" alt="Testing playground" loading="lazy" /></div>
-        </div>
-        <div class="s-footer">
-          <div class="left"><strong>Intake Agent</strong> · Admin · Action</div>
-          <div class="right">09 / 15</div>
-        </div>
-      </section>
-
-      <!-- ====== SLIDE 10 — ADMIN RESULT ====== -->
-      <section class="slide slide--who slide--task" data-slide="10" aria-label="Admin result">
-        <div class="s-eyebrow">Admin · Result</div>
-        <h2 class="s2-headline">Admins could set up and <em>ship without guesswork.</em></h2>
-        <div class="s2-body s2-body--task">
-          <p><strong>Shipped together</strong> · Admin setup went out in the <strong>same release</strong> as the employee assistant — not “later.”</p>
-          <p><strong>Trust moment</strong> · Playground meant they could <strong>see</strong> answers before anyone relied on them in production.</p>
-          <p><strong>Next time</strong> · Stronger <strong>preview</strong> of the employee view while configuring, and easier <strong>rollback</strong> when rules change.</p>
-        </div>
-        <div class="s-footer">
-          <div class="left"><strong>Intake Agent</strong> · Admin · Result</div>
-          <div class="right">10 / 15</div>
-        </div>
-      </section>
-
-      <!-- ====== SLIDE 11 — PROMPTS SITUATION ====== -->
-      <section class="slide slide--problem" data-slide="11" aria-label="Prompts situation">
-        <div class="s-head">
-          <div class="s-eyebrow">Prompts &amp; LLM · Situation</div>
-        </div>
-        <h2 class="s-headline">Q&amp;A worked — <em>buying didn’t stop there.</em></h2>
-        <div class="s3-grid">
-          <div class="s3-left">
-            <div class="label">What was still missing</div>
-            <p>People still needed <strong>catalog lines, quantities, real fields, pricing</strong> — not only policy answers and a link away.</p>
-            <p>If we “fixed” that with <strong>more free-form model text</strong>, we’d get confident answers that <strong>don’t match</strong> what’s on screen. The <strong>UI and the prompts</strong> have to stay in lockstep.</p>
-          </div>
-          <table class="s3-table">
-            <thead><tr><th>Employee need</th><th>So we had to…</th></tr></thead>
-            <tbody>
-              <tr><td>Pick &amp; submit catalog items</td><td>Keep it in the same thread, step by step</td></tr>
-              <tr><td>Off-catalog requests</td><td>Real fields inline — no surprise jump-out</td></tr>
-              <tr><td>Pricing</td><td>Same conversation, same policy story</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="s3-insight">
-          <div class="label">Plain story</div>
-          <div class="quote">Longer flows are still the same assistant — not a pile of new tricks.</div>
-        </div>
-        <div class="s-footer">
-          <div class="left"><strong>Intake Agent</strong> · Prompts · Situation</div>
-          <div class="right">11 / 15</div>
-        </div>
-      </section>
-
-      <!-- ====== SLIDE 12 — PROMPTS TASK ====== -->
-      <section class="slide slide--who slide--task" data-slide="12" aria-label="Prompts task">
-        <div class="s-eyebrow">Prompts &amp; LLM · Task</div>
-        <h2 class="s2-headline">Finish the purchase <em>without breaking the habit.</em></h2>
-        <div class="s2-body s2-body--task">
-          <p><strong>Same column</strong> · Catalog, off-catalog, and pricing all happen where people <strong>already trust</strong> the assistant from Phase 1.</p>
-          <p><strong>Same beat</strong> · Each step stays <strong>answer → where it came from → one clear next thing</strong> — not five competing buttons from the model.</p>
-          <p><strong>Same admin rules</strong> · What admins loaded and routed still <strong>feeds</strong> what the model can do in these longer flows.</p>
-        </div>
-        <div class="s-footer">
-          <div class="left"><strong>Intake Agent</strong> · Prompts · Task</div>
-          <div class="right">12 / 15</div>
-        </div>
-      </section>
-
-      <!-- ====== SLIDE 13 — PROMPTS ACTION ====== -->
-      <section class="slide slide--craft" data-slide="13" aria-label="Prompts action">
-        <div class="s-head">
-          <div class="s-eyebrow">Prompts &amp; LLM · Action</div>
-        </div>
-        <h2 class="s-headline">Same <em>recipe</em> for catalog, forms, and pricing.</h2>
-        <div class="s7-grid">
-          <div>
-            <div class="s7-pattern">
-              <div class="label">Every heavy step still has</div>
-              <div class="s7-row">Answer</div>
-              <div class="s7-row">Where we got it</div>
-              <span class="s7-action">One main next step →</span>
-            </div>
-            <p class="s7-source"><strong>What we built:</strong> clear cards for catalog, inline fields for off-catalog, pricing in-thread — each with a <strong>bounded job</strong> for the model, not open-ended prose.</p>
-          </div>
-          <div class="s7-phase2">
-            <h4>Phase 2 <em>in the product</em></h4>
-            <ul>
-              <li><strong>Catalog</strong> · pick lines + qty, submit in the same column</li>
-              <li><strong>Off-catalog</strong> · structured fields where the chat already lives</li>
-              <li><strong>Pricing</strong> · same side-panel rhythm as Phase 1</li>
-            </ul>
-            <div class="s7-shots" style="grid-template-columns: 1fr 1fr 1fr; max-height: 30cqi;">
-              <div class="s6-shot"><img src="images/intake-agent/13-phase2-catalog-requisition.png" alt="Catalog" loading="lazy" /></div>
-              <div class="s6-shot"><img src="images/intake-agent/14-phase2-noncatalog-request-form.png" alt="Form" loading="lazy" /></div>
-              <div class="s6-shot"><img src="images/intake-agent/15-phase2-noncatalog-pricing.png" alt="Pricing" loading="lazy" /></div>
-            </div>
-          </div>
-        </div>
-        <div class="s-footer">
-          <div class="left"><strong>Intake Agent</strong> · Prompts · Action</div>
-          <div class="right">13 / 15</div>
-        </div>
-      </section>
-
-      <!-- ====== SLIDE 14 — PROMPTS RESULT ====== -->
-      <section class="slide slide--who slide--task" data-slide="14" aria-label="Prompts result">
-        <div class="s-eyebrow">Prompts &amp; LLM · Result</div>
-        <h2 class="s2-headline">Phase 2 shipped — <em>one habit, more flows.</em></h2>
-        <div class="s2-body s2-body--task">
-          <p><strong>2026</strong> · Catalog, forms, and pricing ran <strong>end-to-end in the same trace</strong> as the original Q&amp;A experience.</p>
-          <p><strong>Reuse</strong> · The same <strong>answer / source / one next step</strong> pattern showed up on <strong>other</strong> assistant surfaces — build once, use again.</p>
-          <p><strong>Next time</strong> · Test prompts against <strong>real traffic</strong> earlier, and tighten <strong>admin preview</strong> so the employee view never drifts from what we think we shipped.</p>
-        </div>
-        <div class="s-footer">
-          <div class="left"><strong>Intake Agent</strong> · Prompts · Result</div>
-          <div class="right">14 / 15</div>
-        </div>
-      </section>
-
-      <!-- ====== SLIDE 15 — SYNTHESIS ====== -->
-      <section class="slide slide--outcomes slide--result" data-slide="15" aria-label="Synthesis and outcomes">
-        <div class="s-head">
-          <div class="s-eyebrow">Across all three</div>
-        </div>
-        <h2 class="s-headline">Two waves. <em>One system.</em></h2>
-        <div class="s9-grid">
-          <div class="s9-col">
-            <h4>Proof</h4>
-            <ul class="s9-list">
-              <li>2024 · Employee UI + assistant + <strong>admin v1</strong></li>
-              <li>2026 · Catalog, forms, pricing <strong>in the same assistant flow</strong> — prompts matched to UI</li>
-              <li>One story: employee UI · admin setup · <strong>what we ask the model to do</strong></li>
-            </ul>
-          </div>
-          <div class="s9-col" style="display: flex; flex-direction: column; gap: 0; height: 100%; min-height: 0;">
-            <h4>Decisions (summary)</h4>
-            <table class="s8-table" style="font-size: 1.05cqi; margin-top: 0.4cqi;">
-              <tbody>
-                <tr><td>Hybrid vs chat-only</td><td class="result">Hybrid</td></tr>
-                <tr><td>Routing</td><td class="result">Deterministic table</td></tr>
-                <tr><td>Admin timing</td><td class="result">Shipped v1</td></tr>
-              </tbody>
-            </table>
-            <div class="s9-callout" style="margin-top: 0.6cqi;">
-              <strong>Learning</strong>
-              Preview · eval · versioned rollback — earlier.
-            </div>
-          </div>
+          <p><strong>Phase 1</strong> · Text answer + one action (CAT); admins upload docs to define routes.</p>
+          <p><strong>Phase 2</strong> · Catalog and non-catalog work, in-thread.</p>
+          <p><strong>Compliance Console</strong> · Rules control the catalog order Intake shows.</p>
         </div>
         <div class="s10-close s10-close--result">
           <div class="sig sig--block">
@@ -1257,8 +1126,128 @@
           </div>
         </div>
         <div class="s-footer">
-          <div class="left"><strong>Intake Agent</strong> · Synthesis</div>
-          <div class="right">15 / 15</div>
+          <div class="left"><strong>Intake Agent</strong> · Recap</div>
+          <div class="right">09 / 09</div>
+        </div>
+      </section>
+
+      <!-- ====== APPENDIX 1 — TRUST & EVALS ====== -->
+      <section class="slide slide--showcase slide--appendix" data-slide="10" aria-label="Appendix: trust and evals">
+        <div class="s-head">
+          <div class="s-eyebrow"><span class="kicker">Appendix</span> · How we kept it honest</div>
+        </div>
+        <h2 class="s-headline">Grounding + a <em>test gate</em> before launch.</h2>
+        <p class="s-lede">An unguided LLM drifts. We grounded every answer in ingested policy, then made admins <strong>verify in a playground</strong> before anything shipped.</p>
+        <div class="cause-effect">
+          <div class="showcase-col">
+            <div class="deck-shot"><img src="images/intake-agent/08-admin-policy-processing.png" alt="Policy processed and grounded" loading="lazy" /></div>
+            <div class="ce-label"><span class="tag">Grounded</span><span>Answers tied to <strong>ingested policy</strong>.</span></div>
+          </div>
+          <div class="ce-arrow" aria-hidden="true">→</div>
+          <div class="showcase-col">
+            <div class="deck-shot"><img src="images/intake-agent/11-admin-testing-playground.png" alt="Testing playground before launch" loading="lazy" /></div>
+            <div class="ce-label"><span class="tag">Verified</span><span>Tested in a <strong>playground before launch</strong>.</span></div>
+          </div>
+        </div>
+        <div class="s-footer">
+          <div class="left"><strong>Appendix</strong> · Trust &amp; evals</div>
+          <div class="right">A1</div>
+        </div>
+      </section>
+
+      <!-- ====== APPENDIX 2 — REJECTED DESIGN ====== -->
+      <section class="slide slide--showcase slide--appendix" data-slide="11" aria-label="Appendix: a rejected design">
+        <div class="s-head">
+          <div class="s-eyebrow"><span class="kicker">Appendix</span> · A path we rejected</div>
+        </div>
+        <h2 class="s-headline">Why a wizard, <em>not a config screen.</em></h2>
+        <p class="s-lede">Exposing every rule at once was powerful but overwhelming — it eroded admin trust. We chose <strong>guided steps</strong> that build confidence incrementally.</p>
+        <div class="cause-effect">
+          <div class="showcase-col">
+            <div class="deck-shot"><img src="images/intake-agent/09-admin-routing-table.png" alt="Dense rules table, rejected" loading="lazy" /></div>
+            <div class="ce-label"><span class="tag">Rejected</span><span>Everything at once — <strong>too much to trust</strong>.</span></div>
+          </div>
+          <div class="ce-arrow" aria-hidden="true">→</div>
+          <div class="showcase-col">
+            <div class="deck-shot"><img src="images/intake-agent/07-admin-upload-document.png" alt="Guided wizard, shipped" loading="lazy" /></div>
+            <div class="ce-label"><span class="tag">Shipped</span><span>Guided steps that <strong>build trust</strong>.</span></div>
+          </div>
+        </div>
+        <div class="s-footer">
+          <div class="left"><strong>Appendix</strong> · Tradeoff</div>
+          <div class="right">A2</div>
+        </div>
+      </section>
+
+      <!-- ====== APPENDIX 3 — IMPACT ====== -->
+      <section class="slide slide--showcase slide--appendix" data-slide="12" aria-label="Appendix: impact">
+        <div class="s-head">
+          <div class="s-eyebrow"><span class="kicker">Appendix</span> · Did it work?</div>
+        </div>
+        <h2 class="s-headline">Designed to be <em>measured.</em></h2>
+        <p class="s-lede">The admin analytics view was part of the design, not an afterthought — so impact stays visible. <em>(Figures directional — swap in your live numbers.)</em></p>
+        <div class="appendix-stats">
+          <div class="stat"><span class="v">↑ Adoption</span><span class="k">More requests start in the agent</span></div>
+          <div class="stat"><span class="v">↓ Off-catalog</span><span class="k">Fewer non-compliant buys</span></div>
+          <div class="stat"><span class="v">↓ Time-to-answer</span><span class="k">No hunting through portals</span></div>
+        </div>
+        <div class="showcase-figure">
+          <div class="deck-shot"><img src="images/intake-agent/12-admin-analytics-dashboard.png" alt="Admin analytics dashboard" loading="lazy" /></div>
+        </div>
+        <div class="s-footer">
+          <div class="left"><strong>Appendix</strong> · Impact</div>
+          <div class="right">A3</div>
+        </div>
+      </section>
+
+      <!-- ====== APPENDIX 4 — THE BEFORE ====== -->
+      <section class="slide slide--showcase slide--appendix" data-slide="13" aria-label="Appendix: the before state">
+        <div class="s-head">
+          <div class="s-eyebrow"><span class="kicker">Appendix</span> · The before</div>
+        </div>
+        <h2 class="s-headline">What we collapsed: the <em>old manual path.</em></h2>
+        <p class="s-lede">Buying used to mean navigating a manual draft flow and knowing where to go. The agent turns that into <strong>one question</strong>.</p>
+        <div class="cause-effect">
+          <div class="showcase-col">
+            <div class="deck-shot"><img src="images/intake-agent/06-legacy-start-purchase-draft.png" alt="Legacy manual purchase draft" loading="lazy" /></div>
+            <div class="ce-label"><span class="tag">Before</span><span>Manual draft, <strong>many steps</strong>.</span></div>
+          </div>
+          <div class="ce-arrow" aria-hidden="true">→</div>
+          <div class="showcase-col">
+            <div class="deck-shot"><img src="images/intake-agent/05-agent-catalog-action.png" alt="Ask once, answer plus action" loading="lazy" /></div>
+            <div class="ce-label"><span class="tag">After</span><span>Ask once — <strong>answer + action</strong>.</span></div>
+          </div>
+        </div>
+        <div class="s-footer">
+          <div class="left"><strong>Appendix</strong> · Before &amp; after</div>
+          <div class="right">A4</div>
+        </div>
+      </section>
+
+      <!-- ====== APPENDIX 5 — COMPLIANCE DEPTH ====== -->
+      <section class="slide slide--showcase slide--appendix" data-slide="14" aria-label="Appendix: compliance depth">
+        <div class="s-head">
+          <div class="s-eyebrow"><span class="kicker">Appendix</span> · When rules get complex</div>
+        </div>
+        <h2 class="s-headline">Beyond the happy path: <em>how rules resolve.</em></h2>
+        <p class="s-lede">The console gives admins control over context and display rules — so ranking holds up when policies overlap or compete.</p>
+        <div class="showcase-trio">
+          <div class="showcase-col">
+            <div class="deck-shot"><img src="images/purchase-compliance/console-overview.png" alt="Compliance console overview" loading="lazy" /></div>
+            <div class="showcase-step"><span class="n">01</span><span>Overview</span></div>
+          </div>
+          <div class="showcase-col">
+            <div class="deck-shot"><img src="images/purchase-compliance/console-display-rules.png" alt="Display rules" loading="lazy" /></div>
+            <div class="showcase-step"><span class="n">02</span><span>Display rules</span></div>
+          </div>
+          <div class="showcase-col">
+            <div class="deck-shot"><img src="images/purchase-compliance/console-maintain-context-modal.png" alt="Maintain context modal" loading="lazy" /></div>
+            <div class="showcase-step"><span class="n">03</span><span><strong>Context resolution</strong></span></div>
+          </div>
+        </div>
+        <div class="s-footer">
+          <div class="left"><strong>Compliance Console</strong> · Depth</div>
+          <div class="right">A5</div>
         </div>
       </section>
 
@@ -1269,9 +1258,10 @@
     <div class="grp">
       <button class="deck-btn" id="prevBtn" title="Previous slide (←)" aria-label="Previous slide">←</button>
       <button class="deck-btn" id="nextBtn" title="Next slide (→)" aria-label="Next slide">→</button>
-      <span class="deck-counter" id="counter">01 / 15</span>
+      <span class="deck-counter" id="counter">01 / 09</span>
     </div>
     <div class="grp">
+      <button class="deck-btn is-icon" id="apxBtn" title="Jump to appendix / backup slides (A)">Appendix</button>
       <button class="deck-btn is-icon" id="notesBtn" title="Toggle speaker notes (N)">Notes</button>
       <a class="deck-btn is-icon" href="intake-agent.html" title="Back to case study">Case study →</a>
     </div>
@@ -1283,26 +1273,25 @@
   </div>
 
   <div class="deck-hint" id="deckHint">
-    Press <kbd>&larr;</kbd> <kbd>&rarr;</kbd> to navigate &middot; <kbd>N</kbd> for notes &middot; <kbd>F</kbd> for fullscreen
+    Press <kbd>&larr;</kbd> <kbd>&rarr;</kbd> to navigate &middot; <kbd>A</kbd> for appendix &middot; <kbd>N</kbd> for notes &middot; <kbd>F</kbd> for fullscreen
   </div>
 
   <script id="deck-data" type="application/json">
 [
-  { "title": "Title", "notes": "<p>One line: fragmented buying truth + risk. Three threads (employee, admin, prompts) — not a STAR lecture.</p>" },
-  { "title": "Map", "notes": "<p>~45s. Same product contract; each thread is Situation→Task→Action→Result for you, not for the audience as vocabulary.</p>" },
-  { "title": "Employee · Situation", "notes": "<p>Tickets, stale docs, compliance angle. Pivot: workflow first.</p>" },
-  { "title": "Employee · Task", "notes": "<p>Bar before pixels: one next step, citations, same policy context everywhere.</p>" },
-  { "title": "Employee · Action", "notes": "<p>Rejected options, hybrid shipped, walk 01→02→03 as sequence.</p>" },
-  { "title": "Employee · Result", "notes": "<p>Phase 1 proof, primitive locked, metric if shareable.</p>" },
-  { "title": "Admin · Situation", "notes": "<p>Simple arc: LLM helps employees but can be wrong. We didn’t yet have an obvious “knowledge + setup” pattern like many products do now. Admins needed a straight line: data → outputs → employee UI → test → launch.</p>" },
-  { "title": "Admin · Task", "notes": "<p>Goal: ordered setup + explicit control of sources and next steps + test before live. Avoid model-improvised routing.</p>" },
-  { "title": "Admin · Action", "notes": "<p>Wizard + real screens. Call out playground as the “I believe this” moment. Routing table + testing screenshots.</p>" },
-  { "title": "Admin · Result", "notes": "<p>Shipped with employee app same wave. Admins weren’t blind at launch. Preview + rollback for next iteration.</p>" },
-  { "title": "Prompts · Situation", "notes": "<p>Phase 1 Q&amp;A wasn’t the whole job — people still had catalog, fields, pricing. Risk: more model text without matching UI. Same trust habit: show sources, one next step, same thread.</p>" },
-  { "title": "Prompts · Task", "notes": "<p>Goal: finish buying in the same column. Same three-part rhythm. Admin rules still apply in longer flows.</p>" },
-  { "title": "Prompts · Action", "notes": "<p>Recipe + three screenshots. Each flow = bounded job for model + clear UI card. Pick one deep example if they probe.</p>" },
-  { "title": "Prompts · Result", "notes": "<p>2026 in-thread ship; pattern reused elsewhere. Next: real-traffic prompt tests + tighter admin/employee preview.</p>" },
-  { "title": "Synthesis", "notes": "<p>Two waves, one system. Decisions table + learning. Calm close.</p>" }
+  { "title": "Title", "notes": "<p>One connected procurement loop, told in 3 parts. Keep it short; let them ask.</p>" },
+  { "title": "The problem", "notes": "<p>Plain-language framing before any UI: buying at work is confusing. People don't know where to start, whether a purchase is allowed, and it's slow and manual. The cost is stalled requests, off-contract spend, and wasted time. Everything after this solves one of these three.</p>" },
+  { "title": "Agenda", "notes": "<p>Phase 1 answer+action, Phase 2 richer content, Console controls ranking.</p>" },
+  { "title": "Phase 1 · Ask → answer", "notes": "<p>Walk it: 01 ask in plain language, 02 a grounded text answer with its source, 03 the same answer plus one action (CAT). Two response shapes — plain text, or text + CAT that moves work forward.</p>" },
+  { "title": "Phase 1 · Admin console", "notes": "<p>Trust is the real problem here: an unguided LLM drifts. So the admin experience is a linear wizard, not a blank config screen. It walks them through: ingest policy, define routes and output, then verify in a testing playground before launch. Each step builds confidence that the agent will behave.</p>" },
+  { "title": "Phase 2 · Catalog", "notes": "<p>Pick and submit catalog items inside the thread.</p>" },
+  { "title": "Phase 2 · Non-catalog", "notes": "<p>Fill structured non-catalog forms inline, same conversation.</p>" },
+  { "title": "Compliance Console", "notes": "<p>Cause and effect: admin sets ranking in the console, Intake renders that order.</p>" },
+  { "title": "Recap", "notes": "<p>Answer to action to governed order. Invite questions.</p>" },
+  { "title": "Appendix · Trust & evals", "notes": "<p>Pull up if asked about hallucination. Two-part answer: (1) grounding — answers tied to ingested policy, not free-form; (2) a testing playground that admins must pass before launch. Talk about what 'good' looked like and how you evaluated grounded vs. wrong answers.</p>" },
+  { "title": "Appendix · Rejected design", "notes": "<p>Pull up if asked about alternatives. We considered a dense, expose-everything config table — fast for power users but it overwhelmed admins and eroded trust. We chose a guided wizard that builds confidence step by step. Frame it as a trust tradeoff, not a feature cut.</p>" },
+  { "title": "Appendix · Impact", "notes": "<p>Pull up if asked how you measured success. The analytics view was designed in, so impact is observable: adoption, fewer off-catalog/non-compliant buys, faster time-to-answer. Replace the directional labels with real numbers if you have them.</p>" },
+  { "title": "Appendix · The before", "notes": "<p>Pull up if asked what was broken. The legacy path was a manual purchase-draft flow where users had to know where to go. The agent collapses that into one question. Good for problem framing.</p>" },
+  { "title": "Appendix · Compliance depth", "notes": "<p>Pull up if asked about edge cases or granularity. Show how context and display rules resolve when policies overlap — ranking still holds up. Demonstrates systems thinking beyond the happy path.</p>" }
 ]
   </script>
   <script id="deck-script">
@@ -1310,6 +1299,8 @@
       const deck = document.getElementById('deck');
       const slides = Array.from(deck.querySelectorAll('.slide'));
       const total = slides.length;
+      const appendixStart = slides.filter(s => !s.classList.contains('slide--appendix')).length;
+      const hasAppendix = appendixStart < total;
       const prevBtn = document.getElementById('prevBtn');
       const nextBtn = document.getElementById('nextBtn');
       const counter = document.getElementById('counter');
@@ -1333,10 +1324,16 @@
 
       function render() {
         slides.forEach((s, i) => s.classList.toggle('is-active', i === current));
-        counter.textContent = pad(current + 1) + ' / ' + pad(total);
-        progress.style.width = ((current + 1) / total * 100) + '%';
+        const inApx = current >= appendixStart;
+        if (inApx) {
+          counter.textContent = 'A' + (current - appendixStart + 1) + ' / A' + (total - appendixStart);
+          progress.style.width = '100%';
+        } else {
+          counter.textContent = pad(current + 1) + ' / ' + pad(appendixStart);
+          progress.style.width = ((current + 1) / appendixStart * 100) + '%';
+        }
         prevBtn.disabled = current === 0;
-        nextBtn.disabled = current === total - 1;
+        nextBtn.disabled = inApx ? (current === total - 1) : (current === appendixStart - 1);
         if ((location.hash || '').replace('#','') !== String(current + 1)) {
           history.replaceState(null, '', '#' + (current + 1));
         }
@@ -1349,6 +1346,14 @@
         current = next;
         render();
       }
+
+      // Forward nav stops at the last main slide so the appendix is opt-in only.
+      function goNext() {
+        if (current < appendixStart - 1) go(current + 1);
+        else if (current >= appendixStart && current < total - 1) go(current + 1);
+      }
+      function goPrev() { go(current - 1); }
+      function goAppendix() { if (hasAppendix) go(appendixStart); }
 
       function renderNotes() {
         const data = notesData[current] || { title: '', notes: '' };
@@ -1370,9 +1375,14 @@
         }
       }
 
-      prevBtn.addEventListener('click', () => go(current - 1));
-      nextBtn.addEventListener('click', () => go(current + 1));
+      prevBtn.addEventListener('click', () => goPrev());
+      nextBtn.addEventListener('click', () => goNext());
       notesBtn.addEventListener('click', () => toggleNotes());
+      const apxBtn = document.getElementById('apxBtn');
+      if (apxBtn) {
+        if (!hasAppendix) apxBtn.style.display = 'none';
+        else apxBtn.addEventListener('click', () => goAppendix());
+      }
       notesOverlay.addEventListener('click', (e) => { if (e.target === notesOverlay) toggleNotes(false); });
 
       window.addEventListener('hashchange', () => { current = indexFromHash(); render(); });
@@ -1380,10 +1390,11 @@
       window.addEventListener('keydown', (e) => {
         if (e.target.matches('input, textarea, select')) return;
         const k = e.key;
-        if (k === 'ArrowRight' || k === 'PageDown' || k === ' ' || k === 'Spacebar') { e.preventDefault(); go(current + 1); }
-        else if (k === 'ArrowLeft' || k === 'PageUp') { e.preventDefault(); go(current - 1); }
+        if (k === 'ArrowRight' || k === 'PageDown' || k === ' ' || k === 'Spacebar') { e.preventDefault(); goNext(); }
+        else if (k === 'ArrowLeft' || k === 'PageUp') { e.preventDefault(); goPrev(); }
         else if (k === 'Home') { e.preventDefault(); go(0); }
-        else if (k === 'End') { e.preventDefault(); go(total - 1); }
+        else if (k === 'End') { e.preventDefault(); go(appendixStart - 1); }
+        else if (k === 'a' || k === 'A') { e.preventDefault(); goAppendix(); }
         else if (k === 'n' || k === 'N') { e.preventDefault(); toggleNotes(); }
         else if (k === 'Escape') { if (notesOverlay.classList.contains('is-open')) toggleNotes(false); }
         else if (k === 'f' || k === 'F') {
@@ -1392,8 +1403,8 @@
         }
         else if (/^[0-9]$/.test(k)) {
           const n = parseInt(k, 10);
-          if (n === 0) go(total - 1);
-          else if (n >= 1 && n <= total) go(n - 1);
+          if (n === 0) go(appendixStart - 1);
+          else if (n >= 1 && n <= appendixStart) go(n - 1);
         }
       });
 

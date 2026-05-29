@@ -1,214 +1,166 @@
 <!--
-Gamma: "---" = new slide. Three mini case studies (STAR each): employee UI, admin, prompts/LLM. Staff interview tone — STAR is structure, not a lecture.
+Gamma: "---" = new slide. Visual-first, few words. Big screenshot per slide; speaker line in ">".
+3 parts: Phase 1 (text + CAT) · Phase 2 (catalog + non-catalog) · Compliance Console (controls catalog order in Intake).
 -->
 
 # Intake Agent
 
-**Three mini case studies · one governed procurement assistant**
+**A connected procurement loop, in three parts**
 
-Workday · Web · 2024–2026 · Lead UX
+Eric Huang · Lead UX, Workday · 2024–2026
 
-- **Thread 1 — Employee surface** · Situation → Task → Action → Result
-- **Thread 2 — Admin control plane** · same STAR arc
-- **Thread 3 — Prompts & in-thread design** · same STAR arc (longer buying flows + how we shaped model-facing work)
+- Part 1 · Phase 1 — answer + one action
+- Part 2 · Phase 2 — richer content in-thread
+- Part 3 · Compliance Console — controls catalog order in Intake
 
-> Open: one business sentence, then “I’ll walk three parallel threads — employee UI, admin, and how I shaped prompts and surfaces for the model — and close on what shipped.”
-
----
-
-# How I’ll use our time
-
-**Three parallel case threads · same product contract**
-
-| Thread | What you’ll hear |
-| --- | --- |
-| **1 · Employee UI** | Fragmented guidance → bar for the page → hybrid IA + side assistant → Phase 1 ship |
-| **2 · Admin** | LLM can be wrong → no clear “knowledge” setup pattern yet → linear wizard + playground → shipped with v1 |
-| **3 · Prompts / LLM** | Q&amp;A wasn’t the whole job → keep “show your work + one next step” → catalog / forms / pricing in the same thread → Phase 2 + reuse |
-
-> ~45s. No methodology deck — STAR is just how each thread is organized.
+> One thread, three parts. Keep it short and let them ask.
 
 ---
 
-# End user UI · Situation
+# The problem: buying at work is confusing
 
-**Guidance was fragmented; risk was real**
+- **"Where do I start?"** — no clear path; people guess, ask around, or give up.
+- **"Is this allowed?"** — policy is buried; easy to buy off-contract by mistake.
+- **"This takes forever."** — slow and manual; hunting across portals and people.
 
-- Answers in **wikis, Slack, PDFs**; forms assumed people already knew the path
-- Wrong or stale guidance → **compliance + money**, not just UX debt
-- Weak loop from confusion back into **maintainable rules**
-- Research: repeat “how do I?” tickets; need **verifiable** answers
-
-> Anchor **systems** failure: no closed loop for buying truth.
+> Plain-language framing before any UI. The cost: stalled requests, off-contract spend, wasted time. Everything after solves one of these three.
 
 ---
 
-# End user UI · Task
+# Three parts, one thread
 
-**What the employee surface had to prove**
+- **Phase 1** · text answer, and text + CAT
+- **Phase 2** · catalog items + non-catalog forms
+- **Compliance Console** · rules set how catalog ranks in Intake
 
-- **Workflow first** — procurement is routing + audit, not a chat demo
-- **Quality bar:** grounded answers, **citations**, **one** governed next step per turn
-- **IA bar:** same policy context for Quick Links, open ask, and assistant — no full-page context dump
-- **Rejected as primary:** category gate before “is this allowed?” · full-page chat (weak deterministic handoff)
-
-> State the **bar** before the pixels.
+> 30-second map, then straight into screens.
 
 ---
 
-# End user UI · Action
+# Phase 1 · Ask once → text answer, or text + CAT
 
-**Hybrid page + side assistant + invariant per turn**
+An employee asks a buying question; the assistant replies in a side panel and cites its source. The reply comes in two shapes — plain text, or text + one action (CAT) that moves work forward.
 
-- **Shipped IA:** Quick Links · open ask · **side panel** (page stays put)
-- **Per-turn contract:** answer · source excerpt · **single** handoff into catalog, form, or approval
-- **Interaction:** plain-language ask → loading in panel → grounded reply with evidence
+![Ask in plain language](images/intake-agent/02-search-po-query.png)
 
-![Landing](images/intake-agent/01-landing-quick-links.png)
+![Text answer + source](images/intake-agent/04-agent-po-answer.png)
 
-![Ask](images/intake-agent/02-search-po-query.png)
+![Text + CAT](images/intake-agent/05-agent-catalog-action.png)
 
-![Thinking](images/intake-agent/03-agent-thinking.png)
-
-![Answer](images/intake-agent/04-agent-po-answer.png)
-
-> Walk **sequence**, not four features. Optional: flash legacy form as “what we avoided.”
+> Walk it: ask, a grounded text answer with its source, then the same answer plus one action (CAT).
 
 ---
 
-# End user UI · Result
+# Phase 1 · Admin console — a wizard to a trusted agent
 
-**Phase 1 proof on the employee side**
+A step-by-step wizard walks admins from ingesting policy to testing before launch, so they build with confidence.
 
-- Shipped **hybrid front door** + assistant behavior PMs could demo without apologizing for handoff
-- **One door** for “how do I buy X?” instead of scattered channels (add metric if shareable)
-- **Primitive locked:** answer + source + one action — reused later on other surfaces
+![01 Ingest policy](images/intake-agent/07-admin-upload-document.png)
 
-> Tie to **signal** you care about (tickets, time-to-next-step, pilot feedback).
+![02 Define routes & output](images/intake-agent/10-admin-routing-rules-editor.png)
 
----
-
-# Admin · Situation
-
-**The LLM could answer employees — we still had to keep those answers under control**
-
-- We used an LLM to **handle employee questions**. That worked in demos, but models can **hallucinate** or go off-script, so turning it on “as-is” was not acceptable.
-- Products today often have a clear place to add **knowledge** (documents, rules) so the model stays on-topic. **At the time, we didn’t have a simple, shared story** for how an admin should **maintain control** or **walk through setup** without getting lost.
-- Dumping admins into a pile of advanced settings would **not** build trust. We needed a path that felt **linear and obvious**: what to load first, what the answers should do, what employees see, and **how to check it before launch**.
-
-> Say it like you’d explain to a PM: **wrong answers are a product risk**, not only a model risk — and **admins are the people who fix that**, if we give them the right steps.
+![03 Test before launch](images/intake-agent/11-admin-testing-playground.png)
 
 ---
 
-# Admin · Task
+# Phase 2 · Catalog items in-thread
 
-**What we needed admins to be able to do in v1**
+Catalog browsing comes into the conversation — select lines and submit without switching tools.
 
-- Finish setup **in order**: **bring data in** → **say what answers look like and where they route** → **configure the employee-facing experience** → **try it in a testing playground** → only then **go live**.
-- Make **control explicit**: what the model is allowed to use, and **which next steps are allowed** (so we’re not asking the model to invent routing in the moment).
-- After launch, give them a way to **see what happened** and adjust — not one-off “prompt tweaks” nobody can audit.
+![Catalog in the assistant](images/intake-agent/13-phase2-catalog-requisition.png)
 
-> If you only remember one line: **wizard first, complexity second.**
+> Pick and submit without leaving the conversation.
 
 ---
 
-# Admin · Action
+# Phase 2 · Non-catalog forms in-thread
 
-**We shipped a linear wizard plus the screens that back each step**
+For off-catalog buys, the structured request form renders right inside the assistant.
 
-`Add data (ingest) → Define output & routing → Configure employee UI → Testing playground → Go live → Learn from usage`
+![Non-catalog form in the assistant](images/intake-agent/14-phase2-noncatalog-request-form.png)
 
-| Step (plain language) | What it does |
-| --- | --- |
-| Add your data | Sets what the assistant is allowed to ground on |
-| Define output & routing | Decides what employees hear and where “next” goes |
-| Testing playground | Lets admins run real questions **before** employees do |
-| Live + feedback | After launch, refine from what actually happened |
-
-![Routing](images/intake-agent/09-admin-routing-table.png)
-
-![Sandbox](images/intake-agent/11-admin-testing-playground.png)
-
-> On the call: point at **playground** as the trust moment — “you don’t ship blind.”
+> Real fields inline — no jump to another screen.
 
 ---
 
-# Admin · Result
+# Compliance Console · Set the rule → Intake shows the order
 
-**Admins could set up and ship without guesswork**
+Admins configure catalog ranking in the console; Intake Agent displays results in exactly that order.
 
-- Admin experience **shipped in the same wave** as the employee-facing assistant — not “we’ll add admin later.”
-- Setup read as **one path**: data → answers/routing → employee UI → **verify in playground** → launch.
-- **Next time:** show admins **exactly what employees will see** while configuring, and make **rollback** of policy/routing changes easier and safer.
+![Console display rules](images/purchase-compliance/console-display-rules.png)
 
-> Close with **who owns quality after launch** (admins + the loop you gave them).
+![Catalog order in Intake](images/purchase-compliance/catalog-search-compliance-ranking.png)
 
----
-
-# Prompts & LLM · Situation
-
-**Phase 1 answered questions — real buying kept going**
-
-- Employees still had to **pick catalog lines**, fill **real fields** for off-catalog requests, and see **pricing** — not only “what’s the policy?”
-- If we solved that by **spraying more model text** onto the page, we’d get the same failure mode as everywhere else: answers that **sound confident** but don’t line up with what people are actually filling in.
-- So the gap wasn’t “more tokens.” It was **keeping one simple contract** while the conversation gets longer: **show where the answer came from**, **one clear next thing at a time**, **same thread** so nothing feels like a bait-and-switch.
-
-> Say it plainly: **prompts and UI have to agree** — otherwise Phase 2 would have broken what Phase 1 earned.
+> Cause and effect: admin sets ranking in the console; Intake renders that order.
 
 ---
 
-# Prompts & LLM · Task
+# Recap
 
-**Let people finish heavy work without changing the trust habit**
-
-- **Same place:** catalog picks, off-catalog forms, and pricing all happen **in the same assistant column** people already learned in Phase 1 — not a maze of new screens.
-- **Same rhythm:** each beat still looks like **answer → where we got it → one main action** — so the model isn’t improvising five “next steps” at once.
-- **Same setup:** what admins configured (sources, routing) still **feeds** what the model is allowed to do in these longer flows.
-
-> One line for the room: **extend the conversation, don’t invent a new product inside the product.**
-
----
-
-# Prompts & LLM · Action
-
-**What I designed: UI shapes + prompt jobs that match**
-
-- **Catalog:** pick lines and quantities, then submit — **in thread**, with evidence when policy matters.
-- **Off-catalog:** **real form fields** inline — no “surprise, you’re in a different app now.”
-- **Pricing:** same conversation, same policy context — not a detached calculator.
-- **Prompt + surface together:** each flow had a **clear card or step** so the model had a bounded job, not open-ended prose.
-
-![Catalog](images/intake-agent/13-phase2-catalog-requisition.png)
-
-![Form](images/intake-agent/14-phase2-noncatalog-request-form.png)
-
-![Pricing](images/intake-agent/15-phase2-noncatalog-pricing.png)
-
-> If they go deep: pick **one** example (e.g. how pricing stayed tied to the same source pattern as Q&amp;A).
-
----
-
-# Prompts & LLM · Result
-
-**Phase 2 shipped — and the pattern travels**
-
-- **2026:** buyers could run **catalog, forms, and pricing** end-to-end **in the same trace** as the original Q&amp;A experience.
-- **Reuse:** the same **answer / source / one next step** idea showed up on **other** assistant entry points — work we did once paid off more than once.
-- **Next time:** run **real prompt + traffic tests** earlier, and tighten **admin preview** so what employees see matches what we think we shipped.
-
-> Close on **one habit, many flows** — not a feature laundry list.
-
----
-
-# Across all three threads
-
-**What shipped · what I’d push earlier**
-
-- **2024:** employee UI + assistant + **admin v1** in the same release window
-- **2026:** catalog, forms, and pricing **in the same assistant thread** — UI and prompts stayed one story across UI, admin, and model-facing work
-- **Decisions (summary):** hybrid over chat-only · deterministic routing · admin not deferred
-- **Reflection:** admin preview · eval harness · versioned rollback — earlier
+- **Phase 1** · answer + one action
+- **Phase 2** · catalog and non-catalog, in-thread
+- **Compliance Console** · controls the catalog order Intake shows
 
 **Eric Huang** · eric.chakho.wong@gmail.com · linkedin.com/in/zehao-eric-huang
 
-> Final 60s: **systems** + **craft**; calm close.
+> Answer → action → governed order. Invite questions.
+
+---
+
+# Appendix · How we kept it honest (trust & evals)
+
+An unguided LLM drifts. We grounded every answer in ingested policy, then made admins verify in a playground before launch.
+
+![Grounded on policy](images/intake-agent/08-admin-policy-processing.png)
+
+![Tested before launch](images/intake-agent/11-admin-testing-playground.png)
+
+> Pull up if asked about hallucination: grounding + a test gate before shipping.
+
+---
+
+# Appendix · A path we rejected (wizard vs. config)
+
+Exposing every rule at once was powerful but overwhelming — it eroded admin trust. We chose guided steps that build confidence incrementally.
+
+![Rejected: everything at once](images/intake-agent/09-admin-routing-table.png)
+
+![Shipped: guided wizard](images/intake-agent/07-admin-upload-document.png)
+
+> Frame it as a trust tradeoff, not a feature cut.
+
+---
+
+# Appendix · Did it work? (impact)
+
+The admin analytics view was designed in, not bolted on — so impact stays visible. (Figures directional; swap in live numbers.)
+
+- ↑ Adoption — more requests start in the agent
+- ↓ Off-catalog — fewer non-compliant buys
+- ↓ Time-to-answer — no hunting through portals
+
+![Admin analytics dashboard](images/intake-agent/12-admin-analytics-dashboard.png)
+
+---
+
+# Appendix · The before (problem framing)
+
+Buying used to mean navigating a manual draft flow and knowing where to go. The agent turns that into one question.
+
+![Before: manual draft](images/intake-agent/06-legacy-start-purchase-draft.png)
+
+![After: ask once](images/intake-agent/05-agent-catalog-action.png)
+
+---
+
+# Appendix · When rules get complex (compliance depth)
+
+The console gives admins control over context and display rules — so ranking holds up when policies overlap or compete.
+
+![Overview](images/purchase-compliance/console-overview.png)
+
+![Display rules](images/purchase-compliance/console-display-rules.png)
+
+![Context resolution](images/purchase-compliance/console-maintain-context-modal.png)
+
+> Demonstrates systems thinking beyond the happy path.
