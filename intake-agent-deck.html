@@ -312,6 +312,9 @@
     .cause-effect .ce-label strong { color: var(--ink); font-weight: 600; }
     .slide--showcase .s-lede { font-size: 1.5cqi; line-height: 1.4; color: var(--ink-secondary); max-width: 72ch; margin: 0.3cqi 0 0; flex-shrink: 0; }
     .slide--showcase .s-lede strong { color: var(--ink); font-weight: 600; }
+    .part-problem { display: flex; align-items: baseline; gap: 1cqi; font-size: 1.45cqi; line-height: 1.35; color: var(--ink-secondary); margin: 0.1cqi 0 0; flex-shrink: 0; }
+    .part-problem .ptag { font-size: 0.95cqi; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: #B45309; background: #FEF3C7; padding: 0.3cqi 0.75cqi; border-radius: 0.5cqi; flex-shrink: 0; }
+    .part-problem strong { color: var(--ink); font-weight: 600; }
     .slide--appendix .s-eyebrow .kicker { color: var(--accent-green); }
     .appendix-stats { display: flex; gap: 1.2cqi; margin: 0.6cqi 0 0; flex-shrink: 0; }
     .appendix-stats .stat { flex: 1; padding: 0.9cqi 1.1cqi; border: 1px solid rgba(24,24,27,0.1); border-radius: 0.9cqi; background: rgba(24,24,27,0.02); display: flex; flex-direction: column; gap: 0.25cqi; }
@@ -656,6 +659,7 @@
     .deck-btn[disabled] { opacity: 0.35; cursor: default; }
     .deck-btn[disabled]:hover { color: var(--ink-secondary); background: rgba(255,255,255,0.92); border-color: var(--rule); }
     .deck-btn.is-icon { width: auto; padding: 0 14px; gap: 8px; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; height: 36px; }
+    .deck-btn.is-active { color: var(--accent); background: var(--accent-light); border-color: rgba(26,86,219,0.3); }
     .deck-counter {
       font-variant-numeric: tabular-nums;
       font-size: 11px;
@@ -962,7 +966,7 @@
         <div class="problem-cost">The cost: <strong>stalled requests, off-contract spend, and wasted time.</strong></div>
         <div class="s-footer">
           <div class="left"><strong>Intake Agent</strong> · The problem</div>
-          <div class="right">02 / 09</div>
+          <div class="right">02 / 10</div>
         </div>
       </section>
 
@@ -994,7 +998,7 @@
         </div>
         <div class="s-footer">
           <div class="left"><strong>Intake Agent</strong> · Agenda</div>
-          <div class="right">03 / 09</div>
+          <div class="right">03 / 10</div>
         </div>
       </section>
 
@@ -1003,6 +1007,7 @@
         <div class="s-head">
           <div class="s-eyebrow"><span class="kicker">Part 1</span> · Phase 1</div>
         </div>
+        <div class="part-problem"><span class="ptag">Problem</span><span>People don't know <strong>what's allowed</strong> — or where to start.</span></div>
         <h2 class="s-headline">Ask once → <em>text answer, or text + CAT.</em></h2>
         <p class="s-lede">An employee asks a buying question; the assistant replies in a side panel and cites its source. The reply comes in two shapes — <strong>plain text</strong>, or <strong>text + one action (CAT)</strong> that moves work forward.</p>
         <div class="showcase-trio">
@@ -1021,7 +1026,7 @@
         </div>
         <div class="s-footer">
           <div class="left"><strong>Intake Agent</strong> · Phase 1</div>
-          <div class="right">04 / 09</div>
+          <div class="right">04 / 10</div>
         </div>
       </section>
 
@@ -1048,7 +1053,7 @@
         </div>
         <div class="s-footer">
           <div class="left"><strong>Intake Agent</strong> · Phase 1 · Admin</div>
-          <div class="right">05 / 09</div>
+          <div class="right">05 / 10</div>
         </div>
       </section>
 
@@ -1057,38 +1062,57 @@
         <div class="s-head">
           <div class="s-eyebrow"><span class="kicker">Part 2</span> · Phase 2</div>
         </div>
-        <h2 class="s-headline">Pick <em>catalog items</em> in the same thread.</h2>
-        <p class="s-lede">Phase 2 brings catalog browsing into the conversation — <strong>select lines and submit</strong> without switching tools.</p>
+        <div class="part-problem"><span class="ptag">Problem</span><span>A good answer isn't enough — people still <strong>leave to actually buy</strong>.</span></div>
+        <h2 class="s-headline">Pick <em>catalog items</em> in the side panel.</h2>
+        <p class="s-lede">The assistant lives in a <strong>side panel</strong> next to your work — pick a catalog item and add it to a requisition <strong>without leaving the page</strong>.</p>
         <div class="showcase-figure">
-          <div class="deck-shot"><img src="images/intake-agent/13-phase2-catalog-requisition.png" alt="Catalog selection inside the assistant" loading="lazy" /></div>
+          <div class="deck-shot"><img src="images/intake-agent/16-phase2-catalog-panel.png" alt="Catalog item selection inside the Intake Agent side panel" loading="lazy" /></div>
         </div>
         <div class="s-footer">
           <div class="left"><strong>Intake Agent</strong> · Phase 2</div>
-          <div class="right">06 / 09</div>
+          <div class="right">06 / 10</div>
         </div>
       </section>
 
-      <!-- ====== SLIDE 7 — PHASE 2 NON-CATALOG ====== -->
-      <section class="slide slide--showcase" data-slide="7" aria-label="Phase 2 non-catalog form">
+      <!-- ====== SLIDE 7 — PHASE 2 CATALOG OVERFLOW ====== -->
+      <section class="slide slide--showcase" data-slide="7" aria-label="Phase 2 catalog overflow to full catalog">
         <div class="s-head">
           <div class="s-eyebrow"><span class="kicker">Part 2</span> · Phase 2</div>
         </div>
-        <h2 class="s-headline">Fill <em>non-catalog forms</em> in-thread.</h2>
-        <p class="s-lede">For off-catalog buys, the structured request form renders <strong>right inside the assistant</strong> — no jump to another screen.</p>
+        <div class="part-problem"><span class="ptag">Problem</span><span>Cramming every result into the panel <strong>buries the good ones</strong>.</span></div>
+        <h2 class="s-headline">Show the best 5 → <em>spill the rest to the catalog.</em></h2>
+        <p class="s-lede">The panel stays focused on the <strong>top 5 matches</strong>. Need more? <strong>“View all”</strong> opens the full results in the existing catalog page on the left — reusing what we already have instead of jamming the thread.</p>
         <div class="showcase-figure">
-          <div class="deck-shot"><img src="images/intake-agent/14-phase2-noncatalog-request-form.png" alt="Non-catalog request form inside the assistant" loading="lazy" /></div>
+          <div class="deck-shot"><img src="images/intake-agent/17-phase2-catalog-overflow.png" alt="Top 5 matches in the panel with the rest opened in the full catalog page" loading="lazy" /></div>
         </div>
         <div class="s-footer">
-          <div class="left"><strong>Intake Agent</strong> · Phase 2</div>
-          <div class="right">07 / 09</div>
+          <div class="left"><strong>Intake Agent</strong> · Phase 2 · Overflow</div>
+          <div class="right">07 / 10</div>
         </div>
       </section>
 
-      <!-- ====== SLIDE 8 — COMPLIANCE CAUSE → EFFECT ====== -->
-      <section class="slide slide--showcase" data-slide="8" aria-label="Compliance Console controls ranking">
+      <!-- ====== SLIDE 8 — PHASE 2 NON-CATALOG ====== -->
+      <section class="slide slide--showcase" data-slide="8" aria-label="Phase 2 non-catalog form">
+        <div class="s-head">
+          <div class="s-eyebrow"><span class="kicker">Part 2</span> · Phase 2</div>
+        </div>
+        <h2 class="s-headline">Fill <em>non-catalog forms</em> in the side panel.</h2>
+        <p class="s-lede">For off-catalog buys, the request form renders <strong>inside the side panel</strong> — pre-filled from the request and policy, so the page never changes.</p>
+        <div class="showcase-figure">
+          <div class="deck-shot"><img src="images/intake-agent/18-phase2-noncatalog-panel.png" alt="Non-catalog request form inside the Intake Agent side panel" loading="lazy" /></div>
+        </div>
+        <div class="s-footer">
+          <div class="left"><strong>Intake Agent</strong> · Phase 2</div>
+          <div class="right">08 / 10</div>
+        </div>
+      </section>
+
+      <!-- ====== SLIDE 9 — COMPLIANCE CAUSE → EFFECT ====== -->
+      <section class="slide slide--showcase" data-slide="9" aria-label="Compliance Console controls ranking">
         <div class="s-head">
           <div class="s-eyebrow"><span class="kicker">Part 3</span> · Compliance Console</div>
         </div>
+        <div class="part-problem"><span class="ptag">Problem</span><span>Left alone, the agent might surface <strong>non-preferred items first</strong>.</span></div>
         <h2 class="s-headline">Set the rule → <em>Intake shows that order.</em></h2>
         <p class="s-lede">Admins configure catalog ranking in the Compliance Console; Intake Agent displays results in <strong>exactly that order</strong>.</p>
         <div class="cause-effect">
@@ -1104,12 +1128,12 @@
         </div>
         <div class="s-footer">
           <div class="left"><strong>Compliance Console</strong> · Ranking</div>
-          <div class="right">08 / 09</div>
+          <div class="right">09 / 10</div>
         </div>
       </section>
 
-      <!-- ====== SLIDE 9 — CLOSE ====== -->
-      <section class="slide slide--outcomes slide--result" data-slide="9" aria-label="Recap">
+      <!-- ====== SLIDE 10 — CLOSE ====== -->
+      <section class="slide slide--outcomes slide--result" data-slide="10" aria-label="Recap">
         <div class="s-head">
           <div class="s-eyebrow">One loop</div>
         </div>
@@ -1127,12 +1151,12 @@
         </div>
         <div class="s-footer">
           <div class="left"><strong>Intake Agent</strong> · Recap</div>
-          <div class="right">09 / 09</div>
+          <div class="right">10 / 10</div>
         </div>
       </section>
 
       <!-- ====== APPENDIX 1 — TRUST & EVALS ====== -->
-      <section class="slide slide--showcase slide--appendix" data-slide="10" aria-label="Appendix: trust and evals">
+      <section class="slide slide--showcase slide--appendix" data-slide="11" aria-label="Appendix: trust and evals">
         <div class="s-head">
           <div class="s-eyebrow"><span class="kicker">Appendix</span> · How we kept it honest</div>
         </div>
@@ -1156,7 +1180,7 @@
       </section>
 
       <!-- ====== APPENDIX 2 — REJECTED DESIGN ====== -->
-      <section class="slide slide--showcase slide--appendix" data-slide="11" aria-label="Appendix: a rejected design">
+      <section class="slide slide--showcase slide--appendix" data-slide="12" aria-label="Appendix: a rejected design">
         <div class="s-head">
           <div class="s-eyebrow"><span class="kicker">Appendix</span> · A path we rejected</div>
         </div>
@@ -1180,7 +1204,7 @@
       </section>
 
       <!-- ====== APPENDIX 3 — IMPACT ====== -->
-      <section class="slide slide--showcase slide--appendix" data-slide="12" aria-label="Appendix: impact">
+      <section class="slide slide--showcase slide--appendix" data-slide="13" aria-label="Appendix: impact">
         <div class="s-head">
           <div class="s-eyebrow"><span class="kicker">Appendix</span> · Did it work?</div>
         </div>
@@ -1201,7 +1225,7 @@
       </section>
 
       <!-- ====== APPENDIX 4 — THE BEFORE ====== -->
-      <section class="slide slide--showcase slide--appendix" data-slide="13" aria-label="Appendix: the before state">
+      <section class="slide slide--showcase slide--appendix" data-slide="14" aria-label="Appendix: the before state">
         <div class="s-head">
           <div class="s-eyebrow"><span class="kicker">Appendix</span> · The before</div>
         </div>
@@ -1225,7 +1249,7 @@
       </section>
 
       <!-- ====== APPENDIX 5 — COMPLIANCE DEPTH ====== -->
-      <section class="slide slide--showcase slide--appendix" data-slide="14" aria-label="Appendix: compliance depth">
+      <section class="slide slide--showcase slide--appendix" data-slide="15" aria-label="Appendix: compliance depth">
         <div class="s-head">
           <div class="s-eyebrow"><span class="kicker">Appendix</span> · When rules get complex</div>
         </div>
@@ -1258,7 +1282,7 @@
     <div class="grp">
       <button class="deck-btn" id="prevBtn" title="Previous slide (←)" aria-label="Previous slide">←</button>
       <button class="deck-btn" id="nextBtn" title="Next slide (→)" aria-label="Next slide">→</button>
-      <span class="deck-counter" id="counter">01 / 09</span>
+      <span class="deck-counter" id="counter">01 / 10</span>
     </div>
     <div class="grp">
       <button class="deck-btn is-icon" id="apxBtn" title="Jump to appendix / backup slides (A)">Appendix</button>
@@ -1273,7 +1297,7 @@
   </div>
 
   <div class="deck-hint" id="deckHint">
-    Press <kbd>&larr;</kbd> <kbd>&rarr;</kbd> to navigate &middot; <kbd>A</kbd> for appendix &middot; <kbd>N</kbd> for notes &middot; <kbd>F</kbd> for fullscreen
+    Press <kbd>&larr;</kbd> <kbd>&rarr;</kbd> to navigate &middot; <kbd>A</kbd> appendix / back &middot; <kbd>N</kbd> for notes &middot; <kbd>F</kbd> for fullscreen
   </div>
 
   <script id="deck-data" type="application/json">
@@ -1283,8 +1307,9 @@
   { "title": "Agenda", "notes": "<p>Phase 1 answer+action, Phase 2 richer content, Console controls ranking.</p>" },
   { "title": "Phase 1 · Ask → answer", "notes": "<p>Walk it: 01 ask in plain language, 02 a grounded text answer with its source, 03 the same answer plus one action (CAT). Two response shapes — plain text, or text + CAT that moves work forward.</p>" },
   { "title": "Phase 1 · Admin console", "notes": "<p>Trust is the real problem here: an unguided LLM drifts. So the admin experience is a linear wizard, not a blank config screen. It walks them through: ingest policy, define routes and output, then verify in a testing playground before launch. Each step builds confidence that the agent will behave.</p>" },
-  { "title": "Phase 2 · Catalog", "notes": "<p>Pick and submit catalog items inside the thread.</p>" },
-  { "title": "Phase 2 · Non-catalog", "notes": "<p>Fill structured non-catalog forms inline, same conversation.</p>" },
+  { "title": "Phase 2 · Catalog", "notes": "<p>The agent now lives in a side panel beside the user's work — not full screen. Pick a catalog item and add it to a requisition without leaving the page.</p>" },
+  { "title": "Phase 2 · Overflow", "notes": "<p>A density decision: the panel shows only the top 5 matches so the best options aren't buried. When there are more, 'View all' opens the full result set in the existing catalog page on the left. Reuse the surface we already have instead of jamming a scrollable list into the thread — keeps the panel focused and the browsing experience rich.</p>" },
+  { "title": "Phase 2 · Non-catalog", "notes": "<p>Off-catalog buys: the structured request form renders inside the side panel, pre-filled from the user's message and policy (note the AI-filled fields). The page behind it never changes — the agent does the form-filling work, the user just reviews, edits, and submits.</p>" },
   { "title": "Compliance Console", "notes": "<p>Cause and effect: admin sets ranking in the console, Intake renders that order.</p>" },
   { "title": "Recap", "notes": "<p>Answer to action to governed order. Invite questions.</p>" },
   { "title": "Appendix · Trust & evals", "notes": "<p>Pull up if asked about hallucination. Two-part answer: (1) grounding — answers tied to ingested policy, not free-form; (2) a testing playground that admins must pass before launch. Talk about what 'good' looked like and how you evaluated grounded vs. wrong answers.</p>" },
@@ -1334,6 +1359,11 @@
         }
         prevBtn.disabled = current === 0;
         nextBtn.disabled = inApx ? (current === total - 1) : (current === appendixStart - 1);
+        if (apxBtn) {
+          apxBtn.textContent = inApx ? '← Presentation' : 'Appendix';
+          apxBtn.title = inApx ? 'Return to the presentation (A / Esc)' : 'Jump to appendix / backup slides (A)';
+          apxBtn.classList.toggle('is-active', inApx);
+        }
         if ((location.hash || '').replace('#','') !== String(current + 1)) {
           history.replaceState(null, '', '#' + (current + 1));
         }
@@ -1354,6 +1384,12 @@
       }
       function goPrev() { go(current - 1); }
       function goAppendix() { if (hasAppendix) go(appendixStart); }
+      // Toggle between the main deck and the appendix (returns to the last main slide).
+      function toggleAppendix() {
+        if (!hasAppendix) return;
+        if (current >= appendixStart) go(appendixStart - 1);
+        else go(appendixStart);
+      }
 
       function renderNotes() {
         const data = notesData[current] || { title: '', notes: '' };
@@ -1381,7 +1417,7 @@
       const apxBtn = document.getElementById('apxBtn');
       if (apxBtn) {
         if (!hasAppendix) apxBtn.style.display = 'none';
-        else apxBtn.addEventListener('click', () => goAppendix());
+        else apxBtn.addEventListener('click', () => toggleAppendix());
       }
       notesOverlay.addEventListener('click', (e) => { if (e.target === notesOverlay) toggleNotes(false); });
 
@@ -1394,9 +1430,12 @@
         else if (k === 'ArrowLeft' || k === 'PageUp') { e.preventDefault(); goPrev(); }
         else if (k === 'Home') { e.preventDefault(); go(0); }
         else if (k === 'End') { e.preventDefault(); go(appendixStart - 1); }
-        else if (k === 'a' || k === 'A') { e.preventDefault(); goAppendix(); }
+        else if (k === 'a' || k === 'A') { e.preventDefault(); toggleAppendix(); }
         else if (k === 'n' || k === 'N') { e.preventDefault(); toggleNotes(); }
-        else if (k === 'Escape') { if (notesOverlay.classList.contains('is-open')) toggleNotes(false); }
+        else if (k === 'Escape') {
+          if (notesOverlay.classList.contains('is-open')) toggleNotes(false);
+          else if (current >= appendixStart) go(appendixStart - 1);
+        }
         else if (k === 'f' || k === 'F') {
           if (!document.fullscreenElement) document.documentElement.requestFullscreen?.();
           else document.exitFullscreen?.();

@@ -39,6 +39,8 @@ Eric Huang · Lead UX, Workday · 2024–2026
 
 # Phase 1 · Ask once → text answer, or text + CAT
 
+**Problem:** people don't know what's allowed — or where to start.
+
 An employee asks a buying question; the assistant replies in a side panel and cites its source. The reply comes in two shapes — plain text, or text + one action (CAT) that moves work forward.
 
 ![Ask in plain language](images/intake-agent/02-search-po-query.png)
@@ -63,27 +65,41 @@ A step-by-step wizard walks admins from ingesting policy to testing before launc
 
 ---
 
-# Phase 2 · Catalog items in-thread
+# Phase 2 · Catalog items in the side panel
 
-Catalog browsing comes into the conversation — select lines and submit without switching tools.
+**Problem:** a good answer isn't enough — people still leave to actually buy.
 
-![Catalog in the assistant](images/intake-agent/13-phase2-catalog-requisition.png)
+The assistant lives in a side panel next to your work — pick a catalog item and add it to a requisition without leaving the page.
+
+![Catalog in the side panel](images/intake-agent/16-phase2-catalog-panel.png)
+
+---
+
+# Phase 2 · Show the best 5 → spill the rest to the catalog
+
+**Problem:** cramming every result into the panel buries the good ones.
+
+The panel stays focused on the top 5 matches. "View all" opens the full results in the existing catalog page on the left — reusing what we already have instead of jamming the thread.
+
+![Top 5 in panel, all results in the catalog](images/intake-agent/17-phase2-catalog-overflow.png)
 
 > Pick and submit without leaving the conversation.
 
 ---
 
-# Phase 2 · Non-catalog forms in-thread
+# Phase 2 · Non-catalog forms in the side panel
 
-For off-catalog buys, the structured request form renders right inside the assistant.
+For off-catalog buys, the request form renders inside the side panel — pre-filled from the request and policy, so the page never changes.
 
-![Non-catalog form in the assistant](images/intake-agent/14-phase2-noncatalog-request-form.png)
+![Non-catalog form in the side panel](images/intake-agent/18-phase2-noncatalog-panel.png)
 
 > Real fields inline — no jump to another screen.
 
 ---
 
 # Compliance Console · Set the rule → Intake shows the order
+
+**Problem:** left alone, the agent might surface non-preferred items first.
 
 Admins configure catalog ranking in the console; Intake Agent displays results in exactly that order.
 
