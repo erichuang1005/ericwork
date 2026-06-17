@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Agentic Compliance Console — concept (Eric Huang)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ink:#18181B; --ink-2:#3F3F46; --sec:#52525B; --muted:#A1A1AA;
+    --line:#E4E4E7; --line-2:#F0F0F1; --bg:#F4F5F7; --card:#FFFFFF;
+    --blue:#0875E1; --blue-ink:#0B5BB5; --blue-soft:#EAF3FE; --blue-line:#BBD9F7;
+    --green:#047857; --green-bg:#ECFDF5; --green-line:#A7F3D0;
+    --amber:#B45309; --amber-bg:#FFFBEB; --amber-line:#FDE68A;
+    --purple:#6D28D9; --purple-bg:#F5F3FF; --purple-line:#DDD6FE;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif; color:var(--ink); background:var(--bg); -webkit-font-smoothing:antialiased;}
+  a{color:inherit; text-decoration:none;}
+
+  /* concept context bar */
+  .concept-bar{background:#0E1116; color:#fff; display:flex; align-items:center; gap:16px; padding:10px 22px; font-size:13px;}
+  .concept-bar .back{display:inline-flex; align-items:center; gap:6px; color:#C7CBD1; border:1px solid #2A2F37; border-radius:8px; padding:6px 11px; font-weight:600;}
+  .concept-bar .back:hover{color:#fff; border-color:#3C424C;}
+  .concept-bar .ctitle{font-weight:700;}
+  .concept-bar .ctitle .spark{color:#A78BFA;}
+  .concept-bar .csub{color:#8A909A; margin-left:auto; font-size:12px;}
+
+  /* app shell */
+  .app{height:calc(100vh - 41px); display:flex; flex-direction:column; background:var(--card);}
+  .topbar{height:54px; flex-shrink:0; border-bottom:1px solid var(--line); display:flex; align-items:center; gap:18px; padding:0 18px;}
+  .menu{display:flex; align-items:center; gap:10px; color:var(--sec); font-size:13px; font-weight:600;}
+  .menu .bars{font-size:16px;}
+  .vline{width:1px; height:24px; background:var(--line);}
+  .logo{width:34px; height:34px; border-radius:50%; background:radial-gradient(circle at 35% 30%, #2BA7E0, #0875E1 60%); position:relative; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:800; font-size:17px;}
+  .logo::after{content:''; position:absolute; right:4px; bottom:6px; width:11px; height:5px; background:#F59E0B; border-radius:6px; transform:rotate(-32deg);}
+  .searchbar{flex:1; max-width:560px; margin:0 auto; background:var(--bg); border:1px solid var(--line); border-radius:22px; padding:9px 16px; color:var(--muted); font-size:13px; display:flex; align-items:center; gap:8px;}
+  .top-icons{display:flex; align-items:center; gap:16px; color:var(--sec); margin-left:auto;}
+  .ti{position:relative; font-size:15px;}
+  .ti .b{position:absolute; top:-7px; right:-9px; background:#DC2626; color:#fff; font-size:9px; font-weight:700; border-radius:20px; padding:1px 4px; min-width:15px; text-align:center;}
+  .me{width:30px; height:30px; border-radius:50%; background:#0EA5A4; color:#fff; font-size:11px; font-weight:700; display:flex; align-items:center; justify-content:center;}
+
+  .body{flex:1; min-height:0; display:flex;}
+  /* console nav */
+  .console-nav{width:268px; flex-shrink:0; border-right:1px solid var(--line); padding:22px 16px; overflow:auto;}
+  .console-title{display:flex; gap:11px; align-items:flex-start; padding:0 8px 16px;}
+  .console-title .ic{width:30px; height:30px; flex-shrink:0; color:var(--blue);}
+  .console-title h1{font-size:16px; font-weight:700; line-height:1.25;}
+  .nav-item{display:flex; align-items:center; gap:11px; padding:9px 12px; border-radius:9px; color:var(--sec); font-size:13.5px; font-weight:500; margin-top:2px;}
+  .nav-item .g{width:18px; text-align:center; color:var(--muted);}
+  .nav-item:hover{background:var(--bg);}
+  .nav-item.active{background:var(--blue-soft); color:var(--blue-ink); font-weight:700;}
+  .nav-item.active .g{color:var(--blue);}
+  .nav-item .ai-dot{margin-left:auto; font-size:9px; font-weight:800; letter-spacing:.04em; color:var(--purple); background:var(--purple-bg); border:1px solid var(--purple-line); border-radius:5px; padding:1px 6px;}
+
+  /* main */
+  .console-main{flex:1; min-width:0; overflow:auto; padding:26px 34px 60px;}
+  .page-head h2{font-size:23px; font-weight:800; letter-spacing:-.02em; display:flex; align-items:center; gap:12px;}
+  .status{font-size:11.5px; font-weight:700; color:var(--green); background:var(--green-bg); border:1px solid var(--green-line); border-radius:20px; padding:4px 10px; display:inline-flex; align-items:center; gap:6px;}
+  .status .pulse{width:7px; height:7px; border-radius:50%; background:var(--green); box-shadow:0 0 0 3px rgba(4,120,87,.15);}
+  .page-head .sub{font-size:13.5px; color:var(--sec); margin-top:7px; max-width:74ch; line-height:1.5;}
+
+  .section-label{font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin:26px 0 12px; display:flex; align-items:center; gap:10px;}
+  .section-label .count{color:var(--blue-ink); background:var(--blue-soft); border:1px solid var(--blue-line); border-radius:20px; padding:1px 8px; font-size:10.5px; letter-spacing:0;}
+
+  /* autonomy gradient */
+  .autonomy{border:1px solid var(--line); border-radius:14px; padding:16px 18px; background:linear-gradient(180deg,#FCFCFD,#F8FAFC);}
+  .autonomy .a-top{display:flex; align-items:baseline; justify-content:space-between; gap:14px;}
+  .autonomy .a-title{font-size:14px; font-weight:700;}
+  .autonomy .a-hint{font-size:12px; color:var(--sec);}
+  .seg{display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin-top:14px;}
+  .seg-opt{border:1px solid var(--line); border-radius:11px; padding:11px 12px; cursor:pointer; background:#fff; transition:.15s;}
+  .seg-opt .so-top{display:flex; align-items:center; gap:8px; font-size:13px; font-weight:700;}
+  .seg-opt .dotn{width:18px; height:18px; border-radius:50%; border:2px solid var(--line); flex-shrink:0; display:flex; align-items:center; justify-content:center;}
+  .seg-opt .so-desc{font-size:11px; color:var(--sec); margin-top:6px; line-height:1.4;}
+  .seg-opt.on{border-color:var(--blue); background:var(--blue-soft); box-shadow:0 0 0 1px var(--blue);}
+  .seg-opt.on .dotn{border-color:var(--blue); background:var(--blue);}
+  .seg-opt.on .dotn::after{content:''; width:7px; height:7px; border-radius:50%; background:#fff;}
+  .seg-opt .lvl{font-size:9.5px; font-weight:800; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); display:block; margin-bottom:5px;}
+  .autonomy .a-foot{font-size:12px; color:var(--sec); margin-top:12px; line-height:1.5; border-top:1px solid var(--line-2); padding-top:11px;}
+  .autonomy .a-foot b{color:var(--ink);}
+
+  /* proposal cards */
+  .proposal{border:1px solid var(--line); border-radius:14px; padding:0; margin-bottom:14px; overflow:hidden; background:#fff; transition:.2s;}
+  .proposal.hero{border-color:var(--blue-line); box-shadow:0 2px 14px rgba(8,117,225,.07);}
+  .proposal.activated{border-color:var(--green-line); background:#FCFFFD;}
+  .proposal.dismissed{opacity:.45; filter:grayscale(.4);}
+  .p-head{display:flex; align-items:flex-start; gap:13px; padding:16px 18px 0;}
+  .p-ic{width:38px; height:38px; border-radius:10px; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:18px;}
+  .p-ic.spend{background:var(--amber-bg); color:var(--amber);}
+  .p-ic.supplier{background:var(--blue-soft); color:var(--blue);}
+  .p-ic.contract{background:var(--purple-bg); color:var(--purple);}
+  .p-headmain{flex:1; min-width:0;}
+  .p-signal{font-size:14.5px; font-weight:700;}
+  .breadcrumb{display:flex; align-items:center; gap:7px; margin-top:5px; font-size:11.5px; color:var(--muted); font-weight:600;}
+  .breadcrumb .sep{opacity:.6;}
+  .breadcrumb .hot{color:var(--ink-2);}
+  .p-conf{font-size:10.5px; font-weight:700; padding:4px 9px; border-radius:20px; flex-shrink:0;}
+  .p-conf.high{color:var(--green); background:var(--green-bg); border:1px solid var(--green-line);}
+  .p-conf.med{color:var(--amber); background:var(--amber-bg); border:1px solid var(--amber-line);}
+  .p-body{padding:13px 18px 0 69px;}
+  .p-propose{font-size:13.5px; line-height:1.55; color:var(--ink-2);}
+  .p-propose b{color:var(--ink); font-weight:700;}
+  .p-why{margin-top:10px; background:var(--bg); border:1px solid var(--line-2); border-radius:10px; padding:11px 13px; font-size:12px; color:var(--sec); line-height:1.5;}
+  .p-why .wl{font-weight:700; color:var(--ink-2); display:block; margin-bottom:3px; font-size:10.5px; letter-spacing:.04em; text-transform:uppercase;}
+  .p-sim{display:flex; flex-wrap:wrap; gap:8px; margin-top:11px;}
+  .sim{font-size:11.5px; color:var(--ink-2); background:#fff; border:1px solid var(--line); border-radius:8px; padding:5px 10px; display:inline-flex; align-items:center; gap:6px;}
+  .sim .k{color:var(--muted);}
+  .sim b{color:var(--ink);}
+  .p-actions{display:flex; align-items:center; gap:9px; padding:15px 18px 17px 69px;}
+  .btn{border-radius:9px; padding:9px 15px; font-size:13px; font-weight:700; cursor:pointer; border:1px solid transparent; font-family:inherit;}
+  .btn-primary{background:var(--blue); color:#fff;}
+  .btn-primary:hover{background:var(--blue-ink);}
+  .btn-ghost{background:#fff; color:var(--ink-2); border-color:var(--line);}
+  .btn-ghost:hover{border-color:var(--muted);}
+  .btn-text{background:none; color:var(--sec); border:none; font-weight:600; cursor:pointer; font-family:inherit; font-size:12.5px;}
+  .p-actions .applied-tag{display:none; align-items:center; gap:8px; font-size:13px; font-weight:700; color:var(--green);}
+  .proposal.activated .p-actions .btn-primary,
+  .proposal.activated .p-actions .btn-ghost,
+  .proposal.activated .p-actions .btn-text{display:none;}
+  .proposal.activated .p-actions .applied-tag{display:inline-flex;}
+
+  /* applied feed */
+  .applied-row{display:flex; align-items:center; gap:12px; padding:13px 16px; border:1px solid var(--line-2); border-radius:11px; margin-bottom:9px; background:#fff;}
+  .applied-row .ar-ic{width:30px; height:30px; border-radius:8px; background:var(--green-bg); color:var(--green); display:flex; align-items:center; justify-content:center; font-size:13px; flex-shrink:0;}
+  .applied-row .ar-main{flex:1; min-width:0; font-size:12.5px;}
+  .applied-row .ar-main b{font-weight:700;}
+  .applied-row .ar-meta{font-size:11px; color:var(--muted); margin-top:2px;}
+  .applied-row .ar-by{font-size:10px; font-weight:700; letter-spacing:.04em; text-transform:uppercase; color:var(--sec); background:var(--bg); border:1px solid var(--line); border-radius:5px; padding:2px 7px; flex-shrink:0;}
+  .applied-row .undo{font-size:12px; color:var(--blue); font-weight:600; flex-shrink:0;}
+  .footnote{font-size:11px; color:var(--muted); margin-top:18px; line-height:1.5;}
+
+  /* mode tabs */
+  .mode-tabs{display:flex; gap:8px; margin-top:20px;}
+  .mode-tab{border:1px solid var(--line); background:#fff; border-radius:10px; padding:10px 16px; font-size:13px; font-weight:700; color:var(--sec); cursor:pointer; font-family:inherit; transition:.15s;}
+  .mode-tab:hover{border-color:var(--muted);}
+  .mode-tab.on{background:var(--blue-soft); border-color:var(--blue); color:var(--blue-ink); box-shadow:0 0 0 1px var(--blue);}
+  .view-panel{display:none;}
+  .view-panel.on{display:block;}
+
+  /* create rule */
+  .create-head{display:flex; align-items:flex-start; justify-content:space-between; gap:16px; flex-wrap:wrap;}
+  .create-head .btn{margin-top:0;}
+  .nl-input{border:1px solid var(--line); border-radius:12px; padding:14px 16px; background:#fff; margin-top:14px;}
+  .nl-input label{display:block; font-size:11px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); margin-bottom:8px;}
+  .nl-input textarea{width:100%; min-height:72px; border:1px solid var(--line-2); border-radius:9px; padding:10px 12px; font-family:inherit; font-size:13px; line-height:1.5; resize:vertical;}
+  .nl-input .nl-row{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:10px;}
+  .nl-input .nl-hint{font-size:11.5px; color:var(--sec);}
+  .wizard{border:1px solid var(--line); border-radius:14px; background:#fff; margin-top:16px; overflow:hidden;}
+  .wiz-steps{display:flex; border-bottom:1px solid var(--line); background:var(--bg);}
+  .wiz-step{flex:1; padding:12px 10px; text-align:center; font-size:11.5px; font-weight:700; color:var(--muted); border-right:1px solid var(--line); display:flex; align-items:center; justify-content:center; gap:7px;}
+  .wiz-step:last-child{border-right:none;}
+  .wiz-step .wn{width:20px; height:20px; border-radius:50%; border:2px solid var(--line); display:inline-flex; align-items:center; justify-content:center; font-size:10px; flex-shrink:0;}
+  .wiz-step.on{background:#fff; color:var(--blue-ink);}
+  .wiz-step.on .wn{border-color:var(--blue); background:var(--blue); color:#fff;}
+  .wiz-step.done{color:var(--green);}
+  .wiz-step.done .wn{border-color:var(--green); background:var(--green); color:#fff; font-size:11px;}
+  .wiz-body{padding:20px 22px 8px;}
+  .wiz-body h3{font-size:16px; font-weight:800; margin-bottom:6px;}
+  .wiz-body .wiz-lede{font-size:13px; color:var(--sec); line-height:1.5; margin-bottom:16px;}
+  .field-grid{display:grid; gap:12px;}
+  .field label{display:block; font-size:11px; font-weight:700; color:var(--ink-2); margin-bottom:6px;}
+  .field select, .field input{width:100%; border:1px solid var(--line); border-radius:9px; padding:9px 11px; font-family:inherit; font-size:13px; background:#fff;}
+  .field-row{display:grid; grid-template-columns:1fr 1fr; gap:12px;}
+  .radio-cards{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
+  .radio-card{border:1px solid var(--line); border-radius:10px; padding:12px; cursor:pointer; background:#fff;}
+  .radio-card.on{border-color:var(--blue); background:var(--blue-soft); box-shadow:0 0 0 1px var(--blue);}
+  .radio-card .rc-title{font-size:13px; font-weight:700;}
+  .radio-card .rc-desc{font-size:11px; color:var(--sec); margin-top:4px; line-height:1.4;}
+  .preview-box{margin-top:14px; background:var(--bg); border:1px solid var(--line-2); border-radius:10px; padding:12px 14px;}
+  .preview-box .pl{font-size:10px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); margin-bottom:6px;}
+  .preview-box p{font-size:13px; line-height:1.55; color:var(--ink-2);}
+  .preview-box b{color:var(--ink);}
+  .wiz-foot{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:14px 22px 18px; border-top:1px solid var(--line-2);}
+  .wiz-foot .wiz-summary{font-size:12px; color:var(--sec); flex:1;}
+  .wiz-foot .wiz-summary b{color:var(--ink);}
+  .wiz-success{text-align:center; padding:36px 24px;}
+  .wiz-success .ok{width:48px; height:48px; border-radius:50%; background:var(--green-bg); color:var(--green); display:inline-flex; align-items:center; justify-content:center; font-size:22px; margin-bottom:12px;}
+  .wiz-success h3{font-size:18px;}
+  .wiz-success p{font-size:13px; color:var(--sec); margin-top:8px; line-height:1.5;}
+</style>
+</head>
+<body>
+  <div class="concept-bar">
+    <a class="back" href="purchase-compliance.html">← Back to case study</a>
+    <span class="ctitle"><span class="spark">✦</span> Agentic Compliance Console</span>
+    <span class="csub">Concept exploration — extends the shipped console. Not a released feature.</span>
+  </div>
+
+  <div class="app">
+    <div class="topbar">
+      <div class="menu"><span class="bars">☰</span> MENU</div>
+      <div class="vline"></div>
+      <div class="logo">W</div>
+      <div class="searchbar"><span>🔍</span> Search</div>
+      <div class="top-icons">
+        <span class="ti">💬</span>
+        <span class="ti">🗂</span>
+        <span class="ti">🔔<span class="b">20</span></span>
+        <span class="ti">✉<span class="b">101</span></span>
+        <span class="me">EH</span>
+      </div>
+    </div>
+
+    <div class="body">
+      <aside class="console-nav">
+        <div class="console-title">
+          <div class="ic">⚖️</div>
+          <h1>Requisitioning Compliance Console</h1>
+        </div>
+        <div class="nav-item"><span class="g">▦</span> Overview</div>
+        <div class="nav-item"><span class="g">⇅</span> Requisition Search Context</div>
+        <div class="nav-item"><span class="g">▤</span> Display Rules</div>
+        <div class="nav-item active"><span class="g">✦</span> Compliance Agent <span class="ai-dot">NEW</span></div>
+      </aside>
+
+      <main class="console-main">
+        <div class="page-head">
+          <h2>Compliance Agent <span class="status"><span class="pulse"></span> Monitoring</span></h2>
+          <p class="sub">Two ways to work: let the agent <strong>watch and propose</strong> when signals change, or <strong>create a rule from scratch</strong> with a guided builder (manual or agent-assisted).</p>
+          <div class="mode-tabs" id="modeTabs">
+            <button class="mode-tab on" data-mode="monitor" type="button">Monitor &amp; review proposals</button>
+            <button class="mode-tab" data-mode="create" type="button">Create rule from scratch</button>
+          </div>
+        </div>
+
+        <!-- MONITOR VIEW -->
+        <div class="view-panel on" id="viewMonitor">
+        <div class="section-label">Autonomy</div>
+        <div class="autonomy">
+          <div class="a-top">
+            <span class="a-title">How much can the agent do on its own?</span>
+            <span class="a-hint">Applies to this workspace · changeable anytime</span>
+          </div>
+          <div class="seg" id="seg">
+            <div class="seg-opt" data-lvl="0">
+              <span class="lvl">Level 1</span>
+              <div class="so-top"><span class="dotn"></span> Suggest only</div>
+              <div class="so-desc">Surfaces ideas. Nothing changes until you act.</div>
+            </div>
+            <div class="seg-opt on" data-lvl="1">
+              <span class="lvl">Level 2 · Current</span>
+              <div class="so-top"><span class="dotn"></span> Flag for review</div>
+              <div class="so-desc">Proposes specific rule changes and waits for your approval.</div>
+            </div>
+            <div class="seg-opt" data-lvl="2">
+              <span class="lvl">Level 3</span>
+              <div class="so-top"><span class="dotn"></span> Auto-apply low-risk</div>
+              <div class="so-desc">Applies safe changes automatically, notifies you, asks on big ones.</div>
+            </div>
+            <div class="seg-opt" data-lvl="3">
+              <span class="lvl">Level 4</span>
+              <div class="so-top"><span class="dotn"></span> Autonomous</div>
+              <div class="so-desc">Maintains rules end-to-end. Full audit trail; reversible.</div>
+            </div>
+          </div>
+          <div class="a-foot" id="aFoot"><b>Flag for review:</b> the agent does the analysis and drafts the exact rule change, but every change needs your approval before it goes live.</div>
+        </div>
+
+        <div class="section-label">Proposals for your review <span class="count">3 new</span></div>
+
+        <!-- HERO proposal -->
+        <div class="proposal hero" data-id="p1">
+          <div class="p-head">
+            <div class="p-ic spend">📈</div>
+            <div class="p-headmain">
+              <div class="p-signal">Off-contract spend is rising in IT</div>
+              <div class="breadcrumb"><span class="hot">Catalog</span><span class="sep">→</span><span class="hot">Spend signal</span><span class="sep">→</span><span class="hot">IT department</span></div>
+            </div>
+            <span class="p-conf high">High confidence</span>
+          </div>
+          <div class="p-body">
+            <div class="p-propose">Add an <b>exception context</b> for IT (priority 3) that ranks preferred supplier <b>CDW</b> first and <b>hides Amazon punch-out</b> for IT hardware.</div>
+            <div class="p-why"><span class="wl">Why the agent suggests this</span> Detected <b>23 off-contract IT purchases</b> in the last 30 days (~$48K) that bypassed the CDW contract. Your policy marks CDW as the preferred vendor for IT hardware.</div>
+            <div class="p-sim">
+              <span class="sim"><span class="k">Test result</span> re-ranks <b>142</b> catalog results</span>
+              <span class="sim"><span class="k">·</span> hides <b>1</b> punch-out for IT</span>
+              <span class="sim"><span class="k">·</span> affects <b>320</b> users</span>
+              <span class="sim"><span class="k">·</span> no conflict with existing contexts</span>
+            </div>
+          </div>
+          <div class="p-actions">
+            <button class="btn btn-primary" data-act="approve">Approve &amp; activate</button>
+            <button class="btn btn-ghost" data-act="edit">Edit in console</button>
+            <button class="btn-text" data-act="dismiss">Dismiss</button>
+            <span class="applied-tag">✓ Activated — exception context added · <a class="undo" data-act="undo">Undo</a></span>
+          </div>
+        </div>
+
+        <!-- proposal 2 -->
+        <div class="proposal" data-id="p2">
+          <div class="p-head">
+            <div class="p-ic supplier">🏷️</div>
+            <div class="p-headmain">
+              <div class="p-signal">New supplier “Fully” added to the catalog</div>
+              <div class="breadcrumb"><span class="hot">Catalog</span><span class="sep">→</span><span class="hot">New supplier</span><span class="sep">→</span><span class="hot">Furniture</span></div>
+            </div>
+            <span class="p-conf med">Needs a look</span>
+          </div>
+          <div class="p-body">
+            <div class="p-propose">Tag <b>Fully</b> as <b>Preferred</b> in the Furniture sorting ruleset so it ranks above generic matches.</div>
+            <div class="p-why"><span class="wl">Why the agent suggests this</span> Fully meets your preferred-vendor criteria — active contract on file and pricing within the Furniture cap. It’s currently unranked, so buyers may miss it.</div>
+            <div class="p-sim">
+              <span class="sim"><span class="k">Test result</span> ranks above <b>38</b> Furniture items</span>
+              <span class="sim"><span class="k">·</span> applies to <b>All users</b></span>
+            </div>
+          </div>
+          <div class="p-actions">
+            <button class="btn btn-primary" data-act="approve">Approve &amp; activate</button>
+            <button class="btn btn-ghost" data-act="edit">Edit in console</button>
+            <button class="btn-text" data-act="dismiss">Dismiss</button>
+            <span class="applied-tag">✓ Activated — ranked as Preferred · <a class="undo" data-act="undo">Undo</a></span>
+          </div>
+        </div>
+
+        <!-- proposal 3 -->
+        <div class="proposal" data-id="p3">
+          <div class="p-head">
+            <div class="p-ic contract">⏳</div>
+            <div class="p-headmain">
+              <div class="p-signal">Contract for “Bloom &amp; Stem” expires in 14 days</div>
+              <div class="breadcrumb"><span class="hot">Suppliers</span><span class="sep">→</span><span class="hot">Contract expiring</span><span class="sep">→</span><span class="hot">Events &amp; Catering</span></div>
+            </div>
+            <span class="p-conf med">Needs a look</span>
+          </div>
+          <div class="p-body">
+            <div class="p-propose">Temporarily <b>downrank Bloom &amp; Stem</b> in Events &amp; Catering until the contract is renewed, to avoid new commitments on an expiring agreement.</div>
+            <div class="p-why"><span class="wl">Why the agent suggests this</span> New requisitions against an expiring contract create renewal and pricing risk. Downranking (not hiding) keeps it available while steering buyers toward active contracts.</div>
+            <div class="p-sim">
+              <span class="sim"><span class="k">Test result</span> downranks <b>12</b> results</span>
+              <span class="sim"><span class="k">·</span> auto-reverts on renewal</span>
+            </div>
+          </div>
+          <div class="p-actions">
+            <button class="btn btn-primary" data-act="approve">Approve &amp; activate</button>
+            <button class="btn btn-ghost" data-act="edit">Edit in console</button>
+            <button class="btn-text" data-act="dismiss">Dismiss</button>
+            <span class="applied-tag">✓ Activated — temporary downrank set · <a class="undo" data-act="undo">Undo</a></span>
+          </div>
+        </div>
+
+        <div class="section-label">Recently applied <span class="count">audit trail</span></div>
+        <div class="applied-row">
+          <div class="ar-ic">✓</div>
+          <div class="ar-main"><b>Downranked out-of-policy laptops over $2,500</b> for All users<div class="ar-meta">Re-ranked 64 results · rationale: exceeds hardware price cap</div></div>
+          <span class="ar-by">Auto · L3</span>
+          <span class="undo">Undo</span>
+        </div>
+        <div class="applied-row">
+          <div class="ar-ic">✓</div>
+          <div class="ar-main"><b>Hid Amazon punch-out for Finance</b><div class="ar-meta">Approved by you · 5 days ago · matches Finance exception context</div></div>
+          <span class="ar-by">You approved</span>
+          <span class="undo">Undo</span>
+        </div>
+
+        <div class="footnote">Concept exploration by Eric Huang. Patterns shown — proactive proposals, a human-approval gate, an autonomy gradient, simulated impact, and a reversible audit trail — generalize to any governance surface, not only procurement.</div>
+        </div><!-- /viewMonitor -->
+
+        <!-- CREATE VIEW -->
+        <div class="view-panel" id="viewCreate">
+          <div class="create-head">
+            <div>
+              <div class="section-label" style="margin-top:0;">New rule</div>
+              <h3 style="font-size:18px;font-weight:800;">Build a compliance rule step by step</h3>
+              <p class="sub" style="margin-top:6px;">Same model as the shipped console — user group, default vs exception, sort or hide — with optional agent help to draft the rule from plain English.</p>
+            </div>
+            <button class="btn btn-ghost" type="button" id="openManualLink">Open manual console →</button>
+          </div>
+
+          <div class="nl-input">
+            <label>Describe what you want (optional — agent drafts the steps)</label>
+            <textarea id="nlPrompt" placeholder="e.g. For IT department, rank CDW first for hardware and hide Amazon punch-out"></textarea>
+            <div class="nl-row">
+              <span class="nl-hint">Agent maps your description to scope, context, and display rules.</span>
+              <button class="btn btn-primary" type="button" id="nlDraftBtn">Draft rule →</button>
+            </div>
+          </div>
+
+          <div class="wizard" id="wizard">
+            <div class="wiz-steps" id="wizSteps">
+              <div class="wiz-step on" data-step="0"><span class="wn">1</span> Who</div>
+              <div class="wiz-step" data-step="1"><span class="wn">2</span> Context</div>
+              <div class="wiz-step" data-step="2"><span class="wn">3</span> Action</div>
+              <div class="wiz-step" data-step="3"><span class="wn">4</span> Test</div>
+              <div class="wiz-step" data-step="4"><span class="wn">5</span> Publish</div>
+            </div>
+
+            <div class="wiz-pane" data-pane="0">
+              <div class="wiz-body">
+                <h3>Who does this rule apply to?</h3>
+                <p class="wiz-lede">Rules attach to user groups — the same org structure admins already use in the shipped console.</p>
+                <div class="field-grid">
+                  <div class="field">
+                    <label>User group</label>
+                    <select id="fGroup">
+                      <option value="all">All users</option>
+                      <option value="it" selected>IT department</option>
+                      <option value="finance">Finance</option>
+                      <option value="facilities">Facilities</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label>Category scope (optional)</label>
+                    <select id="fCategory">
+                      <option value="">All categories</option>
+                      <option value="hardware" selected>IT hardware</option>
+                      <option value="furniture">Furniture</option>
+                      <option value="events">Events &amp; catering</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="wiz-pane" data-pane="1" hidden>
+              <div class="wiz-body">
+                <h3>Default or exception?</h3>
+                <p class="wiz-lede">Exceptions override defaults when they match. Set priority order so admins know what wins.</p>
+                <div class="radio-cards" id="ctxCards">
+                  <div class="radio-card" data-ctx="default">
+                    <div class="rc-title">Default context</div>
+                    <div class="rc-desc">Baseline rule for this user group. Lower priority than exceptions.</div>
+                  </div>
+                  <div class="radio-card on" data-ctx="exception">
+                    <div class="rc-title">Exception context</div>
+                    <div class="rc-desc">Overrides default when conditions match. Use for department-specific policy.</div>
+                  </div>
+                </div>
+                <div class="field-row" style="margin-top:14px;">
+                  <div class="field">
+                    <label>Priority order</label>
+                    <input type="number" id="fPriority" value="3" min="1" max="99" />
+                  </div>
+                  <div class="field">
+                    <label>Context name</label>
+                    <input type="text" id="fCtxName" value="IT hardware exception" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="wiz-pane" data-pane="2" hidden>
+              <div class="wiz-body">
+                <h3>What should happen in catalog search?</h3>
+                <p class="wiz-lede">Display rules control sorting and hiding — separate surfaces in the shipped console.</p>
+                <div class="radio-cards" id="actCards">
+                  <div class="radio-card on" data-act="sort">
+                    <div class="rc-title">Sorting rule</div>
+                    <div class="rc-desc">Rank preferred suppliers or compliance tiers higher in results.</div>
+                  </div>
+                  <div class="radio-card" data-act="hide">
+                    <div class="rc-title">Hiding rule</div>
+                    <div class="rc-desc">Remove options from search (e.g. off-contract punch-outs).</div>
+                  </div>
+                </div>
+                <div class="field-grid" style="margin-top:14px;">
+                  <div class="field">
+                    <label id="actTargetLabel">Preferred supplier to rank first</label>
+                    <select id="fTarget">
+                      <option value="cdw" selected>CDW (contracted)</option>
+                      <option value="fully">Fully</option>
+                      <option value="amazon">Amazon punch-out</option>
+                    </select>
+                  </div>
+                  <div class="field" id="hideExtra">
+                    <label>Also hide</label>
+                    <select id="fHide">
+                      <option value="">None</option>
+                      <option value="amazon" selected>Amazon punch-out</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="wiz-pane" data-pane="3" hidden>
+              <div class="wiz-body">
+                <h3>Test before you publish</h3>
+                <p class="wiz-lede">Preview impact on catalog results — same idea as the testing playground in Intake Agent admin.</p>
+                <div class="preview-box" id="livePreview">
+                  <span class="pl">Plain-English summary</span>
+                  <p id="summaryText">For <b>IT department</b>, add <b>exception context</b> (priority 3) that ranks <b>CDW</b> first and hides <b>Amazon punch-out</b> for IT hardware.</p>
+                </div>
+                <div class="p-sim" style="margin-top:12px;">
+                  <span class="sim"><span class="k">Simulated</span> re-ranks <b id="simRank">142</b> results</span>
+                  <span class="sim"><span class="k">·</span> hides <b id="simHide">1</b> punch-out</span>
+                  <span class="sim"><span class="k">·</span> affects <b id="simUsers">320</b> users</span>
+                  <span class="sim"><span class="k">·</span> <b id="simConflict">no conflict</b> with existing contexts</span>
+                </div>
+                <button class="btn btn-ghost" type="button" id="runTestBtn" style="margin-top:14px;">Run test again</button>
+              </div>
+            </div>
+
+            <div class="wiz-pane" data-pane="4" hidden>
+              <div class="wiz-body wiz-success">
+                <div class="ok">✓</div>
+                <h3>Rule published</h3>
+                <p id="publishMsg">Exception context added for IT department. Buyers will see CDW ranked first; Amazon punch-out hidden for IT hardware.</p>
+                <button class="btn btn-ghost" type="button" id="createAnother" style="margin-top:16px;">Create another rule</button>
+              </div>
+            </div>
+
+            <div class="wiz-foot" id="wizFoot">
+              <span class="wiz-summary" id="wizSummary">Step 1 of 5 — choose who the rule applies to.</span>
+              <div style="display:flex;gap:8px;">
+                <button class="btn btn-ghost" type="button" id="wizBack" disabled>Back</button>
+                <button class="btn btn-primary" type="button" id="wizNext">Continue</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="footnote">Manual path still exists in Overview and Display Rules. This builder is the agent-assisted on-ramp — describe intent, step through the same IA, test, then publish.</div>
+        </div><!-- /viewCreate -->
+
+      </main>
+    </div>
+  </div>
+
+  <script>
+    // mode tabs
+    const modeTabs = document.getElementById('modeTabs');
+    const viewMonitor = document.getElementById('viewMonitor');
+    const viewCreate = document.getElementById('viewCreate');
+    modeTabs.addEventListener('click', (e) => {
+      const tab = e.target.closest('.mode-tab');
+      if (!tab) return;
+      modeTabs.querySelectorAll('.mode-tab').forEach(t => t.classList.remove('on'));
+      tab.classList.add('on');
+      const monitor = tab.dataset.mode === 'monitor';
+      viewMonitor.classList.toggle('on', monitor);
+      viewCreate.classList.toggle('on', !monitor);
+    });
+
+    // autonomy gradient
+    const foots = {
+      0: '<b>Suggest only:</b> the agent surfaces opportunities but drafts nothing and changes nothing until you ask.',
+      1: '<b>Flag for review:</b> the agent does the analysis and drafts the exact rule change, but every change needs your approval before it goes live.',
+      2: '<b>Auto-apply low-risk:</b> safe, reversible changes (e.g. downranking an expiring contract) apply automatically and notify you; high-impact changes still wait for approval.',
+      3: '<b>Autonomous:</b> the agent maintains rules end-to-end against your policy. Everything is logged with rationale and is one click to reverse.'
+    };
+    const seg = document.getElementById('seg');
+    const aFoot = document.getElementById('aFoot');
+    seg.addEventListener('click', (e) => {
+      const opt = e.target.closest('.seg-opt');
+      if (!opt) return;
+      seg.querySelectorAll('.seg-opt').forEach(o => o.classList.remove('on'));
+      opt.classList.add('on');
+      opt.querySelector('.lvl').textContent = opt.querySelector('.lvl').textContent.replace(' · Current','');
+      aFoot.innerHTML = foots[opt.dataset.lvl];
+    });
+
+    // proposal actions
+    document.querySelectorAll('.proposal').forEach(card => {
+      card.addEventListener('click', (e) => {
+        const btn = e.target.closest('[data-act]');
+        if (!btn) return;
+        const act = btn.dataset.act;
+        if (act === 'approve') card.classList.add('activated');
+        else if (act === 'dismiss') card.classList.add('dismissed');
+        else if (act === 'undo') { card.classList.remove('activated'); card.classList.remove('dismissed'); }
+        else if (act === 'edit') {
+          modeTabs.querySelector('[data-mode="create"]').click();
+          document.getElementById('nlDraftBtn').click();
+        }
+      });
+    });
+
+    // create-rule wizard
+    const GROUP_LABELS = { all: 'All users', it: 'IT department', finance: 'Finance', facilities: 'Facilities' };
+    const CAT_LABELS = { '': 'all categories', hardware: 'IT hardware', furniture: 'Furniture', events: 'Events & catering' };
+    const TARGET_LABELS = { cdw: 'CDW', fully: 'Fully', amazon: 'Amazon punch-out' };
+    let wizStep = 0;
+
+    const panes = [...document.querySelectorAll('.wiz-pane')];
+    const stepEls = [...document.querySelectorAll('.wiz-step')];
+    const wizBack = document.getElementById('wizBack');
+    const wizNext = document.getElementById('wizNext');
+    const wizFoot = document.getElementById('wizFoot');
+    const wizSummary = document.getElementById('wizSummary');
+    const summaryText = document.getElementById('summaryText');
+    const publishMsg = document.getElementById('publishMsg');
+
+    function getForm() {
+      const group = document.getElementById('fGroup').value;
+      const category = document.getElementById('fCategory').value;
+      const ctx = document.querySelector('#ctxCards .radio-card.on')?.dataset.ctx || 'exception';
+      const priority = document.getElementById('fPriority').value;
+      const ctxName = document.getElementById('fCtxName').value;
+      const act = document.querySelector('#actCards .radio-card.on')?.dataset.act || 'sort';
+      const target = document.getElementById('fTarget').value;
+      const hide = document.getElementById('fHide').value;
+      return { group, category, ctx, priority, ctxName, act, target, hide };
+    }
+
+    function updatePreview() {
+      const f = getForm();
+      const g = GROUP_LABELS[f.group];
+      const cat = f.category ? ' for ' + CAT_LABELS[f.category] : '';
+      const ctxLabel = f.ctx === 'exception' ? 'exception context' : 'default context';
+      const t = TARGET_LABELS[f.target];
+      let sentence = 'For <b>' + g + '</b>, add <b>' + ctxLabel + '</b> (priority ' + f.priority + ')';
+      if (f.act === 'sort') sentence += ' that ranks <b>' + t + '</b> first';
+      else sentence += ' that hides <b>' + t + '</b>';
+      if (f.hide && f.hide !== f.target) sentence += ' and hides <b>' + TARGET_LABELS[f.hide] + '</b>';
+      sentence += cat + '.';
+      summaryText.innerHTML = sentence;
+      document.getElementById('simRank').textContent = f.group === 'it' ? '142' : f.group === 'finance' ? '89' : '210';
+      document.getElementById('simHide').textContent = (f.hide || (f.act === 'hide' ? '1' : '0'));
+      document.getElementById('simUsers').textContent = f.group === 'all' ? '1,240' : f.group === 'it' ? '320' : '180';
+      publishMsg.textContent = (f.ctx === 'exception' ? 'Exception' : 'Default') + ' context added for ' + g + '. ' +
+        (f.act === 'sort' ? t + ' ranked first' : t + ' hidden') + cat + '.';
+    }
+
+    function renderWizard() {
+      panes.forEach((p, i) => { p.hidden = i !== wizStep; });
+      stepEls.forEach((s, i) => {
+        s.classList.remove('on', 'done');
+        if (i < wizStep) s.classList.add('done'), s.querySelector('.wn').textContent = '✓';
+        else s.querySelector('.wn').textContent = String(i + 1);
+        if (i === wizStep) s.classList.add('on');
+      });
+      wizBack.disabled = wizStep === 0;
+      wizFoot.style.display = wizStep === 4 ? 'none' : 'flex';
+      wizNext.textContent = wizStep === 3 ? 'Publish rule' : 'Continue';
+      const hints = [
+        'Step 1 of 5 — choose who the rule applies to.',
+        'Step 2 of 5 — default or exception, and priority order.',
+        'Step 3 of 5 — sort preferred items or hide off-policy options.',
+        'Step 4 of 5 — review simulated impact before publish.',
+        ''
+      ];
+      wizSummary.innerHTML = hints[wizStep];
+      if (wizStep >= 2) updatePreview();
+    }
+
+    wizBack.addEventListener('click', () => { if (wizStep > 0) { wizStep--; renderWizard(); } });
+    wizNext.addEventListener('click', () => {
+      if (wizStep < 4) { wizStep++; renderWizard(); }
+    });
+    document.getElementById('createAnother').addEventListener('click', () => { wizStep = 0; renderWizard(); });
+
+    document.querySelectorAll('.radio-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const parent = card.parentElement;
+        parent.querySelectorAll('.radio-card').forEach(c => c.classList.remove('on'));
+        card.classList.add('on');
+        const act = card.dataset.act;
+        if (act) {
+          document.getElementById('actTargetLabel').textContent =
+            act === 'hide' ? 'Item or supplier to hide' : 'Preferred supplier to rank first';
+          document.getElementById('hideExtra').style.display = act === 'sort' ? '' : 'none';
+        }
+        updatePreview();
+      });
+    });
+
+    ['fGroup','fCategory','fPriority','fCtxName','fTarget','fHide'].forEach(id => {
+      document.getElementById(id).addEventListener('change', updatePreview);
+      document.getElementById(id).addEventListener('input', updatePreview);
+    });
+
+    document.getElementById('nlDraftBtn').addEventListener('click', () => {
+      const t = document.getElementById('nlPrompt').value.toLowerCase();
+      if (t.includes('it')) document.getElementById('fGroup').value = 'it';
+      if (t.includes('finance')) document.getElementById('fGroup').value = 'finance';
+      if (t.includes('hardware')) document.getElementById('fCategory').value = 'hardware';
+      if (t.includes('hide') || t.includes('amazon')) {
+        document.querySelector('#actCards [data-act="sort"]').classList.add('on');
+        document.querySelector('#actCards [data-act="hide"]').classList.remove('on');
+        document.getElementById('fHide').value = 'amazon';
+      }
+      if (t.includes('cdw')) document.getElementById('fTarget').value = 'cdw';
+      document.querySelector('#ctxCards [data-ctx="exception"]').click();
+      wizStep = 0;
+      modeTabs.querySelector('[data-mode="create"]').click();
+      renderWizard();
+      updatePreview();
+    });
+
+    document.getElementById('runTestBtn').addEventListener('click', () => {
+      const btn = document.getElementById('runTestBtn');
+      btn.textContent = 'Running…';
+      setTimeout(() => { btn.textContent = 'Test passed ✓'; updatePreview(); }, 600);
+    });
+
+    document.getElementById('openManualLink').addEventListener('click', () => {
+      alert('In the shipped product, this opens Overview → Maintain context or Display Rules — the manual path this concept extends.');
+    });
+
+    renderWizard();
+
+    if (location.hash === '#create' || new URLSearchParams(location.search).get('mode') === 'create') {
+      modeTabs.querySelector('[data-mode="create"]').click();
+    }
+  </script>
+</body>
+</html>

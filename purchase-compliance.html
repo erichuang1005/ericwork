@@ -5,15 +5,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="image/png" href="images/favicon-32.png" sizes="32x32" />
   <link rel="apple-touch-icon" href="images/favicon-apple.png" />
-  <title>Purchase Compliance — Enterprise workflow &amp; IA (Eric Huang)</title>
+  <title>Purchase Compliance — Buying rules &amp; admin UX (Eric Huang)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css?v=20260618" />
   <script src="analytics.js"></script>
+  <script src="site-meta.js" defer></script>
   <script src="auth.js?v=20260211"></script>
+  <style>
+    .agentic-cta{position:relative; overflow:hidden; border:1px solid #BBD9F7; border-radius:18px; padding:30px 32px;
+      background:radial-gradient(120% 140% at 100% 0%, rgba(109,40,217,0.07) 0%, transparent 55%), linear-gradient(180deg,#F8FAFF,#FFFFFF);}
+    .agentic-cta .agentic-eyebrow{display:inline-flex; align-items:center; gap:8px; font-size:12px; font-weight:700; letter-spacing:0.04em;
+      color:#6D28D9; background:#F5F3FF; border:1px solid #DDD6FE; border-radius:20px; padding:5px 12px;}
+    .agentic-cta h3{margin:16px 0 8px; font-size:clamp(20px,2.6vw,26px);}
+    .agentic-cta p{max-width:64ch; color:var(--ink-secondary,#52525B); line-height:1.6;}
+    .agentic-cta p .concept-note{color:var(--ink-muted,#A1A1AA); font-style:italic;}
+    .agentic-cta-btn{display:inline-flex; align-items:center; gap:10px; margin-top:20px; padding:13px 22px; border-radius:12px;
+      background:#0875E1; color:#fff; font-weight:700; font-size:15px; text-decoration:none; transition:transform .15s ease, background .15s ease;}
+    .agentic-cta-btn:link, .agentic-cta-btn:visited{text-decoration:none;}
+    .agentic-cta-btn:hover{background:#0B5BB5; transform:translateY(-1px);}
+    .agentic-cta-btn .arr{transition:transform .15s ease;}
+    .agentic-cta-btn:hover .arr{transform:translateX(3px);}
+    .agentic-cta-meta{margin-top:14px; font-size:13px; color:var(--ink-muted,#A1A1AA);}
+    .cs-ending .agentic-cta{margin-bottom:20px;}
+    .cs-ending .more-story{margin-top:0; margin-bottom:0;}
+    /* Takeaways carousel sits inside ch.05 — don't double-gap the chapter */
+    .cs-chapter-heading + .block { margin-top: 0; }
+    .kh-carousel-block { margin-top: 8px; }
+  </style>
 </head>
-<body class="cs-plain-prose">
+<body>
 
 <!-- ─── NAV ─── -->
 <nav>
@@ -51,163 +73,155 @@
       <div class="cs-meta-item"><div class="cs-meta-key">Company</div><div class="cs-meta-val">Workday</div></div>
       <div class="cs-meta-item"><div class="cs-meta-key">My Role</div><div class="cs-meta-val">Lead UX Designer</div></div>
       <div class="cs-meta-item"><div class="cs-meta-key">Platform</div><div class="cs-meta-val">Desktop Web</div></div>
-      <div class="cs-meta-item"><div class="cs-meta-key">Duration</div><div class="cs-meta-val">2024 – 2025</div></div>
+      <div class="cs-meta-item"><div class="cs-meta-key">Timeline</div><div class="cs-meta-val">2024 – 2025</div></div>
+      <div class="cs-meta-item"><div class="cs-meta-key">Last update</div><div class="cs-meta-val"><span data-site-updated></span></div></div>
     </div>
     <div class="cs-header-meta">
-      <span class="tag accent">Workflow Simplification</span>
-      <span class="tag">Scalable Design</span>
+      <span class="tag accent">Admin workflow design</span>
+      <span class="tag">User-group modeling</span>
+      <span class="tag">Buying rules console</span>
+      <span class="tag">Shopping experience</span>
       <span class="tag">Research</span>
-      <span class="tag">UX Design</span>
-      <span class="tag">Collaboration</span>
       <span class="tag">Desktop</span>
     </div>
-    <div class="cs-overview">
-      <div class="cs-overview-item">
-        <div class="block-label">Design problem</div>
-        <p>Procurement admins were drowning in manual compliance work, while the UI asked them to wire rules in ways that didn’t match how teams, cost centers, and hierarchy actually shape policy.</p>
+  </div>
+
+  <!-- ─── 30-SECOND SNAPSHOT ─── -->
+  <div class="cs-snapshot">
+    <div class="block-label">30-second read</div>
+    <div class="cs-snapshot-beats">
+      <div class="cs-snapshot-beat">
+        <span class="cs-snapshot-num">01</span>
+        <div>
+          <strong>The problem</strong>
+          <p>People who run buying rules were doing too much by hand. The old setup ignored how teams and departments are actually organized — so rules were slow to build, easy to break, and hard to trust as the company grew.</p>
+        </div>
       </div>
-      <div class="cs-overview-item">
-        <div class="block-label">Outcome</div>
-        <p>Shipped in Workday (2024–2025): a user-group-based compliance console with nested default/exception IA, plus compliance surfaced in catalog search—so buyers see policy, not only back-office admins.</p>
+      <div class="cs-snapshot-beat">
+        <span class="cs-snapshot-num">02</span>
+        <div>
+          <strong>The critical decision</strong>
+          <p>We evaluated three rule models — item, item+rule, and user-group. User groups won because admins already think in org structure. One modeling choice unlocked precision without per-item spaghetti.</p>
+        </div>
       </div>
-      <div class="cs-overview-item">
-        <div class="block-label">My contributions</div>
-        <p>Lead UX for research synthesis, three-way architecture evaluation, console IA with engineering and customers, usability validation, and interaction design through production-ready delivery with PM and eng.</p>
+      <div class="cs-snapshot-beat">
+        <span class="cs-snapshot-num">03</span>
+        <div>
+          <strong>The system</strong>
+          <p>An admin console with clear defaults, exceptions, and what wins when rules conflict — plus separate areas for search vs what shoppers see. The same rules show up in the product catalog so buyers see what's allowed where they shop.</p>
+        </div>
+      </div>
+      <div class="cs-snapshot-beat">
+        <span class="cs-snapshot-num">04</span>
+        <div>
+          <strong>Shipped</strong>
+          <p>Workday 2024–2025. 94% faster to set up rules, 100% task success in usability tests, adopted by buying teams — and the same pattern reused in other admin tools.</p>
+        </div>
       </div>
     </div>
-    <p>
-      Procurement admins were stuck in <strong>slow, manual</strong> compliance work; the product didn’t match how they use <strong>org structure</strong> to think about policy. I led <strong>research</strong>, <strong>IA</strong>, and <strong>interaction design</strong> for a <strong>user-group-based</strong> rule model, the <strong>compliance console</strong> (nested default/exception rules at scale), and clarity that rules show up in <strong>catalog search</strong>—not only on admin screens.
-    </p>
+    <div class="cs-snapshot-gallery">
+      <figure class="cs-figure">
+        <img src="images/purchase-compliance/console-overview.png" alt="Buying rules console with baseline and exception tables" width="1024" height="658" loading="lazy" decoding="async" />
+        <figcaption>Admin view — defaults, exceptions, and priority at a glance.</figcaption>
+      </figure>
+      <figure class="cs-figure">
+        <img src="images/purchase-compliance/catalog-search-compliance-ranking.png" alt="Catalog search with compliance-ranked results and tier badges" width="1024" height="730" loading="lazy" decoding="async" />
+        <figcaption>Shopper view — the same rules rank and label catalog results.</figcaption>
+      </figure>
+    </div>
+    <div class="cs-snapshot-cta">
+      <a href="#full-story" class="cs-expand-btn">Read full case study ↓</a>
+    </div>
+  </div>
+  <!-- ─── END SNAPSHOT ─── -->
+
+  <div class="cs-chapter-heading" id="full-story">
+    <span class="cs-chapter-num">01</span>
+    <h3>The problem</h3>
+    <p class="cs-chapter-sub">Manual policy work that didn't match how teams actually work</p>
   </div>
 
   <div class="block">
     <div class="block-label">Start here</div>
-    <h3>If procurement isn’t your domain</h3>
-    <p>Think of this as software that helps organizations answer four questions, over and over: <em>who</em> does a rule apply to, <em>what’s allowed by default</em>, <em>what exceptions exist</em>, and <em>where people actually see the outcome</em> when they try to buy something. The interface is dense because mistakes are expensive—wrong rules mean wrong spend, delays, and audits.</p>
-    <p>The rest of this case study walks through the problem, the research signals, the architecture choice, and the admin console—then how the same rules show up for shoppers in catalog search.</p>
-  </div>
-
-  <!-- My Role -->
-  <div class="my-role-block">
-    <div class="my-role-icon">👤</div>
-    <div class="my-role-content">
-      <div class="block-label">My Contributions</div>
-      <p><strong>Owned</strong> the admin journey end-to-end: research synthesis, <strong>three-way architecture evaluation</strong> (item vs item-rule vs user-group), <strong>console IA</strong> with engineering and customers, usability validation, and partnership with PM/eng to ship something adoptable—not just technically correct.</p>
-      <div class="my-role-chips">
-        <span class="chip">User Research</span>
-        <span class="chip">IA Strategy</span>
-        <span class="chip">Concept Modelling</span>
-        <span class="chip">Solution Evaluation</span>
-        <span class="chip">Interaction Design</span>
-        <span class="chip">Stakeholder Reviews</span>
-      </div>
-    </div>
+    <h3>If buying rules aren't your world</h3>
+    <p>Large companies need software to answer four questions over and over: who does a rule apply to, what's allowed by default, what exceptions exist, and where do people actually see the outcome when they try to buy something. The screens are dense because mistakes are expensive — wrong rules mean wrong spend, delays, and audits.</p>
+    <p>The rest walks through the problem, what we learned, the design choice, the admin console, and how shoppers see the same rules in catalog search.</p>
   </div>
 
   <div class="block">
-    <div class="block-label">Governance angle</div>
-    <h3>A familiar problem class (with an honest boundary)</h3>
-    <p>Many enterprise products need admins to configure policy at scale: attach it to the right groups, handle exceptions, resolve conflicts, and prove the policy in the places people work—not only on a settings screen. This project is about purchasing compliance, not data catalogs—but the <em>interaction shape</em> is the same family of UX: legible nesting, clear precedence, safe defaults, and downstream surfacing.</p>
-    <p class="cs-analogy-footnote">Below is a <em>reader map</em> only. It does <em>not</em> mean this product is a database governance tool; it helps generalists translate concepts without procurement jargon.</p>
-    <table class="solution-table governance-analogy-table" aria-label="Plain language map to procurement terms and a general analogy">
+    <div class="block-label">Plain-language map</div>
+    <h3>Same idea, different words</h3>
+    <p>Many enterprise products ask admins to set policy at scale: attach it to the right groups, handle exceptions, resolve conflicts, and show outcomes where people work — not only on a settings screen. This project is about buying compliance, but the interaction pattern is familiar: clear nesting, what wins when rules disagree, safe defaults, and showing results where people search and shop.</p>
+    <table class="solution-table governance-analogy-table" aria-label="Plain language map">
       <thead>
         <tr>
           <th>Plain idea</th>
           <th>In this product</th>
-          <th>General analogy</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>Who the policy applies to</td>
-          <td>User groups tied to org structure (teams, cost centers, hierarchy)</td>
-          <td>Scoping rules to the right people or organizational boundaries</td>
+          <td>Who the rule applies to</td>
+          <td>User groups tied to org structure — teams, cost centers, hierarchy</td>
         </tr>
         <tr>
           <td>Default vs override</td>
-          <td>Default and exception “contexts” for the same policy surface</td>
-          <td>Inherited settings with explicit overrides</td>
+          <td>A baseline rule, plus exceptions when something special applies</td>
         </tr>
         <tr>
           <td>What wins when rules disagree</td>
-          <td>Priority order and reviewable stacks in the console</td>
-          <td>Precedence / stacking so outcomes are predictable</td>
+          <td>Priority order you can review in the console</td>
         </tr>
         <tr>
-          <td>Where people feel the policy</td>
-          <td>Catalog search ranking, filters, and badges for buyers</td>
-          <td>Showing policy outcomes where discovery happens—not only in admin tools</td>
+          <td>Where people feel the rule</td>
+          <td>Catalog search — ranked results, filters, and labels for shoppers</td>
         </tr>
       </tbody>
     </table>
   </div>
 
   <div class="block">
-    <div class="block-label">End-to-end</div>
-    <h3>From admin configuration to what buyers see</h3>
-    <p>Three beats—still in everyday language—before the detailed screens below.</p>
-    <div class="governance-flow" aria-label="Three steps from admin rules to buyer experience">
-      <div class="governance-flow-step">
-        <span class="governance-flow-num" aria-hidden="true">1</span>
-        <h4 class="governance-flow-title">Define</h4>
-        <p>Admins attach rules to the parts of the org that actually own purchasing policy.</p>
-      </div>
-      <div class="governance-flow-step">
-        <span class="governance-flow-num" aria-hidden="true">2</span>
-        <h4 class="governance-flow-title">Configure</h4>
-        <p>The console makes defaults, exceptions, and ordering scannable so teams don’t mis-wire high-stakes rules.</p>
-      </div>
-      <div class="governance-flow-step">
-        <span class="governance-flow-num" aria-hidden="true">3</span>
-        <h4 class="governance-flow-title">Surface</h4>
-        <p>Requesters encounter the same policy when they search and compare options—so trust isn’t “back office only.”</p>
-      </div>
-    </div>
+    <div class="block-label">Context</div>
+    <h3>Manual work didn't scale</h3>
+    <p>Admins were enforcing policy by hand — reviews, one-off guidance, training — while the tool asked them to wire rules in ways that ignored how the company is actually organized. It worked in demos, not at real volume.</p>
   </div>
 
-  <!-- Optional additions (if Eric shares later): audit/versioning narrative, rule-type counts, stakeholder titles for gov lens, redacted spec or release note snippet. -->
-
-  <!-- Context -->
-  <div class="block">
-    <div class="block-label">Context &amp; Challenge</div>
-    <h3>Manual compliance work didn’t scale</h3>
-    <p>
-      Admins were doing compliance <strong>by hand</strong>—reviews, one-off guidance, training—while the UI asked them to wire rules in ways that ignored <strong>how orgs are actually structured</strong>. The tool worked in demos, not in real volume.
-    </p>
-  </div>
-
-  <!-- Research -->
-  <div class="block">
-    <div class="block-label">Research Insights</div>
+  <div class="block block--tight-after">
+    <div class="block-label">Research</div>
     <h3>What had to be true</h3>
   </div>
 
-  <ul class="insight-list">
+  <ul class="insight-list insight-list--dense">
     <li>
       <div class="insight-icon">🔁</div>
-      <span><strong>Less repetitive manual work</strong> — rule setup had to be repeatable and consistent, not a custom project every time.</span>
+      <span>Rule setup had to be repeatable — not a custom project every time.</span>
     </li>
     <li>
       <div class="insight-icon">⚙️</div>
-      <span><strong>Simple for non-technical admins</strong> — powerful rules without a CS degree; onboarding had to be manageable.</span>
+      <span>Powerful rules without needing a technical background; onboarding had to be manageable.</span>
     </li>
     <li>
       <div class="insight-icon">📈</div>
-      <span><strong>Scalable and maintainable</strong> — grow with the company without fragile one-offs or performance cliffs.</span>
+      <span>Grow with the company without fragile one-offs or slowdowns at scale.</span>
     </li>
   </ul>
 
   <div class="block">
     <div class="block-label">Alignment</div>
-    <h3>From research signals to a shippable rule model</h3>
-    <p>Structured working sessions with PM, engineering, research, and customer admins pressure-tested rule models, edge cases, and what “good enough to ship” meant for nested defaults—before locking the user-group direction and the console’s default/exception IA.</p>
+    <h3>From research to a shippable model</h3>
+    <p>Working sessions with PM, engineering, research, and customer admins tested rule models, edge cases, and what "good enough to ship" meant — before we locked in the user-group direction and the default/exception layout in the console.</p>
   </div>
 
-  <!-- Solution Exploration -->
-  <div class="block">
-    <div class="block-label">Solution Exploration</div>
+  <div class="cs-chapter-heading">
+    <span class="cs-chapter-num">02</span>
+    <h3>Exploration</h3>
+    <p class="cs-chapter-sub">Three rule models — and why user groups won</p>
+  </div>
+
+  <div class="block block--tight-after">
+    <div class="block-label">Architecture</div>
     <h3>Three ways to model rules</h3>
-    <p>We evaluated <strong>item-based</strong>, <strong>item + rule</strong>, and <strong>user-group-based</strong> structures—trade-offs were precision, adoption, and scale.</p>
+    <p>We evaluated item-based, item + rule, and user-group-based structures — trade-offs were precision, adoption, and scale.</p>
   </div>
 
   <table class="solution-table">
@@ -247,77 +261,125 @@
 
   <div class="callout green-left">
     <p class="callout-body">
-      <strong>Why user groups won:</strong> Rules attach to data admins already use—teams, cost centers, hierarchy—so configuration matches <strong>mental models</strong> and scales without per-item spaghetti.
+      Why user groups won: rules attach to data admins already use — teams, cost centers, hierarchy — so configuration matches mental models and scales without per-item spaghetti.
     </p>
   </div>
 
-  <!-- Before/After -->
-  <div class="block">
-    <div class="block-label">Design Transformation</div>
+  <div class="block block--tight-after">
+    <div class="block-label">Design evolution</div>
     <h3>From ad hoc linking to guided, org-aligned rules</h3>
   </div>
 
   <div class="comparison-grid">
     <div class="comparison-card">
       <div class="comp-label">Before</div>
-      <h4>Non-Guided Rule Building</h4>
+      <h4>No guidance built in</h4>
       <ul>
-        <li>No clear starting point or progression</li>
+        <li>No clear starting point</li>
         <li>Rules disconnected from user groups</li>
         <li>Aimless linking between items and rules</li>
-        <li>No contextual guidance or scaffolding</li>
+        <li>No help along the way</li>
       </ul>
     </div>
     <div class="comparison-card after">
       <div class="comp-label">After</div>
-      <h4>Guided, Contextual Configuration</h4>
+      <h4>Guided, contextual configuration</h4>
       <ul>
-        <li>Step-by-step guided rule-building experience</li>
-        <li>Default + Exception context model (ordered priority)</li>
-        <li>Rules aligned to user groups &amp; org structure</li>
-        <li>Targeted configuration with clear scoping</li>
+        <li>Guided rule-building flow</li>
+        <li>Default + exception model with clear priority</li>
+        <li>Rules aligned to user groups and org structure</li>
+        <li>Clear scope — who each rule applies to</li>
       </ul>
     </div>
   </div>
 
-  <!-- Compliance console: IA for nested rules -->
+  <div class="block">
+    <div class="block-label">End-to-end</div>
+    <h3>From admin setup to what shoppers see</h3>
+    <p>Three steps before the detailed screens below.</p>
+    <div class="governance-flow" aria-label="Three steps from admin rules to shopper experience">
+      <div class="governance-flow-step">
+        <span class="governance-flow-num" aria-hidden="true">1</span>
+        <h4 class="governance-flow-title">Define</h4>
+        <p>Admins attach rules to the parts of the org that actually own buying policy.</p>
+      </div>
+      <div class="governance-flow-step">
+        <span class="governance-flow-num" aria-hidden="true">2</span>
+        <h4 class="governance-flow-title">Configure</h4>
+        <p>The console makes defaults, exceptions, and order easy to scan — so teams don't mis-wire high-stakes rules.</p>
+      </div>
+      <div class="governance-flow-step">
+        <span class="governance-flow-num" aria-hidden="true">3</span>
+        <h4 class="governance-flow-title">Surface</h4>
+        <p>Shoppers see the same rules when they search and compare options — not only in back-office screens.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="cs-chapter-heading">
+    <span class="cs-chapter-num">03</span>
+    <h3>The console</h3>
+    <p class="cs-chapter-sub">Defaults and exceptions that stay readable at volume</p>
+  </div>
+
+  <div class="my-role-block">
+    <div class="my-role-icon">👤</div>
+    <div class="my-role-content">
+      <div class="block-label">My contributions</div>
+      <p>I owned the admin journey end-to-end: research synthesis, comparing three rule models (item vs item-rule vs user-group), console layout with engineering and customers, usability testing, and partnership with PM and eng to ship something people would actually adopt.</p>
+      <div class="my-role-chips">
+        <span class="chip">User research</span>
+        <span class="chip">Information architecture</span>
+        <span class="chip">Concept modeling</span>
+        <span class="chip">Solution evaluation</span>
+        <span class="chip">Interaction design</span>
+        <span class="chip">Stakeholder reviews</span>
+      </div>
+    </div>
+  </div>
+
   <div class="block">
     <div class="block-label">Admin experience</div>
-    <h3>Console IA — nested rules that stay legible</h3>
+    <h3>A console admins can scan at volume</h3>
     <p>
-      With <strong>engineering and customers</strong>, we shipped the <strong>Requisitioning Compliance Console</strong>: <strong>default</strong> vs <strong>exception</strong> contexts with explicit <strong>order</strong>, separate surfaces for <strong>search context</strong> and <strong>display rules</strong> (sort vs hide), and bulk edit where needed—so high-volume admins can scan <strong>what wins when</strong>, then drill in.
+      With engineering and customers, we shipped the buying rules console: separate areas for baseline vs exception rules, clear priority order, and distinct screens for search behavior vs what shoppers see (sort vs hide). High-volume admins can scan what wins when, then drill in — including bulk edit where needed.
     </p>
   </div>
 
   <div class="cs-gallery">
     <figure class="cs-figure">
-      <img src="images/purchase-compliance/console-overview.png" alt="Requisitioning Compliance Console Overview: default and exception context tables with sorting and hiding rules" width="1024" height="658" loading="lazy" decoding="async" />
-      <figcaption><strong>Overview</strong> — default vs exceptions; <strong>order</strong> column for priority; sorting / hiding surfaced per context.</figcaption>
+      <img src="images/purchase-compliance/console-overview.png" alt="Buying rules console overview with baseline and exception tables" width="1024" height="658" loading="lazy" decoding="async" />
+      <figcaption>Overview — baseline vs exceptions; priority column; sort and hide rules per context.</figcaption>
     </figure>
     <figure class="cs-figure">
-      <img src="images/purchase-compliance/console-maintain-context-modal.png" alt="Maintain Requisition Context and Rules modal with default and exception rows and display rule tags" width="1024" height="660" loading="lazy" decoding="async" />
-      <figcaption><strong>Maintain context</strong> — one place to edit conditions, sorting rulesets, and hiding rules for default and exceptions.</figcaption>
+      <img src="images/purchase-compliance/console-maintain-context-modal.png" alt="Edit rules modal with baseline and exception rows" width="1024" height="660" loading="lazy" decoding="async" />
+      <figcaption>Edit context — one place to change conditions, sort rules, and hide rules for baseline and exceptions.</figcaption>
     </figure>
     <figure class="cs-figure">
-      <img src="images/purchase-compliance/console-requisition-search-context.png" alt="Requisition Search Context page with default and exception requisition context tables" width="1024" height="658" loading="lazy" decoding="async" />
-      <figcaption><strong>Search context</strong> — same default / exception model, scoped to how requisition search behaves.</figcaption>
+      <img src="images/purchase-compliance/console-requisition-search-context.png" alt="Search behavior screen with baseline and exception tables" width="1024" height="658" loading="lazy" decoding="async" />
+      <figcaption>Search behavior — same baseline / exception model, scoped to how catalog search works.</figcaption>
     </figure>
     <figure class="cs-figure">
-      <img src="images/purchase-compliance/console-display-rules.png" alt="Display Rules page with Sorting and Hiding tabs and empty states" width="1024" height="658" loading="lazy" decoding="async" />
-      <figcaption><strong>Display rules</strong> — sorting rules and reusable priority rulesets, separate from hiding logic.</figcaption>
+      <img src="images/purchase-compliance/console-display-rules.png" alt="Display rules screen with sort and hide tabs" width="1024" height="658" loading="lazy" decoding="async" />
+      <figcaption>Display rules — sort order and reusable priority sets, separate from hide logic.</figcaption>
     </figure>
   </div>
 
-  <!-- Catalog: compliance affects ranking -->
+  <div class="cs-chapter-heading">
+    <span class="cs-chapter-num">04</span>
+    <h3>Downstream impact</h3>
+    <p class="cs-chapter-sub">The same rules, visible where people actually shop</p>
+  </div>
+
   <div class="block">
-    <div class="block-label">Downstream impact</div>
-    <h3>What requesters see in catalog</h3>
+    <div class="block-label">Catalog</div>
+    <h3>What shoppers see</h3>
     <p>
-      Policy isn’t invisible to buyers. <strong>Search Catalog</strong> uses the same tiers to <strong>rank and badge</strong> results—filters match compliance categories, and preferred options rise above a plain keyword match.
+      Policy isn't invisible to buyers. Catalog search uses the same tiers to rank and label results — filters match compliance categories, and preferred options rise above a plain keyword match.
     </p>
     <figure class="cs-figure">
-      <img src="images/purchase-compliance/catalog-search-compliance-ranking.png" alt="Search Catalog: monitor search with Requisition Compliance filters and results ranked by compliance tier with badges" width="1024" height="730" loading="lazy" decoding="async" />
-      <figcaption>Catalog search ranks items by compliance tier (e.g. Most Compliant, priority vendor)—so policy shows up where people actually shop.</figcaption>
+      <img src="images/purchase-compliance/catalog-search-compliance-ranking.png" alt="Catalog search with compliance filters and results ranked by tier with labels" width="1024" height="730" loading="lazy" decoding="async" />
+      <figcaption>Catalog search ranks items by compliance tier — so policy shows up where people actually shop.</figcaption>
     </figure>
   </div>
 
@@ -325,64 +387,79 @@
   <div class="quote-block">
     <div class="quote-mark">"</div>
     <blockquote>I've been so eager to see this — I just spent the last 4 hours playing around with it. So far, it's AWESOME!</blockquote>
-    <div class="quote-source">— Procurement manager at a major U.S. healthcare provider, on first use</div>
+    <div class="quote-source">— Buying manager at a major U.S. healthcare provider, on first use</div>
+  </div>
+
+  <div class="cs-chapter-heading">
+    <span class="cs-chapter-num">05</span>
+    <h3>Outcomes</h3>
+    <p class="cs-chapter-sub">What shipped and what stuck</p>
   </div>
 
   <div class="block">
-    <div class="block-label">Inclusive interaction</div>
+    <div class="block-label">Accessibility</div>
     <h3>Dense admin work, still navigable</h3>
-    <p>Stepped flows, wide tables, and nested contexts needed predictable keyboard paths, scannable hierarchy at default zoom, and error-prevention where mistakes are costly—tightened with engineering so the console held up for high-volume admins, not only demo-clean layouts.</p>
+    <p>Stepped flows, wide tables, and nested rules needed predictable keyboard paths, readable hierarchy at default zoom, and guardrails where mistakes are costly — tightened with engineering so the console held up for high-volume admins, not only demo-clean layouts.</p>
   </div>
 
   <div class="block">
-    <div class="block-label">Evidence in the cycle</div>
-    <h3>What we learned reshaped sequencing</h3>
-    <p>Usability results and sponsor feedback helped prioritize core configuration reliability before edge-case polish, then justify catalog surfacing so buyers—not only admins—felt the value of the same rules.</p>
+    <div class="block-label">What we learned</div>
+    <h3>Research reshaped what we shipped first</h3>
+    <p>Usability results and sponsor feedback helped us prioritize core setup reliability before edge-case polish, then show the same rules in catalog search so shoppers — not only admins — felt the value.</p>
   </div>
 
   <!-- Outcomes -->
   <div class="block">
-    <div class="block-label">Outcome &amp; Impact</div>
+    <div class="block-label">Impact</div>
     <h3>Measured results</h3>
     <ul class="checklist">
-      <li><strong>−94.2%</strong> reduction in time to configure compliance rules</li>
-      <li><strong>100%</strong> task completion rate in usability testing</li>
-      <li>Shipped in Workday 2024–2025: user-group-based console, nested default/exception IA, and compliance surfaced in catalog search</li>
-      <li>Adopted by procurement teams; pattern reused across other rule-based admin surfaces</li>
+      <li>94% faster to configure buying rules</li>
+      <li>100% task completion in usability testing</li>
+      <li>Shipped in Workday 2024–2025: user-group-based console, default/exception layout, and rules surfaced in catalog search</li>
+      <li>Adopted by buying teams; pattern reused in other admin tools</li>
     </ul>
   </div>
 
-  <!-- Key Highlights -->
-  <div class="block">
-    <div class="block-label">Takeaways</div>
-    <h3>What stuck</h3>
-  </div>
-
-  <div class="kh-grid">
-    <div class="kh-card">
-      <div class="kh-number">01</div>
-      <h4>Anchor rules to org structure</h4>
-      <p><strong>User-group-based</strong> modeling beat item-level sprawl: one decision unlocked precision and scale for admins.</p>
+  <div class="kh-carousel-block">
+    <div class="kh-carousel-top">
+      <div>
+        <div class="block-label">Takeaways</div>
+        <h3>What stuck</h3>
+      </div>
+      <div class="kh-carousel-nav" aria-label="Carousel navigation">
+        <button type="button" class="kh-carousel-btn" id="khPrev" aria-label="Previous takeaway">←</button>
+        <button type="button" class="kh-carousel-btn" id="khNext" aria-label="Next takeaway">→</button>
+      </div>
     </div>
-    <div class="kh-card">
-      <div class="kh-number">02</div>
-      <h4>Make nesting scannable</h4>
-      <p>Default + exception + <strong>priority order</strong>, plus splitting <strong>search</strong> vs <strong>display</strong> rules, kept complex policy legible at volume.</p>
-    </div>
-    <div class="kh-card">
-      <div class="kh-number">03</div>
-      <h4>Prove value in the catalog</h4>
-      <p>Admins trust the system when <strong>buyers</strong> see compliance in ranked results—not only in back-office screens.</p>
-    </div>
-    <div class="kh-card">
-      <div class="kh-number">04</div>
-      <h4>Co-design with admins</h4>
-      <p>Reviews and walkthroughs with customer admins kept language and grouping aligned with how policy teams actually talk about defaults, exceptions, and priority—not an abstract data model.</p>
-    </div>
-    <div class="kh-card">
-      <div class="kh-number">05</div>
-      <h4>Platform fit without dilution</h4>
-      <p>When shared patterns skewed “light,” prototypes showed where inline reorder, split contexts, and density were non-negotiable for rule volume—so we could align design system and engineering without flattening the work.</p>
+    <div class="kh-carousel" id="takeawaysCarousel">
+      <div class="kh-carousel-track" id="khTrack" tabindex="0" aria-label="Takeaway cards">
+        <div class="kh-card">
+          <div class="kh-number">01</div>
+          <h4>Anchor rules to org structure</h4>
+          <p>User-group-based modeling beat item-level sprawl: one decision unlocked precision and scale for admins.</p>
+        </div>
+        <div class="kh-card">
+          <div class="kh-number">02</div>
+          <h4>Make nesting scannable</h4>
+          <p>Baseline + exception + priority order, plus splitting search vs display rules, kept complex policy readable at volume.</p>
+        </div>
+        <div class="kh-card">
+          <div class="kh-number">03</div>
+          <h4>Prove value in the catalog</h4>
+          <p>Admins trust the system when shoppers see compliance in ranked results — not only in back-office screens.</p>
+        </div>
+        <div class="kh-card">
+          <div class="kh-number">04</div>
+          <h4>Co-design with admins</h4>
+          <p>Walkthroughs with customer admins kept language and grouping aligned with how policy teams talk about defaults, exceptions, and priority.</p>
+        </div>
+        <div class="kh-card">
+          <div class="kh-number">05</div>
+          <h4>Density when it matters</h4>
+          <p>When shared patterns skewed too light, prototypes showed where inline reorder, split contexts, and density were non-negotiable for rule volume.</p>
+        </div>
+      </div>
+      <div class="kh-carousel-dots" id="khDots" role="tablist" aria-label="Takeaway slides"></div>
     </div>
   </div>
 
@@ -391,17 +468,29 @@
     <div class="ref-label">Reflection</div>
     <p>"User context isn't just another table of data — it's part of the experience!"</p>
     <div class="next-steps">
-      Roadmap ideas: <strong>suggested rules</strong> from org patterns and <strong>live preview</strong> of rule impact before publish.
+      Roadmap ideas: suggested rules from org patterns and live preview of rule impact before publish.
     </div>
   </div>
 
-  <!-- More to the story -->
-  <div class="more-story">
-    <div class="more-story-text">
-      <span class="more-story-lead">More on request</span>
-      <span>Research synthesis, IA diagrams, and usability artifacts for a deeper dive.</span>
+  <!-- End of case study CTAs -->
+  <div class="cs-ending">
+    <!-- Agentic exploration CTA -->
+    <div class="block agentic-cta">
+      <span class="agentic-eyebrow">✦ Concept exploration · Agentic</span>
+      <h3>Where this goes next: a governed compliance agent</h3>
+      <p>The roadmap idea above — suggested rules and live impact preview — taken one step further. An agent watches catalog, supplier, and spend signals and proactively proposes rule changes; admins approve, edit, or override with an autonomy level they control, and every change is simulated and reversible. <span class="concept-note">A concept exploration, not a shipped feature.</span></p>
+      <a class="agentic-cta-btn" href="compliance-agent.html" target="_blank" rel="noopener">Open the agentic concept <span class="arr">→</span></a>
+      <div class="agentic-cta-meta">Opens an interactive mockup in a new tab.</div>
     </div>
-    <div class="more-story-badge">Request full case study →</div>
+
+    <!-- More to the story -->
+    <div class="more-story">
+      <div class="more-story-text">
+        <span class="more-story-lead">More on request</span>
+        <span>Research notes, layout diagrams, and usability artifacts for a deeper dive.</span>
+      </div>
+      <div class="more-story-badge">Request full case study →</div>
+    </div>
   </div>
 
 </section>
@@ -418,7 +507,7 @@
     <a href="https://www.linkedin.com/in/zehao-eric-huang/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
   </div>
   <a class="footer-cta" href="mailto:Eric.chakho.wong@gmail.com">Get in touch →</a>
-  <div class="footer-note">Eric Huang · Senior Product Designer · Workday<br />Last updated April 2026</div>
+  <div class="footer-note">Eric Huang · Senior Product Designer · Workday<br />Last updated <span data-site-updated></span></div>
 </footer>
 
 <script>
@@ -470,12 +559,64 @@
       }),
       { threshold: 0.07, rootMargin: '0px 0px -40px 0px' }
     );
-    document.querySelectorAll('.block, .callout, .quote-block, .comparison-grid, .insight-list, .reflection-block, .solution-table, .focus-grid, .checklist, .cs-meta-strip, .my-role-block, .kh-grid, .more-story, .cs-gallery, .cs-overview, .cs-chapter-heading').forEach(el => {
+    document.querySelectorAll('.block, .callout, .quote-block, .comparison-grid, .insight-list, .reflection-block, .solution-table, .focus-grid, .checklist, .cs-meta-strip, .my-role-block, .kh-carousel-block, .more-story, .cs-gallery, .cs-chapter-heading, .cs-snapshot').forEach(el => {
       el.style.opacity = '0';
       el.style.transform = 'translateY(16px)';
       el.style.transition = `opacity 0.72s ${ease}, transform 0.72s ${ease}`;
       observer.observe(el);
     });
+  })();
+
+  // Takeaways carousel
+  (function () {
+    const track = document.getElementById('khTrack');
+    const dotsWrap = document.getElementById('khDots');
+    const prevBtn = document.getElementById('khPrev');
+    const nextBtn = document.getElementById('khNext');
+    if (!track || !dotsWrap || !prevBtn || !nextBtn) return;
+
+    const cards = [...track.querySelectorAll('.kh-card')];
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reducedMotion) track.style.scrollBehavior = 'auto';
+
+    cards.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = 'kh-carousel-dot' + (i === 0 ? ' on' : '');
+      dot.setAttribute('aria-label', 'Go to takeaway ' + (i + 1));
+      dot.addEventListener('click', () => {
+        cards[i].scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', inline: 'start', block: 'nearest' });
+      });
+      dotsWrap.appendChild(dot);
+    });
+
+    const dots = [...dotsWrap.querySelectorAll('.kh-carousel-dot')];
+
+    function scrollStep(dir) {
+      const cardW = cards[0].offsetWidth + 14;
+      track.scrollBy({ left: dir * cardW, behavior: reducedMotion ? 'auto' : 'smooth' });
+    }
+
+    prevBtn.addEventListener('click', () => scrollStep(-1));
+    nextBtn.addEventListener('click', () => scrollStep(1));
+
+    function update() {
+      const maxScroll = track.scrollWidth - track.clientWidth;
+      prevBtn.disabled = track.scrollLeft <= 4;
+      nextBtn.disabled = track.scrollLeft >= maxScroll - 4;
+
+      let active = 0;
+      let best = Infinity;
+      cards.forEach((card, i) => {
+        const d = Math.abs(card.offsetLeft - track.scrollLeft);
+        if (d < best) { best = d; active = i; }
+      });
+      dots.forEach((d, i) => d.classList.toggle('on', i === active));
+    }
+
+    track.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    update();
   })();
 </script>
 
