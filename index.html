@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="theme-material">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,35 +8,28 @@
   <title>Eric Huang — Enterprise workflow &amp; agentic UX (Workday)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=20260770" />
+  <link rel="stylesheet" href="material-tokens.css?v=20260748" />
+  <link rel="stylesheet" href="material-theme.css?v=20260748" />
   <script src="analytics.js"></script>
   <script src="site-meta.js" defer></script>
   <script src="auth.js?v=20260211"></script>
 </head>
-<body>
+<body class="page-home">
 
-<!-- ─── NAV ─── -->
-<nav>
-  <div class="nav-inner">
-    <div class="nav-logo-wrap">
-      <a href="index.html" class="nav-logo">Eric Huang</a>
-      <a href="index.html" class="nav-back">← Work</a>
-    </div>
-    <ul class="nav-links">
-      <li><a href="#work">Work</a></li>
-      <li><a href="resume.pdf?v=20260420" target="_blank" rel="noopener" class="nav-resume">Resume ↗</a></li>
-    </ul>
-  </div>
-</nav>
-
-<!-- ─── HERO ─── -->
-<header class="hero">
-  <h1>Eric Huang</h1>
-  <p class="hero-subtitle">
-    Product designer. Currently at <span class="hero-company">Workday</span> — agentic and compliance UX.<br/>Formerly Diligent, Copperleaf.
-  </p>
-  <p class="hero-meta" aria-label="Highlights">10 years in product design &nbsp;·&nbsp; 8 in enterprise &nbsp;·&nbsp; React, Android, iOS shipped</p>
+<header class="hero hero--home">
+  <nav class="hero-nav" aria-label="Site">
+    <a href="#work">Work</a>
+    <a href="resume.pdf?v=20260420" target="_blank" rel="noopener" class="hero-nav-resume">Resume ↗</a>
+  </nav>
+  <h1 class="hero-name">Eric Huang</h1>
+  <p class="hero-role">Product designer at <span class="hero-company">Workday</span></p>
+  <p class="hero-subtitle">Agentic and compliance UX for enterprise workflows. Formerly Diligent, Copperleaf.</p>
+  <ul class="hero-stats" aria-label="Experience highlights">
+    <li>10 years in product design · 8 in enterprise</li>
+    <li>React, Android, iOS shipped</li>
+  </ul>
 </header>
 
 <!-- ─── CASE STUDY INDEX ─── -->
@@ -46,7 +39,29 @@
 
     <a href="intake-agent.html" class="index-card index-card--visual">
       <div class="index-card-visual index-card-visual--scene index-card-visual--intake" aria-hidden="true">
-        <img class="index-scene-shot" src="images/intake-agent/13-phase2-catalog-requisition.png" alt="" width="1024" height="711" loading="lazy" decoding="async" />
+        <div class="index-card-scene">
+          <img class="index-scene-shot" src="images/intake-agent/13-phase2-catalog-requisition.png" alt="" width="1024" height="711" loading="lazy" decoding="async" />
+          <div class="index-scene-decor index-scene-decor--intake" aria-hidden="true">
+            <span class="index-scene-cursor index-scene-cursor--lisa">
+              <span class="index-scene-cursor__pointer">
+                <svg class="index-scene-cursor__arrow" viewBox="0 0 16 18" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1.5 1 1.5 14.5 4.8 11.2 7.2 16.8 9.2 15.6 7 10 14 10 1.5 1z"/></svg>
+              </span>
+              <span class="index-scene-cursor__pill">Lisa</span>
+            </span>
+            <span class="index-scene-cursor index-scene-cursor--ralf">
+              <span class="index-scene-cursor__pointer">
+                <svg class="index-scene-cursor__arrow" viewBox="0 0 16 18" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1.5 1 1.5 14.5 4.8 11.2 7.2 16.8 9.2 15.6 7 10 14 10 1.5 1z"/></svg>
+              </span>
+              <span class="index-scene-cursor__pill">Ralf</span>
+            </span>
+            <span class="index-scene-cursor index-scene-cursor--felipe">
+              <span class="index-scene-cursor__pointer">
+                <svg class="index-scene-cursor__arrow" viewBox="0 0 16 18" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1.5 1 1.5 14.5 4.8 11.2 7.2 16.8 9.2 15.6 7 10 14 10 1.5 1z"/></svg>
+              </span>
+              <span class="index-scene-cursor__pill">Felipe</span>
+            </span>
+          </div>
+        </div>
       </div>
       <div class="index-card-body">
         <span class="index-card-arrow" aria-hidden="true">→</span>
@@ -63,7 +78,9 @@
 
     <a href="purchase-compliance.html" class="index-card index-card--visual">
       <div class="index-card-visual index-card-visual--scene index-card-visual--purchase" aria-hidden="true">
-        <img class="index-scene-shot" src="images/purchase-compliance/console-overview.png" alt="" width="1024" height="658" loading="lazy" decoding="async" />
+        <div class="index-card-scene">
+          <img class="index-scene-shot" src="images/purchase-compliance/console-overview.png" alt="" width="1024" height="658" loading="lazy" decoding="async" />
+        </div>
       </div>
       <div class="index-card-body">
         <span class="index-card-arrow" aria-hidden="true">→</span>
@@ -80,24 +97,36 @@
 
     <a href="inventory-picking.html" class="index-card index-card--visual">
       <div class="index-card-visual index-card-visual--scene index-card-visual--inventory" aria-hidden="true">
-        <div class="index-warehouse-phone-row">
-          <div class="index-device-frame index-device-frame--phone">
-            <img src="images/inventory-picking/batch-webview-01.jpg" alt="" width="503" height="1024" loading="lazy" decoding="async" />
+        <div class="index-inventory-scene">
+          <div class="index-inventory-scene__stack">
+            <div class="index-inventory-scene__panel" aria-hidden="true"></div>
+            <div class="index-inventory-scene__phone device-frame--phone">
+              <img src="images/inventory-picking/adjust-inventory-after.png?v=2" alt="" width="445" height="987" loading="lazy" decoding="async" />
+            </div>
           </div>
-          <div class="index-device-frame index-device-frame--phone">
-            <img src="images/inventory-picking/batch-webview-03.jpg" alt="" width="503" height="1024" loading="lazy" decoding="async" />
+          <div class="index-scene-decor" aria-hidden="true">
+            <span class="index-scene-tool index-scene-tool--cursor" title="Design in code">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="currentColor" d="M11.503.131 1.891 5.678a.84.84 0 0 0-.42.726v11.188c0 .3.162.575.42.724l9.609 5.55a1 1 0 0 0 .998 0l9.61-5.55a.84.84 0 0 0 .42-.724V6.404a.84.84 0 0 0-.42-.726L12.497.131a1.01 1.01 0 0 0-.996 0M2.657 6.338h18.55c.263 0 .43.287.297.515L12.23 22.918c-.062.107-.229.064-.229-.06V12.335a.59.59 0 0 0-.295-.51l-9.11-5.257c-.109-.063-.064-.23.061-.23"/></svg>
+              <span>Cursor</span>
+            </span>
+            <span class="index-scene-tool index-scene-tool--figma" title="Figma MCP">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="currentColor" d="M15.852 8.981h-4.588V0h4.588c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.491-4.49 4.491zM12.735 7.51h3.117c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-3.117V7.51zm0 1.471H8.148c-2.476 0-4.49-2.014-4.49-4.49S5.672 0 8.148 0h4.588v8.981zm-4.587-7.51c-1.665 0-3.019 1.355-3.019 3.019s1.354 3.02 3.019 3.02h3.117V1.471H8.148zm4.587 15.019H8.148c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h4.588v8.98zM8.148 8.981c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h3.117V8.981H8.148zM8.172 24c-2.489 0-4.515-2.014-4.515-4.49s2.014-4.49 4.49-4.49h4.588v4.441c0 2.503-2.047 4.539-4.563 4.539zm-.024-7.51a3.023 3.023 0 0 0-3.019 3.019c0 1.665 1.365 3.019 3.044 3.019 1.705 0 3.093-1.376 3.093-3.068v-2.97H8.148zm7.704 0h-.098c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h.098c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.49-4.49 4.49zm-.097-7.509c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h.098c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-.098z"/></svg>
+              <span>Figma</span>
+            </span>
+            <span class="index-scene-sticker index-scene-sticker--accent index-scene-sticker--inventory">21 tasks</span>
+            <span class="index-scene-sticker index-scene-sticker--spark" aria-hidden="true">✦</span>
           </div>
         </div>
       </div>
       <div class="index-card-body">
         <span class="index-card-arrow" aria-hidden="true">→</span>
-        <div class="index-card-badge"><span class="badge-dot live"></span> 2024 · Mobile</div>
+        <div class="index-card-badge"><span class="badge-dot live"></span> 2024 · Mobile + DS</div>
         <h3>Inventory Stock Picking</h3>
-        <p>Warehouse picking for pros—new mobile design system, batch pick webview, and a live practice app across 21 inventory tasks.</p>
+        <p>Led a pro-user extension of Workday's mobile design system — token-aligned components in production, live React library, adopted across 21 inventory tasks. Batch pick is the proof.</p>
         <div class="index-card-tags">
-          <span class="tag accent">Mobile UX</span>
-          <span class="tag">Workflow Automation</span>
-          <span class="tag">Design Systems</span>
+          <span class="tag accent">Design Systems</span>
+          <span class="tag">Platform extension</span>
+          <span class="tag">Design in code</span>
         </div>
       </div>
     </a>
@@ -148,15 +177,6 @@
   console.log('%c👋 You opened DevTools.', 'font-size:13px;font-weight:700;color:#18181B');
   console.log('%cGood instinct — inspecting systems is exactly how I work too.', 'font-size:12px;color:#52525B');
   console.log('%ceric.chakho.wong@gmail.com  ·  linkedin.com/in/zehao-eric-huang', 'font-size:12px;color:#1A56DB');
-
-  (function () {
-    const nav = document.querySelector('nav');
-    if (!nav) return;
-    let ticking = false;
-    function update() { nav.classList.toggle('nav--scrolled', window.scrollY > 50); ticking = false; }
-    window.addEventListener('scroll', function () { if (!ticking) { requestAnimationFrame(update); ticking = true; } }, { passive: true });
-    update();
-  })();
 
   (function () {
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;

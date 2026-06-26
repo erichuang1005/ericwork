@@ -1,28 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="theme-material">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="image/png" href="images/favicon-32.png" sizes="32x32" />
   <link rel="apple-touch-icon" href="images/favicon-apple.png" />
-  <title>Inventory Stock Picking — Mobile ops UX (Eric Huang)</title>
+  <title>Inventory Stock Picking — Pro mobile design system (Eric Huang)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=20260761" />
+  <link rel="stylesheet" href="material-tokens.css?v=20260748" />
+  <link rel="stylesheet" href="material-theme.css?v=20260757" />
   <script src="analytics.js"></script>
-  <script src="site-meta.js" defer></script>
   <script src="auth.js?v=20260211"></script>
 </head>
-<body>
+<body class="cs-m3-docs-page">
 
-<!-- ─── NAV ─── -->
-<nav>
+<!-- ─── SITE HEADER ─── -->
+<nav class="site-header" aria-label="Site">
   <div class="nav-inner">
-    <div class="nav-logo-wrap">
-      <a href="index.html" class="nav-logo">Eric Huang</a>
-      <a href="index.html" class="nav-back">← All projects</a>
-    </div>
+    <a href="index.html" class="nav-logo">Eric Huang</a>
     <ul class="nav-links">
       <li><a href="index.html#work">Work</a></li>
       <li><a href="resume.pdf?v=20260420" target="_blank" rel="noopener" class="nav-resume">Resume ↗</a></li>
@@ -41,133 +39,200 @@
 </div>
 
 <!-- ─── CASE STUDY ─── -->
-<section class="case-study standalone">
+<section class="case-study standalone cs-apple-layout cs-m3-docs">
 
-  <div class="cs-header">
-    <div class="cs-header-brand">
-      <img class="cs-brand-logo" src="images/workday-logo.jpg" width="56" height="56" alt="Workday" decoding="async" loading="eager" />
+  <header class="m3-docs-hero">
+    <div class="m3-docs-hero-inner">
+      <div class="m3-docs-hero-copy">
+        <div class="m3-docs-hero-story">
+          <p class="m3-docs-eyebrow"><img class="m3-docs-brand" src="images/workday-logo.jpg" width="24" height="24" alt="" decoding="async" /> Workday · Mobile</p>
+          <h1 class="m3-docs-title">Inventory Stock Picking</h1>
+          <p class="m3-docs-lede">One mobile library, many inventory tasks.</p>
+        </div>
+        <div class="m3-docs-hero-meta">
+          <p class="m3-docs-meta-line">
+            <span class="m3-docs-resources-label">Details</span>
+            <span class="m3-docs-meta-sep" aria-hidden="true">·</span>
+            <span class="m3-docs-meta">Lead UX Designer · 2023–2024</span>
+          </p>
+          <div class="m3-docs-chips">
+            <span class="tag accent">Design systems</span>
+            <span class="tag">Platform extension</span>
+            <span class="tag">Design in code</span>
+          </div>
+        </div>
+      </div>
+      <div class="m3-docs-hero-visual">
+        <div class="m3-docs-visual-bg" aria-hidden="true"></div>
+        <figure class="m3-docs-visual-card m3-docs-visual-card--phone">
+          <div class="device-frame--phone">
+            <img src="images/inventory-picking/batch-webview-01.jpg" alt="Batch pick with denser rows and action bar" width="503" height="1024" decoding="async" loading="eager" />
+          </div>
+        </figure>
+      </div>
     </div>
-    <h2>Inventory <em>Stock Picking</em></h2>
-    <div class="cs-meta-strip">
-      <div class="cs-meta-item"><div class="cs-meta-key">Company</div><div class="cs-meta-val">Workday</div></div>
-      <div class="cs-meta-item"><div class="cs-meta-key">My Role</div><div class="cs-meta-val">Lead UX Designer</div></div>
-      <div class="cs-meta-item"><div class="cs-meta-key">Platform</div><div class="cs-meta-val">Mobile (iOS &amp; Android)</div></div>
-      <div class="cs-meta-item"><div class="cs-meta-key">Timeline</div><div class="cs-meta-val">2023 – 2024</div></div>
-      <div class="cs-meta-item"><div class="cs-meta-key">Last update</div><div class="cs-meta-val"><span data-site-updated></span></div></div>
-    </div>
-    <div class="cs-header-meta">
-      <span class="tag accent">Pro-user mobile UX</span>
-      <span class="tag">React component library</span>
-      <span class="tag">Design in the codebase</span>
-      <span class="tag">Scanner-led interaction</span>
-      <span class="tag">Mobile webview</span>
-    </div>
+  </header>
+
+  <div class="m3-docs-tabs-bar">
+    <nav class="article-tab-list" role="presentation" aria-label="article tabs">
+      <div class="navigation-container">
+        <div class="tabbed-navigation" role="tablist">
+          <a href="#snapshot" role="tab" class="tab active" aria-label="30-second read" aria-selected="true" tabindex="0"><span class="material-symbols-rounded google-symbols notranslate" aria-hidden="true">schedule</span><span class="tab-label">30-second read</span></a>
+          <a href="#ch-problem" role="tab" class="tab" aria-label="Problem" aria-selected="false" tabindex="-1"><span class="material-symbols-rounded google-symbols notranslate" aria-hidden="true">report</span><span class="tab-label">Problem</span></a>
+          <a href="#ch-exploration" role="tab" class="tab" aria-label="Exploration" aria-selected="false" tabindex="-1"><span class="material-symbols-rounded google-symbols notranslate" aria-hidden="true">science</span><span class="tab-label">Exploration</span></a>
+          <a href="#ch-system" role="tab" class="tab" aria-label="System" aria-selected="false" tabindex="-1"><span class="material-symbols-rounded google-symbols notranslate" aria-hidden="true">widgets</span><span class="tab-label">System</span></a>
+          <a href="#staff-proof" role="tab" class="tab" aria-label="Components" aria-selected="false" tabindex="-1"><span class="material-symbols-rounded google-symbols notranslate" aria-hidden="true">compare</span><span class="tab-label">Components</span></a>
+          <a href="#ch-product" role="tab" class="tab" aria-label="In product" aria-selected="false" tabindex="-1"><span class="material-symbols-rounded google-symbols notranslate" aria-hidden="true">smartphone</span><span class="tab-label">In product</span></a>
+          <a href="#ch-outcomes" role="tab" class="tab" aria-label="Outcomes" aria-selected="false" tabindex="-1"><span class="material-symbols-rounded google-symbols notranslate" aria-hidden="true">check_circle</span><span class="tab-label">Outcomes</span></a>
+        </div>
+      </div>
+    </nav>
   </div>
 
+  <div class="m3-docs-body">
   <!-- ─── 30-SECOND SNAPSHOT ─── -->
-  <div class="cs-snapshot">
+  <div class="cs-snapshot" id="snapshot">
     <div class="block-label">30-second read</div>
     <div class="cs-snapshot-beats">
       <div class="cs-snapshot-beat">
         <span class="cs-snapshot-num">01</span>
         <div>
           <strong>The problem</strong>
-          <p>Warehouse staff run full shifts in a phone app built for casual consumers — big buttons, generous padding, one action per screen. For professionals picking thousands of items a day, every unnecessary tap compounds into real time lost.</p>
+          <p>Warehouse workers spend full shifts in a phone app built like a consumer shopping app. The cost wasn't one bad screen — it was a platform mismatch. Every extra tap compounds across thousands of picks a day.</p>
         </div>
       </div>
       <div class="cs-snapshot-beat">
         <span class="cs-snapshot-num">02</span>
         <div>
-          <strong>The key decision</strong>
-          <p>Tightening the flow wasn't enough. The first pass proved it — we were polishing steps inside a system built for the wrong user. To move the needle, we had to change the building blocks.</p>
+          <strong>The bet</strong>
+          <p>One mobile library, many inventory tasks — audit the full roadmap, fix shared components first, then compose them in batch pick before scaling across the rest.</p>
         </div>
       </div>
       <div class="cs-snapshot-beat">
         <span class="cs-snapshot-num">03</span>
         <div>
-          <strong>What we built</strong>
-          <p>A new pro-user component layer on top of Workday's existing design system — denser proportions, scanner-first interaction, and a shared registry for both design and engineering. Applied first to batch pick, then extended to 21 inventory tasks.</p>
+          <strong>The system</strong>
+          <p>We audited 21 inventory tasks first, then fixed the shared components that broke for pro users — action bar, list rows, scanner affordance — before rebuilding any single flow.</p>
         </div>
       </div>
       <div class="cs-snapshot-beat">
         <span class="cs-snapshot-num">04</span>
         <div>
-          <strong>Shipped</strong>
-          <p>First designer at Workday to push components directly to production — using Cursor for frontend iteration, Lovable for rapid prototyping, and Figma MCP for design token sync. The library shipped in a React webview codebase I worked in directly alongside engineering. Batch pick redesigned, library adopted across mobile webview teams.</p>
+          <strong>Shipped &amp; adopted</strong>
+          <p>Those components composed in batch pick as the proof task, then rolled out across the inventory roadmap and other mobile teams. I owned design direction and shipped changes in code — 15 pull requests, 9 merged — alongside engineering.</p>
         </div>
       </div>
     </div>
     <div class="cs-snapshot-gallery">
       <figure class="cs-figure">
         <img src="images/inventory-picking/hub-design-system.png" alt="Pro-user mobile design system — component pattern library" width="1024" height="711" loading="lazy" decoding="async" />
-        <figcaption><strong>The design system</strong> — denser components built for shift-long use.</figcaption>
+        <figcaption>System side — the shared component library (buttons, lists, dialogs, and more).</figcaption>
       </figure>
       <figure class="cs-figure">
         <img src="images/inventory-picking/batch-webview-01.jpg" alt="Final batch pick — denser rows, action bar with scanner and Next Item" width="503" height="1024" loading="lazy" decoding="async" />
-        <figcaption><strong>The final task</strong> — scanner drives the flow, thumb barely moves.</figcaption>
+        <figcaption>Product side — batch pick composed from the updated components; scanner drives the flow.</figcaption>
       </figure>
     </div>
     <div class="cs-snapshot-cta">
-      <a href="#full-story" class="cs-expand-btn">Read full case study ↓</a>
+      <a href="#ch-problem" class="cs-expand-btn">Read full case study ↓</a>
     </div>
   </div>
   <!-- ─── END SNAPSHOT ─── -->
 
-  <div class="cs-chapter-heading" id="full-story">
+  <div class="cs-chapter-heading cs-chapter-section" id="ch-problem">
     <span class="cs-chapter-num">01</span>
     <h3>The problem</h3>
-    <p class="cs-chapter-sub">A consumer-style app used by professionals all shift, every day</p>
+    <p class="cs-chapter-sub">A shopping-style app used by workers all shift, every day</p>
   </div>
 
-  <!-- 1. Problem (with the current/old mobile screens to show "before") -->
   <div class="block">
-    <div class="block-label">The problem</div>
+    <div class="block-label">Start here</div>
+    <h3>If warehouse software isn't your world</h3>
+    <p>Stock picking is the job of finding items in a warehouse and confirming quantities — often with a handheld scanner. This case study is about more than one task screen: I led a platform bet to extend Workday's design system for pro users, then proved it in batch pick and scaled it across an inventory roadmap.</p>
+    <p>The rest walks through the problem, the call to fix shared components first, the three component changes, how they composed in batch pick, and what shipped.</p>
+  </div>
+
+  <div class="block">
+    <div class="block-label">Context</div>
     <h3>A phone app built for casual users, used by pros</h3>
-    <p>These screens are the current warehouse picking flow—pick a site, open your list, confirm each item. The layout is perfectly fine if you touch the app now and then. Our users live in it all shift, and the patterns underneath it were shared with consumer-style mobile apps: airy rows, soft generous padding, one action per screen. Every extra tap multiplies across thousands of picks a day.</p>
+    <p>Workers pick a site, open a list, confirm each item. Fine if you open the app once in a while — not fine when it's your whole shift. The UI underneath was shared with consumer-style mobile apps: airy rows, soft padding, one action per screen. The business impact is cumulative: small friction × high volume × every worker on the floor.</p>
   </div>
 
   <div class="cs-gallery cs-gallery-phone">
     <figure class="cs-figure">
       <img src="images/inventory-picking/01-inventory-site.png" alt="Existing app: inventory site picker" width="576" height="1024" loading="lazy" decoding="async" />
-      <figcaption><strong>Before — site picker</strong> — airy list, lots of padding.</figcaption>
+      <figcaption>Before — site picker. Airy list, lots of padding.</figcaption>
     </figure>
     <figure class="cs-figure">
       <img src="images/inventory-picking/02-pick-inventory-setup.png" alt="Existing app: pick inventory task setup" width="576" height="1024" loading="lazy" decoding="async" />
-      <figcaption><strong>Before — task setup</strong> — full-width fields, thumb has to travel.</figcaption>
+      <figcaption>Before — task setup. Full-width fields; thumb travels far.</figcaption>
     </figure>
     <figure class="cs-figure">
       <img src="images/inventory-picking/03-picking-list-lines.png" alt="Existing app: picking list with line items" width="576" height="1024" loading="lazy" decoding="async" />
-      <figcaption><strong>Before — line list</strong> — few lines visible; lots of scroll.</figcaption>
+      <figcaption>Before — line list. Few lines visible; lots of scrolling.</figcaption>
     </figure>
     <figure class="cs-figure">
       <img src="images/inventory-picking/04-item-quantity-keypad.png" alt="Existing app: single item pick with numeric keypad" width="576" height="1024" loading="lazy" decoding="async" />
-      <figcaption><strong>Before — confirm pick</strong> — big keypad, one line at a time.</figcaption>
+      <figcaption>Before — confirm pick. Big keypad, one line at a time.</figcaption>
     </figure>
   </div>
 
-  <div class="cs-chapter-heading">
+  <div class="cs-chapter-heading cs-chapter-section" id="ch-exploration">
     <span class="cs-chapter-num">02</span>
-    <h3>The decision</h3>
-    <p class="cs-chapter-sub">When tightening the flow isn't enough</p>
+    <h3>Exploration</h3>
+    <p class="cs-chapter-sub">We tried simplifying the flow first — it wasn't enough</p>
   </div>
 
-  <!-- 2. First attempt -->
   <div class="block">
     <div class="block-label">First attempt</div>
     <h3>One item per screen — cleaner, still too spacey</h3>
-    <p>The first direction kept the existing mobile components and just simplified the flow: one pick at a time, scanner up top, big quantity keypad. It helped, but we were still tightening steps inside a design system built for casual users. The <em>screen itself</em> stayed airy. The team agreed: to really move the needle for pros, we had to change the building blocks, not just the flow.</p>
+    <p>The first direction kept the existing mobile parts and simplified the steps: one pick at a time, scanner up top, big quantity keypad. Usability improved, but the screen itself stayed airy. With PM and engineering, we aligned on a harder call: stop polishing inside the wrong system and invest in shared building blocks the whole inventory roadmap could reuse.</p>
   </div>
 
-  <div class="cs-chapter-heading">
+  <div class="block">
+    <div class="block-label">Strategic call</div>
+    <h3>Flow fix vs. platform extension</h3>
+    <p>Two paths were on the table. Keep iterating on individual task flows — faster to demo, but each of 21 tasks would keep fighting the same density problem. Or extend the design system with a pro-user variant — slower upfront, but one investment that compounds. I recommended the second path: audit every task on the roadmap, fix the shared components first, then prove the library in batch pick before wider rollout.</p>
+  </div>
+
+  <div class="comparison-grid">
+    <div class="comparison-card">
+      <div class="comp-label">Path A</div>
+      <h4>Polish each flow</h4>
+      <ul>
+        <li>Faster to demo in reviews</li>
+        <li>Same airy components underneath</li>
+        <li>21 tasks, 21 density debates</li>
+        <li>Teams fork footers and list rows</li>
+      </ul>
+    </div>
+    <div class="comparison-card after">
+      <div class="comp-label">Path B — chosen</div>
+      <h4>Extend the platform</h4>
+      <ul>
+        <li>Audit 21 tasks — fix components first</li>
+        <li>Shared action bar, lists, scanner affordance</li>
+        <li>Same tokens — new proportions</li>
+        <li>Compose in batch pick, then scale the roadmap</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="cs-chapter-heading cs-chapter-section" id="ch-system">
     <span class="cs-chapter-num">03</span>
-    <h3>The design system</h3>
-    <p class="cs-chapter-sub">A new component layer built for pro users</p>
+    <h3>The system</h3>
+    <p class="cs-chapter-sub">Audit every task — fix shared components first, then compose them in batch pick</p>
   </div>
 
-  <!-- 3. Highlighted: building a mobile design system for pro users -->
+  <div class="block">
+    <div class="block-label">Discovery</div>
+    <h3>Twenty-one tasks, the same three component gaps</h3>
+    <p>Before redesigning any flow, we mapped the full inventory roadmap — batch pick, par count, adjust inventory, find balance, and 17 others. Customer interviews and task walkthroughs surfaced the same breaks everywhere: action bars that truncated on ~360px scanners, list rows too airy for shift-long use, and a blue scanner panel that squeezed scrollable forms. The work wasn't task-by-task polish — it was fixing each pattern at the component level, then applying those components where the pain was highest.</p>
+  </div>
+
   <div class="cs-cursor-chapter">
-    <div class="block-label">The real fix</div>
-    <h3>A pro-user component layer — built in the codebase, not handed off</h3>
+    <div class="block-label">Operating model</div>
+    <h3>Design decisions in the same codebase as engineering</h3>
     <!-- Cursor & Figma marks: Simple Icons (MIT) — https://github.com/simple-icons/simple-icons -->
     <div class="cs-collab-strip" role="list" aria-label="Tools and collaboration">
       <div class="cs-collab-tile" role="listitem">
@@ -206,142 +271,173 @@
         </div>
       </div>
     </div>
-    <p>Engineering adapted Workday's existing web components for the mobile webview context. I worked alongside them directly — contributing PRs for spacing, radius, and density so devs could focus on the harder problems. Design decisions landed in code. <em>Figma MCP</em> kept tokens in sync with Workday's design system, so code stayed the source of truth.</p>
-    <p>The result: denser proportions, scanner-aware patterns, and a shared component registry — built on the same colors, rules, and accessibility baseline as the rest of Workday. Try it below — it's the same React code that ships, not a deck.</p>
+    <p>Engineering adapted Workday's existing web components for the mobile web context. I worked in the same repo — opening pull requests for spacing, corner radius, and density so developers could focus on harder integration work. Figma MCP kept specs in sync with code, so the codebase stayed the source of truth.</p>
   </div>
 
-  <!-- Live interactive embed of the pro-user mobile design system -->
-  <div class="cs-live-demo" id="live-demo">
-    <div class="cs-live-demo-header">
-      <div>
-        <div class="block-label">Try it yourself</div>
-        <h4>Live preview — the pro-user mobile library</h4>
-        <p class="cs-live-demo-hint">Real components, real React. Open the <strong>Pattern library</strong> for primitives and registry sections, then <strong>Quantity surface (demo)</strong> for a composed layout — all copy is placeholder, no customer data.</p>
+  <div class="cs-highlights" id="staff-proof">
+    <div class="block-label">Component fixes</div>
+    <h3 class="cs-highlights-title">Three components — before and after</h3>
+    <p class="cs-highlights-lede">Each change addresses the highest-impact gap we found across tasks — action bar, list density, scanner affordance. Fix the component once; every task on the roadmap inherits it.</p>
+    <div class="cs-highlight-pills" role="tablist" aria-label="Design decisions with before and after examples">
+      <button type="button" class="cs-highlight-pill is-active" role="tab" id="highlight-tab-fluid" aria-selected="true" aria-controls="highlight-panel-fluid" data-highlight="fluid" tabindex="0">Action bar · 360px</button>
+      <button type="button" class="cs-highlight-pill" role="tab" id="highlight-tab-density" aria-selected="false" aria-controls="highlight-panel-density" data-highlight="density" tabindex="-1">Par Count · like-to-like</button>
+      <button type="button" class="cs-highlight-pill" role="tab" id="highlight-tab-scanner" aria-selected="false" aria-controls="highlight-panel-scanner" data-highlight="scanner" tabindex="-1">Adjust Inventory · scanner</button>
+    </div>
+    <div class="cs-highlight-stage">
+      <div class="cs-highlight-panel is-active" id="highlight-panel-fluid" data-highlight-panel="fluid" role="tabpanel" aria-labelledby="highlight-tab-fluid">
+        <div class="cs-highlight-copy">
+          <h4>Fluid spacing when labels truncate</h4>
+          <p>On ~360px Zebra scanners, default action bar spacing cut off “Do Another” below ~410px — inside our mobile band, but with no rules for the narrow end. With engineering, clamp() on gap and button padding between existing sm→xxl tokens. One DefaultLayout patch; Storybook at 360px before merge.</p>
+        </div>
+        <div class="cs-highlight-visual--strip cs-highlight-visual--strip-stack">
+          <div class="cs-highlight-strip">
+            <span class="cs-highlight-strip-label">Before</span>
+            <img src="images/inventory-picking/action-bar-truncated.png" alt="Before — Do Another truncated on a narrow scanner" width="800" height="200" loading="lazy" decoding="async" />
+          </div>
+          <div class="cs-highlight-strip">
+            <span class="cs-highlight-strip-label">After</span>
+            <img src="images/inventory-picking/action-bar-fluid.png" alt="After — full labels with fluid gap and padding" width="800" height="200" loading="lazy" decoding="async" />
+          </div>
+        </div>
       </div>
-      <div class="cs-live-demo-jump" role="tablist" aria-label="Jump to screen">
-        <button type="button" class="cs-jump-btn is-active" data-hub-route="/design-system">Pattern library</button>
-        <button type="button" class="cs-jump-btn" data-hub-route="/find-inventory-balance">Quantity surface (demo)</button>
+      <div class="cs-highlight-panel" id="highlight-panel-density" data-highlight-panel="density" role="tabpanel" aria-labelledby="highlight-tab-density" hidden>
+        <div class="cs-highlight-copy">
+          <h4>Like-to-like Par Count, tighter where it counts</h4>
+          <p>Re-platforming mobile tasks, customers asked to keep layouts familiar so teams spend less time re-training. We kept Par Count structure line-for-line — headers, rows, dual actions — and only tightened padding and gaps. More lines per screen; fin pro users prefer density over decorative whitespace on a shift-long tool.</p>
+        </div>
+        <div class="cs-highlight-visual--strip cs-highlight-visual--strip-row">
+          <div class="cs-highlight-strip">
+            <span class="cs-highlight-strip-label">Before</span>
+            <img src="images/inventory-picking/par-count-before.png" alt="Before — Par Count with airy rows and large gaps between bin sections" width="576" height="1024" loading="lazy" decoding="async" />
+          </div>
+          <div class="cs-highlight-strip">
+            <span class="cs-highlight-strip-label">After</span>
+            <img src="images/inventory-picking/par-count-after.png?v=2" alt="After — same patterns, tighter rows, more lines visible" width="576" height="1024" loading="lazy" decoding="async" />
+          </div>
+        </div>
+      </div>
+      <div class="cs-highlight-panel" id="highlight-panel-scanner" data-highlight-panel="scanner" role="tabpanel" aria-labelledby="highlight-tab-scanner" hidden>
+        <div class="cs-highlight-copy">
+          <h4>Retiring the blue scanner panel</h4>
+          <p>Adjust Inventory used a large blue block to show the scanner was active. It didn’t add function — it just squeezed the scrollable form. We treated removing it as a bigger change: multiple rounds of user testing and customer review. Customers aligned with the proposal — more room for critical fields; scanner state still clear from the action bar and scan menu.</p>
+        </div>
+        <div class="cs-highlight-visual--strip cs-highlight-visual--strip-row">
+          <div class="cs-highlight-strip">
+            <span class="cs-highlight-strip-label">Before</span>
+            <img src="images/inventory-picking/adjust-inventory-before.png?v=2" alt="Before — large blue scanner panel compresses the form" width="576" height="1024" loading="lazy" decoding="async" />
+          </div>
+          <div class="cs-highlight-strip">
+            <span class="cs-highlight-strip-label">After</span>
+            <img src="images/inventory-picking/adjust-inventory-after.png?v=2" alt="After — compact scan control, more room for inventory fields" width="576" height="1024" loading="lazy" decoding="async" />
+          </div>
+        </div>
       </div>
     </div>
-    <div class="cs-phone-frame">
-      <iframe
-        id="hub-iframe"
-        src="hub/index.html#/design-system"
-        title="Mobile pattern library — live preview (neutral demo data)"
-        loading="lazy"
-        allow="clipboard-write"
-      ></iframe>
-    </div>
-    <p class="cs-live-demo-foot">
-      Registry: <em>ActionBar</em> (scanner slot + primary action), <em>form controls</em> (dense numeric fields), <em>multi-value container</em>, <em>list row</em>. Neutral demo content only. <a href="hub/index.html#/design-system" target="_blank" rel="noopener">Open full screen ↗</a>
-    </p>
   </div>
 
-  <div class="cs-chapter-heading">
+  <div class="cs-chapter-heading cs-chapter-section" id="ch-product">
     <span class="cs-chapter-num">04</span>
-    <h3>The final design</h3>
-    <p class="cs-chapter-sub">Batch pick with the new library — denser, scanner-led, webview-ready</p>
+    <h3>In the product</h3>
+    <p class="cs-chapter-sub">Batch pick — where the updated components come together</p>
   </div>
 
-  <!-- 4. Final design: batch pick -->
   <div class="block">
-    <div class="block-label">The final design</div>
-    <h3>Batch pick with the new library — denser, scanner-led</h3>
-    <p>With the pro-user components in place, batch pick holds many more lines in one thumb’s reach without feeling cramped. On top of that, I added two task-specific touches: the <em>barcode scanner drives the next step</em> on its own, and required fields <em>auto-advance</em>—type quantity, move to the tote field, scan, move on—so your thumb never hunts for the next box. This runs in a webview, so engineering could ship it without a full native rebuild.</p>
+    <div class="block-label">Proof task</div>
+    <h3>Composing the library in batch pick</h3>
+    <p>With the action bar, list rows, and scanner affordance updated in the library, we applied them to batch pick first — the task that stress-tests all three under real constraints. High line volume, constant scanning, dual actions in the footer: fluid spacing keeps labels intact at scanner width, denser rows show more picks per screen, and scanner state lives in the action bar instead of a panel that eats scroll height.</p>
+    <p>Two behaviors on top of the component layer: the barcode scanner advances the step on its own, and required fields auto-advance — type quantity, move to the tote field, scan, move on. It runs in a mobile web shell, so engineering could ship without a native rebuild. Once batch pick held up in review, the same components rolled out across the remaining inventory tasks and other mobile teams.</p>
   </div>
 
   <div class="cs-gallery cs-gallery-phone">
     <figure class="cs-figure">
       <img src="images/inventory-picking/batch-webview-01.jpg" alt="Final batch pick: BATCH-20 header with confirm location, quantities, scan, and Next Item" width="503" height="1024" loading="lazy" decoding="async" />
-      <figcaption><strong>Final — line in progress</strong> — denser rows; action bar with scan + Next.</figcaption>
+      <figcaption>Line in progress — fluid action bar + denser rows from the component layer.</figcaption>
     </figure>
     <figure class="cs-figure">
       <img src="images/inventory-picking/batch-webview-02.jpg" alt="Final batch pick with Surgical Face Mask line and numeric keypad" width="503" height="1024" loading="lazy" decoding="async" />
-      <figcaption><strong>Final — auto-advance</strong> — quantity accepted, next field focuses on its own.</figcaption>
+      <figcaption>Auto-advance — quantity accepted; next field focuses on its own.</figcaption>
     </figure>
     <figure class="cs-figure">
       <img src="images/inventory-picking/batch-webview-03.jpg" alt="Final batch pick with tote tag and Prev/Next Item actions" width="503" height="1024" loading="lazy" decoding="async" />
-      <figcaption><strong>Final — scanner drives flow</strong> — scan the tote; app advances the step.</figcaption>
+      <figcaption>Scanner drives flow — compact affordance, no blue panel stealing height.</figcaption>
     </figure>
     <figure class="cs-figure">
       <img src="images/inventory-picking/batch-webview-04.jpg" alt="Final batch pick Exam Gloves line with keypad" width="460" height="1024" loading="lazy" decoding="async" />
-      <figcaption><strong>Final — next line</strong> — same components, different task, no retraining.</figcaption>
+      <figcaption>Next line — same components, next task, no retraining.</figcaption>
     </figure>
   </div>
 
-  <div class="cs-chapter-heading">
+  <div class="cs-chapter-heading cs-chapter-section" id="ch-outcomes">
     <span class="cs-chapter-num">05</span>
-    <h3>Designer in the stack</h3>
-    <p class="cs-chapter-sub">Extending the design system and shipping it</p>
+    <h3>Outcomes</h3>
+    <p class="cs-chapter-sub">What shipped — and what I'd carry forward</p>
   </div>
 
-  <!-- 5. Scaling with Cursor -->
+  <div class="cs-ending">
   <div class="block">
-    <div class="block-label">Designer in the stack</div>
-    <h3>Extending the design system — and shipping it</h3>
-    <p>Workday's design system was built for web and native mobile. Mobile webviews — where these inventory tasks run — had no formal component layer. Working directly with engineering, I filled that gap: denser proportions, scanner-aware patterns, and a component registry both designers and engineers could reference.</p>
-    <p>I was among the first designers at Workday to push components into production. Using <em>Cursor</em> for frontend iteration, <em>Lovable</em> for rapid prototyping, and <em>Figma MCP</em> to keep design tokens in sync with the Workday design system, I compressed the handoff into a workflow I owned end-to-end. That practical fluency let me make faster, higher-fidelity decisions with engineering — and cut the back-and-forth that typically slows mobile webview work.</p>
-    <p>The library didn't stay in one team. Other groups building mobile webview experiences picked it up as a foundation — turning a task-specific component set into a reusable extension of the core system, and reducing the time other teams spent re-solving the same density and interaction problems from scratch.</p>
-  </div>
-
-  <!-- Outcomes -->
-  <div class="block">
-    <div class="block-label">Outcomes at Workday</div>
+    <div class="block-label">Impact</div>
     <h3>What shipped</h3>
-    <ul class="checklist">
-      <li>Pro-user mobile component library shipped — built on Workday's web and mobile base, same tokens, denser proportions for shift-long use</li>
-      <li>Batch pick redesigned with scanner-driven control and auto-advancing fields — measurably fewer taps per pick cycle</li>
-      <li>Library extended to 21 inventory tasks — one source of truth shared with engineering, adopted by other mobile webview teams</li>
-      <li>First designer at Workday to push components to production using Cursor, Lovable, and Figma MCP — collapsing design-to-code handoff into a single workflow</li>
+    <ul class="shipped-grid" role="list">
+      <li class="shipped-card">
+        <span class="shipped-num" aria-hidden="true">01</span>
+        <p><strong>Pro-user mobile component library</strong> — action bar, list rows, and scanner patterns fixed at the component level, then shared across tasks</p>
+      </li>
+      <li class="shipped-card">
+        <span class="shipped-num" aria-hidden="true">02</span>
+        <p><strong>Batch pick as proof task</strong> — all three components composed in one high-stakes flow; scanner-driven steps and auto-advancing fields</p>
+      </li>
+      <li class="shipped-card">
+        <span class="shipped-num" aria-hidden="true">03</span>
+        <p><strong>Library extended to 21 inventory tasks</strong> — one shared catalog for design and engineering</p>
+      </li>
+      <li class="shipped-card">
+        <span class="shipped-num" aria-hidden="true">04</span>
+        <p><strong>Adopted by other mobile teams</strong>; 15 component pull requests submitted, 9 merged</p>
+      </li>
+      <li class="shipped-card shipped-card--wide">
+        <span class="shipped-num" aria-hidden="true">05</span>
+        <p><strong>Design-in-code operating model</strong> — Cursor for iteration, Figma MCP for spec sync, pull requests alongside engineering</p>
+      </li>
     </ul>
   </div>
 
-  <!-- Takeaways -->
   <div class="block">
     <div class="block-label">Takeaways</div>
-    <h3>What I carry into the next project</h3>
-  </div>
-
-  <div class="kh-grid">
+    <h3>What I'd carry forward</h3>
+    <div class="kh-grid">
     <div class="kh-card">
       <div class="kh-number">01</div>
-      <h4>Design for who actually uses it</h4>
-      <p>The same mobile patterns can be right for casual users and wrong for pros. When the flow can’t get denser, the <em>system</em> is the thing to redesign.</p>
+      <h4>Fix components before flows</h4>
+      <p>Auditing 21 tasks showed the same breaks in shared patterns — not 21 unique screen problems. Fix action bar, lists, and scanner chrome once; every task inherits the improvement.</p>
     </div>
     <div class="kh-card">
       <div class="kh-number">02</div>
-      <h4>Build on what’s already there</h4>
-      <p>The new pro-user library stood on Workday’s existing web and mobile libraries. Same tokens, same rules—just new proportions.</p>
+      <h4>Extend, don't fork</h4>
+      <p>The pro-user layer stood on Workday's existing libraries. Same tokens and rules — new proportions. That kept adoption credible with platform owners and downstream teams.</p>
     </div>
     <div class="kh-card">
       <div class="kh-number">03</div>
-      <h4>Small task touches go a long way</h4>
-      <p>Scanner-driven control and auto-field advancement aren’t components—they’re behaviors. The library made room for them without bending the rules.</p>
+      <h4>Proof, then scale</h4>
+      <p>Component fixes landed in the library first; batch pick validated them under real constraints before rollout to 21 tasks. Adoption is a design deliverable — not an afterthought once the Figma file looks done.</p>
     </div>
     <div class="kh-card">
       <div class="kh-number">04</div>
-      <h4>Tools that close the design–engineering gap</h4>
-      <p>Cursor, Lovable, and Figma MCP let me own both the spec and the implementation. Faster decisions, fewer handoff gaps, and a library engineering actually trusts.</p>
+      <h4>Own fidelity through the stack</h4>
+      <p>Working in the codebase closed the gap between spec and shipped UI. Faster decisions with engineering, fewer regressions, and a library teams actually trust.</p>
     </div>
   </div>
-
-  <!-- Reflection -->
-  <div class="reflection-block">
-    <div class="ref-label">Reflection</div>
-    <p>“When the flow can’t get denser, redesign the system—not the screen.”</p>
-    <div class="next-steps">
-      The picking redesign started as a layout fix and became a new mobile design system for pro users—then scaled across a whole inventory roadmap.
-    </div>
+  </div>
   </div>
 
-  <!-- More to the story -->
   <div class="more-story">
     <div class="more-story-text">
-      <strong>Want to go deeper</strong>
-      <span>Audit clips, the component spec, or a live tour of the pro-user library and the 21-task practice app—happy to walk through any of it.</span>
+      <span class="more-story-lead">More on request</span>
+      <span>Pull request history, component specs, audit clips, or a live tour of the library and 21-task practice app.</span>
     </div>
     <div class="more-story-badge">Request full case study →</div>
   </div>
+
+  </div><!-- /.m3-docs-body -->
 
 </section>
 
@@ -366,22 +462,6 @@
   console.log('%cGood instinct — inspecting systems is exactly how I work too.', 'font-size:12px;color:#52525B');
   console.log('%ceric.chakho.wong@gmail.com  ·  linkedin.com/in/zehao-eric-huang', 'font-size:12px;color:#1A56DB');
 
-  // Nav scroll-depth + logo morph
-  (function () {
-    const nav = document.querySelector('nav');
-    if (!nav) return;
-    const header = document.querySelector('.cs-header');
-    let ticking = false;
-    function update() {
-      const y = window.scrollY;
-      nav.classList.toggle('nav--scrolled', y > 50);
-      if (header) nav.classList.toggle('nav--past-header', y > header.offsetTop + header.offsetHeight);
-      ticking = false;
-    }
-    window.addEventListener('scroll', function () { if (!ticking) { requestAnimationFrame(update); ticking = true; } }, { passive: true });
-    update();
-  })();
-
   // Scroll progress bar
   (function () {
     const bar = document.getElementById('scroll-progress');
@@ -399,6 +479,7 @@
   // Scroll-reveal for case study sections
   (function () {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (document.querySelector('.case-study.cs-m3-docs')) return;
     const ease = 'cubic-bezier(0.22, 1, 0.36, 1)';
     const observer = new IntersectionObserver(
       (entries) => entries.forEach(e => {
@@ -409,7 +490,7 @@
       }),
       { threshold: 0.07, rootMargin: '0px 0px -40px 0px' }
     );
-    document.querySelectorAll('.block, .callout, .quote-block, .comparison-grid, .insight-list, .reflection-block, .solution-table, .focus-grid, .checklist, .cs-meta-strip, .my-role-block, .kh-grid, .more-story, .cs-gallery, .cs-overview, .cs-cursor-chapter, .cs-live-demo, .cs-chapter-heading, .cs-snapshot').forEach(el => {
+    document.querySelectorAll('.block, .callout, .quote-block, .comparison-grid, .insight-list, .reflection-block, .solution-table, .focus-grid, .checklist, .shipped-grid, .cs-hero-facts, .my-role-block, .kh-grid, .more-story, .cs-gallery, .cs-overview, .cs-cursor-chapter, .cs-highlights, .cs-chapter-heading, .cs-snapshot, .cs-ending').forEach(el => {
       el.style.opacity = '0';
       el.style.transform = 'translateY(16px)';
       el.style.transition = `opacity 0.72s ${ease}, transform 0.72s ${ease}`;
@@ -417,21 +498,46 @@
     });
   })();
 
-  // Live demo: quick-jump buttons change the iframe's hash route
+  // Staff proof: decision highlight pills
   (function () {
-    const iframe = document.getElementById('hub-iframe');
-    const buttons = document.querySelectorAll('.cs-jump-btn');
-    if (!iframe || !buttons.length) return;
-    buttons.forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const route = btn.getAttribute('data-hub-route') || '/';
-        iframe.src = 'hub/index.html#' + route;
-        buttons.forEach((b) => b.classList.remove('is-active'));
-        btn.classList.add('is-active');
+    const pills = [...document.querySelectorAll('.cs-highlight-pill')];
+    const panels = document.querySelectorAll('[data-highlight-panel]');
+    if (!pills.length || !panels.length) return;
+
+    function activate(pill) {
+      const id = pill.getAttribute('data-highlight');
+      if (!id) return;
+      pills.forEach((p) => {
+        const active = p === pill;
+        p.classList.toggle('is-active', active);
+        p.setAttribute('aria-selected', active ? 'true' : 'false');
+        p.tabIndex = active ? 0 : -1;
+      });
+      panels.forEach((panel) => {
+        const active = panel.getAttribute('data-highlight-panel') === id;
+        panel.classList.toggle('is-active', active);
+        panel.toggleAttribute('hidden', !active);
+      });
+    }
+
+    pills.forEach((pill, index) => {
+      pill.addEventListener('click', () => activate(pill));
+      pill.addEventListener('keydown', (e) => {
+        let next = -1;
+        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') next = (index + 1) % pills.length;
+        if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') next = (index - 1 + pills.length) % pills.length;
+        if (next >= 0) {
+          e.preventDefault();
+          activate(pills[next]);
+          pills[next].focus();
+        }
       });
     });
   })();
 </script>
+
+<script src="site-meta.js?v=20260729"></script>
+<script src="assets/liquid-glass-tabs.bundle.js?v=20260750"></script>
 
 </body>
 </html>

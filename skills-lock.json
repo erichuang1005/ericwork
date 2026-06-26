@@ -6,6 +6,12 @@
       "sourceType": "github",
       "skillPath": ".agents/skills/impeccable/SKILL.md",
       "computedHash": "de38608ceb9573c3142306babd9057a240791c4e4d6647f874a4650c996cb37e"
+    },
+    "using-ui-stack": {
+      "source": "spencerpauly/awesome-cursor-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/using-ui-stack/SKILL.md",
+      "computedHash": "29ecdcf5275d529c50e22def207033d31a2d8ebfd0602821e28598ad9904a526"
     }
   }
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="theme-material">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,21 +8,19 @@
   <title>Intake Agent — Enterprise assistant UX (Eric Huang)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=20260748" />
+  <link rel="stylesheet" href="material-tokens.css?v=20260748" />
+  <link rel="stylesheet" href="material-theme.css?v=20260750" />
   <script src="analytics.js"></script>
-  <script src="site-meta.js" defer></script>
   <script src="auth.js?v=20260211"></script>
 </head>
-<body>
+<body class="cs-m3-docs-page">
 
-<!-- ─── NAV ─── -->
-<nav>
+<!-- ─── SITE HEADER ─── -->
+<nav class="site-header" aria-label="Site">
   <div class="nav-inner">
-    <div class="nav-logo-wrap">
-      <a href="index.html" class="nav-logo">Eric Huang</a>
-      <a href="index.html" class="nav-back">← All projects</a>
-    </div>
+    <a href="index.html" class="nav-logo">Eric Huang</a>
     <ul class="nav-links">
       <li><a href="index.html#work">Work</a></li>
       <li><a href="resume.pdf?v=20260420" target="_blank" rel="noopener" class="nav-resume">Resume ↗</a></li>
@@ -41,32 +39,58 @@
 </div>
 
 <!-- ─── CASE STUDY ─── -->
-<section class="case-study standalone">
+<section class="case-study standalone cs-apple-layout cs-m3-docs">
 
-  <div class="cs-header">
-    <div class="cs-header-brand">
-      <img class="cs-brand-logo" src="images/workday-logo.jpg" width="56" height="56" alt="Workday" decoding="async" loading="eager" />
+  <header class="m3-docs-hero">
+    <div class="m3-docs-hero-inner">
+      <div class="m3-docs-hero-copy">
+        <div class="m3-docs-hero-story">
+          <p class="m3-docs-eyebrow"><img class="m3-docs-brand" src="images/workday-logo.jpg" width="24" height="24" alt="" decoding="async" /> Workday · Desktop</p>
+          <h1 class="m3-docs-title">Intake Agent</h1>
+          <p class="m3-docs-lede">If the rules don't match real behavior, the 'AI' part doesn't matter—the experience breaks.</p>
+        </div>
+        <div class="m3-docs-hero-meta">
+          <p class="m3-docs-meta-line">
+            <span class="m3-docs-resources-label">Details</span>
+            <span class="m3-docs-meta-sep" aria-hidden="true">·</span>
+            <span class="m3-docs-meta">Lead UX Designer · 2024–2026</span>
+          </p>
+          <div class="m3-docs-chips">
+            <span class="tag accent">Chat assistant UX</span>
+            <span class="tag">Responsible AI</span>
+            <span class="tag">Multi-step conversations</span>
+            <span class="tag">Trust &amp; transparency</span>
+          </div>
+        </div>
+      </div>
+      <div class="m3-docs-hero-visual">
+        <div class="m3-docs-visual-bg" aria-hidden="true"></div>
+        <figure class="m3-docs-visual-card m3-docs-visual-card--wide">
+          <img src="images/intake-agent/01-landing-quick-links.png" alt="Intake Agent landing with search and shortcuts" width="1024" height="711" decoding="async" loading="eager" />
+        </figure>
+      </div>
     </div>
-    <h2>Intake <em>Agent</em></h2>
-    <div class="cs-meta-strip">
-      <div class="cs-meta-item"><div class="cs-meta-key">Company</div><div class="cs-meta-val">Workday</div></div>
-      <div class="cs-meta-item"><div class="cs-meta-key">My Role</div><div class="cs-meta-val">Lead UX Designer</div></div>
-      <div class="cs-meta-item"><div class="cs-meta-key">Platform</div><div class="cs-meta-val">Desktop Web</div></div>
-      <div class="cs-meta-item"><div class="cs-meta-key">Timeline</div><div class="cs-meta-val">2024 – 2026</div></div>
-      <div class="cs-meta-item"><div class="cs-meta-key">Last update</div><div class="cs-meta-val"><span data-site-updated></span></div></div>
-    </div>
-    <div class="cs-header-meta">
-      <span class="tag accent">Chat assistant UX</span>
-      <span class="tag">Responsible AI</span>
-      <span class="tag">Multi-step conversations</span>
-      <span class="tag">Page &amp; navigation design</span>
-      <span class="tag">Trust &amp; transparency</span>
-      <span class="tag">Desktop</span>
-    </div>
+  </header>
+
+  <div class="m3-docs-tabs-bar">
+    <nav class="article-tab-list" role="presentation" aria-label="article tabs">
+      <div class="navigation-container">
+        <div class="tabbed-navigation" role="tablist">
+          <a href="#snapshot" role="tab" class="tab active" aria-label="30-second read" aria-selected="true" tabindex="0"><span class="material-symbols-rounded google-symbols notranslate" aria-hidden="true">schedule</span><span class="tab-label">30-second read</span></a>
+          <a href="#ch-problem" role="tab" class="tab" aria-label="Problem" aria-selected="false" tabindex="-1"><span class="material-symbols-rounded google-symbols notranslate" aria-hidden="true">report</span><span class="tab-label">Problem</span></a>
+          <a href="#ch-exploration" role="tab" class="tab" aria-label="Exploration" aria-selected="false" tabindex="-1"><span class="material-symbols-rounded google-symbols notranslate" aria-hidden="true">science</span><span class="tab-label">Exploration</span></a>
+          <a href="#ch-system" role="tab" class="tab" aria-label="System" aria-selected="false" tabindex="-1"><span class="material-symbols-rounded google-symbols notranslate" aria-hidden="true">widgets</span><span class="tab-label">System</span></a>
+          <a href="#ch-craft" role="tab" class="tab" aria-label="Craft" aria-selected="false" tabindex="-1"><span class="material-symbols-rounded google-symbols notranslate" aria-hidden="true">palette</span><span class="tab-label">Craft</span></a>
+          <a href="#ch-outcomes" role="tab" class="tab" aria-label="Outcomes" aria-selected="false" tabindex="-1"><span class="material-symbols-rounded google-symbols notranslate" aria-hidden="true">check_circle</span><span class="tab-label">Outcomes</span></a>
+        </div>
+      </div>
+    </nav>
   </div>
 
+  <div class="m3-docs-body">
+
   <!-- ─── 30-SECOND SNAPSHOT ─── -->
-  <div class="cs-snapshot">
+  <div class="cs-snapshot" id="snapshot">
     <div class="block-label">30-second read</div>
     <div class="cs-snapshot-beats">
       <div class="cs-snapshot-beat">
@@ -109,13 +133,13 @@
       </figure>
     </div>
     <div class="cs-snapshot-cta">
-      <a href="#full-story" class="cs-expand-btn">Read full case study ↓</a>
+      <a href="#ch-problem" class="cs-expand-btn">Read full case study ↓</a>
     </div>
   </div>
   <!-- ─── END SNAPSHOT ─── -->
 
 
-  <div class="cs-chapter-heading" id="full-story">
+  <div class="cs-chapter-heading cs-chapter-section" id="ch-problem">
     <span class="cs-chapter-num">01</span>
     <h3>The problem</h3>
   <p class="cs-chapter-sub">What research made clear and where it pointed</p>
@@ -149,10 +173,10 @@
   </ul>
 
 
-  <div class="cs-chapter-heading">
+  <div class="cs-chapter-heading cs-chapter-section" id="ch-exploration">
     <span class="cs-chapter-num">02</span>
     <h3>Exploration</h3>
-  <p class="cs-chapter-sub">What we tried, what we ruled out, and what held up</p>
+    <p class="cs-chapter-sub">What we tried, what we ruled out, and what held up</p>
   </div>
 
   <!-- Legacy-first draft — bridges problem → vision -->
@@ -334,7 +358,7 @@
     </div>
 
 
-  <div class="cs-chapter-heading">
+  <div class="cs-chapter-heading cs-chapter-section" id="ch-system">
     <span class="cs-chapter-num">03</span>
     <h3>The system</h3>
   <p class="cs-chapter-sub">Admin side first — the rules that make the user experience possible</p>
@@ -481,7 +505,7 @@
     </div>
   </div>
 
-  <div class="cs-chapter-heading">
+  <div class="cs-chapter-heading cs-chapter-section" id="ch-craft">
     <span class="cs-chapter-num">04</span>
     <h3>Craft</h3>
   <p class="cs-chapter-sub">Conversation design, trust patterns, and interaction decisions</p>
@@ -622,7 +646,7 @@
     <div class="quote-source">— Pilot participant, first week</div>
   </div>
 
-  <div class="cs-chapter-heading">
+  <div class="cs-chapter-heading cs-chapter-section" id="ch-outcomes">
     <span class="cs-chapter-num">05</span>
     <h3>Outcomes</h3>
     <p class="cs-chapter-sub">What shipped, what we measured, and what we'd do differently</p>
@@ -658,6 +682,8 @@
       <button type="button" class="more-story-badge more-story-badge--ghost" id="openPresentationBtn" aria-haspopup="dialog" aria-controls="presentationAuthDialog">Presentation mode →</button>
     </div>
   </div>
+
+  </div><!-- /.m3-docs-body -->
 
 </section>
 
@@ -695,22 +721,6 @@
   console.log('%c👋 You opened DevTools.', 'font-size:13px;font-weight:700;color:#18181B');
   console.log('%cGood instinct — inspecting systems is exactly how I work too.', 'font-size:12px;color:#52525B');
   console.log('%ceric.chakho.wong@gmail.com  ·  linkedin.com/in/zehao-eric-huang', 'font-size:12px;color:#1A56DB');
-
-  // Nav scroll-depth + logo morph
-  (function () {
-    const nav = document.querySelector('nav');
-    if (!nav) return;
-    const header = document.querySelector('.cs-header');
-    let ticking = false;
-    function update() {
-      const y = window.scrollY;
-      nav.classList.toggle('nav--scrolled', y > 50);
-      if (header) nav.classList.toggle('nav--past-header', y > header.offsetTop + header.offsetHeight);
-      ticking = false;
-    }
-    window.addEventListener('scroll', function () { if (!ticking) { requestAnimationFrame(update); ticking = true; } }, { passive: true });
-    update();
-  })();
 
   // Scroll progress bar
   (function () {
@@ -988,6 +998,7 @@
   // Scroll-reveal for case study sections
   (function () {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (document.querySelector('.case-study.cs-m3-docs')) return;
     const ease = 'cubic-bezier(0.22, 1, 0.36, 1)';
     const observer = new IntersectionObserver(
       (entries) => entries.forEach(e => {
@@ -998,7 +1009,7 @@
       }),
       { threshold: 0.07, rootMargin: '0px 0px -40px 0px' }
     );
-    document.querySelectorAll('.block, .callout, .quote-block, .insight-list, .reflection-block, .solution-table, .focus-grid, .checklist, .cs-meta-strip, .my-role-block, .more-story, .cs-overview, .cs-chapter-heading').forEach(el => {
+    document.querySelectorAll('.block, .callout, .quote-block, .insight-list, .reflection-block, .solution-table, .focus-grid, .checklist, .cs-hero-facts, .my-role-block, .more-story, .cs-overview, .cs-chapter-heading, .cs-snapshot').forEach(el => {
       el.style.opacity = '0';
       el.style.transform = 'translateY(16px)';
       el.style.transition = `opacity 0.72s ${ease}, transform 0.72s ${ease}`;
@@ -1047,6 +1058,9 @@
     });
   })();
 </script>
+
+<script src="site-meta.js?v=20260729"></script>
+<script src="assets/liquid-glass-tabs.bundle.js?v=20260750"></script>
 
 </body>
 </html>
