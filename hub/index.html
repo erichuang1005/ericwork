@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>Mobile pattern library — demo</title>
+    <meta name="description" content="Design system components and neutral demo states">
+
+    <!-- PWA meta tags -->
+    <meta name="theme-color" content="#0875E1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Inventory" />
+    <link rel="apple-touch-icon" href="./pwa-192x192.png" />
+
+    
+    
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="og:title" content="Find Inventory Balance">
+  <meta name="twitter:title" content="Find Inventory Balance">
+  <meta property="og:description" content="Mobile inventory">
+  <meta name="twitter:description" content="Mobile inventory">
+  <link rel="icon" type="image/png" href="./pwa-192x192.png">
+    <!-- Public embed: only pattern library + quantity demo. Task hub (/) and other flows are blocked. -->
+    <script>
+      (function () {
+        var ALLOWED = /^#\/(design-system|find-inventory-balance)(\/|$)/;
+        function hubPath() {
+          var h = location.hash || '';
+          if (!h || h === '#') return '/';
+          return (h.indexOf('#') === 0 ? h.slice(1) : h).split('?')[0] || '/';
+        }
+        function enforce() {
+          var path = hubPath();
+          if (path === '/' || !ALLOWED.test(location.hash || '')) {
+            location.replace(location.pathname + location.search + '#/design-system');
+          }
+        }
+        enforce();
+        window.addEventListener('hashchange', enforce);
+      })();
+    </script>
+  <script type="module" crossorigin src="./assets/index-aIGhOMtU.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-CcrPnEIu.css">
+</head>
+
+  <body>
+    <div id="root"></div>
+  </body>
+</html>

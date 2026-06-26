@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Intake Agent — non-catalog form in panel</title>
+<style>
+  :root{
+    --ink:#18181B; --ink-2:#3F3F46; --sec:#52525B; --muted:#A1A1AA;
+    --line:#E4E4E7; --line-2:#F0F0F1; --bg:#ffffff; --card:#FFFFFF;
+    --blue:#1A56DB; --blue-soft:#EFF4FF;
+    --green:#047857; --green-bg:#ECFDF5; --green-line:#A7F3D0;
+    --amber:#B45309; --amber-bg:#FFFBEB; --amber-line:#FDE68A;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html,body{width:1280px; height:800px; overflow:hidden;}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif; color:var(--ink); background:var(--bg); -webkit-font-smoothing:antialiased;}
+  .grad{height:4px; background:linear-gradient(90deg,#F59E0B 0%,#F472B6 32%,#A78BFA 58%,#3B82F6 100%);}
+  .topbar{height:52px; background:#fff; border-bottom:1px solid var(--line); display:flex; align-items:center; justify-content:space-between; padding:0 16px;}
+  .logo{width:30px; height:30px; border-radius:8px; background:linear-gradient(135deg,#F97316,#EA580C); color:#fff; font-weight:800; font-size:16px; display:flex; align-items:center; justify-content:center;}
+  .top-right{display:flex; align-items:center; gap:18px; color:var(--sec);}
+  .ico{width:20px; height:20px; position:relative; color:var(--sec);}
+  .badge{position:absolute; top:-6px; right:-8px; background:#DC2626; color:#fff; font-size:9px; font-weight:700; border-radius:20px; padding:1px 4px; line-height:1.3; min-width:14px; text-align:center;}
+  .avatar{width:30px; height:30px; border-radius:50%; background:#0EA5A4; color:#fff; font-size:12px; font-weight:700; display:flex; align-items:center; justify-content:center;}
+  .shell{display:flex; height:744px;}
+  .rail{width:68px; background:#fff; border-right:1px solid var(--line); display:flex; flex-direction:column; align-items:center; padding:12px 0; gap:2px;}
+  .rail .nav{display:flex; flex-direction:column; align-items:center; gap:3px; padding:8px 0; width:100%; color:var(--muted); font-size:9px; font-weight:600;}
+  .rail .nav.active{color:var(--ink);}
+  .rail .nav.active .glyph{background:var(--blue-soft); color:var(--blue);}
+  .rail .glyph{width:26px; height:26px; border-radius:7px; display:flex; align-items:center; justify-content:center; font-size:14px;}
+  .rail .spacer{flex:1;}
+  /* hub left */
+  .main{flex:1; min-width:0; padding:30px 40px; overflow:hidden;}
+  .greet{font-size:26px; font-weight:800; text-align:center; letter-spacing:-.02em; margin-bottom:18px;}
+  .search{max-width:560px; margin:0 auto; border:1px solid var(--line); background:#fff; border-radius:26px; padding:11px 18px; color:var(--muted); font-size:13px;}
+  .quick{display:flex; gap:10px; justify-content:center; margin:14px 0 26px; flex-wrap:wrap;}
+  .qchip{font-size:12.5px; color:var(--ink-2); background:#fff; border:1px solid var(--line); border-radius:20px; padding:7px 15px; font-weight:500;}
+  .cols{display:grid; grid-template-columns:1fr 1fr; gap:22px; max-width:760px; margin:0 auto;}
+  .sec-h{font-size:13px; font-weight:700; margin-bottom:11px;}
+  .item{display:flex; gap:11px; align-items:flex-start; padding:11px 0; border-top:1px solid var(--line-2);}
+  .item .it-ic{width:30px; height:30px; border-radius:7px; background:#F1F1F2; display:flex; align-items:center; justify-content:center; font-size:13px; color:var(--sec); flex-shrink:0;}
+  .item .it-main .it-t{font-size:12.5px; font-weight:600;}
+  .item .it-main .it-s{font-size:11px; color:var(--muted); margin-top:2px;}
+  .ann{border:1px solid var(--line); border-radius:11px; padding:12px; display:flex; gap:11px; align-items:flex-start;}
+  .ann .a-ic{width:34px; height:34px; border-radius:7px; background:linear-gradient(135deg,#E0ECFF,#EFF4FF); display:flex; align-items:center; justify-content:center;}
+  .ann .a-t{font-size:12.5px; font-weight:700;} .ann .a-s{font-size:11px; color:var(--sec); margin-top:3px; line-height:1.4;}
+  .act{display:flex; align-items:center; gap:10px; padding:10px 0; border-top:1px solid var(--line-2); font-size:12px;}
+  .act .badge-sm{width:26px; height:26px; border-radius:50%; background:#0EA5A4; color:#fff; font-size:9px; font-weight:700; display:flex; align-items:center; justify-content:center;}
+  .act .req{font-weight:600;} .act .req-s{color:var(--muted); font-size:11px;}
+  .act .when{margin-left:auto; color:var(--muted); font-size:11px;}
+  /* agent panel */
+  .panel{width:372px; flex-shrink:0; background:#fff; border-left:1px solid var(--line); display:flex; flex-direction:column;}
+  .panel-head{height:46px; border-bottom:1px solid var(--line-2); display:flex; align-items:center; justify-content:space-between; padding:0 16px;}
+  .panel-head .pt{display:flex; align-items:center; gap:8px; font-size:13.5px; font-weight:700;}
+  .panel-head .pt .clk{color:var(--muted);} .panel-head .x{color:var(--muted); font-size:15px;}
+  .thread{flex:1; overflow:hidden; padding:12px 16px 0; display:flex; flex-direction:column; gap:8px;}
+  .user-b{align-self:flex-end; background:#F1F1F2; color:var(--ink); font-size:12px; border-radius:14px 14px 4px 14px; padding:7px 11px; max-width:82%;}
+  .a-text{font-size:12px; line-height:1.45; color:var(--ink-2);}
+  .a-text b{color:var(--ink);}
+  .formcard{border:1px solid var(--line); border-radius:12px; padding:11px; display:flex; flex-direction:column; gap:8px;}
+  .form-top{display:flex; align-items:center; justify-content:space-between;}
+  .form-title{font-size:12.5px; font-weight:700;}
+  .pill-amber{display:inline-flex; align-items:center; gap:5px; font-size:10px; font-weight:700; color:var(--amber); background:var(--amber-bg); border:1px solid var(--amber-line); border-radius:20px; padding:3px 8px;}
+  .field{display:flex; flex-direction:column; gap:3px;}
+  .field label{font-size:10.5px; font-weight:600; color:var(--sec); display:flex; align-items:center; gap:5px;}
+  .ai-fill{font-size:8.5px; font-weight:700; letter-spacing:.04em; color:var(--blue); background:var(--blue-soft); border:1px solid #C9D9F7; border-radius:4px; padding:1px 5px;}
+  .input-box{border:1px solid var(--line); border-radius:8px; padding:7px 10px; font-size:12px; color:var(--ink); background:#fff; display:flex; align-items:center; justify-content:space-between;}
+  .input-box.area{min-height:36px; align-items:flex-start; line-height:1.35; color:var(--ink-2);}
+  .input-box .ph{color:var(--muted);} .input-box .ca{color:var(--muted); font-size:9px;}
+  .grid2{display:grid; grid-template-columns:1fr 1fr; gap:8px;}
+  .attach{display:flex; align-items:center; gap:8px; border:1px dashed var(--line); border-radius:8px; padding:7px 10px; font-size:11.5px; color:var(--sec);}
+  .attach .fic{color:var(--blue);}
+  .form-actions{display:flex; gap:8px;}
+  .btn-primary{flex:1; background:var(--blue); color:#fff; border:none; border-radius:9px; padding:10px; font-size:12.5px; font-weight:700;}
+  .btn-ghost{background:#fff; color:var(--ink-2); border:1px solid var(--line); border-radius:9px; padding:10px 14px; font-size:12.5px; font-weight:600;}
+  .composer{padding:11px 14px 8px; border-top:1px solid var(--line-2);}
+  .inputbar{display:flex; align-items:center; justify-content:space-between; border:1px solid var(--line); border-radius:24px; padding:9px 8px 9px 15px; color:var(--muted); font-size:12.5px;}
+  .send{width:26px; height:26px; border-radius:50%; background:#EAEAEB; color:var(--sec); display:flex; align-items:center; justify-content:center; font-size:13px;}
+  .sources{font-size:11px; color:var(--sec); margin-top:8px;}
+  .disc{font-size:9.5px; color:var(--muted); text-align:center; margin-top:6px;}
+</style>
+</head>
+<body>
+  <div class="grad"></div>
+  <div class="topbar">
+    <div class="logo">W</div>
+    <div class="top-right">
+      <div class="ico">⟳</div>
+      <div class="ico">🔔<span class="badge">28</span></div>
+      <div class="ico">✉<span class="badge">101</span></div>
+      <div class="avatar">SH</div>
+    </div>
+  </div>
+  <div class="shell">
+    <div class="rail">
+      <div class="nav active"><div class="glyph">⌂</div>Home</div>
+      <div class="nav"><div class="glyph">👥</div>Team</div>
+      <div class="nav"><div class="glyph">👤</div>Personal</div>
+      <div class="nav"><div class="glyph">▦</div>Org</div>
+      <div class="nav"><div class="glyph">↗</div>Links</div>
+      <div class="nav"><div class="glyph">…</div>More</div>
+      <div class="spacer"></div>
+      <div class="nav"><div class="glyph">🔖</div>Saved</div>
+      <div class="nav"><div class="glyph">⚙</div>Settings</div>
+    </div>
+
+    <!-- hub left: page stays put -->
+    <div class="main">
+      <div class="greet">Good morning, Sarah</div>
+      <div class="search">Search or ask a question</div>
+      <div class="quick">
+        <span class="qchip">My Requests</span>
+        <span class="qchip">New Request</span>
+        <span class="qchip">Track Order</span>
+        <span class="qchip">Browse Catalog ↗</span>
+        <span class="qchip">⋯</span>
+      </div>
+      <div class="cols">
+        <div>
+          <div class="sec-h">Awaiting Your Action</div>
+          <div class="item"><div class="it-ic">✉</div><div class="it-main"><div class="it-t">License Renewal Approval: Figma Enterprise</div><div class="it-s">Inbox · 2 days ago</div></div></div>
+          <div class="item"><div class="it-ic">✉</div><div class="it-main"><div class="it-t">Submit Vendor Evaluation: Datadog</div><div class="it-s">Inbox · 1 hour ago</div></div></div>
+          <div class="sec-h" style="margin-top:22px;">Recent Activity</div>
+          <div class="act"><span class="badge-sm">SH</span><span class="req">REQ-6057</span><span class="req-s">Services · In Review</span><span class="when">30 days ago</span></div>
+          <div class="act"><span class="badge-sm">SH</span><span class="req">REQ-6056</span><span class="req-s">Services · In Review</span><span class="when">30 days ago</span></div>
+          <div class="act"><span class="badge-sm">SH</span><span class="req">REQ-6055</span><span class="req-s">Hardware · In Review</span><span class="when">31 days ago</span></div>
+        </div>
+        <div>
+          <div class="sec-h">Announcements</div>
+          <div class="ann"><div class="a-ic">🏢</div><div><div class="a-t">New Procurement Portal</div><div class="a-s">We've launched a new AI-powered procurement portal to streamline your purchasing experience.</div></div></div>
+          <div class="sec-h" style="margin-top:22px;">Timely Suggestions</div>
+          <div class="ann" style="margin-bottom:10px;"><div class="a-ic">💳</div><div><div class="a-t">Credit card transactions ready to expense</div><div class="a-s">1 open transaction from Monday, March 2.</div></div></div>
+          <div class="ann"><div class="a-ic">⏷</div><div><div class="a-t">Software licenses expiring soon</div><div class="a-s">3 licenses require renewal before end of Q1 2026.</div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- agent panel: non-catalog form inline -->
+    <div class="panel">
+      <div class="panel-head">
+        <div class="pt"><span class="clk">🕐</span> Intake Agent <span style="color:var(--muted); font-size:11px;">▾</span></div>
+        <div class="x">✕</div>
+      </div>
+      <div class="thread">
+        <div class="user-b">I need 3 custom standing desks — not in the catalog</div>
+        <div class="a-text">No catalog match — here's a <b>non-catalog request</b>, pre-filled from your message and policy. Review and edit before submitting.</div>
+
+        <div class="formcard">
+          <div class="form-top"><span class="form-title">Non-catalog request</span><span class="pill-amber">● Needs approval</span></div>
+
+          <div class="field">
+            <label>Item / service description <span class="ai-fill">AI</span></label>
+            <div class="input-box area">Height-adjustable standing desk, 60"×30", electric, black frame</div>
+          </div>
+
+          <div class="grid2">
+            <div class="field"><label>Category <span class="ai-fill">AI</span></label><div class="input-box"><span>Furniture</span><span class="ca">▾</span></div></div>
+            <div class="field"><label>Quantity</label><div class="input-box"><span>3</span></div></div>
+          </div>
+
+          <div class="field">
+            <label>Suggested supplier <span class="ai-fill">AI</span></label>
+            <div class="input-box"><span>Fully — Jarvis (preferred vendor)</span><span class="ca">▾</span></div>
+          </div>
+
+          <div class="grid2">
+            <div class="field"><label>Est. unit price</label><div class="input-box"><span>$675.00</span></div></div>
+            <div class="field"><label>Need-by date</label><div class="input-box"><span>Jun 20, 2026</span><span class="ca">📅</span></div></div>
+          </div>
+
+          <div class="field">
+            <label>Justification <span class="ai-fill">AI</span></label>
+            <div class="input-box area">Ergonomic setup for 3 new hires starting in June.</div>
+          </div>
+
+          <div class="field">
+            <label>Cost center / GL <span class="ai-fill">AI</span></label>
+            <div class="input-box"><span>CC-4420 · 6200 Office Equipment</span><span class="ca">▾</span></div>
+          </div>
+
+          <div class="attach"><span class="fic">📎</span> standing-desk-quote.pdf <span style="margin-left:auto; color:var(--muted);">128 KB</span></div>
+
+          <div class="form-actions">
+            <button class="btn-primary">Add to Requisition</button>
+            <button class="btn-ghost">Edit</button>
+          </div>
+        </div>
+      </div>
+      <div class="composer">
+        <div class="inputbar"><span>What would you like to do?</span><span class="send">↑</span></div>
+        <div class="sources">+ Sources</div>
+        <div class="disc">This content was generated by AI. Review before use.</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,16 @@
+# Dependencies (reinstall with: npm install)
+node_modules/
+
+# Build source maps
+assets/liquid-glass-tabs.bundle.js.map
+
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Unrelated local project — keep on your machine, don't upload
+Leap - find inv balance copy/
+
+# Cursor agent skills — dev-only, not part of the portfolio site
+.agents/
+skills-lock.json

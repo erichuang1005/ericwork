@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Intake Agent — catalog overflow</title>
+<style>
+  :root{
+    --ink:#18181B; --ink-2:#3F3F46; --sec:#52525B; --muted:#A1A1AA;
+    --line:#E4E4E7; --line-2:#F0F0F1; --bg:#ffffff; --card:#FFFFFF;
+    --blue:#1A56DB; --blue-soft:#EFF4FF;
+    --green:#047857; --green-bg:#ECFDF5; --green-line:#A7F3D0;
+    --amber:#B45309; --amber-bg:#FFFBEB; --amber-line:#FDE68A;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html,body{width:1280px; height:800px; overflow:hidden;}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink); background:var(--bg); -webkit-font-smoothing:antialiased;
+  }
+  .grad{height:4px; background:linear-gradient(90deg,#F59E0B 0%,#F472B6 32%,#A78BFA 58%,#3B82F6 100%);}
+  /* top bar */
+  .topbar{height:52px; background:#fff; border-bottom:1px solid var(--line); display:flex; align-items:center; justify-content:space-between; padding:0 16px;}
+  .logo{width:30px; height:30px; border-radius:8px; background:linear-gradient(135deg,#F97316,#EA580C); color:#fff; font-weight:800; font-size:16px; display:flex; align-items:center; justify-content:center; letter-spacing:-.02em;}
+  .top-right{display:flex; align-items:center; gap:18px; color:var(--sec);}
+  .ico{width:20px; height:20px; position:relative; color:var(--sec);}
+  .badge{position:absolute; top:-6px; right:-8px; background:#DC2626; color:#fff; font-size:9px; font-weight:700; border-radius:20px; padding:1px 4px; line-height:1.3; min-width:14px; text-align:center;}
+  .avatar{width:30px; height:30px; border-radius:50%; background:#0EA5A4; color:#fff; font-size:12px; font-weight:700; display:flex; align-items:center; justify-content:center;}
+  /* shell */
+  .shell{display:flex; height:744px;}
+  /* left rail */
+  .rail{width:68px; background:#fff; border-right:1px solid var(--line); display:flex; flex-direction:column; align-items:center; padding:12px 0; gap:2px;}
+  .rail .nav{display:flex; flex-direction:column; align-items:center; gap:3px; padding:8px 0; width:100%; color:var(--muted); font-size:9px; font-weight:600; letter-spacing:.01em; cursor:default;}
+  .rail .nav.active{color:var(--ink);}
+  .rail .nav.active .glyph{background:var(--blue-soft); color:var(--blue);}
+  .rail .glyph{width:26px; height:26px; border-radius:7px; display:flex; align-items:center; justify-content:center; font-size:14px;}
+  .rail .spacer{flex:1;}
+  /* main */
+  .main{flex:1; min-width:0; padding:20px 26px; overflow:hidden; display:flex; flex-direction:column;}
+  .crumb{font-size:11px; color:var(--muted); font-weight:600; letter-spacing:.04em; text-transform:uppercase;}
+  .main-head{display:flex; align-items:baseline; justify-content:space-between; margin-top:4px;}
+  .main-head h1{font-size:22px; font-weight:700; letter-spacing:-.02em;}
+  .ctx{font-size:12px; color:var(--sec);}
+  .ctx b{color:var(--ink);}
+  .pill-amber{display:inline-flex; align-items:center; gap:5px; font-size:11px; font-weight:600; color:var(--amber); background:var(--amber-bg); border:1px solid var(--amber-line); border-radius:20px; padding:3px 9px;}
+  .filters{display:flex; gap:8px; margin:16px 0 4px; flex-wrap:wrap;}
+  .chip{font-size:12px; color:var(--ink-2); background:#fff; border:1px solid var(--line); border-radius:8px; padding:6px 11px; display:inline-flex; gap:6px; align-items:center; font-weight:500;}
+  .chip .ca{color:var(--muted); font-size:9px;}
+  .chip.ghost{margin-left:auto; color:var(--sec);}
+  .results-meta{display:flex; align-items:center; justify-content:space-between; margin:14px 2px 10px;}
+  .results-meta .n{font-size:12.5px; color:var(--sec);} .results-meta .n b{color:var(--ink);}
+  .sort{font-size:12px; color:var(--sec);}
+  .list{display:flex; flex-direction:column; gap:10px; overflow:hidden;}
+  .row{display:flex; gap:14px; align-items:center; background:#fff; border:1px solid var(--line); border-radius:12px; padding:12px 14px;}
+  .row.best{border-color:var(--green-line); box-shadow:0 1px 0 rgba(4,120,87,.04);}
+  .thumb{width:60px; height:60px; border-radius:9px; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:800; color:#fff; letter-spacing:-.01em;}
+  .row-main{flex:1; min-width:0;}
+  .row-top{display:flex; align-items:center; gap:8px;}
+  .row-title{font-size:14.5px; font-weight:700; color:#0F3FBD;}
+  .tag-best{font-size:9.5px; font-weight:800; letter-spacing:.06em; text-transform:uppercase; color:var(--green); background:var(--green-bg); border:1px solid var(--green-line); border-radius:5px; padding:2px 6px;}
+  .specs{font-size:12px; color:var(--sec); margin-top:3px;}
+  .specs b{color:var(--ink-2); font-weight:600;}
+  .meta-line{display:flex; align-items:center; gap:12px; margin-top:6px; font-size:11.5px; color:var(--sec);}
+  .pol{display:inline-flex; align-items:center; gap:4px; font-weight:600;}
+  .pol.in{color:var(--green);} .pol.out{color:var(--amber);}
+  .dot{width:5px; height:5px; border-radius:50%; background:currentColor; display:inline-block;}
+  .row-right{display:flex; flex-direction:column; align-items:flex-end; gap:6px; flex-shrink:0;}
+  .price-s{font-size:10.5px; color:var(--muted);}
+  .price{font-size:16px; font-weight:700; letter-spacing:-.01em;}
+  .chev{width:26px; height:26px; border-radius:7px; border:1px solid var(--line); display:flex; align-items:center; justify-content:center; color:var(--sec); font-size:12px;}
+  .main-foot{display:flex; align-items:center; justify-content:space-between; margin-top:14px;}
+  .back{font-size:12px; color:var(--sec); border:1px solid var(--line); background:#fff; border-radius:20px; padding:7px 14px;}
+  .pager{display:flex; gap:6px;}
+  .pg{width:26px; height:26px; border-radius:7px; border:1px solid var(--line); display:flex; align-items:center; justify-content:center; font-size:12px; color:var(--sec); background:#fff;}
+  .pg.on{background:var(--ink); color:#fff; border-color:var(--ink);}
+  /* agent panel */
+  .panel{width:372px; flex-shrink:0; background:#fff; border-left:1px solid var(--line); display:flex; flex-direction:column;}
+  .panel-head{height:46px; border-bottom:1px solid var(--line-2); display:flex; align-items:center; justify-content:space-between; padding:0 16px;}
+  .panel-head .pt{display:flex; align-items:center; gap:8px; font-size:13.5px; font-weight:700;}
+  .panel-head .pt .clk{color:var(--muted);}
+  .panel-head .x{color:var(--muted); font-size:15px;}
+  .thread{flex:1; overflow:hidden; padding:16px 16px 0; display:flex; flex-direction:column; gap:11px;}
+  .a-text{font-size:12.5px; line-height:1.5; color:var(--ink-2);}
+  .user-b{align-self:flex-end; background:#F1F1F2; color:var(--ink); font-size:12.5px; border-radius:14px 14px 4px 14px; padding:8px 12px; max-width:80%;}
+  .mini{border:1px solid var(--line); border-radius:10px; padding:9px 11px; display:flex; align-items:center; gap:10px;}
+  .mini .mthumb{width:30px; height:30px; border-radius:7px; flex-shrink:0; display:flex; align-items:center; justify-content:center; color:#fff; font-size:9px; font-weight:800;}
+  .mini .mmain{flex:1; min-width:0;}
+  .mini .mname{font-size:12px; font-weight:600; color:var(--ink); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+  .mini .msub{font-size:10.5px; color:var(--sec); margin-top:2px; display:flex; align-items:center; gap:7px;}
+  .mini .pol{font-size:10px;}
+  .mini .mprice{font-size:12.5px; font-weight:700; flex-shrink:0;}
+  .mini .madd{font-size:11px; font-weight:600; color:var(--blue); border:1px solid #C9D9F7; background:var(--blue-soft); border-radius:7px; padding:5px 9px; flex-shrink:0;}
+  .overflow{margin-top:2px; border:1px dashed #C9D9F7; background:linear-gradient(180deg,#FBFCFF,#F4F8FF); border-radius:11px; padding:12px;}
+  .overflow .ohead{display:flex; align-items:center; justify-content:space-between;}
+  .overflow .ocount{font-size:12px; font-weight:700; color:var(--ink);}
+  .overflow .obadge{font-size:10px; font-weight:700; color:var(--blue); background:#fff; border:1px solid #C9D9F7; border-radius:20px; padding:2px 8px;}
+  .overflow .obtn{margin-top:9px; width:100%; background:var(--blue); color:#fff; border:none; border-radius:9px; padding:10px; font-size:12.5px; font-weight:700; display:flex; align-items:center; justify-content:center; gap:7px;}
+  .overflow .onote{font-size:10.5px; color:var(--sec); margin-top:8px; line-height:1.45; text-align:center;}
+  .composer{padding:12px 14px 8px; border-top:1px solid var(--line-2);}
+  .input{display:flex; align-items:center; justify-content:space-between; border:1px solid var(--line); border-radius:24px; padding:9px 8px 9px 15px; color:var(--muted); font-size:12.5px;}
+  .send{width:26px; height:26px; border-radius:50%; background:#EAEAEB; color:var(--sec); display:flex; align-items:center; justify-content:center; font-size:13px;}
+  .sources{font-size:11px; color:var(--sec); margin-top:8px;}
+  .disc{font-size:9.5px; color:var(--muted); text-align:center; margin-top:6px;}
+</style>
+</head>
+<body>
+  <div class="grad"></div>
+  <div class="topbar">
+    <div class="logo">W</div>
+    <div class="top-right">
+      <div class="ico">⟳</div>
+      <div class="ico">🔔<span class="badge">28</span></div>
+      <div class="ico">✉<span class="badge">101</span></div>
+      <div class="avatar">SH</div>
+    </div>
+  </div>
+  <div class="shell">
+    <!-- left rail -->
+    <div class="rail">
+      <div class="nav active"><div class="glyph">⌂</div>Home</div>
+      <div class="nav"><div class="glyph">👥</div>Team</div>
+      <div class="nav"><div class="glyph">👤</div>Personal</div>
+      <div class="nav"><div class="glyph">▦</div>Org</div>
+      <div class="nav"><div class="glyph">↗</div>Links</div>
+      <div class="nav"><div class="glyph">…</div>More</div>
+      <div class="spacer"></div>
+      <div class="nav"><div class="glyph">🔖</div>Saved</div>
+      <div class="nav"><div class="glyph">⚙</div>Settings</div>
+    </div>
+
+    <!-- main catalog page -->
+    <div class="main">
+      <div class="crumb">Catalog</div>
+      <div class="main-head">
+        <h1>Laptops</h1>
+        <span class="pill-amber">● Request: New-hire laptops · In Progress</span>
+      </div>
+      <div class="filters">
+        <span class="chip">Brand <span class="ca">▾</span></span>
+        <span class="chip">Memory <span class="ca">▾</span></span>
+        <span class="chip">Storage <span class="ca">▾</span></span>
+        <span class="chip">Price <span class="ca">▾</span></span>
+        <span class="chip">Availability <span class="ca">▾</span></span>
+        <span class="chip">Policy <span class="ca">▾</span></span>
+        <span class="chip ghost">⊞ Compare</span>
+      </div>
+      <div class="results-meta">
+        <div class="n"><b>12 results</b> · opened by Intake Agent</div>
+        <div class="sort">Sort: Compliance ranking ▾</div>
+      </div>
+      <div class="list">
+        <div class="row best">
+          <div class="thumb" style="background:linear-gradient(135deg,#2563EB,#1E40AF)">DELL</div>
+          <div class="row-main">
+            <div class="row-top"><span class="row-title">Dell Latitude 7440</span><span class="tag-best">Best match</span></div>
+            <div class="specs"><b>16GB RAM</b> · 512GB SSD · 14" · Intel Core Ultra 7</div>
+            <div class="meta-line"><span class="pol in"><span class="dot"></span>In-policy</span><span>82% of coworkers choose this</span><span>SKU DL-LAT-7440</span></div>
+          </div>
+          <div class="row-right"><span class="price-s">From</span><span class="price">$1,420</span><span class="chev">▾</span></div>
+        </div>
+        <div class="row">
+          <div class="thumb" style="background:linear-gradient(135deg,#0EA5E9,#0369A1)">MS</div>
+          <div class="row-main">
+            <div class="row-top"><span class="row-title">Microsoft Surface Laptop 5 — 15"</span></div>
+            <div class="specs"><b>16GB RAM</b> · 512GB SSD · 15" · Intel Evo i7</div>
+            <div class="meta-line"><span class="pol in"><span class="dot"></span>In-policy</span><span>In stock</span><span>SKU MS-SURF-L5-15</span></div>
+          </div>
+          <div class="row-right"><span class="price-s">From</span><span class="price">$1,495</span><span class="chev">▾</span></div>
+        </div>
+        <div class="row">
+          <div class="thumb" style="background:linear-gradient(135deg,#DC2626,#991B1B)">LEN</div>
+          <div class="row-main">
+            <div class="row-top"><span class="row-title">Lenovo ThinkPad X1 Carbon G11</span></div>
+            <div class="specs"><b>16GB RAM</b> · 512GB SSD · 14" · Intel Core i7</div>
+            <div class="meta-line"><span class="pol in"><span class="dot"></span>In-policy</span><span>In stock</span><span>SKU LN-X1C-G11</span></div>
+          </div>
+          <div class="row-right"><span class="price-s">From</span><span class="price">$1,560</span><span class="chev">▾</span></div>
+        </div>
+        <div class="row">
+          <div class="thumb" style="background:linear-gradient(135deg,#334155,#0F172A)">HP</div>
+          <div class="row-main">
+            <div class="row-top"><span class="row-title">HP EliteBook 840 G10</span></div>
+            <div class="specs"><b>16GB RAM</b> · 512GB SSD · 14" · Intel Core i7</div>
+            <div class="meta-line"><span class="pol in"><span class="dot"></span>In-policy</span><span>In stock</span><span>SKU HP-EB840-G10</span></div>
+          </div>
+          <div class="row-right"><span class="price-s">From</span><span class="price">$1,380</span><span class="chev">▾</span></div>
+        </div>
+        <div class="row">
+          <div class="thumb" style="background:linear-gradient(135deg,#71717A,#3F3F46)"></div>
+          <div class="row-main">
+            <div class="row-top"><span class="row-title">Apple MacBook Air 15" — M3</span></div>
+            <div class="specs"><b>16GB RAM</b> · 512GB SSD · 15" · Apple M3</div>
+            <div class="meta-line"><span class="pol in"><span class="dot"></span>In-policy</span><span>In stock</span><span>SKU AP-MBA15-M3</span></div>
+          </div>
+          <div class="row-right"><span class="price-s">From</span><span class="price">$1,499</span><span class="chev">▾</span></div>
+        </div>
+        <div class="row">
+          <div class="thumb" style="background:linear-gradient(135deg,#52525B,#27272A)"></div>
+          <div class="row-main">
+            <div class="row-top"><span class="row-title">Apple MacBook Pro 16" — M3 Pro</span></div>
+            <div class="specs"><b>36GB RAM</b> · 1TB SSD · 16" · Apple M3 Pro</div>
+            <div class="meta-line"><span class="pol out"><span class="dot"></span>Out-of-policy</span><span>Needs approval</span><span>SKU AP-MBP16-M3P</span></div>
+          </div>
+          <div class="row-right"><span class="price-s">From</span><span class="price">$2,899</span><span class="chev">▾</span></div>
+        </div>
+        <div class="row">
+          <div class="thumb" style="background:linear-gradient(135deg,#16A34A,#065F46)">RZ</div>
+          <div class="row-main">
+            <div class="row-top"><span class="row-title">Razer Blade 16</span></div>
+            <div class="specs"><b>32GB RAM</b> · 1TB SSD · 16" · RTX 4080</div>
+            <div class="meta-line"><span class="pol out"><span class="dot"></span>Out-of-policy</span><span>Exceeds price cap</span><span>SKU RZ-BLD-16</span></div>
+          </div>
+          <div class="row-right"><span class="price-s">From</span><span class="price">$3,200</span><span class="chev">▾</span></div>
+        </div>
+      </div>
+      <div class="main-foot">
+        <span class="back">← Back</span>
+        <div class="pager"><span class="pg on">1</span><span class="pg">2</span><span class="pg">›</span></div>
+      </div>
+    </div>
+
+    <!-- agent panel -->
+    <div class="panel">
+      <div class="panel-head">
+        <div class="pt"><span class="clk">🕐</span> Intake Agent <span style="color:var(--muted); font-size:11px;">▾</span></div>
+        <div class="x">✕</div>
+      </div>
+      <div class="thread">
+        <div class="user-b">i need 12 laptops for new hires</div>
+        <div class="a-text">Here are your <b>top 5 matches</b> from the internal catalog — all in-policy and in stock.</div>
+
+        <div class="mini">
+          <div class="mthumb" style="background:linear-gradient(135deg,#2563EB,#1E40AF)">DEL</div>
+          <div class="mmain"><div class="mname">Dell Latitude 7440</div><div class="msub"><span class="pol in"><span class="dot"></span>In-policy</span><span>16GB · 512GB</span></div></div>
+          <div class="mprice">$1,420</div>
+        </div>
+        <div class="mini">
+          <div class="mthumb" style="background:linear-gradient(135deg,#0EA5E9,#0369A1)">MS</div>
+          <div class="mmain"><div class="mname">Surface Laptop 5 — 15"</div><div class="msub"><span class="pol in"><span class="dot"></span>In-policy</span><span>16GB · 512GB</span></div></div>
+          <div class="mprice">$1,495</div>
+        </div>
+        <div class="mini">
+          <div class="mthumb" style="background:linear-gradient(135deg,#DC2626,#991B1B)">LEN</div>
+          <div class="mmain"><div class="mname">ThinkPad X1 Carbon G11</div><div class="msub"><span class="pol in"><span class="dot"></span>In-policy</span><span>16GB · 512GB</span></div></div>
+          <div class="mprice">$1,560</div>
+        </div>
+        <div class="mini">
+          <div class="mthumb" style="background:linear-gradient(135deg,#334155,#0F172A)">HP</div>
+          <div class="mmain"><div class="mname">HP EliteBook 840 G10</div><div class="msub"><span class="pol in"><span class="dot"></span>In-policy</span><span>16GB · 512GB</span></div></div>
+          <div class="mprice">$1,380</div>
+        </div>
+        <div class="mini">
+          <div class="mthumb" style="background:linear-gradient(135deg,#71717A,#3F3F46)"></div>
+          <div class="mmain"><div class="mname">MacBook Air 15" — M3</div><div class="msub"><span class="pol in"><span class="dot"></span>In-policy</span><span>16GB · 512GB</span></div></div>
+          <div class="mprice">$1,499</div>
+        </div>
+
+        <div class="overflow">
+          <div class="ohead"><span class="ocount">7 more results</span><span class="obadge">12 total</span></div>
+          <button class="obtn">View all 12 in catalog →</button>
+          <div class="onote">We show the top 5 here to keep the panel focused. The rest open in the full catalog on the left.</div>
+        </div>
+      </div>
+      <div class="composer">
+        <div class="input"><span>What would you like to do?</span><span class="send">↑</span></div>
+        <div class="sources">+ Sources</div>
+        <div class="disc">This content was generated by AI. Review before use.</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

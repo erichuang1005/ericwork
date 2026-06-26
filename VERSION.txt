@@ -1,0 +1,10 @@
+Portfolio static site — Eric Huang
+Snapshot date: 2026-04-15
+
+Entry: index.html
+Case studies: intake-agent.html, purchase-compliance.html, inventory-picking.html
+Shared: style.css, auth.js (use ?v= query on auth.js when it changes), analytics.js, site-meta.js (auto "Last updated" month/year per page), resume.pdf, images/
+
+Resume links use cache-bust query (e.g. resume.pdf?v=20260320) so PDF updates load in the browser.
+
+Archive: ericwork-portfolio-for-github.zip (rebuild from this folder after changes)

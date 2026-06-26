@@ -1,102 +1,148 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="theme-material">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Eric Huang — UX Design Portfolio</title>
+  <link rel="icon" type="image/png" href="images/favicon-32.png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="images/favicon-apple.png" />
+  <title>Eric Huang — Enterprise workflow &amp; agentic UX (Workday)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-  <script src="auth.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=20260770" />
+  <link rel="stylesheet" href="material-tokens.css?v=20260748" />
+  <link rel="stylesheet" href="material-theme.css?v=20260748" />
+  <script src="analytics.js"></script>
+  <script src="site-meta.js" defer></script>
+  <script src="auth.js?v=20260211"></script>
 </head>
-<body>
+<body class="page-home">
 
-<!-- ─── NAV ─── -->
-<nav>
-  <div class="nav-inner">
-    <a href="index.html" class="nav-logo">Eric Huang</a>
-    <ul class="nav-links">
-      <li><a href="#work">Work</a></li>
-      <li><a href="#philosophy">Philosophy</a></li>
-      <li><a href="resume.pdf" target="_blank" rel="noopener" class="nav-resume">Resume ↗</a></li>
-    </ul>
-  </div>
-</nav>
-
-<!-- ─── HERO ─── -->
-<header class="hero">
-  <div class="hero-eyebrow">Senior Product Designer · Workday</div>
-  <h1>Hello, I'm Eric Huang.<br/>I design <em>intelligent, scalable</em><br/>enterprise experiences.</h1>
-  <p class="hero-subtitle">
-    Leading AI agent orchestration that transforms complex enterprise systems into intuitive, high-impact workflows — at Workday scale.
-  </p>
-  <div class="hero-meta">
-    <div class="hero-stat">
-      <strong>8+</strong>
-      <span>Years in enterprise UX</span>
-    </div>
-    <div class="hero-divider"></div>
-    <div class="hero-stat">
-      <strong>3</strong>
-      <span>Featured case studies</span>
-    </div>
-    <div class="hero-divider"></div>
-    <div class="hero-stat">
-      <strong>Workday</strong>
-      <span>Procurement · Supply Chain</span>
-    </div>
-  </div>
+<header class="hero hero--home">
+  <nav class="hero-nav" aria-label="Site">
+    <a href="#work">Work</a>
+    <a href="resume.pdf?v=20260420" target="_blank" rel="noopener" class="hero-nav-resume">Resume ↗</a>
+  </nav>
+  <h1 class="hero-name">Eric Huang</h1>
+  <p class="hero-role">Product designer at <span class="hero-company">Workday</span></p>
+  <p class="hero-subtitle">Agentic and compliance UX for enterprise workflows. Formerly Diligent, Copperleaf.</p>
+  <ul class="hero-stats" aria-label="Experience highlights">
+    <li>10 years in product design · 8 in enterprise</li>
+    <li>React, Android, iOS shipped</li>
+  </ul>
 </header>
 
 <!-- ─── CASE STUDY INDEX ─── -->
 <section id="work" class="index-section">
-  <div class="section-label">Selected Work</div>
+  <h2 class="section-label scroll-reveal">Selected work</h2>
   <div class="index-grid">
 
-    <a href="intake-agent.html" class="index-card">
-      <span class="index-card-arrow">↗</span>
-      <div class="index-card-badge"><span class="badge-dot live"></span> 2026 · Web</div>
-      <h3>Intake Agent</h3>
-      <p>A decision-assistive AI agent that orchestrates purchase decisions across platforms, building trust and confidence at scale.</p>
-      <div class="index-card-tags">
-        <span class="tag accent">Responsible AI</span>
-        <span class="tag">UX Design</span>
-        <span class="tag">Info Architecture</span>
+    <a href="intake-agent.html" class="index-card index-card--visual">
+      <div class="index-card-visual index-card-visual--scene index-card-visual--intake" aria-hidden="true">
+        <div class="index-card-scene">
+          <img class="index-scene-shot" src="images/intake-agent/13-phase2-catalog-requisition.png" alt="" width="1024" height="711" loading="lazy" decoding="async" />
+          <div class="index-scene-decor index-scene-decor--intake" aria-hidden="true">
+            <span class="index-scene-cursor index-scene-cursor--lisa">
+              <span class="index-scene-cursor__pointer">
+                <svg class="index-scene-cursor__arrow" viewBox="0 0 16 18" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1.5 1 1.5 14.5 4.8 11.2 7.2 16.8 9.2 15.6 7 10 14 10 1.5 1z"/></svg>
+              </span>
+              <span class="index-scene-cursor__pill">Lisa</span>
+            </span>
+            <span class="index-scene-cursor index-scene-cursor--ralf">
+              <span class="index-scene-cursor__pointer">
+                <svg class="index-scene-cursor__arrow" viewBox="0 0 16 18" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1.5 1 1.5 14.5 4.8 11.2 7.2 16.8 9.2 15.6 7 10 14 10 1.5 1z"/></svg>
+              </span>
+              <span class="index-scene-cursor__pill">Ralf</span>
+            </span>
+            <span class="index-scene-cursor index-scene-cursor--felipe">
+              <span class="index-scene-cursor__pointer">
+                <svg class="index-scene-cursor__arrow" viewBox="0 0 16 18" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1.5 1 1.5 14.5 4.8 11.2 7.2 16.8 9.2 15.6 7 10 14 10 1.5 1z"/></svg>
+              </span>
+              <span class="index-scene-cursor__pill">Felipe</span>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="index-card-body">
+        <span class="index-card-arrow" aria-hidden="true">→</span>
+        <div class="index-card-badge"><span class="badge-dot live"></span> 2026 · Web</div>
+        <h3>Intake Agent</h3>
+        <p>AI assistant for procurement—answers, routing, and catalog actions in one thread.</p>
+        <div class="index-card-tags">
+          <span class="tag accent tag--ai"><svg class="tag-sparkle" viewBox="0 0 14 14" fill="currentColor" aria-hidden="true"><path d="M7 0c0 0 .6 3 2 4.5S14 7 14 7s-3 .6-4.5 2S7 14 7 14s-.6-3-2-4.5S0 7 0 7s3-.6 4.5-2S7 0 7 0z"/></svg>Agentic UX</span>
+          <span class="tag">Conversational design</span>
+          <span class="tag">Responsible AI</span>
+        </div>
       </div>
     </a>
 
-    <a href="purchase-compliance.html" class="index-card">
-      <span class="index-card-arrow">↗</span>
-      <div class="index-card-badge"><span class="badge-dot live"></span> 2025 · Web</div>
-      <h3>Purchase Compliance</h3>
-      <p>Turning a slow, manual rule-defining process into a contextual, scalable framework for procurement admins.</p>
-      <div class="index-card-tags">
-        <span class="tag accent">Workflow Design</span>
-        <span class="tag">Research</span>
-        <span class="tag">Scalable Systems</span>
+    <a href="purchase-compliance.html" class="index-card index-card--visual">
+      <div class="index-card-visual index-card-visual--scene index-card-visual--purchase" aria-hidden="true">
+        <div class="index-card-scene">
+          <img class="index-scene-shot" src="images/purchase-compliance/console-overview.png" alt="" width="1024" height="658" loading="lazy" decoding="async" />
+        </div>
+      </div>
+      <div class="index-card-body">
+        <span class="index-card-arrow" aria-hidden="true">→</span>
+        <div class="index-card-badge"><span class="badge-dot live"></span> 2025 · Web</div>
+        <h3>Purchase Compliance</h3>
+        <p>Admin console for buying rules — setup, exceptions, and catalog ranking for shoppers.</p>
+        <div class="index-card-tags">
+          <span class="tag accent">Workflow Design</span>
+          <span class="tag">Research</span>
+          <span class="tag">Scalable Systems</span>
+        </div>
       </div>
     </a>
 
-    <a href="inventory-picking.html" class="index-card">
-      <span class="index-card-arrow">↗</span>
-      <div class="index-card-badge"><span class="badge-dot live"></span> 2024 · Mobile</div>
-      <h3>Inventory Stock Picking</h3>
-      <p>Transforming a click-heavy inventory flow into an adaptive, automated mobile experience that boosts warehouse efficiency.</p>
-      <div class="index-card-tags">
-        <span class="tag accent">Mobile UX</span>
-        <span class="tag">Workflow Automation</span>
-        <span class="tag">Design Systems</span>
+    <a href="inventory-picking.html" class="index-card index-card--visual">
+      <div class="index-card-visual index-card-visual--scene index-card-visual--inventory" aria-hidden="true">
+        <div class="index-inventory-scene">
+          <div class="index-inventory-scene__stack">
+            <div class="index-inventory-scene__panel" aria-hidden="true"></div>
+            <div class="index-inventory-scene__phone device-frame--phone">
+              <img src="images/inventory-picking/adjust-inventory-after.png?v=2" alt="" width="445" height="987" loading="lazy" decoding="async" />
+            </div>
+          </div>
+          <div class="index-scene-decor" aria-hidden="true">
+            <span class="index-scene-tool index-scene-tool--cursor" title="Design in code">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="currentColor" d="M11.503.131 1.891 5.678a.84.84 0 0 0-.42.726v11.188c0 .3.162.575.42.724l9.609 5.55a1 1 0 0 0 .998 0l9.61-5.55a.84.84 0 0 0 .42-.724V6.404a.84.84 0 0 0-.42-.726L12.497.131a1.01 1.01 0 0 0-.996 0M2.657 6.338h18.55c.263 0 .43.287.297.515L12.23 22.918c-.062.107-.229.064-.229-.06V12.335a.59.59 0 0 0-.295-.51l-9.11-5.257c-.109-.063-.064-.23.061-.23"/></svg>
+              <span>Cursor</span>
+            </span>
+            <span class="index-scene-tool index-scene-tool--figma" title="Figma MCP">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="currentColor" d="M15.852 8.981h-4.588V0h4.588c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.491-4.49 4.491zM12.735 7.51h3.117c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-3.117V7.51zm0 1.471H8.148c-2.476 0-4.49-2.014-4.49-4.49S5.672 0 8.148 0h4.588v8.981zm-4.587-7.51c-1.665 0-3.019 1.355-3.019 3.019s1.354 3.02 3.019 3.02h3.117V1.471H8.148zm4.587 15.019H8.148c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h4.588v8.98zM8.148 8.981c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h3.117V8.981H8.148zM8.172 24c-2.489 0-4.515-2.014-4.515-4.49s2.014-4.49 4.49-4.49h4.588v4.441c0 2.503-2.047 4.539-4.563 4.539zm-.024-7.51a3.023 3.023 0 0 0-3.019 3.019c0 1.665 1.365 3.019 3.044 3.019 1.705 0 3.093-1.376 3.093-3.068v-2.97H8.148zm7.704 0h-.098c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h.098c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.49-4.49 4.49zm-.097-7.509c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h.098c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-.098z"/></svg>
+              <span>Figma</span>
+            </span>
+            <span class="index-scene-sticker index-scene-sticker--accent index-scene-sticker--inventory">21 tasks</span>
+            <span class="index-scene-sticker index-scene-sticker--spark" aria-hidden="true">✦</span>
+          </div>
+        </div>
+      </div>
+      <div class="index-card-body">
+        <span class="index-card-arrow" aria-hidden="true">→</span>
+        <div class="index-card-badge"><span class="badge-dot live"></span> 2024 · Mobile + DS</div>
+        <h3>Inventory Stock Picking</h3>
+        <p>Led a pro-user extension of Workday's mobile design system — token-aligned components in production, live React library, adopted across 21 inventory tasks. Batch pick is the proof.</p>
+        <div class="index-card-tags">
+          <span class="tag accent">Design Systems</span>
+          <span class="tag">Platform extension</span>
+          <span class="tag">Design in code</span>
+        </div>
       </div>
     </a>
 
-    <div class="index-card coming-soon">
-      <div class="index-card-badge"><span class="badge-dot"></span> Coming Soon · Web</div>
-      <h3>Agent Orchestration</h3>
-      <p>Designing an AI Agent Orchestration system that enables agents to collaborate across enterprise workflows, automating decisions while keeping humans in the loop.</p>
-      <div class="index-card-tags">
-        <span class="tag">AI Systems</span>
-        <span class="tag">Enterprise UX</span>
+    <div class="index-card index-card--visual coming-soon">
+      <div class="index-card-visual index-card-visual--scene index-card-visual--orchestration" aria-hidden="true">
+        <img class="index-scene-shot" src="images/agent-orchestration/buyer-hub-pending-actions.png" alt="" width="1024" height="663" loading="lazy" decoding="async" />
+      </div>
+      <div class="index-card-body">
+        <div class="index-card-badge"><span class="badge-dot"></span> Coming Soon · Web</div>
+        <h3>Agent Orchestration</h3>
+        <p>Multi-agent coordination—secure handoffs between specialized agents without overexposing systems of record.</p>
+        <div class="index-card-tags">
+          <span class="tag accent tag--ai"><svg class="tag-sparkle" viewBox="0 0 14 14" fill="currentColor" aria-hidden="true"><path d="M7 0c0 0 .6 3 2 4.5S14 7 14 7s-3 .6-4.5 2S7 14 7 14s-.6-3-2-4.5S0 7 0 7s3-.6 4.5-2S7 0 7 0z"/></svg>Multi-agent</span>
+          <span class="tag">Enterprise UX</span>
+        </div>
       </div>
     </div>
 
@@ -105,57 +151,64 @@
 
 <div class="section-divider"><hr /></div>
 
-<!-- ─── DESIGN PHILOSOPHY ─── -->
-<section id="philosophy" class="philosophy-section">
-  <div class="philosophy-intro">
-    <div class="section-label">Design Philosophy</div>
-    <h2>How I <em>think</em> about design</h2>
-    <p>After 8+ years in enterprise UX, three principles consistently shape how I approach complex problems — from AI agents to mobile warehouse workflows.</p>
-  </div>
-
-  <div class="philosophy-grid">
-    <div class="philosophy-card">
-      <div class="philosophy-number">Principle 01</div>
-      <h3>Context is the experience.</h3>
-      <p>In enterprise systems, the way you configure something is just as important as what it does. The mental model matters as much as the interface. When I design configuration surfaces, I treat context-setting as a first-class UX moment — not an afterthought.</p>
-    </div>
-    <div class="philosophy-card">
-      <div class="philosophy-number">Principle 02</div>
-      <h3>Trust is earned in layers.</h3>
-      <p>Whether it's an AI agent or a procurement workflow, users build confidence through small, consistent wins — not grand promises. I design for the skeptic first: if the most cautious user trusts it, everyone else will too.</p>
-    </div>
-    <div class="philosophy-card">
-      <div class="philosophy-number">Principle 03</div>
-      <h3>Constraints are the brief.</h3>
-      <p>Complex enterprise requirements, tight mobile screens, and competing stakeholders aren't obstacles — they're the forcing function for sharper decisions. The best design work I've done has come from leaning into constraints, not fighting them.</p>
-    </div>
-  </div>
-</section>
-
 <!-- ─── FOOTER ─── -->
 <footer>
   <h2>Let's connect.</h2>
-  <p>Open to senior IC and lead design roles in enterprise software, AI products, and complex systems.</p>
-  <a href="mailto:Eric.chakho.wong@gmail.com">Get in touch →</a>
-  <div class="footer-note">Eric Huang · Senior Product Designer · Workday · 2026</div>
+  <p>Open to senior and principal IC roles in product design.</p>
+  <div class="footer-inline-links">
+    <a href="resume.pdf?v=20260420" target="_blank" rel="noopener">Resume PDF</a>
+    <span aria-hidden="true"> · </span>
+    <a href="mailto:Eric.chakho.wong@gmail.com">Email</a>
+    <span aria-hidden="true"> · </span>
+    <a href="https://www.linkedin.com/in/zehao-eric-huang/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+  </div>
+  <div class="footer-cta-row">
+    <a class="footer-cta" href="mailto:Eric.chakho.wong@gmail.com">Get in touch →</a>
+    <a class="footer-cta footer-cta--secondary" href="https://www.instagram.com/tutu.thecorgi/" target="_blank" rel="noopener noreferrer">
+      <img src="https://cdn-icons-png.flaticon.com/256/12/12638.png" alt="" width="16" height="16" aria-hidden="true" />
+      Say hi to Tutu
+    </a>
+  </div>
+  <div class="footer-note">Eric Huang · Senior Product Designer · Workday<br />Last updated <span data-site-updated></span></div>
 </footer>
 
 <script>
-  const observer = new IntersectionObserver(
-    (entries) => entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.style.opacity = '1';
-        e.target.style.transform = 'translateY(0)';
+  // For the curious
+  console.log('%c👋 You opened DevTools.', 'font-size:13px;font-weight:700;color:#18181B');
+  console.log('%cGood instinct — inspecting systems is exactly how I work too.', 'font-size:12px;color:#52525B');
+  console.log('%ceric.chakho.wong@gmail.com  ·  linkedin.com/in/zehao-eric-huang', 'font-size:12px;color:#1A56DB');
+
+  (function () {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const revealSelector = '#work .scroll-reveal, #work .index-card';
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (!e.isIntersecting) return;
+          e.target.classList.add('scroll-reveal--visible');
+          e.target.style.opacity = '1';
+          e.target.style.transform = 'translate3d(0,0,0)';
+          observer.unobserve(e.target);
+        });
+      },
+      { threshold: 0.08, rootMargin: '0px 0px -6% 0px' }
+    );
+    document.querySelectorAll(revealSelector).forEach((el, i) => {
+      if (reduceMotion) {
+        el.style.opacity = '1';
+        el.style.transform = 'none';
+        el.classList.add('scroll-reveal--visible');
+        return;
       }
-    }),
-    { threshold: 0.1 }
-  );
-  document.querySelectorAll('.index-card, .philosophy-card').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity .5s ease, transform .5s ease';
-    observer.observe(el);
-  });
+      el.style.opacity = '0';
+      el.style.transform = 'translate3d(0,22px,0)';
+      el.style.willChange = 'opacity, transform';
+      el.style.transition =
+        'opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1), transform 0.65s cubic-bezier(0.22, 1, 0.36, 1)';
+      el.style.transitionDelay = `${Math.min(i, 6) * 0.06}s`;
+      observer.observe(el);
+    });
+  })();
 </script>
 
 </body>

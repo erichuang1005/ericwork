@@ -1,7 +1,13 @@
-/* Portfolio password protection — password: corgi */
+/* Portfolio password protection — password: corgi (any casing, e.g. Corgi) */
 (function () {
   var PASSWORD = 'corgi';
   var KEY = 'portfolio_auth';
+
+  function passwordMatches(raw) {
+    var entered = String(raw || '').trim();
+    if (!entered) return false;
+    return entered.localeCompare(PASSWORD, 'en', { sensitivity: 'base' }) === 0;
+  }
 
   if (sessionStorage.getItem(KEY) === '1') return;
 
@@ -49,7 +55,7 @@
 
     el.querySelector('#pw-form').addEventListener('submit', function (e) {
       e.preventDefault();
-      if (el.querySelector('#pw-input').value === PASSWORD) {
+      if (passwordMatches(el.querySelector('#pw-input').value)) {
         sessionStorage.setItem(KEY, '1');
         el.style.opacity = '0';
         el.style.transition = 'opacity .35s ease';
