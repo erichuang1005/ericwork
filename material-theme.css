@@ -269,11 +269,27 @@ body.cs-m3-docs-page .breadcrumb .current {
   overflow: visible;
 }
 
+.m3-docs-visual-card--phone .cs-hero-inventory-mock {
+  transform: rotate(-2.5deg);
+}
+
+.m3-docs-visual-card--phone .index-inventory-scene__phone.device-frame--phone {
+  height: clamp(260px, 38vw, 320px);
+}
+
 .m3-docs-visual-card--phone .device-frame--phone {
   width: 100%;
 }
 
-.m3-docs-visual-card--phone .device-frame--phone img {
+.m3-docs-visual-card--phone .index-inventory-scene__phone img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.m3-docs-visual-card--phone .device-frame--phone:not(.index-inventory-scene__phone) img {
   width: 100%;
   height: 100%;
   aspect-ratio: auto;
@@ -977,12 +993,50 @@ body.cs-m3-docs-page .sc-sticky {
 }
 
 .theme-material footer {
-  background: var(--md-inverse-surface);
+  background: #efefed;
+  color: var(--ink-secondary);
+}
+
+.theme-material footer h2 {
+  color: var(--ink);
+}
+
+.theme-material footer p {
+  color: var(--ink-secondary);
+}
+
+.theme-material footer .footer-inline-links {
+  color: var(--ink-muted);
+}
+
+.theme-material footer .footer-inline-links a {
+  color: var(--ink);
+}
+
+.theme-material footer .footer-inline-links a:hover {
+  color: var(--accent);
 }
 
 .theme-material footer .footer-cta {
   border-radius: var(--md-shape-full);
-  background: var(--md-primary);
+  background: var(--accent);
+  color: #fff;
+}
+
+.theme-material footer .footer-cta--secondary {
+  background: var(--bg);
+  color: var(--ink-secondary);
+  border-color: var(--border);
+}
+
+.theme-material footer .footer-cta--secondary:hover {
+  background: var(--accent-light);
+  color: var(--accent);
+  border-color: var(--accent-light);
+}
+
+.theme-material footer .footer-note {
+  color: var(--ink-muted);
 }
 
 .theme-material :focus-visible {
