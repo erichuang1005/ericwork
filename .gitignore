@@ -4,6 +4,10 @@ node_modules/
 # Build source maps
 assets/liquid-glass-tabs.bundle.js.map
 
+# Export zip (regenerate with: ./scripts/export-for-github.sh)
+*.zip
+github-upload/
+
 # macOS
 .DS_Store
 **/.DS_Store
