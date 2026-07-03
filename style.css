@@ -4558,3 +4558,227 @@ footer a.footer-cta--secondary:hover img { opacity: 1; }
   .cs-apple-layout .cs-appendix,
   .cs-apple-layout #staff-proof { scroll-margin-top: 120px; }
 }
+
+/* ─── PASSWORD GATE (auth.js) — uses the same liquid glass track as case-study tabs ─── */
+.portfolio-locked body > :not(#pw-overlay) {
+  visibility: visible !important;
+  filter: blur(16px) saturate(1.14) brightness(1.02);
+  pointer-events: none !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+}
+
+.pw-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99998;
+  background: rgba(255, 255, 255, 0.32);
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+
+.pw-backdrop {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  background: linear-gradient(165deg, rgba(255, 255, 255, 0.06) 0%, rgba(244, 244, 245, 0.1) 100%);
+}
+
+.pw-backdrop-bloom {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(72px);
+  opacity: 0.9;
+}
+
+.pw-backdrop-bloom--a {
+  width: min(460px, 58vw);
+  height: min(460px, 58vw);
+  top: 10%;
+  left: 8%;
+  background: rgba(147, 197, 253, 0.32);
+}
+
+.pw-backdrop-bloom--b {
+  width: min(400px, 52vw);
+  height: min(400px, 52vw);
+  bottom: 8%;
+  right: 6%;
+  background: rgba(196, 181, 253, 0.26);
+}
+
+.pw-backdrop-bloom--c {
+  width: min(320px, 44vw);
+  height: min(320px, 44vw);
+  top: 42%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(110, 231, 183, 0.14);
+}
+
+.pw-overlay .pw-panel,
+.pw-overlay form,
+.pw-overlay input,
+.pw-overlay button,
+.pw-overlay label,
+.pw-overlay p {
+  pointer-events: auto;
+}
+
+.pw-panel {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  z-index: 100000;
+  width: min(calc(100% - 2 * var(--page-pad)), 420px);
+  height: fit-content;
+  max-height: calc(100vh - 2 * var(--page-pad));
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.pw-panel-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: clamp(20px, 3.5vw, 26px);
+  width: 100%;
+  animation: pw-rise 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes pw-rise {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 16px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.pw-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+.pw-name {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: clamp(40px, 6.5vw + 14px, 56px);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.035em;
+  color: var(--ink);
+  margin: 0;
+}
+
+.pw-subtitle {
+  margin: clamp(8px, 1.6vw, 12px) 0 0;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: color-mix(in srgb, var(--ink-muted) 88%, transparent);
+}
+
+.pw-form {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 14px;
+  width: 100%;
+}
+
+.pw-input {
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  padding: 11px 16px;
+  border: 1px solid rgba(39, 39, 42, 0.09);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.58);
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1;
+  font-family: inherit;
+  outline: none;
+  text-align: center;
+  letter-spacing: 0.02em;
+  caret-color: var(--ink);
+  box-sizing: border-box;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55);
+  transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pw-input::placeholder {
+  color: var(--ink-muted);
+  letter-spacing: 0;
+}
+
+.pw-input:focus {
+  outline: none;
+  border-color: rgba(39, 39, 42, 0.14);
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: 0 0 0 3px rgba(39, 39, 42, 0.05);
+}
+
+.pw-input:focus-visible {
+  outline: none;
+}
+
+/* Apple-adjacent ink CTA — no accent purple */
+.pw-btn {
+  min-height: 44px;
+  width: 100%;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 100px;
+  background: var(--ink);
+  color: #fff;
+  font-size: 14px;
+  line-height: 1;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  letter-spacing: 0.01em;
+  transition: transform var(--transition), box-shadow var(--transition), background var(--transition), border-color var(--transition);
+}
+
+.pw-btn:hover {
+  background: #27272a;
+  transform: none;
+  box-shadow: none;
+}
+
+.pw-btn:active {
+  transform: translateY(0);
+}
+
+.pw-err {
+  margin: 0;
+  width: 100%;
+  padding: 0 6px;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.35;
+  color: #DC2626;
+  text-align: center;
+}
+
+.pw-err[hidden] {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pw-panel-inner {
+    animation: none;
+  }
+}

@@ -19,6 +19,19 @@ const GLASS_PROPS = {
   mode: 'standard',
 };
 
+const PANEL_GLASS_PROPS = {
+  elasticity: 0,
+  displacementScale: 44,
+  blurAmount: 0.62,
+  saturation: 132,
+  aberrationIntensity: 0,
+  cornerRadius: 32,
+  overLight: true,
+  mode: 'standard',
+};
+
+const PANEL_GLASS_PADDING = '6px';
+
 const PORTAL_STYLE = {
   position: 'fixed',
   transition: 'none',
@@ -42,14 +55,25 @@ function applyPortalBox(rootEl, box) {
   rootEl.style.width = `${box.width}px`;
 }
 
-function GlassShell({ className, stuck, box, shellClassName, shellProps, children }) {
+function GlassShell({
+  className,
+  stuck,
+  box,
+  shellClassName,
+  shellProps,
+  children,
+  mouseContainer,
+  glassProps,
+  padding,
+}) {
   const containerRef = useRef(null);
 
   useLayoutEffect(() => {
     containerRef.current =
+      mouseContainer ||
       document.querySelector('.case-study.cs-m3-docs') ||
       document.body;
-  }, []);
+  }, [mouseContainer]);
 
   const shell = (
     <div
@@ -58,7 +82,7 @@ function GlassShell({ className, stuck, box, shellClassName, shellProps, childre
     >
       <LiquidGlass
         mouseContainer={containerRef}
-        padding={GLASS_PADDING}
+        padding={padding || GLASS_PADDING}
         className={className}
         style={
           stuck && box
@@ -78,7 +102,7 @@ function GlassShell({ className, stuck, box, shellClassName, shellProps, childre
                 transition: 'none',
               }
         }
-        {...GLASS_PROPS}
+        {...(glassProps || GLASS_PROPS)}
       >
         {children}
       </LiquidGlass>
@@ -331,8 +355,95 @@ function initLiquidGlassTabs() {
   }
 }
 
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initLiquidGlassTabs);
-} else {
+function PasswordPanelHost({ panelEl }) {
+  const ref = useCallback(
+    (node) => {
+      if (!node || !panelEl) return;
+      if (panelEl.parentNode !== node) {
+        node.appendChild(panelEl);
+      }
+    },
+    [panelEl]
+  );
+
+  return <div ref={ref} className="pw-panel-inner-host" />;
+}
+
+function PasswordPanelGlass({ panelEl }) {
+  const [mouseContainer, setMouseContainer] = useState(null);
+
+  useLayoutEffect(() => {
+    setMouseContainer(document.querySelector('#pw-overlay') || document.body);
+  }, []);
+
+  if (!mouseContainer) return null;
+
+  return (
+    <GlassShell
+      className="liquid-glass-react-pw-panel"
+      shellClassName="pw-password-glass-shell"
+      shellProps={{ role: 'presentation' }}
+      mouseContainer={mouseContainer}
+      glassProps={PANEL_GLASS_PROPS}
+      padding={PANEL_GLASS_PADDING}
+    >
+      <PasswordPanelHost panelEl={panelEl} />
+    </GlassShell>
+  );
+}
+
+function initLiquidGlassPassword() {
+  try {
+    const mount = document.querySelector('#pw-glass-mount');
+    const panel = mount?.querySelector('#pw-panel-content');
+    if (!mount || !panel) return;
+    if (mount.dataset.lgPw === '1') {
+      if (!document.querySelector('.pw-password-glass-shell .liquid-glass-react-pw-panel')) {
+        delete mount.dataset.lgPw;
+      } else {
+        return;
+      }
+    }
+
+    mount.dataset.lgPw = '1';
+    panel.remove();
+
+    createRoot(mount).render(
+      <div className="pw-glass-root">
+        <PasswordPanelGlass panelEl={panel} />
+      </div>
+    );
+
+    requestAnimationFrame(function () {
+      if (typeof window.focusPwInput === 'function') {
+        window.focusPwInput();
+      } else {
+        document.getElementById('pw-input')?.focus();
+      }
+    });
+  } catch (err) {
+    console.error('[liquid-glass-pw] init failed:', err);
+  }
+}
+
+function initAll() {
   initLiquidGlassTabs();
+  initLiquidGlassPassword();
+}
+
+window.initLiquidGlassPassword = initLiquidGlassPassword;
+window.focusPwInput = function () {
+  var input = document.getElementById('pw-input');
+  if (!input) return;
+  try {
+    input.focus({ preventScroll: true });
+  } catch (e) {
+    input.focus();
+  }
+};
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initAll);
+} else {
+  initAll();
 }

@@ -371,20 +371,29 @@ body.cs-m3-docs-page .breadcrumb .current {
   max-width: fit-content;
 }
 
-.m3-glass-shell-wrap > .bg-black,
-.m3-glass-shell-wrap > svg,
-.m3-glass-shell-wrap > span {
+.m3-glass-shell-wrap:not(.pw-glass-shell) > .bg-black,
+.m3-glass-shell-wrap:not(.pw-glass-shell) > svg,
+.m3-glass-shell-wrap:not(.pw-glass-shell) > span {
   display: none !important;
 }
 
 .m3-glass-shell-wrap:not(.is-portal) > .liquid-glass-react-home,
-.m3-glass-shell-wrap:not(.is-portal) > .liquid-glass-react-track {
+.m3-glass-shell-wrap:not(.is-portal) > .liquid-glass-react-track,
+.m3-glass-shell-wrap:not(.is-portal) > .liquid-glass-react-pw-panel {
   position: relative !important;
   top: auto !important;
   left: auto !important;
   transform: none !important;
   width: auto !important;
   display: inline-flex !important;
+}
+
+.m3-glass-shell-wrap:not(.pw-glass-shell) > .liquid-glass-react-pw-panel,
+.liquid-glass-react-pw-panel {
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  transform: none !important;
 }
 
 .m3-glass-shell-wrap.is-portal > .liquid-glass-react-home,
@@ -547,6 +556,45 @@ body.cs-m3-docs-page .breadcrumb .current {
   font: inherit !important;
   color: inherit !important;
   text-shadow: none !important;
+}
+
+/* Password gate — liquid-glass panel over blurred backdrop. */
+.pw-password-glass-shell {
+  width: 100%;
+  max-width: min(420px, calc(100vw - 2 * var(--page-pad, 24px)));
+  filter: drop-shadow(0 22px 48px rgba(24, 24, 27, 0.11));
+}
+
+.liquid-glass-react-pw-panel {
+  width: 100% !important;
+  display: flex !important;
+}
+
+.liquid-glass-react-pw-panel .glass {
+  width: 100% !important;
+  padding: 0 !important;
+  border-radius: 32px !important;
+  overflow: hidden !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.82),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.38) !important;
+}
+
+.liquid-glass-react-pw-panel .glass__warp {
+  border-radius: inherit !important;
+}
+
+.liquid-glass-react-pw-panel .glass > div:last-child {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+.pw-password-glass-shell > span {
+  opacity: 0 !important;
+}
+
+.theme-material .pw-input:focus-visible {
+  outline: none;
 }
 
 .m3-docs-tabs-bar.is-stuck .tabbed-navigation.liquid-glass-track {
