@@ -932,11 +932,12 @@ body.cs-m3-docs-page .sc-sticky {
 }
 
 .theme-material .page-home .hero-name {
-  font-size: clamp(2.5rem, 5vw + 1.25rem, var(--md-sys-typescale-display-large-size));
-  line-height: var(--md-sys-typescale-display-large-line-height);
-  font-weight: var(--md-sys-typescale-display-large-weight);
-  letter-spacing: var(--md-sys-typescale-display-large-tracking);
-  margin-inline-start: -0.04em;
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: clamp(40px, 6.5vw + 14px, 56px);
+  line-height: 1;
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  margin-inline-start: -0.035em;
 }
 
 .theme-material .hero-role {
