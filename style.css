@@ -4560,6 +4560,14 @@ footer a.footer-cta--secondary:hover img { opacity: 1; }
 }
 
 /* ─── PASSWORD GATE (auth.js) ─── */
+html.portfolio-locked,
+html.portfolio-locked body {
+  overflow: hidden !important;
+  overscroll-behavior: none;
+  touch-action: none;
+  height: 100%;
+}
+
 .portfolio-locked body > :not(#pw-overlay) {
   visibility: visible !important;
   filter: blur(18px) saturate(1.08);
@@ -4573,7 +4581,9 @@ footer a.footer-cta--secondary:hover img { opacity: 1; }
   inset: 0;
   z-index: 99998;
   background: rgba(255, 255, 255, 0.42);
-  pointer-events: none;
+  pointer-events: auto;
+  touch-action: none;
+  overscroll-behavior: none;
   transition: opacity 0.35s ease;
 }
 
@@ -4584,14 +4594,9 @@ footer a.footer-cta--secondary:hover img { opacity: 1; }
   background: radial-gradient(ellipse 70% 50% at 50% 40%, rgba(255, 255, 255, 0.5), transparent 70%);
 }
 
-.pw-overlay .pw-panel,
-.pw-overlay .pw-chrome,
-.pw-overlay form,
-.pw-overlay input,
-.pw-overlay button,
-.pw-overlay a,
-.pw-overlay p {
-  pointer-events: auto;
+.pw-overlay .pw-input,
+.pw-overlay .pw-btn {
+  touch-action: manipulation;
 }
 
 .pw-chrome {

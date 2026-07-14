@@ -2,6 +2,7 @@
 (function () {
   var PASSWORD = 'corgi';
   var KEY = 'portfolio_auth';
+  var lockedScrollY = 0;
 
   function focusPwInput() {
     var input = document.getElementById('pw-input');
@@ -19,9 +20,40 @@
     return entered.localeCompare(PASSWORD, 'en', { sensitivity: 'base' }) === 0;
   }
 
+  function lockScroll() {
+    lockedScrollY = window.scrollY || window.pageYOffset || 0;
+    document.documentElement.classList.add('portfolio-locked');
+    document.body.style.position = 'fixed';
+    document.body.style.top = '-' + lockedScrollY + 'px';
+    document.body.style.left = '0';
+    document.body.style.right = '0';
+    document.body.style.width = '100%';
+    document.body.style.overflow = 'hidden';
+  }
+
+  function unlockScroll() {
+    document.documentElement.classList.remove('portfolio-locked');
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.left = '';
+    document.body.style.right = '';
+    document.body.style.width = '';
+    document.body.style.overflow = '';
+    window.scrollTo(0, lockedScrollY);
+  }
+
+  function blockTouchScroll(e) {
+    var target = e.target;
+    if (target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable)) {
+      return;
+    }
+    e.preventDefault();
+  }
+
   if (sessionStorage.getItem(KEY) === '1') return;
 
   document.documentElement.classList.add('portfolio-locked');
+  document.addEventListener('touchmove', blockTouchScroll, { passive: false });
 
   function ensureFonts() {
     if (document.querySelector('link[data-pw-fonts]')) return;
@@ -34,10 +66,9 @@
     document.head.appendChild(link);
   }
 
-  document.documentElement.style.overflow = 'hidden';
-
   function mount() {
     ensureFonts();
+    lockScroll();
 
     var overlay = document.createElement('div');
     overlay.id = 'pw-overlay';
@@ -111,10 +142,10 @@
         sessionStorage.setItem(KEY, '1');
         overlay.style.opacity = '0';
         overlay.style.pointerEvents = 'none';
+        document.removeEventListener('touchmove', blockTouchScroll);
         setTimeout(function () {
           overlay.remove();
-          document.documentElement.style.overflow = '';
-          document.documentElement.classList.remove('portfolio-locked');
+          unlockScroll();
         }, 350);
       } else {
         err.hidden = false;
