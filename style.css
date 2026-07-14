@@ -4559,10 +4559,10 @@ footer a.footer-cta--secondary:hover img { opacity: 1; }
   .cs-apple-layout #staff-proof { scroll-margin-top: 120px; }
 }
 
-/* ─── PASSWORD GATE (auth.js) — uses the same liquid glass track as case-study tabs ─── */
+/* ─── PASSWORD GATE (auth.js) ─── */
 .portfolio-locked body > :not(#pw-overlay) {
   visibility: visible !important;
-  filter: blur(16px) saturate(1.14) brightness(1.02);
+  filter: blur(18px) saturate(1.08);
   pointer-events: none !important;
   user-select: none !important;
   -webkit-user-select: none !important;
@@ -4572,7 +4572,7 @@ footer a.footer-cta--secondary:hover img { opacity: 1; }
   position: fixed;
   inset: 0;
   z-index: 99998;
-  background: rgba(255, 255, 255, 0.32);
+  background: rgba(255, 255, 255, 0.42);
   pointer-events: none;
   transition: opacity 0.35s ease;
 }
@@ -4581,49 +4581,39 @@ footer a.footer-cta--secondary:hover img { opacity: 1; }
   position: absolute;
   inset: 0;
   pointer-events: none;
-  overflow: hidden;
-  background: linear-gradient(165deg, rgba(255, 255, 255, 0.06) 0%, rgba(244, 244, 245, 0.1) 100%);
-}
-
-.pw-backdrop-bloom {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(72px);
-  opacity: 0.9;
-}
-
-.pw-backdrop-bloom--a {
-  width: min(460px, 58vw);
-  height: min(460px, 58vw);
-  top: 10%;
-  left: 8%;
-  background: rgba(147, 197, 253, 0.32);
-}
-
-.pw-backdrop-bloom--b {
-  width: min(400px, 52vw);
-  height: min(400px, 52vw);
-  bottom: 8%;
-  right: 6%;
-  background: rgba(196, 181, 253, 0.26);
-}
-
-.pw-backdrop-bloom--c {
-  width: min(320px, 44vw);
-  height: min(320px, 44vw);
-  top: 42%;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(110, 231, 183, 0.14);
+  background: radial-gradient(ellipse 70% 50% at 50% 40%, rgba(255, 255, 255, 0.5), transparent 70%);
 }
 
 .pw-overlay .pw-panel,
+.pw-overlay .pw-chrome,
 .pw-overlay form,
 .pw-overlay input,
 .pw-overlay button,
-.pw-overlay label,
+.pw-overlay a,
 .pw-overlay p {
   pointer-events: auto;
+}
+
+.pw-chrome {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100001;
+  padding:
+    max(22px, env(safe-area-inset-top, 0px))
+    0
+    0
+    max(var(--page-pad, 24px), env(safe-area-inset-left, 0px));
+}
+
+.pw-brand {
+  margin: 0;
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--ink);
 }
 
 .pw-panel {
@@ -4631,15 +4621,11 @@ footer a.footer-cta--secondary:hover img { opacity: 1; }
   inset: 0;
   margin: auto;
   z-index: 100000;
-  width: min(calc(100% - 2 * var(--page-pad)), 420px);
+  width: min(calc(100% - 2 * var(--page-pad)), 320px);
   height: fit-content;
-  max-height: calc(100vh - 2 * var(--page-pad));
-  overflow: visible;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  gap: 10px;
+  padding-top: 24px;
 }
 
 .pw-panel-inner {
@@ -4647,15 +4633,15 @@ footer a.footer-cta--secondary:hover img { opacity: 1; }
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: clamp(20px, 3.5vw, 26px);
+  gap: 22px;
   width: 100%;
-  animation: pw-rise 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: pw-rise 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 @keyframes pw-rise {
   from {
     opacity: 0;
-    transform: translate3d(0, 16px, 0);
+    transform: translate3d(0, 10px, 0);
   }
   to {
     opacity: 1;
@@ -4663,84 +4649,255 @@ footer a.footer-cta--secondary:hover img { opacity: 1; }
   }
 }
 
-.pw-hero {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  width: 100%;
-}
-
-.pw-name {
-  font-family: 'Fraunces', Georgia, serif;
-  font-size: clamp(40px, 6.5vw + 14px, 56px);
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: -0.035em;
-  color: var(--ink);
+.pw-lead {
   margin: 0;
+  max-width: 28ch;
+  font-size: 15px;
+  font-weight: 450;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  color: color-mix(in srgb, var(--ink) 78%, transparent);
 }
 
-.pw-subtitle {
-  margin: clamp(8px, 1.6vw, 12px) 0 0;
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  color: color-mix(in srgb, var(--ink-muted) 88%, transparent);
+.pw-hello {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+
+.pw-hint {
+  display: flex;
+  justify-content: center;
+  padding: 4px 0 10px;
+}
+
+.pw-hint-stage {
+  position: relative;
+  width: 148px;
+  height: 150px;
+}
+
+.pw-hint-icon {
+  display: block;
+  width: 124px;
+  height: auto;
+  overflow: visible;
+}
+
+.pw-hint-doc {
+  fill: url(#pwDocFill);
+  stroke: rgba(39, 39, 42, 0.2);
+  stroke-width: 1.4;
+}
+
+.pw-hint-fold {
+  fill: none;
+  stroke: rgba(39, 39, 42, 0.2);
+  stroke-width: 1.4;
+  stroke-linejoin: round;
+}
+
+.pw-hint-fold-fill {
+  fill: rgba(228, 228, 231, 0.7);
+  stroke: none;
+}
+
+.pw-hint-bar {
+  fill: rgba(39, 39, 42, 0.16);
+}
+
+.pw-hint-line {
+  stroke: rgba(39, 39, 42, 0.16);
+  stroke-width: 3.5;
+  stroke-linecap: round;
+}
+
+.pw-hint-mark {
+  fill: rgba(39, 39, 42, 0.08);
+  stroke: rgba(39, 39, 42, 0.4);
+  stroke-width: 1.25;
+  stroke-dasharray: 3 2;
+}
+
+/* Real CSS glass lens — frosted disc + hollow chrome rim */
+.pw-mag {
+  position: absolute;
+  top: 18px;
+  right: 2px;
+  width: 56px;
+  height: 78px;
+  pointer-events: none;
+}
+
+.pw-mag-lens {
+  position: absolute;
+  top: 3.5px;
+  left: 3.5px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  z-index: 1;
+  background:
+    radial-gradient(
+      95% 75% at 32% 26%,
+      rgba(255, 255, 255, 0.62) 0%,
+      rgba(255, 255, 255, 0.14) 26%,
+      rgba(255, 255, 255, 0) 52%,
+      rgba(148, 163, 184, 0.12) 100%
+    );
+  box-shadow:
+    0 8px 16px rgba(15, 23, 42, 0.14),
+    inset 0 1.5px 2px rgba(255, 255, 255, 1),
+    inset 0 -5px 12px rgba(71, 85, 105, 0.2),
+    inset 0 0 0 1.75px rgba(255, 255, 255, 0.55);
+  -webkit-backdrop-filter: blur(4.5px) saturate(1.6) brightness(1.1);
+  backdrop-filter: blur(4.5px) saturate(1.6) brightness(1.1);
+}
+
+.pw-mag-rim {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  z-index: 2;
+  padding: 3.75px;
+  background: linear-gradient(
+    140deg,
+    #ffffff 0%,
+    #f4f4f5 12%,
+    #a1a1aa 28%,
+    #3f3f46 46%,
+    #fafafa 58%,
+    #71717a 76%,
+    #09090b 100%
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+}
+
+.pw-mag-dots {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 26px;
+  height: 8px;
+  transform: translate(-50%, -40%);
+  background:
+    radial-gradient(circle, rgba(24, 24, 27, 0.55) 0 2.4px, transparent 2.6px) 1px 50% / 8px 8px no-repeat,
+    radial-gradient(circle, rgba(24, 24, 27, 0.55) 0 2.4px, transparent 2.6px) 10px 50% / 8px 8px no-repeat,
+    radial-gradient(circle, rgba(24, 24, 27, 0.55) 0 2.4px, transparent 2.6px) 19px 50% / 8px 8px no-repeat;
+  filter: blur(0.45px);
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+.pw-mag-shine {
+  position: absolute;
+  top: 4px;
+  left: 6px;
+  width: 16px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.7);
+  transform: rotate(-28deg);
+  pointer-events: none;
+}
+
+.pw-mag-shine-arc {
+  position: absolute;
+  top: 2px;
+  left: 4px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2.25px solid transparent;
+  border-top-color: rgba(255, 255, 255, 1);
+  border-right-color: rgba(255, 255, 255, 0.28);
+  transform: rotate(-16deg);
+  pointer-events: none;
+}
+
+.pw-mag-handle {
+  position: absolute;
+  top: 42px;
+  left: 38px;
+  z-index: 3;
+  width: 28px;
+  height: 7px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #a1a1aa 0%, #52525b 42%, #18181b 100%);
+  transform: rotate(44deg);
+  transform-origin: left center;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    0 2px 4px rgba(15, 23, 42, 0.2);
+}
+
+.pw-mag-cap {
+  position: absolute;
+  top: 62px;
+  left: 52px;
+  z-index: 3;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #71717a, #18181b 70%);
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.35);
 }
 
 .pw-form {
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  gap: 14px;
+  gap: 10px;
   width: 100%;
 }
 
 .pw-input {
   width: 100%;
-  min-width: 0;
   min-height: 44px;
-  padding: 11px 16px;
-  border: 1px solid rgba(39, 39, 42, 0.09);
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.58);
+  padding: 11px 14px;
+  border: 1px solid rgba(39, 39, 42, 0.12);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.65);
   color: var(--ink);
   font-size: 15px;
   line-height: 1;
   font-family: inherit;
   outline: none;
   text-align: center;
-  letter-spacing: 0.02em;
   caret-color: var(--ink);
   box-sizing: border-box;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55);
-  transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  transition: border-color 0.2s ease, background 0.2s ease;
 }
 
 .pw-input::placeholder {
   color: var(--ink-muted);
-  letter-spacing: 0;
 }
 
 .pw-input:focus {
-  outline: none;
-  border-color: rgba(39, 39, 42, 0.14);
-  background: rgba(255, 255, 255, 0.72);
-  box-shadow: 0 0 0 3px rgba(39, 39, 42, 0.05);
+  border-color: rgba(39, 39, 42, 0.28);
+  background: #fff;
 }
 
-.pw-input:focus-visible {
-  outline: none;
-}
-
-/* Apple-adjacent ink CTA — no accent purple */
 .pw-btn {
   min-height: 44px;
   width: 100%;
-  padding: 12px 24px;
+  padding: 11px 20px;
   border: none;
-  border-radius: 100px;
+  border-radius: 10px;
   background: var(--ink);
   color: #fff;
   font-size: 14px;
@@ -4748,27 +4905,17 @@ footer a.footer-cta--secondary:hover img { opacity: 1; }
   font-weight: 600;
   font-family: inherit;
   cursor: pointer;
-  letter-spacing: 0.01em;
-  transition: transform var(--transition), box-shadow var(--transition), background var(--transition), border-color var(--transition);
+  transition: background 0.2s ease;
 }
 
 .pw-btn:hover {
   background: #27272a;
-  transform: none;
-  box-shadow: none;
-}
-
-.pw-btn:active {
-  transform: translateY(0);
 }
 
 .pw-err {
   margin: 0;
-  width: 100%;
-  padding: 0 6px;
   font-size: 13px;
   font-weight: 500;
-  line-height: 1.35;
   color: #DC2626;
   text-align: center;
 }
