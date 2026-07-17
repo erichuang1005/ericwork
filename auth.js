@@ -98,7 +98,7 @@
             '<div class="pw-intro">' +
               '<p id="pw-title" class="pw-brand">Glad you&#8217;re here</p>' +
             '</div>' +
-            '<p class="pw-lead">Password&#8217;s on my resume — top right corner.</p>' +
+            '<p class="pw-lead">You&#8217;ll find the password in the top-right corner of my resume.</p>' +
             '<div class="pw-hint" aria-hidden="true">' +
               '<div class="pw-sticker pw-sticker--hint">' +
                 '<div class="pw-hint-stage">' +

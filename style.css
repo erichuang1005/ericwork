@@ -4904,9 +4904,10 @@ html.portfolio-locked body {
 
 .pw-cursor--eric {
   --cursor-color: #e9457a;
-  --cursor-angle: 196deg;
-  top: 10px;
-  right: -54px;
+  --cursor-angle: 0deg;
+  bottom: 10px;
+  right: -48px;
+  top: auto;
   left: auto;
 }
 
@@ -5284,8 +5285,9 @@ html.portfolio-locked body {
   }
 
   .pw-cursor--eric {
-    top: 6px;
-    right: -18px;
+    bottom: 8px;
+    right: -14px;
+    top: auto;
     --cursor-scale: 0.92;
   }
 
