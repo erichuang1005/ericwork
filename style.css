@@ -4559,7 +4559,7 @@ footer a.footer-cta--secondary:hover img { opacity: 1; }
   .cs-apple-layout #staff-proof { scroll-margin-top: 120px; }
 }
 
-/* ─── PASSWORD GATE (auth.js) ─── */
+/* ─── PASSWORD GATE (auth.js) — Apple-adjacent liquid glass ─── */
 html.portfolio-locked,
 html.portfolio-locked body {
   overflow: hidden !important;
@@ -4570,7 +4570,7 @@ html.portfolio-locked body {
 
 .portfolio-locked body > :not(#pw-overlay) {
   visibility: visible !important;
-  filter: blur(18px) saturate(1.08);
+  filter: blur(32px) saturate(1.18) brightness(1.04);
   pointer-events: none !important;
   user-select: none !important;
   -webkit-user-select: none !important;
@@ -4580,18 +4580,22 @@ html.portfolio-locked body {
   position: fixed;
   inset: 0;
   z-index: 99998;
-  background: rgba(255, 255, 255, 0.42);
+  background: rgba(245, 245, 247, 0.55);
   pointer-events: auto;
   touch-action: none;
   overscroll-behavior: none;
-  transition: opacity 0.35s ease;
+  transition: opacity 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 .pw-backdrop {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: radial-gradient(ellipse 70% 50% at 50% 40%, rgba(255, 255, 255, 0.5), transparent 70%);
+  background:
+    radial-gradient(ellipse 90% 70% at 50% 18%, rgba(255, 255, 255, 0.92), transparent 68%),
+    radial-gradient(ellipse 55% 45% at 88% 82%, rgba(0, 113, 227, 0.1), transparent 62%),
+    radial-gradient(ellipse 48% 40% at 8% 78%, rgba(175, 82, 222, 0.08), transparent 58%);
 }
 
 .pw-overlay .pw-input,
@@ -4599,97 +4603,235 @@ html.portfolio-locked body {
   touch-action: manipulation;
 }
 
-.pw-chrome {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 100001;
-  padding:
-    max(22px, env(safe-area-inset-top, 0px))
-    0
-    0
-    max(var(--page-pad, 24px), env(safe-area-inset-left, 0px));
-}
-
-.pw-brand {
-  margin: 0;
-  font-family: 'Fraunces', Georgia, serif;
-  font-size: 22px;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: -0.03em;
-  color: var(--ink);
-}
-
 .pw-panel {
   position: fixed;
   inset: 0;
   margin: auto;
   z-index: 100000;
-  width: min(calc(100% - 2 * var(--page-pad)), 320px);
+  width: min(calc(100% - 2 * var(--page-pad)), 440px);
   height: fit-content;
   display: flex;
   justify-content: center;
-  padding-top: 24px;
+  padding:
+    max(24px, env(safe-area-inset-top, 0px))
+    max(20px, env(safe-area-inset-right, 0px))
+    max(24px, env(safe-area-inset-bottom, 0px))
+    max(20px, env(safe-area-inset-left, 0px));
 }
 
 .pw-panel-inner {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
-  gap: 22px;
   width: 100%;
-  animation: pw-rise 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+  overflow: visible;
+  animation: pw-rise 0.65s cubic-bezier(0.25, 0.1, 0.25, 1) both;
+}
+
+/* Die-cut stickers — thick white border, scattered like phone case */
+.pw-floaters {
+  position: absolute;
+  inset: -36px -44px -28px;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.pw-sticker {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter:
+    drop-shadow(0 10px 18px rgba(0, 0, 0, 0.14))
+    drop-shadow(0 3px 6px rgba(0, 0, 0, 0.08));
+  animation: pw-sticker-float 5s ease-in-out infinite;
+}
+
+.pw-sticker img {
+  display: block;
+  object-fit: contain;
+  padding: 11px 12px;
+  background: #f5f5f7;
+  border-radius: 14px;
+  box-shadow: 0 0 0 6px #fff;
+}
+
+.pw-sticker--music img {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(145deg, #fed7aa 0%, #fdba74 48%, #fb923c 100%);
+}
+
+.pw-sticker--globe img {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(145deg, #e0f2fe 0%, #bae6fd 100%);
+}
+
+.pw-sticker--shades img {
+  width: 76px;
+  height: auto;
+  padding: 12px 14px;
+  background: #f4f4f5;
+}
+
+.pw-sticker--music {
+  top: 4px;
+  left: -22px;
+  --pw-rot: -14deg;
+  transform: rotate(var(--pw-rot));
+  animation-delay: 0s;
+}
+
+.pw-sticker--globe {
+  top: 44%;
+  right: -34px;
+  --pw-rot: 12deg;
+  transform: rotate(var(--pw-rot));
+  animation-delay: -1.6s;
+}
+
+.pw-sticker--shades {
+  bottom: 16%;
+  left: -28px;
+  --pw-rot: -8deg;
+  transform: rotate(var(--pw-rot));
+  animation-delay: -3.1s;
+}
+
+.pw-sticker--hint {
+  position: relative;
+  --pw-rot: -4deg;
+  padding: 14px 16px 16px;
+  background: #fff;
+  border-radius: 22px;
+  box-shadow:
+    0 0 0 6px #fff,
+    0 10px 22px rgba(0, 0, 0, 0.12),
+    0 3px 8px rgba(0, 0, 0, 0.07);
+  transform: rotate(var(--pw-rot));
+  animation: pw-sticker-float 6s ease-in-out -0.8s infinite;
+}
+
+.pw-sticker--hint::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background:
+    radial-gradient(circle at 20% 18%, rgba(0, 0, 0, 0.04), transparent 42%),
+    repeating-conic-gradient(rgba(0, 0, 0, 0.018) 0% 25%, transparent 0% 50%);
+  background-size: auto, 3px 3px;
+  opacity: 0.55;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+
+@keyframes pw-sticker-float {
+  0%, 100% {
+    transform: rotate(var(--pw-rot, 0deg)) translateY(0);
+  }
+  50% {
+    transform: rotate(var(--pw-rot, 0deg)) translateY(-5px);
+  }
 }
 
 @keyframes pw-rise {
   from {
     opacity: 0;
-    transform: translate3d(0, 10px, 0);
+    transform: translate3d(0, 16px, 0) scale(0.98);
   }
   to {
     opacity: 1;
-    transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0) scale(1);
   }
 }
 
-.pw-lead {
-  margin: 0;
-  max-width: 28ch;
-  font-size: 15px;
-  font-weight: 450;
-  line-height: 1.5;
-  letter-spacing: -0.01em;
-  color: color-mix(in srgb, var(--ink) 78%, transparent);
+.pw-glass-card {
+  position: relative;
+  width: 100%;
+  padding: 32px 32px 32px;
+  border-radius: 28px;
+  text-align: center;
+  overflow: visible;
+  background: rgba(255, 255, 255, 0.68);
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  box-shadow:
+    0 0 0 0.5px rgba(0, 0, 0, 0.04),
+    0 2px 4px rgba(0, 0, 0, 0.02),
+    0 12px 24px rgba(0, 0, 0, 0.06),
+    0 32px 64px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95);
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
+  backdrop-filter: blur(40px) saturate(180%);
+  isolation: isolate;
 }
 
-.pw-hello {
-  display: block;
-  margin-bottom: 6px;
-  font-size: 18px;
-  font-weight: 600;
-  letter-spacing: -0.015em;
-  color: var(--ink);
+.pw-glass-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(
+    165deg,
+    rgba(255, 255, 255, 0.55) 0%,
+    rgba(255, 255, 255, 0.08) 38%,
+    rgba(255, 255, 255, 0) 62%
+  );
+}
+
+.pw-intro {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 14px;
+}
+
+.pw-brand {
+  margin: 0;
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: clamp(24px, 5vw, 30px);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.028em;
+  color: #1d1d1f;
+}
+
+.pw-lead {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  max-width: 28ch;
+  margin-inline: auto;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.47;
+  letter-spacing: -0.022em;
+  color: #6e6e73;
 }
 
 .pw-hint {
+  position: relative;
+  z-index: 1;
   display: flex;
   justify-content: center;
-  padding: 4px 0 10px;
+  padding: 4px 0;
+  margin: 24px 0 4px;
 }
 
 .pw-hint-stage {
   position: relative;
-  width: 148px;
-  height: 150px;
+  width: 124px;
+  height: 126px;
 }
 
 .pw-hint-icon {
   display: block;
-  width: 124px;
+  width: 108px;
   height: auto;
   overflow: visible;
+  margin: 0 auto;
 }
 
 .pw-hint-doc {
@@ -4730,19 +4872,19 @@ html.portfolio-locked body {
 /* Real CSS glass lens — frosted disc + hollow chrome rim */
 .pw-mag {
   position: absolute;
-  top: 18px;
-  right: 2px;
-  width: 56px;
-  height: 78px;
+  top: 14px;
+  right: 6px;
+  width: 48px;
+  height: 68px;
   pointer-events: none;
 }
 
 .pw-mag-lens {
   position: absolute;
-  top: 3.5px;
-  left: 3.5px;
-  width: 45px;
-  height: 45px;
+  top: 3px;
+  left: 3px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
   z-index: 1;
   background:
@@ -4766,8 +4908,8 @@ html.portfolio-locked body {
   position: absolute;
   top: 0;
   left: 0;
-  width: 52px;
-  height: 52px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   z-index: 2;
   padding: 3.75px;
@@ -4836,11 +4978,11 @@ html.portfolio-locked body {
 
 .pw-mag-handle {
   position: absolute;
-  top: 42px;
-  left: 38px;
+  top: 34px;
+  left: 32px;
   z-index: 3;
-  width: 28px;
-  height: 7px;
+  width: 24px;
+  height: 6px;
   border-radius: 999px;
   background: linear-gradient(180deg, #a1a1aa 0%, #52525b 42%, #18181b 100%);
   transform: rotate(44deg);
@@ -4852,76 +4994,99 @@ html.portfolio-locked body {
 
 .pw-mag-cap {
   position: absolute;
-  top: 62px;
-  left: 52px;
+  top: 52px;
+  left: 44px;
   z-index: 3;
-  width: 9px;
-  height: 9px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background: radial-gradient(circle at 35% 30%, #71717a, #18181b 70%);
   box-shadow: 0 1px 2px rgba(15, 23, 42, 0.35);
 }
 
 .pw-form {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  gap: 10px;
+  gap: 12px;
   width: 100%;
+  margin-top: 24px;
 }
 
 .pw-input {
   width: 100%;
-  min-height: 44px;
-  padding: 11px 14px;
-  border: 1px solid rgba(39, 39, 42, 0.12);
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.65);
-  color: var(--ink);
-  font-size: 15px;
+  min-height: 48px;
+  padding: 0 16px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.82);
+  color: #1d1d1f;
+  font-size: 17px;
   line-height: 1;
   font-family: inherit;
+  font-weight: 400;
+  letter-spacing: -0.022em;
   outline: none;
   text-align: center;
-  caret-color: var(--ink);
+  caret-color: #0071e3;
   box-sizing: border-box;
-  transition: border-color 0.2s ease, background 0.2s ease;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.04);
+  transition:
+    border-color 0.2s cubic-bezier(0.25, 0.1, 0.25, 1),
+    background 0.2s cubic-bezier(0.25, 0.1, 0.25, 1),
+    box-shadow 0.2s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 .pw-input::placeholder {
-  color: var(--ink-muted);
+  color: #86868b;
 }
 
 .pw-input:focus {
-  border-color: rgba(39, 39, 42, 0.28);
+  border-color: #0071e3;
   background: #fff;
+  box-shadow:
+    0 0 0 4px rgba(0, 113, 227, 0.16),
+    inset 0 1px 2px rgba(0, 0, 0, 0.02);
 }
 
 .pw-btn {
-  min-height: 44px;
+  min-height: 48px;
   width: 100%;
-  padding: 11px 20px;
+  padding: 0 24px;
   border: none;
-  border-radius: 10px;
-  background: var(--ink);
+  border-radius: 980px;
+  background: #0071e3;
   color: #fff;
-  font-size: 14px;
+  font-size: 17px;
   line-height: 1;
-  font-weight: 600;
+  font-weight: 400;
   font-family: inherit;
+  letter-spacing: -0.022em;
   cursor: pointer;
-  transition: background 0.2s ease;
+  transition:
+    background 0.2s cubic-bezier(0.25, 0.1, 0.25, 1),
+    transform 0.15s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 .pw-btn:hover {
-  background: #27272a;
+  background: #0077ed;
+}
+
+.pw-btn:active {
+  background: #006edb;
+  transform: scale(0.985);
 }
 
 .pw-err {
-  margin: 0;
+  position: relative;
+  z-index: 1;
+  margin: 12px 0 0;
   font-size: 13px;
-  font-weight: 500;
-  color: #DC2626;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: #ff3b30;
   text-align: center;
 }
 
@@ -4930,7 +5095,45 @@ html.portfolio-locked body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .pw-panel-inner {
+  .pw-panel-inner,
+  .pw-sticker {
     animation: none;
+  }
+
+  .pw-btn:active {
+    transform: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .pw-floaters {
+    inset: -22px -10px -14px;
+  }
+
+  .pw-sticker--music {
+    top: 0;
+    left: -2px;
+    transform: rotate(-12deg) scale(0.84);
+  }
+
+  .pw-sticker--globe {
+    right: -4px;
+    transform: rotate(10deg) scale(0.82);
+  }
+
+  .pw-sticker--shades {
+    left: -2px;
+    bottom: 20%;
+    transform: rotate(-6deg) scale(0.8);
+  }
+}
+
+@media (min-width: 768px) {
+  .pw-panel {
+    width: min(calc(100% - 2 * var(--page-pad)), 460px);
+  }
+
+  .pw-floaters {
+    inset: -40px -52px -32px;
   }
 }
