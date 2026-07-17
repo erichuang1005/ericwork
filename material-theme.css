@@ -840,23 +840,24 @@ body.cs-m3-docs-page .breadcrumb .current {
   border-radius: var(--md-shape-full);
   min-height: 40px;
   padding: 10px 24px;
-  background: var(--md-sys-color-primary);
-  color: var(--md-sys-color-on-primary);
+  background: var(--ink);
+  color: #fff;
   border: none;
   box-shadow: none;
   text-transform: none;
 }
 
 .theme-material .cs-expand-btn:hover {
-  filter: brightness(1.08);
-  box-shadow: var(--md-sys-elevation-level1);
-  transform: none;
+  background: #27272a;
+  box-shadow: 0 6px 20px rgba(24, 24, 27, 0.18);
+  transform: translateY(-1px);
+  filter: none;
 }
 
 .theme-material .cs-expand-btn--secondary {
   background: transparent;
-  color: var(--md-sys-color-primary);
-  border: 1px solid var(--md-sys-color-outline);
+  color: var(--ink);
+  border: 1px solid var(--border);
 }
 
 .theme-material .tag {
@@ -972,14 +973,35 @@ body.cs-m3-docs-page .sc-sticky {
   color: var(--md-sys-color-primary);
 }
 
-.theme-material .hero-nav-resume {
-  background: var(--md-sys-color-primary-container);
-  color: var(--md-sys-color-on-primary-container);
+.theme-material .nav-links a.nav-resume,
+.theme-material .nav-links a.nav-resume:visited,
+.theme-material .nav-links a.nav-resume:hover,
+.theme-material .nav-links a.nav-resume:focus-visible {
+  color: #fff;
 }
 
-.theme-material .hero-nav-resume:hover {
-  background: var(--md-sys-color-primary);
-  color: var(--md-sys-color-on-primary);
+.theme-material .nav-links a.nav-resume,
+.theme-material .nav-links a.nav-resume:visited {
+  background: var(--ink);
+}
+
+.theme-material .nav-links a.nav-resume:hover,
+.theme-material .nav-links a.nav-resume:focus-visible {
+  background: #27272a;
+}
+
+.theme-material .hero-nav a.hero-nav-resume,
+.theme-material .hero-nav a.hero-nav-resume:visited,
+.theme-material .hero-nav a.hero-nav-resume:hover,
+.theme-material .hero-nav a.hero-nav-resume:focus-visible {
+  background: var(--ink);
+  color: #fff;
+}
+
+.theme-material .hero-nav a.hero-nav-resume:hover,
+.theme-material .hero-nav a.hero-nav-resume:focus-visible {
+  background: #27272a;
+  color: #fff;
 }
 
 .theme-material .comparison-card,
@@ -1009,31 +1031,32 @@ body.cs-m3-docs-page .sc-sticky {
 }
 
 .theme-material .more-story-badge {
-  background: var(--md-sys-color-primary-container);
-  border: 1px solid transparent;
-  color: var(--md-sys-color-on-primary-container);
+  background: #fff;
+  border: 1px solid #fff;
+  color: var(--ink);
 }
 
 .theme-material .more-story-badge:hover {
-  background: color-mix(in srgb, var(--md-sys-color-primary-container) 88%, var(--md-sys-color-primary));
+  background: rgba(255, 255, 255, 0.92);
 }
 
 .theme-material .more-story-badge--ghost {
   background: transparent;
-  border: 1px solid var(--md-sys-color-outline);
-  color: var(--md-sys-color-primary);
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  color: #fff;
 }
 
 .theme-material .more-story-badge--ghost:hover {
-  background: var(--md-sys-color-surface-container-high);
-  color: var(--md-sys-color-primary);
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.55);
+  color: #fff;
 }
 
 .theme-material .cs-highlight-pill.is-active,
 .theme-material .cs-jump-btn.is-active {
-  background: var(--md-primary);
-  color: var(--md-on-primary);
-  border-color: var(--md-primary);
+  background: var(--ink);
+  color: #fff;
+  border-color: var(--ink);
 }
 
 .theme-material .cs-highlight-pill,
@@ -1068,20 +1091,20 @@ body.cs-m3-docs-page .sc-sticky {
 
 .theme-material footer .footer-cta {
   border-radius: var(--md-shape-full);
-  background: var(--accent);
+  background: var(--ink);
   color: #fff;
 }
 
 .theme-material footer .footer-cta--secondary {
   background: var(--bg);
-  color: var(--ink-secondary);
+  color: var(--ink);
   border-color: var(--border);
 }
 
 .theme-material footer .footer-cta--secondary:hover {
-  background: var(--accent-light);
-  color: var(--accent);
-  border-color: var(--accent-light);
+  background: var(--tag-bg);
+  color: var(--ink);
+  border-color: var(--ink-muted);
 }
 
 .theme-material footer .footer-note {

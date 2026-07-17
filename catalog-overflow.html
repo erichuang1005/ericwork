@@ -94,7 +94,9 @@
   .overflow .ohead{display:flex; align-items:center; justify-content:space-between;}
   .overflow .ocount{font-size:12px; font-weight:700; color:var(--ink);}
   .overflow .obadge{font-size:10px; font-weight:700; color:var(--blue); background:#fff; border:1px solid #C9D9F7; border-radius:20px; padding:2px 8px;}
-  .overflow .obtn{margin-top:9px; width:100%; background:var(--blue); color:#fff; border:none; border-radius:9px; padding:10px; font-size:12.5px; font-weight:700; display:flex; align-items:center; justify-content:center; gap:7px;}
+  .overflow .obtn{margin-top:9px; width:100%; background:var(--ink); color:#fff; border:none; border-radius:980px; padding:10px; font-size:12.5px; font-weight:500; display:flex; align-items:center; justify-content:center; gap:7px; transition:background .2s ease, transform .15s ease;}
+  .overflow .obtn:hover{background:#27272a;}
+  .overflow .obtn:active{background:#09090b; transform:scale(0.985);}
   .overflow .onote{font-size:10.5px; color:var(--sec); margin-top:8px; line-height:1.45; text-align:center;}
   .composer{padding:12px 14px 8px; border-top:1px solid var(--line-2);}
   .input{display:flex; align-items:center; justify-content:space-between; border:1px solid var(--line); border-radius:24px; padding:9px 8px 9px 15px; color:var(--muted); font-size:12.5px;}
@@ -257,7 +259,7 @@
 
         <div class="overflow">
           <div class="ohead"><span class="ocount">7 more results</span><span class="obadge">12 total</span></div>
-          <button class="obtn">View all 12 in catalog →</button>
+          <button class="obtn">View all 12 in catalog</button>
           <div class="onote">We show the top 5 here to keep the panel focused. The rest open in the full catalog on the left.</div>
         </div>
       </div>

@@ -641,11 +641,15 @@
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
       border: 1px solid var(--rule);
-      color: var(--ink-secondary);
-      width: 36px; height: 36px;
+      color: var(--ink);
+      min-width: 36px;
+      height: 36px;
+      padding: 0 12px;
       border-radius: 100px;
-      font-size: 14px;
+      font-size: 11px;
       font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
@@ -654,10 +658,10 @@
       transition: color 200ms ease, background 200ms ease, transform 200ms ease, border-color 200ms ease;
       font-family: inherit;
     }
-    .deck-btn:hover { color: var(--accent); background: #fff; border-color: rgba(26,86,219,0.2); }
+    .deck-btn:hover { color: var(--ink); background: #fff; border-color: var(--ink-muted); }
     .deck-btn:active { transform: translateY(1px); }
     .deck-btn[disabled] { opacity: 0.35; cursor: default; }
-    .deck-btn[disabled]:hover { color: var(--ink-secondary); background: rgba(255,255,255,0.92); border-color: var(--rule); }
+    .deck-btn[disabled]:hover { color: var(--ink); background: rgba(255,255,255,0.92); border-color: var(--rule); }
     .deck-btn.is-icon { width: auto; padding: 0 14px; gap: 8px; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; height: 36px; }
     .deck-btn.is-active { color: var(--accent); background: var(--accent-light); border-color: rgba(26,86,219,0.3); }
     .deck-counter {
@@ -842,17 +846,19 @@
       text-align: left;
     }
     .deck-gate-submit {
-      padding: 12px 18px;
+      padding: 12px 24px;
       font-size: 15px;
-      font-weight: 600;
+      font-weight: 500;
       font-family: inherit;
       border: none;
-      border-radius: 10px;
-      background: var(--accent);
+      border-radius: 980px;
+      background: var(--ink);
       color: #fff;
       cursor: pointer;
+      transition: background 0.2s cubic-bezier(0.25, 0.1, 0.25, 1), transform 0.15s cubic-bezier(0.25, 0.1, 0.25, 1);
     }
-    .deck-gate-submit:hover { opacity: 0.92; }
+    .deck-gate-submit:hover { background: #27272a; }
+    .deck-gate-submit:active { background: #09090b; transform: scale(0.985); }
     .deck-gate-back {
       display: inline-block;
       margin-top: 18px;
@@ -913,7 +919,7 @@
         <p id="deckGateErr" class="deck-gate-err" role="alert" hidden>Incorrect password — try again.</p>
         <button type="submit" class="deck-gate-submit">Continue</button>
       </form>
-      <a href="intake-agent.html" class="deck-gate-back">← Back to case study</a>
+      <a href="intake-agent.html" class="deck-gate-back">Back to case study</a>
     </div>
   </div>
 
@@ -1280,14 +1286,14 @@
 
   <div class="deck-chrome">
     <div class="grp">
-      <button class="deck-btn" id="prevBtn" title="Previous slide (←)" aria-label="Previous slide">←</button>
-      <button class="deck-btn" id="nextBtn" title="Next slide (→)" aria-label="Next slide">→</button>
+      <button class="deck-btn" id="prevBtn" title="Previous slide" aria-label="Previous slide">Previous</button>
+      <button class="deck-btn" id="nextBtn" title="Next slide" aria-label="Next slide">Next</button>
       <span class="deck-counter" id="counter">01 / 10</span>
     </div>
     <div class="grp">
       <button class="deck-btn is-icon" id="apxBtn" title="Jump to appendix / backup slides (A)">Appendix</button>
       <button class="deck-btn is-icon" id="notesBtn" title="Toggle speaker notes (N)">Notes</button>
-      <a class="deck-btn is-icon" href="intake-agent.html" title="Back to case study">Case study →</a>
+      <a class="deck-btn is-icon" href="intake-agent.html" title="Back to case study">Case study</a>
     </div>
   </div>
 
@@ -1360,7 +1366,7 @@
         prevBtn.disabled = current === 0;
         nextBtn.disabled = inApx ? (current === total - 1) : (current === appendixStart - 1);
         if (apxBtn) {
-          apxBtn.textContent = inApx ? '← Presentation' : 'Appendix';
+          apxBtn.textContent = inApx ? 'Presentation' : 'Appendix';
           apxBtn.title = inApx ? 'Return to the presentation (A / Esc)' : 'Jump to appendix / backup slides (A)';
           apxBtn.classList.toggle('is-active', inApx);
         }

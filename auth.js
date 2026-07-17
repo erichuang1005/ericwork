@@ -140,7 +140,7 @@
             '</div>' +
             '<form id="pw-form" class="pw-form">' +
               '<input id="pw-input" class="pw-input" type="password" placeholder="Password" aria-label="Password" autocomplete="current-password" autofocus />' +
-              '<button id="pw-btn" class="pw-btn" type="submit">Continue →</button>' +
+              '<button id="pw-btn" class="pw-btn" type="submit">Continue</button>' +
             '</form>' +
             '<p id="pw-err" class="pw-err" hidden aria-live="polite">Incorrect password — try again.</p>' +
           '</div>' +
