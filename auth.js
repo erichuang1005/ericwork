@@ -60,8 +60,8 @@
     var link = document.createElement('link');
     link.rel = 'stylesheet';
     link.href =
-      'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700' +
-      '&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&display=swap';
+      'https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400' +
+      '&family=Roboto:wght@300;400;500;700&display=swap';
     link.setAttribute('data-pw-fonts', '1');
     document.head.appendChild(link);
   }
@@ -90,12 +90,15 @@
             '<div class="pw-sticker pw-sticker--shades">' +
               '<img src="images/pw-stickers/shades.svg" alt="" width="76" height="20" decoding="async" />' +
             '</div>' +
+            '<div class="pw-sticker pw-sticker--corgi">' +
+              '<img src="images/pw-stickers/corgi.png?v=2" alt="" width="72" height="72" decoding="async" />' +
+            '</div>' +
           '</div>' +
           '<div class="pw-glass-card">' +
             '<div class="pw-intro">' +
-              '<p id="pw-title" class="pw-brand">Hi there, I&#8217;m Eric Huang.</p>' +
+              '<p id="pw-title" class="pw-brand">Glad you&#8217;re here</p>' +
             '</div>' +
-            '<p class="pw-lead">Glad you&#8217;re here, btw. Password&#8217;s on my resume — top right corner.</p>' +
+            '<p class="pw-lead">Password&#8217;s on my resume — top right corner.</p>' +
             '<div class="pw-hint" aria-hidden="true">' +
               '<div class="pw-sticker pw-sticker--hint">' +
                 '<div class="pw-hint-stage">' +
@@ -126,6 +129,12 @@
                     '<span class="pw-mag-handle"></span>' +
                     '<span class="pw-mag-cap"></span>' +
                   '</div>' +
+                  '<span class="pw-cursor pw-cursor--eric" aria-hidden="true">' +
+                    '<span class="pw-cursor__pointer">' +
+                      '<svg class="pw-cursor__arrow" viewBox="0 0 16 18" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1.5 1 1.5 14.5 4.8 11.2 7.2 16.8 9.2 15.6 7 10 14 10 1.5 1z"/></svg>' +
+                    '</span>' +
+                    '<span class="pw-cursor__pill">Eric</span>' +
+                  '</span>' +
                 '</div>' +
               '</div>' +
             '</div>' +
