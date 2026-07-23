@@ -559,6 +559,38 @@ body.cs-m3-docs-page .breadcrumb .current {
 }
 
 /* Password gate — liquid-glass panel over blurred backdrop. */
+.pw-backdrop-glass-shell {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.pw-backdrop-glass-shell > span {
+  opacity: 0 !important;
+}
+
+.liquid-glass-react-pw-backdrop {
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
+}
+
+.liquid-glass-react-pw-backdrop .glass {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 100% !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  overflow: hidden !important;
+  box-shadow: none !important;
+  background: rgba(245, 245, 247, 0.22) !important;
+}
+
+.liquid-glass-react-pw-backdrop .glass__warp {
+  border-radius: 0 !important;
+}
+
 .pw-password-glass-shell {
   width: 100%;
   max-width: min(420px, calc(100vw - 2 * var(--page-pad, 24px)));
@@ -927,8 +959,7 @@ body.cs-m3-docs-page .sc-sticky {
 }
 
 .theme-material .hero h1,
-.theme-material .hero-name,
-.theme-material footer h2 {
+.theme-material .hero-name {
   font-family: var(--md-ref-typeface-brand);
 }
 
@@ -1070,6 +1101,11 @@ body.cs-m3-docs-page .sc-sticky {
 }
 
 .theme-material footer h2 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 400;
+  font-style: normal;
+  font-optical-sizing: auto;
+  letter-spacing: -0.035em;
   color: var(--ink);
 }
 

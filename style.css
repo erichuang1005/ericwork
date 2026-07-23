@@ -3721,13 +3721,13 @@ footer {
 footer h2 {
   font-family: 'Fraunces', Georgia, serif;
   font-size: clamp(30px, 5.5vw, 44px);
-  font-weight: 300;
-  font-style: italic;
+  font-weight: 400;
+  font-style: normal;
   font-optical-sizing: auto;
   color: var(--ink);
   margin-bottom: 12px;
   max-width: 100%;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.035em;
 }
 footer p {
   font-size: clamp(14px, 1.2vw + 13px, 15px);
@@ -4643,7 +4643,7 @@ html.portfolio-locked body {
   height: 100%;
 }
 
-.portfolio-locked body > :not(#pw-overlay) {
+.portfolio-gated body > :not(#pw-overlay) {
   visibility: visible !important;
   filter: blur(32px) saturate(1.18) brightness(1.04);
   pointer-events: none !important;
@@ -4655,7 +4655,7 @@ html.portfolio-locked body {
   position: fixed;
   inset: 0;
   z-index: 99998;
-  background: rgba(245, 245, 247, 0.55);
+  background: transparent;
   pointer-events: auto;
   touch-action: none;
   overscroll-behavior: none;
@@ -4664,14 +4664,97 @@ html.portfolio-locked body {
   -webkit-font-smoothing: antialiased;
 }
 
+.pw-close {
+  position: fixed;
+  top: max(16px, env(safe-area-inset-top, 0px));
+  right: max(16px, env(safe-area-inset-right, 0px));
+  z-index: 100002;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--ink, #18181b);
+  font-family: inherit;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  box-shadow:
+    0 4px 16px rgba(24, 24, 27, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
+  backdrop-filter: blur(12px) saturate(140%);
+  transition: background 0.2s ease, transform 0.15s ease, border-color 0.2s ease;
+}
+
+.pw-close:hover {
+  background: rgba(255, 255, 255, 0.92);
+  border-color: rgba(255, 255, 255, 0.75);
+}
+
+.pw-close:active {
+  transform: scale(0.96);
+}
+
+.pw-close:focus-visible {
+  outline: 2px solid var(--ink, #18181b);
+  outline-offset: 3px;
+}
+
 .pw-backdrop {
   position: absolute;
   inset: 0;
-  pointer-events: none;
+  pointer-events: auto;
+  cursor: pointer;
   background:
-    radial-gradient(ellipse 90% 70% at 50% 18%, rgba(255, 255, 255, 0.92), transparent 68%),
-    radial-gradient(ellipse 55% 45% at 88% 82%, rgba(0, 113, 227, 0.1), transparent 62%),
-    radial-gradient(ellipse 48% 40% at 8% 78%, rgba(175, 82, 222, 0.08), transparent 58%);
+    radial-gradient(ellipse 90% 70% at 50% 18%, rgba(255, 255, 255, 0.42), transparent 68%),
+    radial-gradient(ellipse 55% 45% at 88% 82%, rgba(0, 113, 227, 0.08), transparent 62%),
+    radial-gradient(ellipse 48% 40% at 8% 78%, rgba(175, 82, 222, 0.06), transparent 58%),
+    rgba(245, 245, 247, 0.28);
+  -webkit-backdrop-filter: blur(24px) saturate(140%);
+  backdrop-filter: blur(24px) saturate(140%);
+}
+
+.pw-backdrop-glass-shell {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: auto;
+}
+
+.liquid-glass-react-pw-backdrop {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
+}
+
+.liquid-glass-react-pw-backdrop .glass {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 100% !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  overflow: hidden !important;
+  box-shadow: none !important;
+}
+
+.liquid-glass-react-pw-backdrop .glass__warp {
+  border-radius: 0 !important;
+}
+
+.pw-backdrop-glass-fill {
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  pointer-events: none;
 }
 
 .pw-overlay .pw-input,
@@ -4683,7 +4766,7 @@ html.portfolio-locked body {
   position: fixed;
   inset: 0;
   margin: auto;
-  z-index: 100000;
+  z-index: 100001;
   width: min(calc(100% - 2 * var(--page-pad)), 440px);
   height: fit-content;
   display: flex;

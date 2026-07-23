@@ -32,6 +32,17 @@ const PANEL_GLASS_PROPS = {
 
 const PANEL_GLASS_PADDING = '6px';
 
+const BACKDROP_GLASS_PROPS = {
+  elasticity: 0,
+  displacementScale: 36,
+  blurAmount: 0.88,
+  saturation: 128,
+  aberrationIntensity: 0,
+  cornerRadius: 0,
+  overLight: true,
+  mode: 'standard',
+};
+
 const PORTAL_STYLE = {
   position: 'fixed',
   transition: 'none',
@@ -392,7 +403,43 @@ function PasswordPanelGlass({ panelEl }) {
   );
 }
 
+function PasswordBackdropGlass() {
+  const [mouseContainer, setMouseContainer] = useState(null);
+
+  useLayoutEffect(() => {
+    setMouseContainer(document.querySelector('#pw-overlay') || document.body);
+  }, []);
+
+  if (!mouseContainer) return null;
+
+  return (
+    <GlassShell
+      className="liquid-glass-react-pw-backdrop"
+      shellClassName="pw-backdrop-glass-shell"
+      shellProps={{ role: 'presentation' }}
+      mouseContainer={mouseContainer}
+      glassProps={BACKDROP_GLASS_PROPS}
+      padding="0"
+    >
+      <div className="pw-backdrop-glass-fill" aria-hidden="true" />
+    </GlassShell>
+  );
+}
+
+function initLiquidGlassBackdrop() {
+  try {
+    const mount = document.querySelector('#pw-glass-backdrop-mount');
+    if (!mount || mount.dataset.lgPwBackdrop === '1') return;
+
+    mount.dataset.lgPwBackdrop = '1';
+    createRoot(mount).render(<PasswordBackdropGlass />);
+  } catch (err) {
+    console.error('[liquid-glass-pw-backdrop] init failed:', err);
+  }
+}
+
 function initLiquidGlassPassword() {
+  initLiquidGlassBackdrop();
   try {
     const mount = document.querySelector('#pw-glass-mount');
     const panel = mount?.querySelector('#pw-panel-content');
