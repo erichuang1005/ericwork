@@ -5,6 +5,7 @@
   var lockedScrollY = 0;
   var overlay = null;
   var pendingHref = null;
+  var pendingNewTab = false;
   var touchBlocker = null;
   var gatePageFlag = false;
 
@@ -179,14 +180,22 @@
     }
 
     var href = options.navigate ? (options.href || pendingHref) : null;
+    var openNewTab = !!(options.navigate && pendingNewTab);
     pendingHref = null;
+    pendingNewTab = false;
     gatePageFlag = false;
 
     setTimeout(function () {
       if (overlay) overlay.remove();
       overlay = null;
       unlockScroll();
-      if (href) window.location.href = href;
+      if (href) {
+        if (openNewTab) {
+          window.open(href, '_blank', 'noopener,noreferrer');
+        } else {
+          window.location.href = href;
+        }
+      }
     }, 350);
   }
 
@@ -204,9 +213,10 @@
     }
   }
 
-  function mountModal(href, gatePage) {
+  function mountModal(href, gatePage, newTab) {
     if (overlay) return;
     pendingHref = href || null;
+    pendingNewTab = !!newTab;
     gatePageFlag = !!gatePage;
     ensureFonts();
     lockScroll(gatePage);
@@ -262,14 +272,25 @@
     });
   }
 
-  function bindHomeCaseStudyLinks() {
-    document.querySelectorAll('a.index-card[href]').forEach(function (link) {
+  function isProtectedHref(href) {
+    if (!href || href.charAt(0) === '#') return false;
+    if (/resume\.pdf/i.test(href)) return true;
+    return /\.html(?:[?#]|$)/i.test(href);
+  }
+
+  var PROTECTED_LINK_SELECTOR =
+    'a.index-card[href], a.hero-nav-resume[href], a.nav-resume[href], a[href*="resume.pdf"]';
+
+  function bindProtectedLinks() {
+    document.querySelectorAll(PROTECTED_LINK_SELECTOR).forEach(function (link) {
+      if (link.dataset.pwBound === '1') return;
+      link.dataset.pwBound = '1';
       link.addEventListener('click', function (e) {
         if (isAuthed()) return;
         var href = link.getAttribute('href');
-        if (!href || href.charAt(0) === '#') return;
+        if (!isProtectedHref(href)) return;
         e.preventDefault();
-        mountModal(href, false);
+        mountModal(href, false, link.getAttribute('target') === '_blank');
       });
     });
   }
@@ -278,7 +299,7 @@
     if (isAuthed()) return;
 
     if (isHomePage()) {
-      bindHomeCaseStudyLinks();
+      bindProtectedLinks();
       return;
     }
 
