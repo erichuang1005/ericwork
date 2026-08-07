@@ -6036,6 +6036,36 @@ html.portfolio-locked body {
   max-width: 100%;
 }
 
+/* Flowcompare phone showcase — horizontal row, scroll-linked on vertical page scroll */
+.cs-flowcompare .cs-phone-showcase {
+  margin-top: 0;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.cs-phone-showcase__viewport {
+  overflow: hidden;
+}
+
+.cs-phone-showcase__track {
+  overflow-x: visible;
+  scroll-snap-type: none;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cs-phone-showcase__viewport {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+  }
+
+  .cs-phone-showcase__track {
+    will-change: auto;
+    transform: none !important;
+  }
+}
+
 /* Learnings — simple takeaway list */
 .cs-learnings {
   list-style: none;

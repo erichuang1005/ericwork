@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=20260807y" />
+  <link rel="stylesheet" href="style.css?v=20260807aa" />
   <link rel="stylesheet" href="material-tokens.css?v=20260748" />
   <link rel="stylesheet" href="material-theme.css?v=20260807q" />
   <script src="analytics.js"></script>
@@ -355,19 +355,23 @@
         <span class="cs-flowcompare-tag">Before</span>
         <p>Legacy MAX on stock defaults — pick one line at a time, airy rows, a keypad covering half the screen.</p>
       </div>
-      <div class="cs-gallery cs-gallery-phone">
-        <figure class="cs-figure">
-          <img src="images/inventory-picking/01-inventory-site.png" alt="Before — site picker with widely spaced rows" width="576" height="1024" loading="lazy" decoding="async" />
-        </figure>
-        <figure class="cs-figure">
-          <img src="images/inventory-picking/02-pick-inventory-setup.png" alt="Before — task setup form" width="576" height="1024" loading="lazy" decoding="async" />
-        </figure>
-        <figure class="cs-figure">
-          <img src="images/inventory-picking/03-picking-list-lines.png" alt="Before — picking list with keyboard covering the rows" width="576" height="1024" loading="lazy" decoding="async" />
-        </figure>
-        <figure class="cs-figure">
-          <img src="images/inventory-picking/04-item-quantity-keypad.png" alt="Before — single item quantity keypad" width="576" height="1024" loading="lazy" decoding="async" />
-        </figure>
+      <div class="cs-phone-showcase" data-phone-showcase>
+        <div class="cs-phone-showcase__viewport">
+          <div class="cs-gallery cs-gallery-phone cs-phone-showcase__track">
+            <figure class="cs-figure">
+              <img src="images/inventory-picking/01-inventory-site.png" alt="Before — site picker with widely spaced rows" width="576" height="1024" loading="lazy" decoding="async" />
+            </figure>
+            <figure class="cs-figure">
+              <img src="images/inventory-picking/02-pick-inventory-setup.png" alt="Before — task setup form" width="576" height="1024" loading="lazy" decoding="async" />
+            </figure>
+            <figure class="cs-figure">
+              <img src="images/inventory-picking/03-picking-list-lines.png" alt="Before — picking list with keyboard covering the rows" width="576" height="1024" loading="lazy" decoding="async" />
+            </figure>
+            <figure class="cs-figure">
+              <img src="images/inventory-picking/04-item-quantity-keypad.png" alt="Before — single item quantity keypad" width="576" height="1024" loading="lazy" decoding="async" />
+            </figure>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -376,19 +380,23 @@
         <span class="cs-flowcompare-tag">After</span>
         <p>Batch pick on the updated components — denser rows, fluid action bar, and the scanner driving every step.</p>
       </div>
-      <div class="cs-gallery cs-gallery-phone">
-        <figure class="cs-figure">
-          <img src="images/inventory-picking/batch-webview-01.jpg?v=3" alt="After — batch pick line in progress" width="443" height="987" loading="lazy" decoding="async" />
-        </figure>
-        <figure class="cs-figure">
-          <img src="images/inventory-picking/batch-webview-02.jpg?v=3" alt="After — quantity auto-advance" width="443" height="987" loading="lazy" decoding="async" />
-        </figure>
-        <figure class="cs-figure">
-          <img src="images/inventory-picking/batch-webview-03.jpg?v=3" alt="After — scanner driving the next step" width="443" height="987" loading="lazy" decoding="async" />
-        </figure>
-        <figure class="cs-figure">
-          <img src="images/inventory-picking/batch-webview-04.jpg?v=3" alt="After — next line using the same components" width="460" height="1024" loading="lazy" decoding="async" />
-        </figure>
+      <div class="cs-phone-showcase" data-phone-showcase>
+        <div class="cs-phone-showcase__viewport">
+          <div class="cs-gallery cs-gallery-phone cs-phone-showcase__track">
+            <figure class="cs-figure">
+              <img src="images/inventory-picking/batch-webview-01.jpg?v=3" alt="After — batch pick line in progress" width="443" height="987" loading="lazy" decoding="async" />
+            </figure>
+            <figure class="cs-figure">
+              <img src="images/inventory-picking/batch-webview-02.jpg?v=3" alt="After — quantity auto-advance" width="443" height="987" loading="lazy" decoding="async" />
+            </figure>
+            <figure class="cs-figure">
+              <img src="images/inventory-picking/batch-webview-03.jpg?v=3" alt="After — scanner driving the next step" width="443" height="987" loading="lazy" decoding="async" />
+            </figure>
+            <figure class="cs-figure">
+              <img src="images/inventory-picking/batch-webview-04.jpg?v=3" alt="After — next line using the same components" width="460" height="1024" loading="lazy" decoding="async" />
+            </figure>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -530,12 +538,60 @@
       }),
       { threshold: 0.07, rootMargin: '0px 0px -40px 0px' }
     );
-    document.querySelectorAll('.block, .callout, .quote-block, .comparison-grid, .insight-list, .reflection-block, .solution-table, .focus-grid, .checklist, .shipped-grid, .cs-hero-facts, .my-role-block, .kh-grid, .more-story, .cs-gallery, .cs-overview, .cs-cursor-chapter, .cs-design-code, .cs-highlights, .cs-chapter-heading, .cs-snapshot, .cs-ending, .cs-learnings').forEach(el => {
+    document.querySelectorAll('.block, .callout, .quote-block, .comparison-grid, .insight-list, .reflection-block, .solution-table, .focus-grid, .checklist, .shipped-grid, .cs-hero-facts, .my-role-block, .kh-grid, .more-story, .cs-gallery, .cs-phone-showcase, .cs-overview, .cs-cursor-chapter, .cs-design-code, .cs-highlights, .cs-chapter-heading, .cs-snapshot, .cs-ending, .cs-learnings').forEach(el => {
       el.style.opacity = '0';
       el.style.transform = 'translateY(16px)';
       el.style.transition = `opacity 0.72s ${ease}, transform 0.72s ${ease}`;
       observer.observe(el);
     });
+  })();
+
+  // Flowcompare phone showcase — horizontal scroll driven by vertical page scroll
+  (function () {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const showcases = document.querySelectorAll('[data-phone-showcase]');
+    if (!showcases.length) return;
+
+    const state = [];
+    showcases.forEach((showcase) => {
+      const viewport = showcase.querySelector('.cs-phone-showcase__viewport');
+      const track = showcase.querySelector('.cs-phone-showcase__track');
+      if (viewport && track) state.push({ showcase, viewport, track });
+    });
+    if (!state.length) return;
+
+    let ticking = false;
+    function update() {
+      const vh = window.innerHeight;
+      state.forEach(({ showcase, viewport, track }) => {
+        const rect = showcase.getBoundingClientRect();
+        const scrollRange = rect.height + vh;
+        const progress = Math.max(0, Math.min(1, (vh - rect.top) / scrollRange));
+        const maxOffset = Math.max(0, track.scrollWidth - viewport.clientWidth);
+        const offset = progress * maxOffset;
+        if (!reduceMotion) {
+          track.style.transform = 'translate3d(' + (-offset) + 'px, 0, 0)';
+        }
+      });
+      ticking = false;
+    }
+
+    function onScroll() {
+      if (!ticking) {
+        requestAnimationFrame(update);
+        ticking = true;
+      }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    showcases.forEach((showcase) => {
+      showcase.querySelectorAll('img').forEach((img) => {
+        if (img.complete) return;
+        img.addEventListener('load', onScroll, { once: true });
+      });
+    });
+    update();
   })();
 
   // Staff proof: decision highlight pills
