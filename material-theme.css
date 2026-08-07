@@ -238,14 +238,18 @@ body.cs-m3-docs-page .breadcrumb .current {
   justify-content: center;
 }
 
-.m3-docs-visual-bg {
-  position: absolute;
-  inset: 0;
-  border-radius: var(--md-sys-shape-corner-extra-large);
+.m3-docs-visual-bg,
+.index-card-visual--inventory {
   background:
     radial-gradient(ellipse 75% 65% at 15% 25%, color-mix(in srgb, var(--md-sys-color-tertiary-container) 85%, transparent) 0%, transparent 58%),
     radial-gradient(ellipse 70% 55% at 85% 75%, color-mix(in srgb, var(--md-sys-color-primary-container) 90%, transparent) 0%, transparent 55%),
     linear-gradient(145deg, var(--md-sys-color-surface-container) 0%, var(--md-sys-color-secondary-container) 100%);
+}
+
+.m3-docs-visual-bg {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--md-sys-shape-corner-extra-large);
   overflow: hidden;
 }
 
@@ -263,6 +267,16 @@ body.cs-m3-docs-page .breadcrumb .current {
 
 .m3-docs-visual-card--phone {
   width: clamp(168px, 44%, 228px);
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  overflow: visible;
+}
+
+.m3-docs-visual-card.m3-docs-visual-card--zebra {
+  width: 100%;
+  height: 100%;
+  max-width: none;
   background: transparent;
   border: none;
   box-shadow: none;
@@ -1073,14 +1087,19 @@ body.cs-m3-docs-page .sc-sticky {
 
 .theme-material .more-story-badge--ghost {
   background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.42);
-  color: #fff;
+  border: 1.5px solid var(--md-outline-variant);
+  color: var(--md-sys-color-on-surface);
 }
 
 .theme-material .more-story-badge--ghost:hover {
-  background: rgba(255, 255, 255, 0.14);
-  border-color: rgba(255, 255, 255, 0.55);
-  color: #fff;
+  background: var(--md-sys-color-surface-container-high);
+  border-color: var(--md-sys-color-outline);
+  color: var(--md-sys-color-on-surface);
+}
+
+.theme-material .more-story-badge:focus-visible {
+  outline: 2px solid var(--md-primary);
+  outline-offset: 2px;
 }
 
 .theme-material .cs-highlight-pill.is-active,
@@ -1166,6 +1185,10 @@ body.cs-m3-docs-page .sc-sticky {
   }
   .m3-docs-visual-card {
     width: min(38%, 160px);
+  }
+  .m3-docs-visual-card.m3-docs-visual-card--zebra {
+    width: 100%;
+    max-width: none;
   }
   .m3-docs-visual-card--wide {
     width: min(78%, 300px);
