@@ -355,7 +355,7 @@
         <span class="cs-flowcompare-tag">Before</span>
         <p>Legacy MAX on stock defaults — pick one line at a time, airy rows, a keypad covering half the screen.</p>
       </div>
-      <div class="cs-phone-showcase" data-phone-showcase>
+      <div class="cs-phone-showcase" data-phone-showcase data-phone-showcase-direction="rtl">
         <div class="cs-phone-showcase__viewport">
           <div class="cs-gallery cs-gallery-phone cs-phone-showcase__track">
             <figure class="cs-figure">
@@ -380,7 +380,7 @@
         <span class="cs-flowcompare-tag">After</span>
         <p>Batch pick on the updated components — denser rows, fluid action bar, and the scanner driving every step.</p>
       </div>
-      <div class="cs-phone-showcase" data-phone-showcase>
+      <div class="cs-phone-showcase" data-phone-showcase data-phone-showcase-direction="ltr">
         <div class="cs-phone-showcase__viewport">
           <div class="cs-gallery cs-gallery-phone cs-phone-showcase__track">
             <figure class="cs-figure">
@@ -556,21 +556,22 @@
     showcases.forEach((showcase) => {
       const viewport = showcase.querySelector('.cs-phone-showcase__viewport');
       const track = showcase.querySelector('.cs-phone-showcase__track');
-      if (viewport && track) state.push({ showcase, viewport, track });
+      const direction = showcase.getAttribute('data-phone-showcase-direction') === 'ltr' ? 'ltr' : 'rtl';
+      if (viewport && track) state.push({ showcase, viewport, track, direction });
     });
     if (!state.length) return;
 
     let ticking = false;
     function update() {
       const vh = window.innerHeight;
-      state.forEach(({ showcase, viewport, track }) => {
+      state.forEach(({ showcase, viewport, track, direction }) => {
         const rect = showcase.getBoundingClientRect();
         const scrollRange = rect.height + vh;
         const progress = Math.max(0, Math.min(1, (vh - rect.top) / scrollRange));
         const maxOffset = Math.max(0, track.scrollWidth - viewport.clientWidth);
-        const offset = progress * maxOffset;
+        const travel = direction === 'ltr' ? (1 - progress) * maxOffset : progress * maxOffset;
         if (!reduceMotion) {
-          track.style.transform = 'translate3d(' + (-offset) + 'px, 0, 0)';
+          track.style.transform = 'translate3d(' + (-travel) + 'px, 0, 0)';
         }
       });
       ticking = false;
