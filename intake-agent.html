@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=20260807c" />
+  <link rel="stylesheet" href="style.css?v=20260807ad" />
   <link rel="stylesheet" href="material-tokens.css?v=20260748" />
   <link rel="stylesheet" href="material-theme.css?v=20260724b" />
   <script src="analytics.js"></script>
@@ -429,32 +429,30 @@
   </div>
 
 
-  <div class="cs-gallery">
+  <div class="cs-scroll-showcase" data-scroll-showcase data-scroll-showcase-direction="rtl">
+    <div class="cs-scroll-showcase__viewport">
+      <div class="cs-gallery cs-scroll-showcase__track">
       <figure class="cs-figure">
         <img src="images/intake-agent/07-admin-upload-document.png" alt="Admin screen to name and upload source documents for assistant answers" width="1024" height="686" loading="lazy" decoding="async" />
-        <figcaption>Upload document — source material for answers (DOCX/PDF or paste).</figcaption>
       </figure>
       <figure class="cs-figure">
         <img src="images/intake-agent/08-admin-policy-processing.png" alt="Processing state while an uploaded document is analyzed" width="1024" height="686" loading="lazy" decoding="async" />
-        <figcaption>Processing state—sets expectations for long uploads.</figcaption>
       </figure>
       <figure class="cs-figure">
         <img src="images/intake-agent/09-admin-routing-table.png" alt="Routing table overview showing topics, destinations, and whether each appears as a home-page shortcut" width="1024" height="679" loading="lazy" decoding="async" />
-        <figcaption>Routing table — at-a-glance routes, in-app vs external, Quick Link on/off.</figcaption>
       </figure>
       <figure class="cs-figure">
         <img src="images/intake-agent/10-admin-routing-rules-editor.png" alt="Route editor: stay in app or open an external link, plus shortcut label settings" width="1024" height="685" loading="lazy" decoding="async" />
-        <figcaption>Route detail — in-app vs external link; text for the home-page shortcut.</figcaption>
       </figure>
       <figure class="cs-figure">
         <img src="images/intake-agent/11-admin-testing-playground.png" alt="Sandbox where admins type sample questions to test routing before launch" width="1024" height="679" loading="lazy" decoding="async" />
-        <figcaption>Test sandbox — try prompts before go-live.</figcaption>
       </figure>
       <figure class="cs-figure">
         <img src="images/intake-agent/12-admin-analytics-dashboard.png" alt="Analytics dashboard showing suggested-action clicks, reported issues, and frequent questions" width="1024" height="790" loading="lazy" decoding="async" />
-        <figcaption>Analytics — what’s working, what’s breaking.</figcaption>
       </figure>
+      </div>
     </div>
+  </div>
   </div>
 
   <!-- First ship UI — illustrates hybrid model above -->
@@ -465,19 +463,20 @@
       Three ways in from one screen: Quick Links for repeat tasks, direct search for anything, and a side assistant when the answer needs context. Replies cite the source document and offer the logical next step.
     </p>
 
-    <div class="cs-gallery">
+    <div class="cs-scroll-showcase" data-scroll-showcase data-scroll-showcase-direction="ltr">
+      <div class="cs-scroll-showcase__viewport">
+        <div class="cs-gallery cs-scroll-showcase__track">
       <figure class="cs-figure">
         <img src="images/intake-agent/02-search-po-query.png" alt="Landing with a typed plain-language question about how to create a purchase order" width="1024" height="711" loading="lazy" decoding="async" />
-        <figcaption>Type any question — no form, no category required.</figcaption>
       </figure>
       <figure class="cs-figure">
         <img src="images/intake-agent/03-agent-thinking.png" alt="Side chat panel with the user’s question and a loading state" width="1024" height="711" loading="lazy" decoding="async" />
-        <figcaption>Side panel opens inline — landing page stays in view.</figcaption>
       </figure>
       <figure class="cs-figure">
         <img src="images/intake-agent/04-agent-po-answer.png" alt="Assistant reply with a grounded answer, policy source citation, and a next-step action button" width="1024" height="711" loading="lazy" decoding="async" />
-        <figcaption>Grounded answer — source cited, one clear next step.</figcaption>
       </figure>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -489,19 +488,20 @@
       Phase 2 extended the assistant into the workflow. Users submit catalog requests, fill off-catalog forms, and receive confirmations — all without leaving the thread.
     </p>
 
-    <div class="cs-gallery">
+    <div class="cs-scroll-showcase" data-scroll-showcase data-scroll-showcase-direction="rtl">
+      <div class="cs-scroll-showcase__viewport">
+        <div class="cs-gallery cs-scroll-showcase__track">
       <figure class="cs-figure">
         <img src="images/intake-agent/13-phase2-catalog-requisition.png" alt="Chat thread showing catalog line items, submit button, and in-thread confirmation with reference number" width="1024" height="711" loading="lazy" decoding="async" />
-        <figcaption>Catalog item: review quantities, submit, get a reference number in-thread.</figcaption>
       </figure>
       <figure class="cs-figure">
         <img src="images/intake-agent/14-phase2-noncatalog-request-form.png" alt="Structured request form embedded in the chat for items not in the catalog" width="1024" height="711" loading="lazy" decoding="async" />
-        <figcaption>Off-catalog: structured form inline when no catalog item fits.</figcaption>
       </figure>
       <figure class="cs-figure">
         <img src="images/intake-agent/15-phase2-noncatalog-pricing.png" alt="Pricing step in the same chat thread with quantity, price, and confirm action" width="1024" height="711" loading="lazy" decoding="async" />
-        <figcaption>Pricing follows in the same thread — no context switch.</figcaption>
       </figure>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -1059,6 +1059,7 @@
   })();
 </script>
 
+<script src="scroll-showcase.js?v=20260807"></script>
 <script src="site-meta.js?v=20260729"></script>
 <script src="liquid-glass-tabs.bundle.js?v=20260724"></script>
 
