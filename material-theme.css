@@ -42,8 +42,9 @@
 }
 
 html.theme-material,
-html.theme-material body {
-  font-family: var(--md-ref-typeface-plain);
+html.theme-material body,
+body.cs-m3-docs-page {
+  font-family: 'Roboto', var(--md-ref-typeface-plain, sans-serif);
   font-size: var(--md-sys-typescale-body-large-size);
   line-height: var(--md-sys-typescale-body-large-line-height);
   font-weight: var(--md-sys-typescale-body-large-weight);
@@ -55,6 +56,101 @@ html.theme-material body {
 html.theme-material body.cs-m3-docs-page {
   background: var(--md-sys-color-surface);
   --bg: var(--md-sys-color-surface);
+  /* Match homepage Notion Roboto voice (weight / tracking / warm ink) */
+  --ink: #37352f;
+  --ink-secondary: rgba(55, 53, 47, 0.65);
+  --ink-muted: rgba(55, 53, 47, 0.45);
+  --md-sys-color-on-surface: #37352f;
+  --md-sys-color-on-surface-variant: rgba(55, 53, 47, 0.68);
+  --md-sys-color-outline: rgba(55, 53, 47, 0.45);
+  letter-spacing: -0.011em;
+  color: #37352f;
+}
+
+body.cs-m3-docs-page .m3-docs-title {
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  color: #37352f;
+}
+
+body.cs-m3-docs-page .m3-docs-lede {
+  font-size: clamp(16px, 0.6vw + 14px, 18px);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.5;
+  color: rgba(55, 53, 47, 0.72);
+}
+
+body.cs-m3-docs-page .m3-docs-eyebrow,
+body.cs-m3-docs-page .m3-docs-meta-line {
+  letter-spacing: 0.01em;
+  color: rgba(55, 53, 47, 0.65);
+}
+
+body.cs-m3-docs-page .cs-m3-docs .cs-chapter-heading h3,
+body.cs-m3-docs-page .cs-chapter-heading h3 {
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1.15;
+  color: #37352f;
+}
+
+body.cs-m3-docs-page .cs-chapter-sub {
+  letter-spacing: -0.01em;
+  color: rgba(55, 53, 47, 0.65);
+}
+
+body.cs-m3-docs-page .case-study p,
+body.cs-m3-docs-page .case-study li,
+body.cs-m3-docs-page .block p,
+body.cs-m3-docs-page .cs-snapshot-beat p,
+body.cs-m3-docs-page .cs-snapshot-beat strong {
+  letter-spacing: -0.011em;
+}
+
+body.cs-m3-docs-page .case-study p,
+body.cs-m3-docs-page .case-study li,
+body.cs-m3-docs-page .block p,
+body.cs-m3-docs-page .cs-snapshot-beat p {
+  line-height: 1.55;
+  color: rgba(55, 53, 47, 0.78);
+}
+
+body.cs-m3-docs-page .cs-snapshot-beat strong,
+body.cs-m3-docs-page .block h4,
+body.cs-m3-docs-page h4 {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #37352f;
+}
+
+body.cs-m3-docs-page .block-label {
+  letter-spacing: 0.08em;
+  color: rgba(55, 53, 47, 0.45);
+}
+
+body.cs-m3-docs-page .nav-logo {
+  letter-spacing: -0.02em;
+  color: #37352f;
+}
+
+body.cs-m3-docs-page .nav-links a {
+  letter-spacing: -0.01em;
+  color: rgba(55, 53, 47, 0.65);
+}
+
+body.cs-m3-docs-page .reflection-block p {
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  color: #37352f;
+}
+
+body.cs-m3-docs-page footer h2 {
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  color: #37352f;
+  line-height: 1.15;
 }
 
 .theme-material .material-symbols-rounded {
@@ -1138,11 +1234,10 @@ body.cs-m3-docs-page .sc-sticky {
 }
 
 .theme-material footer h2 {
-  font-family: 'Fraunces', Georgia, serif;
-  font-weight: 400;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
   font-style: normal;
-  font-optical-sizing: auto;
-  letter-spacing: -0.035em;
+  letter-spacing: -0.04em;
   color: var(--ink);
 }
 
@@ -1245,4 +1340,145 @@ body.cs-m3-docs-page .sc-sticky {
   .tabbed-navigation-inner--tabs .tab .google-symbols {
     font-size: 20px;
   }
+}
+
+/* ─── Case studies: homepage chrome (keep project accent colors) ─── */
+body.cs-m3-docs-page {
+  --radius: 12px;
+  --radius-sm: 8px;
+  --shadow-sm: 0 1px 2px rgba(15, 15, 15, 0.04), 0 8px 24px rgba(15, 15, 15, 0.06);
+  --border: rgba(55, 53, 47, 0.08);
+  --bg-card: #f9f9f8;
+  --tag-bg: rgba(55, 53, 47, 0.06);
+  --tag-text: rgba(55, 53, 47, 0.72);
+}
+
+body.cs-m3-docs-page .cs-snapshot,
+body.cs-m3-docs-page .callout,
+body.cs-m3-docs-page .my-role-block,
+body.cs-m3-docs-page .reflection-block,
+body.cs-m3-docs-page .cs-problem-stage,
+body.cs-m3-docs-page .comparison-grid > *,
+body.cs-m3-docs-page .insight-list,
+body.cs-m3-docs-page .solution-table {
+  background: #f9f9f8;
+  border: none;
+  border-radius: 12px;
+  box-shadow: none;
+}
+
+body.cs-m3-docs-page .cs-snapshot {
+  padding: clamp(24px, 4vw, 36px);
+}
+
+body.cs-m3-docs-page .cs-snapshot > .block-label,
+body.cs-m3-docs-page .block-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(55, 53, 47, 0.45);
+}
+
+body.cs-m3-docs-page .m3-docs-eyebrow {
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  color: rgba(55, 53, 47, 0.65);
+}
+
+body.cs-m3-docs-page .m3-docs-chips .tag,
+body.cs-m3-docs-page .tag,
+body.cs-m3-docs-page .chip {
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: normal;
+  line-height: 1.2;
+  padding: 4px 10px;
+  border: none;
+  background: rgba(55, 53, 47, 0.06);
+  color: rgba(55, 53, 47, 0.72);
+}
+
+body.cs-m3-docs-page .tag.accent {
+  background: rgba(55, 53, 47, 0.08);
+  color: #37352f;
+}
+
+body.cs-m3-docs-page .m3-docs-visual-card,
+body.cs-m3-docs-page .m3-docs-visual-card--wide {
+  border-radius: 12px;
+  border: none;
+  box-shadow: 0 1px 2px rgba(15, 15, 15, 0.04), 0 8px 24px rgba(15, 15, 15, 0.06);
+}
+
+body.cs-m3-docs-page .m3-docs-visual-card img,
+body.cs-m3-docs-page .m3-docs-visual-card--wide img {
+  border-radius: 12px;
+}
+
+body.cs-m3-docs-page .cs-figure,
+body.cs-m3-docs-page .cs-snapshot-gallery .cs-figure,
+body.cs-m3-docs-page .cs-snapshot-proof .cs-figure {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+body.cs-m3-docs-page .cs-expand-btn,
+body.cs-m3-docs-page .cs-expand-btn:not(.cs-expand-btn--secondary) {
+  min-height: 40px;
+  padding: 0 16px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  border-radius: 999px;
+  background: #37352f;
+  color: #fff;
+  border: none;
+  box-shadow: none;
+}
+
+body.cs-m3-docs-page .cs-expand-btn:hover {
+  background: #2f2d28;
+  box-shadow: none;
+  transform: none;
+}
+
+body.cs-m3-docs-page .cs-expand-btn--secondary {
+  background: rgba(55, 53, 47, 0.06);
+  color: #37352f;
+  border: none;
+}
+
+body.cs-m3-docs-page .cs-expand-btn--secondary:hover {
+  background: rgba(55, 53, 47, 0.1);
+  color: #37352f;
+}
+
+body.cs-m3-docs-page .m3-docs-hero-meta {
+  border-top-color: rgba(55, 53, 47, 0.08);
+}
+
+body.cs-m3-docs-page .quote-block {
+  background: #37352f;
+  border-radius: 12px;
+  border: none;
+  box-shadow: none;
+}
+
+body.cs-m3-docs-page footer a.footer-cta--secondary {
+  background: rgba(55, 53, 47, 0.06);
+  border: none;
+  color: #37352f;
+}
+
+body.cs-m3-docs-page footer a.footer-cta--secondary:hover {
+  background: rgba(55, 53, 47, 0.1);
+  border: none;
+  color: #37352f;
+}
+
+body.cs-m3-docs-page footer a.footer-cta:not(.footer-cta--secondary) {
+  background: #37352f;
 }
