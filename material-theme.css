@@ -253,6 +253,13 @@ body.cs-m3-docs-page .breadcrumb .current {
   overflow: hidden;
 }
 
+.m3-docs-visual-bg--intake {
+  background:
+    radial-gradient(ellipse 78% 68% at 18% 22%, color-mix(in srgb, var(--md-sys-color-primary-container) 82%, transparent) 0%, transparent 58%),
+    radial-gradient(ellipse 72% 58% at 82% 78%, color-mix(in srgb, var(--md-sys-color-secondary-container) 88%, transparent) 0%, transparent 56%),
+    linear-gradient(148deg, #e4eaf6 0%, color-mix(in srgb, var(--md-sys-color-primary-container) 38%, var(--md-sys-color-surface-container)) 100%);
+}
+
 .m3-docs-visual-card {
   position: relative;
   z-index: 1;
