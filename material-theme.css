@@ -985,10 +985,10 @@ body.cs-m3-docs-page .sc-sticky {
 }
 
 .theme-material .page-home .hero-name {
-  font-family: 'Fraunces', Georgia, serif;
+  font-family: var(--md-ref-typeface-plain);
   font-size: clamp(40px, 6.5vw + 14px, 56px);
   line-height: 1;
-  font-weight: 400;
+  font-weight: 700;
   letter-spacing: -0.035em;
   margin-inline-start: -0.035em;
 }
@@ -1013,6 +1013,17 @@ body.cs-m3-docs-page .sc-sticky {
   border-color: var(--md-sys-color-outline-variant);
   color: var(--md-sys-color-on-surface-variant);
   border-radius: var(--md-sys-shape-corner-full);
+}
+
+.theme-material .page-home .hero-nav a.hero-nav-resume {
+  background: #2383e2;
+  color: #fff;
+}
+
+.theme-material .page-home .hero-nav a.hero-nav-resume:hover,
+.theme-material .page-home .hero-nav a.hero-nav-resume:focus-visible {
+  background: #0075de;
+  color: #fff;
 }
 
 .theme-material .hero-nav a {
@@ -1133,6 +1144,23 @@ body.cs-m3-docs-page .sc-sticky {
   font-optical-sizing: auto;
   letter-spacing: -0.035em;
   color: var(--ink);
+}
+
+.theme-material .page-home footer,
+.theme-material .page-home footer h2,
+.theme-material .page-home footer p,
+.theme-material .page-home footer .footer-inline-links,
+.theme-material .page-home footer .footer-inline-links a,
+.theme-material .page-home footer .footer-cta,
+.theme-material .page-home footer .footer-note {
+  font-family: 'Roboto', sans-serif;
+}
+
+.theme-material .page-home footer h2 {
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: -0.04em;
+  color: #37352f;
 }
 
 .theme-material footer p {

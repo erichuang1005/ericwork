@@ -9,9 +9,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Roboto:wght@300;400;500;700&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=20260807x" />
+  <link rel="stylesheet" href="style.css?v=20260813n" />
   <link rel="stylesheet" href="material-tokens.css?v=20260748" />
-  <link rel="stylesheet" href="material-theme.css?v=20260807r" />
+  <link rel="stylesheet" href="material-theme.css?v=20260812t" />
   <script src="analytics.js"></script>
   <script src="site-meta.js" defer></script>
   <script src="auth.js?v=20260724c"></script>
@@ -19,17 +19,16 @@
 <body class="page-home">
 
 <header class="hero hero--home">
-  <nav class="hero-nav" aria-label="Site">
-    <a href="#work">Work</a>
-    <a href="resume.pdf?v=20260420" target="_blank" rel="noopener" class="hero-nav-resume">Resume</a>
-  </nav>
-  <h1 class="hero-name">Eric Huang</h1>
-  <p class="hero-role">Product designer at <span class="hero-company">Workday</span></p>
-  <p class="hero-subtitle">Agentic and compliance UX for enterprise workflows. Formerly Diligent, Copperleaf.</p>
-  <ul class="hero-stats" aria-label="Experience highlights">
-    <li>10 years in product design · 8 in enterprise</li>
-    <li>React, Android, iOS shipped</li>
-  </ul>
+  <div class="hero-copy">
+    <p class="hero-eyebrow">Product designer · Workday</p>
+    <h1 class="hero-name">Eric Huang</h1>
+    <p class="hero-title">I design <span class="hero-product-pill" data-hero-pill style="--color-background: #e8def8; --pill-label-inline-size: max-content;"><span class="hero-product-pill__label"><span class="hero-product-pill__measure" data-hero-pill-label>AI Assistant</span></span></span> people actually use.</p>
+    <p class="hero-subtitle">Agentic UX, components for handhelds, and admin experience for enterprise tools — with 10 years shipping product design. Formerly Diligent, Copperleaf.</p>
+    <div class="hero-cta">
+      <a class="hero-cta__primary" href="#work">View work</a>
+      <a class="hero-cta__secondary" href="resume.pdf?v=20260420" target="_blank" rel="noopener">Resume</a>
+    </div>
+  </div>
 </header>
 
 <!-- ─── CASE STUDY INDEX ─── -->
@@ -37,147 +36,155 @@
   <h2 class="section-label scroll-reveal">Selected work</h2>
   <div class="index-grid">
 
-    <a href="intake-agent.html" class="index-card index-card--visual">
-      <div class="index-card-visual index-card-visual--scene index-card-visual--intake" aria-hidden="true">
-        <div class="index-card-scene">
-          <img class="index-scene-shot" src="images/intake-agent/13-phase2-catalog-requisition.png" alt="" width="1024" height="711" loading="lazy" decoding="async" />
-          <div class="index-scene-decor index-scene-decor--intake" aria-hidden="true">
-            <span class="index-scene-cursor index-scene-cursor--lisa">
-              <span class="index-scene-cursor__pointer">
-                <svg class="index-scene-cursor__arrow" viewBox="0 0 16 18" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1.5 1 1.5 14.5 4.8 11.2 7.2 16.8 9.2 15.6 7 10 14 10 1.5 1z"/></svg>
+    <article class="index-card index-card--visual index-card--intake index-bento">
+      <div class="index-bento__inner">
+        <a class="index-bento__anchor" href="intake-agent.html" aria-label="View Intake Agent case study">&nbsp;</a>
+        <header class="index-bento__header">
+          <div class="index-bento__eyebrow">Intake Agent</div>
+          <div class="index-bento__title-wrap">
+            <h3 class="index-bento__title">Grounded answers, routing, and catalog actions in one thread.</h3>
+            <span class="index-bento__arrow" aria-hidden="true">→</span>
+          </div>
+        </header>
+
+        <div class="index-bento__stage" aria-hidden="true">
+          <div class="index-bento__panel">
+            <img class="index-bento__image" src="images/intake-agent/13-phase2-catalog-requisition.png" alt="" width="1024" height="711" loading="lazy" decoding="async" />
+          </div>
+          <div class="index-bento__search-form search-form">
+            <div class="search-form__field">
+              <svg class="search-form__icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <circle cx="8.75" cy="8.75" r="5.25" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M12.5 12.5 16 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M13.1 3.4l.35 1.05 1.05.35-1.05.35-.35 1.05-.35-1.05-1.05-.35 1.05-.35.35-1.05z" fill="currentColor"/>
+              </svg>
+              <span class="search-form__value">
+                I need to arrange product launch celebration event<span class="search-form__caret" aria-hidden="true"></span>
               </span>
-              <span class="index-scene-cursor__pill">Lisa</span>
-            </span>
-            <span class="index-scene-cursor index-scene-cursor--ralf">
-              <span class="index-scene-cursor__pointer">
-                <svg class="index-scene-cursor__arrow" viewBox="0 0 16 18" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1.5 1 1.5 14.5 4.8 11.2 7.2 16.8 9.2 15.6 7 10 14 10 1.5 1z"/></svg>
+              <span class="search-form__clear" aria-hidden="true">
+                <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <circle cx="10" cy="10" r="7.25" stroke="currentColor" stroke-width="1.25"/>
+                  <path d="M7.25 7.25l5.5 5.5M12.75 7.25l-5.5 5.5" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/>
+                </svg>
               </span>
-              <span class="index-scene-cursor__pill">Ralf</span>
-            </span>
-            <span class="index-scene-cursor index-scene-cursor--felipe">
-              <span class="index-scene-cursor__pointer">
-                <svg class="index-scene-cursor__arrow" viewBox="0 0 16 18" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1.5 1 1.5 14.5 4.8 11.2 7.2 16.8 9.2 15.6 7 10 14 10 1.5 1z"/></svg>
-              </span>
-              <span class="index-scene-cursor__pill">Felipe</span>
-            </span>
+            </div>
           </div>
         </div>
       </div>
-      <div class="index-card-body">
-        <span class="index-card-arrow" aria-hidden="true">→</span>
-        <div class="index-card-badge"><span class="badge-dot live"></span> 2026 · Web</div>
-        <h3>Intake Agent</h3>
-        <p>AI assistant for procurement—answers, routing, and catalog actions in one thread.</p>
-        <div class="index-card-tags">
-          <span class="tag accent tag--ai"><svg class="tag-sparkle" viewBox="0 0 14 14" fill="currentColor" aria-hidden="true"><path d="M7 0c0 0 .6 3 2 4.5S14 7 14 7s-3 .6-4.5 2S7 14 7 14s-.6-3-2-4.5S0 7 0 7s3-.6 4.5-2S7 0 7 0z"/></svg>Agentic UX</span>
-          <span class="tag">Conversational design</span>
-          <span class="tag">Responsible AI</span>
-        </div>
-      </div>
-    </a>
+    </article>
 
-    <a href="inventory-picking.html" class="index-card index-card--visual index-card--inventory">
-      <div class="index-card-visual index-card-visual--scene index-card-visual--inventory" aria-hidden="true">
-        <div class="index-inventory-scene">
-          <div class="index-inventory-scene__stack">
-            <div class="index-inventory-zebra-tilt">
-              <div class="cs-zebra-device cs-zebra-device--hero" role="img" aria-label="Zebra handheld scanner running the inventory app">
-                <span class="cs-zebra-head" aria-hidden="true">
-                  <span class="cs-zebra-window"></span>
-                  <span class="cs-zebra-led"></span>
+    <article class="index-card index-card--visual index-card--inventory index-bento">
+      <div class="index-bento__inner">
+        <a class="index-bento__anchor" href="inventory-picking.html" aria-label="View Mobile Inventory Modernization case study">&nbsp;</a>
+        <header class="index-bento__header">
+          <div class="index-bento__eyebrow">Mobile Inventory</div>
+          <div class="index-bento__title-wrap">
+            <h3 class="index-bento__title">Extending a desktop-tuned design system for handheld scanners.</h3>
+            <span class="index-bento__arrow" aria-hidden="true">→</span>
+          </div>
+        </header>
+
+        <div class="index-bento__stage" aria-hidden="true">
+          <div class="index-bento__panel index-bento__panel--inventory">
+            <div class="index-inventory-scene">
+              <div class="index-inventory-scene__stack">
+                <div class="index-inventory-zebra-tilt">
+                  <div class="cs-zebra-device cs-zebra-device--hero" role="img" aria-label="Zebra handheld scanner running the inventory app">
+                    <span class="cs-zebra-head" aria-hidden="true">
+                      <span class="cs-zebra-window"></span>
+                      <span class="cs-zebra-led"></span>
+                    </span>
+                    <span class="cs-zebra-screen">
+                      <img src="images/inventory-picking/batch-webview-01.jpg?v=3" alt="" width="443" height="987" loading="lazy" decoding="async" />
+                    </span>
+                    <span class="cs-zebra-keys" aria-hidden="true"><span></span><span></span><span></span></span>
+                  </div>
+                </div>
+              </div>
+              <div class="index-scene-decor" aria-hidden="true">
+                <span class="index-scene-tool index-scene-tool--cursor" title="Design in code">
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="currentColor" d="M11.503.131 1.891 5.678a.84.84 0 0 0-.42.726v11.188c0 .3.162.575.42.724l9.609 5.55a1 1 0 0 0 .998 0l9.61-5.55a.84.84 0 0 0 .42-.724V6.404a.84.84 0 0 0-.42-.726L12.497.131a1.01 1.01 0 0 0-.996 0M2.657 6.338h18.55c.263 0 .43.287.297.515L12.23 22.918c-.062.107-.229.064-.229-.06V12.335a.59.59 0 0 0-.295-.51l-9.11-5.257c-.109-.063-.064-.23.061-.23"/></svg>
+                  <span>Cursor</span>
                 </span>
-                <span class="cs-zebra-screen">
-                  <img src="images/inventory-picking/batch-webview-01.jpg?v=3" alt="" width="443" height="987" loading="lazy" decoding="async" />
+                <span class="index-scene-tool index-scene-tool--figma" title="Figma MCP">
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="currentColor" d="M15.852 8.981h-4.588V0h4.588c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.491-4.49 4.491zM12.735 7.51h3.117c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-3.117V7.51zm0 1.471H8.148c-2.476 0-4.49-2.014-4.49-4.49S5.672 0 8.148 0h4.588v8.981zm-4.587-7.51c-1.665 0-3.019 1.355-3.019 3.019s1.354 3.02 3.019 3.02h3.117V1.471H8.148zm4.587 15.019H8.148c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h4.588v8.98zM8.148 8.981c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h3.117V8.981H8.148zM8.172 24c-2.489 0-4.515-2.014-4.515-4.49s2.014-4.49 4.49-4.49h4.588v4.441c0 2.503-2.047 4.539-4.563 4.539zm-.024-7.51a3.023 3.023 0 0 0-3.019 3.019c0 1.665 1.365 3.019 3.044 3.019 1.705 0 3.093-1.376 3.093-3.068v-2.97H8.148zm7.704 0h-.098c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h.098c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.49-4.49 4.49zm-.097-7.509c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h.098c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-.098z"/></svg>
+                  <span>Figma</span>
                 </span>
-                <span class="cs-zebra-keys" aria-hidden="true"><span></span><span></span><span></span></span>
+                <span class="index-scene-sticker index-scene-sticker--accent index-scene-sticker--inventory">21 tasks</span>
+                <span class="index-scene-sticker index-scene-sticker--spark" aria-hidden="true">✦</span>
               </div>
             </div>
           </div>
-          <div class="index-scene-decor" aria-hidden="true">
-            <span class="index-scene-tool index-scene-tool--cursor" title="Design in code">
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="currentColor" d="M11.503.131 1.891 5.678a.84.84 0 0 0-.42.726v11.188c0 .3.162.575.42.724l9.609 5.55a1 1 0 0 0 .998 0l9.61-5.55a.84.84 0 0 0 .42-.724V6.404a.84.84 0 0 0-.42-.726L12.497.131a1.01 1.01 0 0 0-.996 0M2.657 6.338h18.55c.263 0 .43.287.297.515L12.23 22.918c-.062.107-.229.064-.229-.06V12.335a.59.59 0 0 0-.295-.51l-9.11-5.257c-.109-.063-.064-.23.061-.23"/></svg>
-              <span>Cursor</span>
-            </span>
-            <span class="index-scene-tool index-scene-tool--figma" title="Figma MCP">
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="currentColor" d="M15.852 8.981h-4.588V0h4.588c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.491-4.49 4.491zM12.735 7.51h3.117c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-3.117V7.51zm0 1.471H8.148c-2.476 0-4.49-2.014-4.49-4.49S5.672 0 8.148 0h4.588v8.981zm-4.587-7.51c-1.665 0-3.019 1.355-3.019 3.019s1.354 3.02 3.019 3.02h3.117V1.471H8.148zm4.587 15.019H8.148c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h4.588v8.98zM8.148 8.981c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h3.117V8.981H8.148zM8.172 24c-2.489 0-4.515-2.014-4.515-4.49s2.014-4.49 4.49-4.49h4.588v4.441c0 2.503-2.047 4.539-4.563 4.539zm-.024-7.51a3.023 3.023 0 0 0-3.019 3.019c0 1.665 1.365 3.019 3.044 3.019 1.705 0 3.093-1.376 3.093-3.068v-2.97H8.148zm7.704 0h-.098c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h.098c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.49-4.49 4.49zm-.097-7.509c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h.098c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-.098z"/></svg>
-              <span>Figma</span>
-            </span>
-            <span class="index-scene-sticker index-scene-sticker--accent index-scene-sticker--inventory">21 tasks</span>
-            <span class="index-scene-sticker index-scene-sticker--spark" aria-hidden="true">✦</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="index-card index-card--visual index-card--purchase index-bento">
+      <div class="index-bento__inner">
+        <a class="index-bento__anchor" href="purchase-compliance.html" aria-label="View Purchase Compliance case study">&nbsp;</a>
+        <header class="index-bento__header">
+          <div class="index-bento__eyebrow">Purchase Compliance</div>
+          <div class="index-bento__title-wrap">
+            <h3 class="index-bento__title">Admin console for buying rules — setup, exceptions, and catalog ranking.</h3>
+            <span class="index-bento__arrow" aria-hidden="true">→</span>
+          </div>
+        </header>
+
+        <div class="index-bento__stage" aria-hidden="true">
+          <div class="index-bento__panel index-bento__panel--purchase">
+            <img class="index-bento__image" src="images/purchase-compliance/console-overview.png" alt="" width="1024" height="658" loading="lazy" decoding="async" />
           </div>
         </div>
       </div>
-      <div class="index-card-body">
-        <span class="index-card-arrow" aria-hidden="true">→</span>
-        <div class="index-card-badge"><span class="badge-dot live"></span> 2026 · Mobile + design system</div>
-        <h3>Mobile Inventory Modernization</h3>
-        <p>Extending a desktop-tuned design system for handheld scanners — components updated in code, shipped to production across 21 tasks.</p>
-        <div class="index-card-tags">
-          <span class="tag accent">Design Systems</span>
-          <span class="tag">Platform extension</span>
-          <span class="tag">Design in code</span>
-        </div>
-      </div>
-    </a>
+    </article>
 
-    <a href="purchase-compliance.html" class="index-card index-card--visual">
-      <div class="index-card-visual index-card-visual--scene index-card-visual--purchase" aria-hidden="true">
-        <div class="index-card-scene">
-          <img class="index-scene-shot" src="images/purchase-compliance/console-overview.png" alt="" width="1024" height="658" loading="lazy" decoding="async" />
-        </div>
-      </div>
-      <div class="index-card-body">
-        <span class="index-card-arrow" aria-hidden="true">→</span>
-        <div class="index-card-badge"><span class="badge-dot live"></span> 2025 · Web</div>
-        <h3>Purchase Compliance</h3>
-        <p>Admin console for buying rules — setup, exceptions, and catalog ranking for shoppers.</p>
-        <div class="index-card-tags">
-          <span class="tag accent">Workflow Design</span>
-          <span class="tag">Research</span>
-          <span class="tag">Scalable Systems</span>
-        </div>
-      </div>
-    </a>
+    <article class="index-card index-card--visual index-card--orchestration index-bento coming-soon">
+      <div class="index-bento__inner">
+        <div class="index-bento__anchor" aria-hidden="true"></div>
+        <header class="index-bento__header">
+          <div class="index-bento__eyebrow">Agent Orchestration · Coming soon</div>
+          <div class="index-bento__title-wrap">
+            <h3 class="index-bento__title">Secure handoffs between specialized agents without overexposing systems of record.</h3>
+            <span class="index-bento__arrow" aria-hidden="true">→</span>
+          </div>
+        </header>
 
-    <div class="index-card index-card--visual coming-soon">
-      <div class="index-card-visual index-card-visual--scene index-card-visual--orchestration" aria-hidden="true">
-        <img class="index-scene-shot" src="images/agent-orchestration/buyer-hub-pending-actions.png" alt="" width="1024" height="663" loading="lazy" decoding="async" />
-      </div>
-      <div class="index-card-body">
-        <div class="index-card-badge"><span class="badge-dot"></span> Coming Soon · Web</div>
-        <h3>Agent Orchestration</h3>
-        <p>Multi-agent coordination—secure handoffs between specialized agents without overexposing systems of record.</p>
-        <div class="index-card-tags">
-          <span class="tag accent tag--ai"><svg class="tag-sparkle" viewBox="0 0 14 14" fill="currentColor" aria-hidden="true"><path d="M7 0c0 0 .6 3 2 4.5S14 7 14 7s-3 .6-4.5 2S7 14 7 14s-.6-3-2-4.5S0 7 0 7s3-.6 4.5-2S7 0 7 0z"/></svg>Multi-agent</span>
-          <span class="tag">Enterprise UX</span>
+        <div class="index-bento__stage" aria-hidden="true">
+          <div class="index-bento__panel index-bento__panel--orchestration">
+            <img class="index-bento__image" src="images/agent-orchestration/buyer-hub-pending-actions.png" alt="" width="1024" height="663" loading="lazy" decoding="async" />
+          </div>
         </div>
       </div>
-    </div>
+    </article>
 
   </div>
 </section>
 
-<div class="section-divider"><hr /></div>
-
 <!-- ─── FOOTER ─── -->
 <footer>
-  <h2>Let's connect.</h2>
-  <p>Open to senior and principal IC roles in product design.</p>
-  <div class="footer-inline-links">
-    <a href="resume.pdf?v=20260420" target="_blank" rel="noopener">Resume PDF</a>
-    <span aria-hidden="true"> · </span>
-    <a href="mailto:Eric.chakho.wong@gmail.com">Email</a>
-    <span aria-hidden="true"> · </span>
-    <a href="https://www.linkedin.com/in/zehao-eric-huang/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+  <div class="footer-inner">
+    <div class="footer-main">
+      <div class="footer-copy">
+        <h2>Let's connect.</h2>
+        <p>Open to senior and principal IC roles in product design.</p>
+        <div class="footer-inline-links">
+          <a href="resume.pdf?v=20260420" target="_blank" rel="noopener">Resume PDF</a>
+          <span aria-hidden="true"> · </span>
+          <a href="mailto:Eric.chakho.wong@gmail.com">Email</a>
+          <span aria-hidden="true"> · </span>
+          <a href="https://www.linkedin.com/in/zehao-eric-huang/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+      </div>
+      <div class="footer-cta-row">
+        <a class="footer-cta" href="mailto:Eric.chakho.wong@gmail.com">Get in touch</a>
+        <a class="footer-cta footer-cta--secondary" href="https://www.instagram.com/tutu.thecorgi/" target="_blank" rel="noopener noreferrer">
+          <img src="https://cdn-icons-png.flaticon.com/256/12/12638.png" alt="" width="16" height="16" aria-hidden="true" />
+          Say hi to Tutu
+        </a>
+      </div>
+    </div>
+    <div class="footer-note">Eric Huang · Senior Product Designer · Workday<br />Last updated <span data-site-updated></span></div>
   </div>
-  <div class="footer-cta-row">
-    <a class="footer-cta" href="mailto:Eric.chakho.wong@gmail.com">Get in touch</a>
-    <a class="footer-cta footer-cta--secondary" href="https://www.instagram.com/tutu.thecorgi/" target="_blank" rel="noopener noreferrer">
-      <img src="https://cdn-icons-png.flaticon.com/256/12/12638.png" alt="" width="16" height="16" aria-hidden="true" />
-      Say hi to Tutu
-    </a>
-  </div>
-  <div class="footer-note">Eric Huang · Senior Product Designer · Workday<br />Last updated <span data-site-updated></span></div>
 </footer>
 
 <script>
@@ -216,6 +223,97 @@
       el.style.transitionDelay = `${Math.min(i, 6) * 0.06}s`;
       observer.observe(el);
     });
+  })();
+
+  /* Fixed frame: I design [noun] people actually use. */
+  (function () {
+    const pill = document.querySelector('[data-hero-pill]');
+    const label = document.querySelector('[data-hero-pill-label]');
+    if (!pill || !label) return;
+
+    // Mapped to case studies: Intake · Inventory DS · Compliance / admin tools
+    const items = [
+      { text: 'AI Assistant', bg: '#e8def8' },
+      { text: 'Components', bg: '#d2e8e4' },
+      { text: 'Admin experience', bg: '#d4e8f6' },
+    ];
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const FADE_MS = 220;
+    const HOLD_MS = 2800;
+    let i = 0;
+    let busy = false;
+
+    const measureWidth = (text) => {
+      const probe = label.cloneNode(false);
+      probe.textContent = text;
+      const cs = window.getComputedStyle(label);
+      probe.style.cssText = [
+        'position:absolute',
+        'visibility:hidden',
+        'pointer-events:none',
+        'white-space:nowrap',
+        'display:inline-block',
+        `font:${cs.font}`,
+        `letter-spacing:${cs.letterSpacing}`,
+        `font-size:${cs.fontSize}`,
+        `font-weight:${cs.fontWeight}`,
+        `line-height:${cs.lineHeight}`,
+        'left:-9999px',
+        'top:0',
+      ].join(';');
+      document.body.appendChild(probe);
+      const w = Math.ceil(probe.getBoundingClientRect().width);
+      probe.remove();
+      return `${Math.max(w, 1)}px`;
+    };
+
+    const apply = (item, animate) => {
+      const nextWidth = measureWidth(item.text);
+
+      if (!animate || reduceMotion) {
+        label.textContent = item.text;
+        pill.style.setProperty('--color-background', item.bg);
+        pill.style.setProperty('--pill-label-inline-size', nextWidth);
+        pill.classList.remove('is-swapping', 'is-entering');
+        return;
+      }
+
+      busy = true;
+      pill.classList.remove('is-entering');
+      pill.classList.add('is-swapping');
+
+      window.setTimeout(() => {
+        label.textContent = item.text;
+        pill.style.setProperty('--color-background', item.bg);
+        pill.style.setProperty('--pill-label-inline-size', nextWidth);
+        // Next frame: fade/slide the new label in while width eases
+        requestAnimationFrame(() => {
+          pill.classList.remove('is-swapping');
+          pill.classList.add('is-entering');
+          window.setTimeout(() => {
+            pill.classList.remove('is-entering');
+            busy = false;
+          }, 320);
+        });
+      }, FADE_MS);
+    };
+
+    const start = () => {
+      apply(items[0], false);
+      if (reduceMotion) return;
+      window.setInterval(() => {
+        if (busy) return;
+        i = (i + 1) % items.length;
+        apply(items[i], true);
+      }, HOLD_MS);
+    };
+
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(() => requestAnimationFrame(start));
+    } else {
+      requestAnimationFrame(start);
+    }
   })();
 </script>
 
