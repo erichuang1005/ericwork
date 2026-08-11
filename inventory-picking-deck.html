@@ -8,34 +8,35 @@
   <link rel="apple-touch-icon" href="images/favicon-apple.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400;1,9..144,500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400;1,500&display=swap" rel="stylesheet" />
   <style id="deck-styles">
     :root {
       --bg: #ffffff;
       --bg-card: #FFFFFF;
-      --ink: #18181B;
-      --ink-2: #3F3F46;
-      --ink-secondary: #52525B;
-      --ink-muted: #A1A1AA;
+      --ink: #37352f;
+      --ink-2: #37352f;
+      --ink-secondary: rgba(55, 53, 47, 0.65);
+      --ink-muted: rgba(55, 53, 47, 0.45);
       --accent: #1A56DB;
       --accent-light: #EFF4FF;
       --accent-green: #059669;
-      --rule: rgba(24,24,27,0.10);
-      --hairline: rgba(24,24,27,0.06);
-      --border: #E4E4E7;
-      --shadow-sm: 0 1px 3px rgba(0,0,0,.07), 0 1px 2px rgba(0,0,0,.06);
-      --shadow-md: 0 4px 16px rgba(0,0,0,.08), 0 2px 6px rgba(0,0,0,.05);
-      --shadow-lg: 0 24px 48px rgba(0,0,0,.10), 0 8px 16px rgba(0,0,0,.05);
+      --surface: #f9f9f8;
+      --rule: rgba(55, 53, 47, 0.12);
+      --hairline: rgba(55, 53, 47, 0.08);
+      --border: #e8e7e3;
+      --shadow-sm: 0 1px 2px rgba(55, 53, 47, 0.06);
+      --shadow-md: 0 2px 8px rgba(55, 53, 47, 0.07), 0 1px 2px rgba(55, 53, 47, 0.04);
+      --shadow-lg: 0 12px 28px rgba(55, 53, 47, 0.08), 0 2px 6px rgba(55, 53, 47, 0.04);
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html, body { height: 100%; }
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
       background: var(--bg);
       color: var(--ink);
       -webkit-font-smoothing: antialiased;
       overflow: hidden;
-      letter-spacing: -0.005em;
+      letter-spacing: -0.01em;
     }
     img { max-width: 100%; height: auto; display: block; }
 
@@ -46,10 +47,10 @@
       justify-content: center;
       min-height: 0;
       width: 100%;
-      border-radius: 0.55cqi;
+      border-radius: 12px;
       overflow: hidden;
       border: 1px solid var(--rule);
-      background: #F4F4F5;
+      background: var(--surface);
       box-sizing: border-box;
     }
     .deck-shot img {
@@ -79,7 +80,7 @@
       position: absolute; inset: 0;
       background: var(--bg-card);
       border: 1px solid var(--hairline);
-      border-radius: clamp(8px, 1cqi, 18px);
+      border-radius: 12px;
       box-shadow: var(--shadow-lg);
       display: flex;
       flex-direction: column;
@@ -120,16 +121,16 @@
     }
     .s-eyebrow .kicker { color: var(--accent); font-weight: 700; }
     .s-headline {
-      font-family: 'Fraunces', Georgia, serif;
-      font-weight: 400;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 700;
       font-size: 4.15cqi;
       line-height: 1.08;
-      letter-spacing: -0.022em;
+      letter-spacing: -0.025em;
       color: var(--ink);
       max-width: 32ch;
       flex-shrink: 0;
     }
-    .s-headline em { font-style: italic; font-weight: 300; color: var(--accent); }
+    .s-headline em { font-style: normal; font-weight: 700; color: var(--accent); }
     .s-head {
       display: flex; justify-content: space-between; align-items: center;
       gap: 3cqi; margin-bottom: 1cqi; flex-shrink: 0;
@@ -157,18 +158,18 @@
     .s1-mark .badge { display: inline-flex; align-items: center; gap: 0.9cqi; color: var(--ink-secondary); }
     .s1-mark .dot { display: inline-block; width: 0.8cqi; height: 0.8cqi; border-radius: 50%; background: var(--accent-green); box-shadow: 0 0 0 0.25cqi rgba(5,150,105,0.18); }
     .s1-title {
-      font-family: 'Fraunces', Georgia, serif;
+      font-family: 'Roboto', sans-serif;
       font-size: 12cqi;
       line-height: 0.94;
-      font-weight: 400;
+      font-weight: 700;
       letter-spacing: -0.04em;
       color: var(--ink);
     }
-    .s1-title em { font-style: italic; font-weight: 300; color: var(--accent); }
+    .s1-title em { font-style: normal; font-weight: 700; color: var(--accent); }
     .s1-sub {
-      font-family: 'Fraunces', Georgia, serif;
-      font-style: italic;
-      font-weight: 300;
+      font-family: 'Roboto', sans-serif;
+      font-style: normal;
+      font-weight: 400;
       font-size: 2.25cqi;
       line-height: 1.28;
       color: var(--ink-secondary);
@@ -203,14 +204,14 @@
     /* Slide 2 — Who I am */
     .slide--who { padding: 4.6cqi 5.4cqi; gap: 2cqi; }
     .s2-headline {
-      font-family: 'Fraunces', Georgia, serif;
+      font-family: 'Roboto', sans-serif;
       font-size: 4cqi;
       line-height: 1.06;
       letter-spacing: -0.025em;
       max-width: 26ch;
-      font-weight: 400;
+      font-weight: 700;
     }
-    .s2-headline em { font-style: italic; font-weight: 300; color: var(--accent); }
+    .s2-headline em { font-style: normal; font-weight: 700; color: var(--accent); }
     .s2-body { display: grid; grid-template-columns: 1fr 1fr; column-gap: 4cqi; row-gap: 1.2cqi; max-width: 100%; margin-top: 0.4cqi; flex: 1; min-height: 0; align-content: start; }
     .slide--task .s2-body--task { grid-template-columns: 1fr; max-width: 95%; }
     .s2-body--arc { grid-template-columns: 1fr; max-width: 100%; row-gap: 0.85cqi; }
@@ -225,9 +226,9 @@
     }
     .s-overview-card {
       padding: 1.35cqi 1.45cqi;
-      border-radius: 0.75cqi;
+      border-radius: 12px;
       border: 1px solid var(--rule);
-      background: #FAFAFA;
+      background: var(--surface);
       min-height: 0;
     }
     .s-overview-card .star {
@@ -239,12 +240,13 @@
       margin-bottom: 0.5cqi;
     }
     .s-overview-card h3 {
-      font-family: 'Fraunces', Georgia, serif;
+      font-family: 'Roboto', sans-serif;
       font-size: 1.5cqi;
-      font-weight: 400;
+      font-weight: 700;
       margin-bottom: 0.65cqi;
       color: var(--ink);
       line-height: 1.15;
+      letter-spacing: -0.015em;
     }
     .s-overview-card p { font-size: 1.12cqi; line-height: 1.38; color: var(--ink-secondary); }
     .s-overview--duo { grid-template-columns: 1fr 1fr; max-width: 100%; }
@@ -257,17 +259,96 @@
       margin-bottom: 0.5cqi;
     }
 
+    /* Device constraints + lifecycle task lists (presentation depth) */
+    .deck-specs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75cqi 1.4cqi;
+      margin-top: 1.4cqi;
+      padding: 1.2cqi 1.4cqi;
+      border-radius: 12px;
+      background: var(--surface);
+      border: 1px solid var(--rule);
+      flex-shrink: 0;
+    }
+    .deck-specs li {
+      list-style: none;
+      font-size: 1.28cqi;
+      line-height: 1.35;
+      color: var(--ink-secondary);
+      padding-left: 0;
+    }
+    .deck-specs li strong {
+      color: var(--ink);
+      font-weight: 700;
+      display: block;
+      font-size: 1.1cqi;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 0.2cqi;
+    }
+    .deck-lifecycle {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 1.1cqi;
+      margin-top: 0.8cqi;
+      flex: 1;
+      min-height: 0;
+      align-content: start;
+    }
+    .deck-lifecycle-phase {
+      padding: 1.2cqi 1.25cqi;
+      border-radius: 12px;
+      border: 1px solid var(--rule);
+      background: var(--surface);
+      min-height: 0;
+    }
+    .deck-lifecycle-phase .name {
+      font-size: 1.35cqi;
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+      margin-bottom: 0.7cqi;
+      padding-bottom: 0.55cqi;
+      border-bottom: 1px solid var(--hairline);
+    }
+    .deck-lifecycle-phase ul { list-style: none; padding: 0; margin: 0; }
+    .deck-lifecycle-phase li {
+      font-size: 1.2cqi;
+      line-height: 1.35;
+      color: var(--ink-secondary);
+      margin-bottom: 0.4cqi;
+      padding-left: 1.1cqi;
+      position: relative;
+    }
+    .deck-lifecycle-phase li::before {
+      content: "";
+      position: absolute;
+      left: 0; top: 0.7cqi;
+      width: 0.45cqi; height: 0.45cqi;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+    .scope-legacy {
+      margin-top: 0.9cqi;
+      font-size: 1.28cqi;
+      line-height: 1.4;
+      color: var(--ink-secondary);
+      flex-shrink: 0;
+    }
+    .scope-legacy strong { color: var(--ink); font-weight: 600; }
+
     /* Problem slide — editorial quote-list with a cost band */
     .slide--problem .problem-list { display: flex; flex-direction: column; gap: 1.8cqi; margin-top: 0.6cqi; flex: 1; justify-content: center; min-height: 0; }
     .slide--problem .problem-row { display: flex; align-items: baseline; gap: 2cqi; padding-left: 1.6cqi; border-left: 3px solid var(--accent); }
     .slide--problem .problem-row .q {
-      font-family: 'Fraunces', Georgia, serif; font-size: 2.7cqi; font-weight: 400; font-style: italic;
-      color: var(--ink); line-height: 1.12; letter-spacing: -0.01em; flex: 0 0 34%; max-width: 34%;
+      font-family: 'Roboto', sans-serif; font-size: 2.7cqi; font-weight: 700; font-style: normal;
+      color: var(--ink); line-height: 1.12; letter-spacing: -0.02em; flex: 0 0 34%; max-width: 34%;
     }
     .slide--problem .problem-row .why { font-size: 1.55cqi; line-height: 1.4; color: var(--ink-secondary); align-self: center; }
     .slide--problem .problem-row .why strong { color: var(--ink); font-weight: 700; }
     .slide--problem .problem-cost {
-      margin-top: 0.4cqi; padding: 1.3cqi 1.8cqi; border-radius: 1cqi; background: var(--accent-light);
+      margin-top: 0.4cqi; padding: 1.3cqi 1.8cqi; border-radius: 12px; background: var(--accent-light);
       font-size: 1.7cqi; line-height: 1.4; color: var(--ink); font-weight: 500; flex-shrink: 0;
     }
     .slide--problem .problem-cost strong { color: var(--accent); font-weight: 700; }
@@ -322,11 +403,11 @@
     .slide--showcase .s-lede { font-size: 1.5cqi; line-height: 1.4; color: var(--ink-secondary); max-width: 72ch; margin: 0.3cqi 0 0; flex-shrink: 0; }
     .slide--showcase .s-lede strong { color: var(--ink); font-weight: 600; }
     .part-problem { display: flex; align-items: baseline; gap: 1cqi; font-size: 1.45cqi; line-height: 1.35; color: var(--ink-secondary); margin: 0.1cqi 0 0; flex-shrink: 0; }
-    .part-problem .ptag { font-size: 0.95cqi; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: #B45309; background: #FEF3C7; padding: 0.3cqi 0.75cqi; border-radius: 0.5cqi; flex-shrink: 0; }
+    .part-problem .ptag { font-size: 0.95cqi; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: #B45309; background: #FEF3C7; padding: 0.3cqi 0.75cqi; border-radius: 999px; flex-shrink: 0; }
     .part-problem strong { color: var(--ink); font-weight: 600; }
     .slide--appendix .s-eyebrow .kicker { color: var(--accent-green); }
     .appendix-stats { display: flex; gap: 1.2cqi; margin: 0.6cqi 0 0; flex-shrink: 0; }
-    .appendix-stats .stat { flex: 1; padding: 0.9cqi 1.1cqi; border: 1px solid rgba(24,24,27,0.1); border-radius: 0.9cqi; background: rgba(24,24,27,0.02); display: flex; flex-direction: column; gap: 0.25cqi; }
+    .appendix-stats .stat { flex: 1; padding: 0.9cqi 1.1cqi; border: 1px solid var(--rule); border-radius: 12px; background: var(--surface); display: flex; flex-direction: column; gap: 0.25cqi; }
     .appendix-stats .stat .v { font-size: 1.7cqi; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
     .appendix-stats .stat .k { font-size: 1.2cqi; color: var(--ink-secondary); line-height: 1.3; }
     .s2-body p {
@@ -368,14 +449,14 @@
     .s3-insight {
       margin-top: 0.2cqi;
       padding: 1.2cqi 1.6cqi;
-      border-radius: 0.8cqi;
+      border-radius: 12px;
       background: var(--accent-light);
       display: flex;
       align-items: baseline;
       gap: 2cqi;
     }
     .s3-insight .label { font-size: 1.2cqi; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); font-weight: 700; flex-shrink: 0; }
-    .s3-insight .quote { font-family: 'Fraunces', Georgia, serif; font-style: italic; font-weight: 400; font-size: 1.85cqi; line-height: 1.25; color: var(--ink); }
+    .s3-insight .quote { font-family: 'Roboto', sans-serif; font-style: normal; font-weight: 500; font-size: 1.85cqi; line-height: 1.25; color: var(--ink); letter-spacing: -0.01em; }
 
     /* Slide 4 — Explored & Rejected */
     .slide--rejected { gap: 1.1cqi; flex: 1; min-height: 0; }
@@ -383,8 +464,8 @@
     .s4-card {
       padding: 1.4cqi 1.6cqi;
       border: 1px solid var(--rule);
-      border-radius: 0.8cqi;
-      background: #FAFAFA;
+      border-radius: 12px;
+      background: var(--surface);
     }
     .s4-card .tag {
       display: inline-block;
@@ -399,10 +480,11 @@
       margin-bottom: 1.2cqi;
     }
     .s4-card h3 {
-      font-family: 'Fraunces', Georgia, serif;
+      font-family: 'Roboto', sans-serif;
       font-size: 2.2cqi;
       line-height: 1.1;
-      font-weight: 400;
+      font-weight: 700;
+      letter-spacing: -0.02em;
       margin-bottom: 1.2cqi;
       color: var(--ink);
       text-decoration: line-through;
@@ -422,29 +504,29 @@
     .s4-tradeoff {
       padding: 1.1cqi 1.5cqi;
       background: var(--ink);
-      color: #FAFAFA;
-      border-radius: 0.8cqi;
+      color: #f9f9f8;
+      border-radius: 12px;
       display: flex; align-items: baseline; gap: 1.6cqi;
     }
-    .s4-tradeoff .label { color: #fff; font-style: normal; font-weight: 700; font-family: 'Inter', sans-serif; font-size: 1.15cqi; letter-spacing: 0.16em; text-transform: uppercase; flex-shrink: 0; opacity: 0.65; }
+    .s4-tradeoff .label { color: #fff; font-style: normal; font-weight: 700; font-family: 'Roboto', sans-serif; font-size: 1.15cqi; letter-spacing: 0.16em; text-transform: uppercase; flex-shrink: 0; opacity: 0.65; }
     .s4-tradeoff .body {
-      font-family: 'Fraunces', Georgia, serif;
-      font-style: italic;
+      font-family: 'Roboto', sans-serif;
+      font-style: normal;
       font-size: 1.55cqi;
       line-height: 1.35;
-      font-weight: 300;
-      color: #FAFAFA;
+      font-weight: 400;
+      color: #f9f9f8;
     }
     .s4-shipped {
       display: grid; grid-template-columns: 1fr 1.35fr; gap: 1.6cqi;
       align-items: center;
       padding: 1.2cqi 1.5cqi;
-      border-radius: 0.8cqi;
+      border-radius: 12px;
       background: #fff;
       border: 1px solid var(--rule);
     }
     .s4-shipped p { font-size: 1.25cqi; line-height: 1.38; color: var(--ink-secondary); }
-    .s4-shipped p strong { color: var(--ink); font-weight: 500; display: block; font-size: 1.45cqi; margin-bottom: 0.25cqi; font-family: 'Fraunces', Georgia, serif; font-style: italic; font-weight: 400; }
+    .s4-shipped p strong { color: var(--ink); display: block; font-size: 1.45cqi; margin-bottom: 0.25cqi; font-family: 'Roboto', sans-serif; font-style: normal; font-weight: 700; letter-spacing: -0.01em; }
     .s4-shipped .deck-shot {
       max-height: 22cqi;
       min-height: 10cqi;
@@ -455,15 +537,15 @@
     .slide--system { gap: 1.2cqi; flex: 1; min-height: 0; }
     .s5-loop {
       padding: 1.4cqi 1.5cqi;
-      border-radius: 0.8cqi;
-      background: linear-gradient(180deg, #FAFAFA 0%, #F4F4F5 100%);
+      border-radius: 12px;
+      background: var(--surface);
       border: 1px solid var(--rule);
       display: grid;
       grid-template-columns: 1fr auto 1fr auto 1fr;
       gap: 1.6cqi;
       align-items: center;
     }
-    .s5-node { padding: 1.4cqi 1.6cqi; background: #fff; border: 1px solid var(--rule); border-radius: 0.6cqi; display: flex; flex-direction: column; gap: 0.5cqi; min-width: 0; }
+    .s5-node { padding: 1.4cqi 1.6cqi; background: #fff; border: 1px solid var(--rule); border-radius: 12px; display: flex; flex-direction: column; gap: 0.5cqi; min-width: 0; }
     .s5-node .who { font-size: 1.05cqi; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: var(--ink-muted); }
     .s5-node .what { font-size: 1.2cqi; line-height: 1.28; color: var(--ink); font-weight: 500; }
     .s5-node--admin .who { color: var(--accent); }
@@ -479,7 +561,7 @@
     .s5-table tr:last-child td { border-bottom: 0; }
     .s5-quote { padding-top: 0.4cqi; }
     .s5-quote .label { font-size: 1.1cqi; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: var(--accent); margin-bottom: 1.2cqi; }
-    .s5-quote .text { font-family: 'Fraunces', Georgia, serif; font-style: italic; font-size: 1.65cqi; line-height: 1.28; color: var(--ink); font-weight: 400; max-width: 24ch; }
+    .s5-quote .text { font-family: 'Roboto', sans-serif; font-style: normal; font-size: 1.65cqi; line-height: 1.28; color: var(--ink); font-weight: 500; letter-spacing: -0.01em; max-width: 24ch; }
     .s5-quote .attrib { font-size: 1.1cqi; color: var(--ink-muted); margin-top: 0.6cqi; }
 
     /* Slide 6 — Phase 1 */
@@ -494,11 +576,11 @@
       min-height: 0;
       width: 100%;
       max-height: 34cqi;
-      border-radius: 0.5cqi;
+      border-radius: 12px;
       overflow: hidden;
       border: 1px solid var(--rule);
       box-shadow: var(--shadow-md);
-      background: #F4F4F5;
+      background: var(--surface);
     }
     .s6-shot img {
       max-width: 100%;
@@ -517,13 +599,13 @@
     /* Slide 7 — Reply pattern + Phase 2 */
     .slide--craft { gap: 1cqi; flex: 1; min-height: 0; }
     .s7-grid { display: grid; grid-template-columns: 0.95fr 1.35fr; gap: 2.2cqi; flex: 1; min-height: 0; align-items: stretch; overflow: hidden; }
-    .s7-pattern { padding: 1.2cqi 1.35cqi; border: 1px dashed var(--rule); border-radius: 0.65cqi; background: #FAFAFA; min-height: 0; }
+    .s7-pattern { padding: 1.2cqi 1.35cqi; border: 1px dashed var(--rule); border-radius: 12px; background: var(--surface); min-height: 0; }
     .s7-pattern .label { font-size: 1.1cqi; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: var(--ink-muted); margin-bottom: 1.2cqi; }
-    .s7-row { padding: 1.1cqi 1.4cqi; background: #fff; border: 1px solid var(--rule); border-radius: 0.5cqi; font-size: 1.45cqi; color: var(--ink); margin-bottom: 0.7cqi; line-height: 1.4; }
-    .s7-action { padding: 1cqi 1.4cqi; background: var(--accent); color: #fff; border-radius: 0.5cqi; font-size: 1.4cqi; font-weight: 600; display: inline-block; margin-top: 0.2cqi; }
+    .s7-row { padding: 1.1cqi 1.4cqi; background: #fff; border: 1px solid var(--rule); border-radius: 12px; font-size: 1.45cqi; color: var(--ink); margin-bottom: 0.7cqi; line-height: 1.4; }
+    .s7-action { padding: 1cqi 1.4cqi; background: var(--accent); color: #fff; border-radius: 999px; font-size: 1.4cqi; font-weight: 600; display: inline-block; margin-top: 0.2cqi; }
     .s7-phase2 { display: flex; flex-direction: column; min-height: 0; flex: 1; overflow: hidden; }
-    .s7-phase2 h4 { font-family: 'Fraunces', Georgia, serif; font-size: 1.65cqi; line-height: 1.15; font-weight: 400; margin-bottom: 0.55cqi; color: var(--ink); }
-    .s7-phase2 h4 em { font-style: italic; color: var(--accent); }
+    .s7-phase2 h4 { font-family: 'Roboto', sans-serif; font-size: 1.65cqi; line-height: 1.15; font-weight: 700; letter-spacing: -0.015em; margin-bottom: 0.55cqi; color: var(--ink); }
+    .s7-phase2 h4 em { font-style: normal; color: var(--accent); }
     .s7-phase2 ul { list-style: none; }
     .s7-phase2 li { font-size: 1.2cqi; line-height: 1.32; color: var(--ink-secondary); margin-bottom: 0.25cqi; padding-left: 1.35cqi; position: relative; }
     .s7-phase2 li::before { content: "→"; position: absolute; left: 0; top: 0; color: var(--accent); font-weight: 600; }
@@ -531,7 +613,7 @@
     .s7-shots { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85cqi; margin-top: 0.6cqi; flex: 1; min-height: 0; max-height: 34cqi; }
     .s7-shots .s6-shot { max-height: 100%; min-height: 8cqi; flex: 1 1 0; }
     .s7-source { font-size: 1.05cqi; padding: 0.6cqi 0 0; border-top: 1px solid var(--rule); color: var(--ink-secondary); margin-top: 0.4cqi; line-height: 1.32; max-width: none; }
-    .s7-source strong { color: var(--ink); font-weight: 500; font-family: 'Fraunces', Georgia, serif; font-style: italic; }
+    .s7-source strong { color: var(--ink); font-weight: 700; font-family: 'Roboto', sans-serif; font-style: normal; }
 
     /* Slide 8 — Stakeholder */
     .slide--influence { gap: 1.2cqi; flex: 1; min-height: 0; }
@@ -541,7 +623,7 @@
     .s8-table thead th:nth-child(2) { width: 38%; }
     .s8-table thead th:nth-child(3) { width: 34%; }
     .s8-table td { padding: 0.55cqi 0.85cqi 0.55cqi 0; border-bottom: 1px solid var(--hairline); vertical-align: top; line-height: 1.3; }
-    .s8-table td:first-child { color: var(--ink); font-weight: 500; padding-right: 1cqi; font-family: 'Fraunces', Georgia, serif; font-size: 1.28cqi; line-height: 1.2; }
+    .s8-table td:first-child { color: var(--ink); font-weight: 500; padding-right: 1cqi; font-family: 'Roboto', sans-serif; font-size: 1.28cqi; line-height: 1.2; }
     .s8-table td.push { color: var(--ink-secondary); padding-right: 2cqi; }
     .s8-table td.result { color: var(--ink); font-weight: 600; font-size: 1.45cqi; }
     .s8-table td.result::before { content: "✓"; color: var(--accent-green); margin-right: 0.6cqi; font-weight: 700; }
@@ -569,25 +651,25 @@
       margin-top: 0.6cqi;
       padding: 1.1cqi 1.4cqi;
       background: var(--ink);
-      color: #FAFAFA;
-      border-radius: 0.8cqi;
-      font-family: 'Fraunces', Georgia, serif;
+      color: #f9f9f8;
+      border-radius: 12px;
+      font-family: 'Roboto', sans-serif;
       font-size: 1.45cqi;
       line-height: 1.35;
-      font-weight: 300;
-      font-style: italic;
+      font-weight: 400;
+      font-style: normal;
     }
-    .s9-callout strong { color: #fff; font-weight: 500; font-style: normal; font-family: 'Inter', sans-serif; font-size: 1.1cqi; letter-spacing: 0.16em; text-transform: uppercase; display: block; margin-bottom: 0.6cqi; opacity: 0.65; }
+    .s9-callout strong { color: #fff; font-weight: 500; font-style: normal; font-family: 'Roboto', sans-serif; font-size: 1.1cqi; letter-spacing: 0.16em; text-transform: uppercase; display: block; margin-bottom: 0.6cqi; opacity: 0.65; }
 
     /* Slide 10 — Reflection + Why Autodesk */
     .slide--close { gap: 1.2cqi; padding: 3.6cqi 4.6cqi 6.4cqi; flex: 1; min-height: 0; }
     .s10-quote {
-      font-family: 'Fraunces', Georgia, serif;
-      font-style: italic;
-      font-weight: 300;
+      font-family: 'Roboto', sans-serif;
+      font-style: normal;
+      font-weight: 700;
       font-size: 3.15cqi;
       line-height: 1.12;
-      letter-spacing: -0.018em;
+      letter-spacing: -0.025em;
       color: var(--ink);
       max-width: 32ch;
       flex-shrink: 0;
@@ -630,7 +712,7 @@
       gap: 3cqi;
     }
     .s10-close .why { font-size: 1.2cqi; color: var(--ink-secondary); line-height: 1.35; max-width: 50ch; }
-    .s10-close .why strong { color: var(--ink); font-weight: 400; display: block; font-size: 1.35cqi; margin-bottom: 0.25cqi; font-family: 'Fraunces', Georgia, serif; font-style: italic; }
+    .s10-close .why strong { color: var(--ink); font-weight: 700; display: block; font-size: 1.35cqi; margin-bottom: 0.25cqi; font-family: 'Roboto', sans-serif; font-style: normal; letter-spacing: -0.01em; }
     .s10-close .sig { font-size: 1.1cqi; color: var(--ink-muted); text-align: right; flex-shrink: 0; line-height: 1.45; }
     .s10-close .sig strong { color: var(--ink-secondary); font-weight: 600; display: block; }
 
@@ -706,7 +788,7 @@
     /* === Speaker notes overlay === */
     .notes-overlay {
       position: fixed; inset: 0;
-      background: rgba(24,24,27,0.55);
+      background: rgba(55, 53, 47, 0.45);
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
       z-index: 100;
@@ -721,24 +803,24 @@
     .notes-card {
       max-width: 720px;
       width: 100%;
-      background: #18181B;
-      color: #FAFAFA;
+      background: #37352f;
+      color: #f9f9f8;
       padding: 32px 36px 28px;
-      border-radius: 16px;
-      box-shadow: 0 32px 60px rgba(0,0,0,0.4);
+      border-radius: 12px;
+      box-shadow: var(--shadow-lg);
       max-height: 80vh;
       overflow-y: auto;
     }
     .notes-card .label {
       font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
-      color: rgba(239,244,255,0.85); font-weight: 700;
+      color: rgba(249,249,248,0.75); font-weight: 700;
       display: flex; justify-content: space-between; align-items: center;
       margin-bottom: 18px;
     }
-    .notes-card .label .num { font-variant-numeric: tabular-nums; color: rgba(250,250,250,0.45); font-weight: 600; }
+    .notes-card .label .num { font-variant-numeric: tabular-nums; color: rgba(249,249,248,0.45); font-weight: 600; }
     .notes-card h4 {
-      font-family: 'Fraunces', Georgia, serif;
-      font-size: 22px; font-weight: 400; letter-spacing: -0.01em;
+      font-family: 'Roboto', sans-serif;
+      font-size: 22px; font-weight: 700; letter-spacing: -0.02em;
       margin-bottom: 14px;
       line-height: 1.2;
       color: #fff;
@@ -764,16 +846,16 @@
     /* === First-load hint === */
     .deck-hint {
       position: fixed; left: 50%; top: 16px; transform: translateX(-50%);
-      background: rgba(24,24,27,0.92);
-      color: #FAFAFA;
+      background: rgba(55, 53, 47, 0.92);
+      color: #f9f9f8;
       padding: 9px 18px;
-      border-radius: 100px;
+      border-radius: 999px;
       font-size: 12px;
       letter-spacing: 0.02em;
       font-weight: 500;
       z-index: 60;
       backdrop-filter: blur(10px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+      box-shadow: var(--shadow-md);
       pointer-events: none;
       opacity: 0;
       transition: opacity 480ms cubic-bezier(0.22, 1, 0.36, 1);
@@ -800,16 +882,16 @@
       align-items: center;
       justify-content: center;
       padding: 24px;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
     }
     .deck-gate-card {
       max-width: 380px;
       width: 100%;
       text-align: center;
       padding: 28px 24px 22px;
-      background: var(--bg-card);
+      background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 14px;
+      border-radius: 12px;
       box-shadow: var(--shadow-lg);
     }
     .deck-gate-eyebrow {
@@ -821,9 +903,9 @@
       margin-bottom: 10px;
     }
     .deck-gate-title {
-      font-family: 'Fraunces', Georgia, serif;
+      font-family: 'Roboto', sans-serif;
       font-size: 22px;
-      font-weight: 400;
+      font-weight: 700;
       color: var(--ink);
       margin: 0 0 10px;
       letter-spacing: -0.02em;
@@ -841,8 +923,10 @@
       font-size: 15px;
       font-family: inherit;
       border: 1px solid var(--border);
-      border-radius: 10px;
+      border-radius: 12px;
       outline: none;
+      background: #fff;
+      color: var(--ink);
     }
     .deck-gate-input:focus {
       border-color: var(--accent);
@@ -866,8 +950,8 @@
       cursor: pointer;
       transition: background 0.2s cubic-bezier(0.25, 0.1, 0.25, 1), transform 0.15s cubic-bezier(0.25, 0.1, 0.25, 1);
     }
-    .deck-gate-submit:hover { background: #27272a; }
-    .deck-gate-submit:active { background: #09090b; transform: scale(0.985); }
+    .deck-gate-submit:hover { background: #2c2a26; }
+    .deck-gate-submit:active { background: #1f1e1a; transform: scale(0.985); }
     .deck-gate-back {
       display: inline-block;
       margin-top: 18px;
@@ -966,13 +1050,19 @@
         <div class="s-eyebrow">The problem</div>
         <h2 class="s2-headline">Right design system, <em>wrong surface.</em></h2>
         <div class="s2-body s2-body--task">
-          <p style="font-size:1.55cqi;line-height:1.45;color:var(--ink-secondary);max-width:72ch;">Clinical staff run <strong style="color:var(--ink)">21 inventory tasks</strong> all shift on <strong style="color:var(--ink)">Zebra handhelds</strong> in a healthcare facility supply area — mobile web, not native.</p>
-          <p style="font-size:1.55cqi;line-height:1.45;color:var(--ink-secondary);max-width:72ch;margin-top:1cqi;"><strong style="color:var(--ink)">Canvas Mobile</strong> targets native apps. <strong style="color:var(--ink)">Canvas Web</strong> is Workday's default web library — optimized for desktop web, not ~360px scanners or shift-long pro use.</p>
-          <p style="font-size:1.55cqi;line-height:1.45;color:var(--ink-secondary);max-width:72ch;margin-top:1cqi;">PM, engineering, and design aligned on Canvas Web for the rebuild. We owned <strong style="color:var(--ink)">product-specific component updates</strong> on top — legacy stack was sunsetting.</p>
+          <p style="font-size:1.45cqi;line-height:1.42;color:var(--ink-secondary);max-width:72ch;">Clinical staff run <strong style="color:var(--ink)">21 inventory tasks</strong> all shift on <strong style="color:var(--ink)">Zebra handhelds</strong> in a healthcare facility supply area — mobile web, not native.</p>
+          <p style="font-size:1.45cqi;line-height:1.42;color:var(--ink-secondary);max-width:72ch;margin-top:0.75cqi;"><strong style="color:var(--ink)">Canvas Mobile</strong> targets native apps. <strong style="color:var(--ink)">Canvas Web</strong> is Workday's default web library — optimized for desktop web, not scanners or shift-long pro use.</p>
+          <p style="font-size:1.45cqi;line-height:1.42;color:var(--ink-secondary);max-width:72ch;margin-top:0.75cqi;">PM, engineering, and design aligned on Canvas Web for the rebuild. We owned <strong style="color:var(--ink)">product-specific component updates</strong> on top — legacy stack was sunsetting.</p>
+          <ul class="deck-specs" aria-label="Device constraints">
+            <li><strong>Design floor</strong> Smallest Zebra viewport — size to that minimum (~360px)</li>
+            <li><strong>Input</strong> Hardware scan trigger first, touch second · gloves-on</li>
+            <li><strong>Session</strong> Full shift, hundreds of lines — density beats whitespace</li>
+            <li><strong>Stack</strong> React WebView — Canvas Mobile isn't available to us</li>
+          </ul>
         </div>
         <div class="s-footer">
           <div class="left"><strong>Inventory</strong> · Problem</div>
-          <div class="right">02 / 11</div>
+          <div class="right">02 / 13</div>
         </div>
       </section>
 
@@ -980,20 +1070,45 @@
       <section class="slide slide--showcase" data-slide="3" aria-label="Scope">
         <div class="s-head"><div class="s-eyebrow">Scope</div></div>
         <h2 class="s-headline">21 tasks — full <em>inventory lifecycle.</em></h2>
-        <p class="s-lede">Not one pick screen. Replenish → put-away → manage stock → fulfill — all on handheld scanners.</p>
-        <div class="showcase-trio" style="grid-template-columns:1fr 1fr;">
-          <div class="showcase-col">
-            <div class="deck-shot"><img src="images/inventory-picking/inventory-lifecycle.png" alt="Inventory lifecycle" loading="lazy" /></div>
-            <div class="showcase-step"><span class="n">01</span><span>Full lifecycle</span></div>
+        <p class="s-lede">Not one pick screen. Every phase below runs on the same handheld WebView and shares the same component library.</p>
+        <div class="deck-lifecycle" role="list" aria-label="Inventory lifecycle phases">
+          <div class="deck-lifecycle-phase" role="listitem">
+            <div class="name">Replenish</div>
+            <ul>
+              <li>Supplier agreements</li>
+              <li>Order &amp; receive</li>
+              <li>Replenishment</li>
+            </ul>
           </div>
-          <div class="showcase-col">
-            <div class="deck-shot"><img src="images/inventory-picking/mobile-modernization-context.png" alt="Legacy MAX mobile layer" loading="lazy" /></div>
-            <div class="showcase-step"><span class="n">02</span><span>Legacy MAX — timeouts, click-heavy nav</span></div>
+          <div class="deck-lifecycle-phase" role="listitem">
+            <div class="name">Put-away</div>
+            <ul>
+              <li>Put-away</li>
+              <li>Transfer location</li>
+              <li>Inventory movements</li>
+            </ul>
+          </div>
+          <div class="deck-lifecycle-phase" role="listitem">
+            <div class="name">Manage stock</div>
+            <ul>
+              <li>Par count</li>
+              <li>Adjust inventory</li>
+              <li>Inventory counts</li>
+            </ul>
+          </div>
+          <div class="deck-lifecycle-phase" role="listitem">
+            <div class="name">Fulfill</div>
+            <ul>
+              <li>Batch pick</li>
+              <li>Issue &amp; ship</li>
+              <li>Returns</li>
+            </ul>
           </div>
         </div>
+        <p class="scope-legacy"><strong>Starting point:</strong> Legacy MAX timing out under load · Canvas Web at desktop proportions — airy rows, truncated labels, scanner chrome eating the form.</p>
         <div class="s-footer">
           <div class="left"><strong>Inventory</strong> · Scope</div>
-          <div class="right">03 / 11</div>
+          <div class="right">03 / 13</div>
         </div>
       </section>
 
@@ -1014,7 +1129,7 @@
         </div>
         <div class="s-footer">
           <div class="left"><strong>Inventory</strong> · Before</div>
-          <div class="right">04 / 11</div>
+          <div class="right">04 / 13</div>
         </div>
       </section>
 
@@ -1028,7 +1143,7 @@
         </div>
         <div class="s-footer">
           <div class="left"><strong>Inventory</strong> · Exploration</div>
-          <div class="right">05 / 11</div>
+          <div class="right">05 / 13</div>
         </div>
       </section>
 
@@ -1050,7 +1165,7 @@
         </div>
         <div class="s-footer">
           <div class="left"><strong>Inventory</strong> · Decision</div>
-          <div class="right">06 / 11</div>
+          <div class="right">06 / 13</div>
         </div>
       </section>
 
@@ -1058,13 +1173,13 @@
       <section class="slide slide--showcase" data-slide="7" aria-label="Discovery">
         <div class="s-head"><div class="s-eyebrow">Discovery</div></div>
         <h2 class="s-headline">21 tasks, same <em>three gaps.</em></h2>
-        <p class="s-lede">Action bars truncated at ~360px · list rows too airy · blue scanner panel squeezed forms. Full library overhaul — <strong>three examples in the case study.</strong></p>
+        <p class="s-lede">Action bars truncated at ~360px · list rows too airy · blue scanner panel squeezed forms. Full library overhaul — <strong>three examples next.</strong></p>
         <div class="showcase-figure">
           <div class="deck-shot"><img src="images/inventory-picking/hub-design-system.png" alt="Component library" loading="lazy" /></div>
         </div>
         <div class="s-footer">
           <div class="left"><strong>Inventory</strong> · Library</div>
-          <div class="right">07 / 11</div>
+          <div class="right">07 / 13</div>
         </div>
       </section>
 
@@ -1092,7 +1207,7 @@
         </div>
         <div class="s-footer">
           <div class="left"><strong>Inventory</strong> · Design in code</div>
-          <div class="right">08 / 11</div>
+          <div class="right">08 / 13</div>
         </div>
       </section>
 
@@ -1113,7 +1228,7 @@
         </div>
         <div class="s-footer">
           <div class="left"><strong>Inventory</strong> · Action bar</div>
-          <div class="right">09 / 11</div>
+          <div class="right">09 / 13</div>
         </div>
       </section>
 
@@ -1135,54 +1250,91 @@
         </div>
         <div class="s-footer">
           <div class="left"><strong>Inventory</strong> · Par Count</div>
-          <div class="right">10 / 11</div>
+          <div class="right">10 / 13</div>
         </div>
       </section>
 
-      <!-- ====== SLIDE 11 — SCANNER + OUTCOMES ====== -->
-      <section class="slide slide--showcase" data-slide="11" aria-label="Scanner and outcomes">
-        <div class="s-head"><div class="s-eyebrow">Example 3 + shipped</div></div>
-        <h2 class="s-headline">Scanner panel removed · <em>scaled to 21 tasks.</em></h2>
-        <div class="cause-effect" style="flex:0.55;min-height:0;">
+      <!-- ====== SLIDE 11 — SCANNER ====== -->
+      <section class="slide slide--showcase" data-slide="11" aria-label="Scanner panel">
+        <div class="s-head"><div class="s-eyebrow">Example 3</div></div>
+        <h2 class="s-headline">Scanner panel removed · <em>form space back.</em></h2>
+        <p class="s-lede">Blue panel ate a third of the screen. Customer review pushed removal — scan state moved into the action bar. Same pattern scaled across adjust inventory and related tasks.</p>
+        <div class="cause-effect">
           <div class="showcase-col">
             <div class="deck-shot"><img src="images/inventory-picking/adjust-inventory-before.png?v=2" alt="Before scanner panel" loading="lazy" /></div>
+            <div class="ce-label"><span class="tag">Before</span><strong>Panel compresses form</strong></div>
           </div>
           <div class="ce-arrow" aria-hidden="true">→</div>
           <div class="showcase-col">
             <div class="deck-shot"><img src="images/inventory-picking/adjust-inventory-after.png?v=2" alt="After compact scan" loading="lazy" /></div>
+            <div class="ce-label"><span class="tag">After</span><strong>Scan state in action bar</strong></div>
           </div>
         </div>
-        <p class="s-lede" style="margin-top:0.6cqi;">9 PRs merged · adopted by other mobile teams · extend Canvas Web, don't fork · batch pick proof on updated components.</p>
         <div class="s-footer">
-          <div class="left"><strong>Inventory</strong> · Outcomes</div>
-          <div class="right">11 / 11</div>
+          <div class="left"><strong>Inventory</strong> · Scanner</div>
+          <div class="right">11 / 13</div>
         </div>
       </section>
 
-      <!-- ====== APPENDIX A1 — BATCH PICK DEEP DIVE ====== -->
-      <section class="slide slide--showcase slide--appendix" data-slide="12" aria-label="Batch pick appendix">
-        <div class="s-head"><div class="s-eyebrow"><span class="kicker">Appendix</span> · Proof flow</div></div>
-        <h2 class="s-headline">Batch pick — <em>stress-test.</em></h2>
-        <p class="s-lede">High line volume, constant scanning, dual footer actions. Scanner auto-advances steps; fields auto-advance. Mobile web shell — no native rebuild.</p>
+      <!-- ====== SLIDE 12 — BATCH PICK PROOF ====== -->
+      <section class="slide slide--showcase" data-slide="12" aria-label="Batch pick proof">
+        <div class="s-head"><div class="s-eyebrow">Proof</div></div>
+        <h2 class="s-headline">Batch pick — <em>stress-test before scale.</em></h2>
+        <p class="s-lede">Highest line volume, constant scanning, dual footer actions. Scanner auto-advances steps; fields auto-advance. Validated here, then rolled to the other 20 tasks — mobile web shell, no native rebuild.</p>
         <div class="showcase-trio">
           <div class="showcase-col">
-            <div class="deck-shot"><img src="images/inventory-picking/batch-webview-01.jpg?v=3" alt="Batch pick 1" loading="lazy" /></div>
+            <div class="deck-shot"><img src="images/inventory-picking/batch-webview-01.jpg?v=3" alt="Batch pick line in progress" loading="lazy" /></div>
+            <div class="showcase-step"><span class="n">01</span><span>Line in progress</span></div>
           </div>
           <div class="showcase-col">
-            <div class="deck-shot"><img src="images/inventory-picking/batch-webview-02.jpg?v=3" alt="Batch pick 2" loading="lazy" /></div>
+            <div class="deck-shot"><img src="images/inventory-picking/batch-webview-02.jpg?v=3" alt="Batch pick dense list" loading="lazy" /></div>
+            <div class="showcase-step"><span class="n">02</span><span>Dense lines + dual actions</span></div>
           </div>
           <div class="showcase-col">
-            <div class="deck-shot"><img src="images/inventory-picking/batch-webview-03.jpg?v=3" alt="Batch pick 3" loading="lazy" /></div>
+            <div class="deck-shot"><img src="images/inventory-picking/batch-webview-03.jpg?v=3" alt="Batch pick scanner step" loading="lazy" /></div>
+            <div class="showcase-step"><span class="n">03</span><span>Scanner drives next step</span></div>
           </div>
         </div>
         <div class="s-footer">
-          <div class="left"><strong>Inventory</strong> · Appendix</div>
-          <div class="right">A1</div>
+          <div class="left"><strong>Inventory</strong> · Batch pick</div>
+          <div class="right">12 / 13</div>
         </div>
       </section>
 
-      <!-- ====== APPENDIX A2 — TAKEAWAYS ====== -->
-      <section class="slide slide--who slide--appendix" data-slide="13" aria-label="Takeaways appendix">
+      <!-- ====== SLIDE 13 — OUTCOMES ====== -->
+      <section class="slide slide--who slide--outcomes" data-slide="13" aria-label="Outcomes">
+        <div class="s-eyebrow">Outcomes</div>
+        <h2 class="s2-headline">Shipped · <em>adopted beyond inventory.</em></h2>
+        <div class="s-overview s-overview--quad" style="margin-top:1.2cqi;">
+          <div class="s-overview-card">
+            <div class="star">01</div>
+            <h3>Extended Canvas Web for mobile</h3>
+            <p>Adapted spacing and density for Zebra — same tokens, new proportions.</p>
+          </div>
+          <div class="s-overview-card">
+            <div class="star">02</div>
+            <h3>One catalog for 21 tasks</h3>
+            <p>Every screen pulls from the same shared component library.</p>
+          </div>
+          <div class="s-overview-card">
+            <div class="star">03</div>
+            <h3>Adopted by other teams</h3>
+            <p>Mobile-web variants outlived the inventory project.</p>
+          </div>
+          <div class="s-overview-card">
+            <div class="star">04</div>
+            <h3>Nine PRs merged</h3>
+            <p>Spacing, density, and fidelity shipped in code — not just Storybook.</p>
+          </div>
+        </div>
+        <div class="s-footer">
+          <div class="left"><strong>Inventory</strong> · Outcomes</div>
+          <div class="right">13 / 13</div>
+        </div>
+      </section>
+
+      <!-- ====== APPENDIX A1 — TAKEAWAYS ====== -->
+      <section class="slide slide--who slide--appendix" data-slide="14" aria-label="Takeaways appendix">
         <div class="s-eyebrow"><span class="kicker">Appendix</span> · Takeaways</div>
         <h2 class="s2-headline">What I'd <em>carry forward.</em></h2>
         <div class="s-overview s-overview--quad">
@@ -1209,12 +1361,12 @@
         </div>
         <div class="s-footer">
           <div class="left"><strong>Inventory</strong> · Takeaways</div>
-          <div class="right">A2</div>
+          <div class="right">A1</div>
         </div>
       </section>
 
-      <!-- ====== APPENDIX A3 — BEFORE DETAIL ====== -->
-      <section class="slide slide--showcase slide--appendix" data-slide="14" aria-label="Before detail appendix">
+      <!-- ====== APPENDIX A2 — BEFORE DETAIL ====== -->
+      <section class="slide slide--showcase slide--appendix" data-slide="15" aria-label="Before detail appendix">
         <div class="s-head"><div class="s-eyebrow"><span class="kicker">Appendix</span> · Before detail</div></div>
         <h2 class="s-headline">More <em>before</em> states</h2>
         <div class="showcase-trio" style="grid-template-columns:1fr 1fr;">
@@ -1223,13 +1375,13 @@
             <div class="showcase-step"><span class="n">01</span><span>One line at a time</span></div>
           </div>
           <div class="showcase-col">
-            <div class="deck-shot"><img src="images/inventory-picking/adjust-inventory-before.png?v=2" alt="Before scanner" loading="lazy" /></div>
-            <div class="showcase-step"><span class="n">02</span><span>Panel eats form space</span></div>
+            <div class="deck-shot"><img src="images/inventory-picking/mobile-modernization-context.png" alt="Legacy MAX mobile layer" loading="lazy" /></div>
+            <div class="showcase-step"><span class="n">02</span><span>Legacy MAX — timeouts, click-heavy nav</span></div>
           </div>
         </div>
         <div class="s-footer">
           <div class="left"><strong>Inventory</strong> · Appendix</div>
-          <div class="right">A3</div>
+          <div class="right">A2</div>
         </div>
       </section>
 
@@ -1261,19 +1413,20 @@
   <script id="deck-data" type="application/json">
 [
   { "title": "Title", "notes": "<p>Mobile inventory modernization — Canvas Web on mobile web for Zebra. Full walkthrough deck; case study page is the skim version.</p>" },
-  { "title": "Problem", "notes": "<p>Canvas Mobile = native. We ship mobile web. Canvas Web = desktop defaults. Team aligned on Canvas Web; we owned product-specific components. Legacy sunsetting.</p>" },
-  { "title": "Scope", "notes": "<p>21 tasks across full lifecycle. Legacy MAX layer had timeouts and click-heavy navigation — separate from the Canvas Web design system decision.</p>" },
+  { "title": "Problem", "notes": "<p>Canvas Mobile = native. We ship mobile web. Canvas Web = desktop defaults. Hit the four constraints: design floor, trigger-first, shift density, React WebView. Team aligned on Canvas Web; we owned product-specific components.</p>" },
+  { "title": "Scope", "notes": "<p>Name the phases and a few tasks under each — Replenish / Put-away / Manage stock / Fulfill. Same WebView, same library. Legacy MAX was the starting point, separate from the DS decision.</p>" },
   { "title": "Before", "notes": "<p>Walk through airy lists, setup screens, few visible rows. Every extra tap compounds across a shift.</p>" },
   { "title": "Exploration", "notes": "<p>We tried flow simplification first — one item per screen. Better UX, same airy components. Pivot to shared building blocks.</p>" },
   { "title": "Decision", "notes": "<p>Path A vs B. I recommended product components on Canvas Web: audit 21 tasks, fix patterns, prove in batch pick, scale.</p>" },
-  { "title": "Discovery", "notes": "<p>Three gaps everywhere: action bar truncation, list density, scanner panel. Full library — case study shows three examples.</p>" },
+  { "title": "Discovery", "notes": "<p>Three gaps everywhere: action bar truncation, list density, scanner panel. Full library — three examples next.</p>" },
   { "title": "Design in code", "notes": "<p>Connected Cursor to Canvas Web GitHub. Figma specs → token updates in code. Trial on one task, scale to all components. Top 3 frontend contributor · 9 PRs merged.</p>" },
   { "title": "Action bar", "notes": "<p>clamp() between tokens. Storybook at 360px. DefaultLayout patch.</p>" },
   { "title": "Par Count", "notes": "<p>Like-to-like for customer re-training. Density where it counts.</p>" },
-  { "title": "Scanner + outcomes", "notes": "<p>Panel removed after customer review. Scan state in action bar. Scaled to 21 tasks.</p>" },
-  { "title": "Appendix · Batch pick", "notes": "<p>Deep dive: scanner auto-advance, field auto-advance, mobile web shell.</p>" },
-  { "title": "Appendix · Takeaways", "notes": "<p>Four principles for onsite Q&A.</p>" },
-  { "title": "Appendix · Before detail", "notes": "<p>Extra before screens not on skim case study.</p>" }
+  { "title": "Scanner", "notes": "<p>Panel removed after customer review. Scan state in action bar. Pattern reused on related tasks.</p>" },
+  { "title": "Batch pick", "notes": "<p>Proof before scale: high volume, scan-driven, dual actions. Auto-advance on scan and fields. Nail it here, rollout is straightforward.</p>" },
+  { "title": "Outcomes", "notes": "<p>Four shipped beats — extend Canvas Web, one catalog for 21, adopted beyond inventory, 9 PRs. Takeaways stay in appendix for Q&A.</p>" },
+  { "title": "Appendix · Takeaways", "notes": "<p>Four principles for onsite Q&A — don't also narrate these on Outcomes.</p>" },
+  { "title": "Appendix · Before detail", "notes": "<p>Keypad exploration + legacy MAX context visuals for backup.</p>" }
 ]
   </script>
   <script id="deck-script">
