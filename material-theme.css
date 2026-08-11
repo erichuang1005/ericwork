@@ -701,7 +701,7 @@ body.cs-m3-docs-page .breadcrumb .current {
   border-radius: 0 !important;
   overflow: hidden !important;
   box-shadow: none !important;
-  background: rgba(245, 245, 247, 0.22) !important;
+  background: rgba(249, 249, 248, 0.28) !important;
 }
 
 .liquid-glass-react-pw-backdrop .glass__warp {
@@ -711,7 +711,7 @@ body.cs-m3-docs-page .breadcrumb .current {
 .pw-password-glass-shell {
   width: 100%;
   max-width: min(420px, calc(100vw - 2 * var(--page-pad, 24px)));
-  filter: drop-shadow(0 22px 48px rgba(24, 24, 27, 0.11));
+  filter: drop-shadow(0 12px 28px rgba(55, 53, 47, 0.08));
 }
 
 .liquid-glass-react-pw-panel {
@@ -722,11 +722,11 @@ body.cs-m3-docs-page .breadcrumb .current {
 .liquid-glass-react-pw-panel .glass {
   width: 100% !important;
   padding: 0 !important;
-  border-radius: 32px !important;
+  border-radius: 12px !important;
   overflow: hidden !important;
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.82),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.38) !important;
+    inset 0 0 0 1px rgba(55, 53, 47, 0.08) !important;
 }
 
 .liquid-glass-react-pw-panel .glass__warp {
@@ -982,13 +982,13 @@ body.cs-m3-docs-page .breadcrumb .current {
 
 .theme-material .cs-expand-btn {
   font-family: var(--md-ref-typeface-plain);
-  font-size: var(--md-sys-typescale-label-large-size);
-  line-height: var(--md-sys-typescale-label-large-line-height);
-  font-weight: var(--md-sys-typescale-label-large-weight);
-  letter-spacing: var(--md-sys-typescale-label-large-tracking);
+  font-size: 15px;
+  line-height: 1;
+  font-weight: 500;
+  letter-spacing: 0.01em;
   border-radius: var(--md-shape-full);
-  min-height: 40px;
-  padding: 10px 24px;
+  min-height: 44px;
+  padding: 0 20px;
   background: var(--ink);
   color: #fff;
   border: none;
@@ -1004,9 +1004,14 @@ body.cs-m3-docs-page .breadcrumb .current {
 }
 
 .theme-material .cs-expand-btn--secondary {
-  background: transparent;
-  color: var(--ink);
-  border: 1px solid var(--border);
+  background: rgba(55, 53, 47, 0.06);
+  color: #37352f;
+  border: none;
+}
+
+.theme-material .cs-expand-btn--secondary:hover {
+  background: rgba(55, 53, 47, 0.1);
+  color: #37352f;
 }
 
 .theme-material .tag {
@@ -1281,15 +1286,14 @@ body.cs-m3-docs-page .sc-sticky {
 }
 
 .theme-material footer .footer-cta--secondary {
-  background: var(--bg);
-  color: var(--ink);
-  border-color: var(--border);
+  background: rgba(55, 53, 47, 0.06);
+  color: #37352f;
+  border: none;
 }
 
 .theme-material footer .footer-cta--secondary:hover {
-  background: var(--tag-bg);
-  color: var(--ink);
-  border-color: var(--ink-muted);
+  background: rgba(55, 53, 47, 0.1);
+  color: #37352f;
 }
 
 .theme-material footer .footer-note {
@@ -1425,24 +1429,9 @@ body.cs-m3-docs-page .cs-snapshot-proof .cs-figure {
   overflow: hidden;
 }
 
-body.cs-m3-docs-page .cs-expand-btn,
 body.cs-m3-docs-page .cs-expand-btn:not(.cs-expand-btn--secondary) {
-  min-height: 40px;
-  padding: 0 16px;
-  font-size: 15px;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  border-radius: 999px;
-  background: #37352f;
-  color: #fff;
-  border: none;
-  box-shadow: none;
-}
-
-body.cs-m3-docs-page .cs-expand-btn:hover {
-  background: #2f2d28;
-  box-shadow: none;
-  transform: none;
+  font-weight: 500;
+  letter-spacing: 0.01em;
 }
 
 body.cs-m3-docs-page .cs-expand-btn--secondary {
@@ -1477,8 +1466,4 @@ body.cs-m3-docs-page footer a.footer-cta--secondary:hover {
   background: rgba(55, 53, 47, 0.1);
   border: none;
   color: #37352f;
-}
-
-body.cs-m3-docs-page footer a.footer-cta:not(.footer-cta--secondary) {
-  background: #37352f;
 }

@@ -438,44 +438,14 @@ function initLiquidGlassBackdrop() {
   }
 }
 
+/* Password wall uses the static soft card in auth.js — liquid-glass remount
+   caused a late width jump (~1s after open). Keep this as a no-op for callers. */
 function initLiquidGlassPassword() {
-  initLiquidGlassBackdrop();
-  try {
-    const mount = document.querySelector('#pw-glass-mount');
-    const panel = mount?.querySelector('#pw-panel-content');
-    if (!mount || !panel) return;
-    if (mount.dataset.lgPw === '1') {
-      if (!document.querySelector('.pw-password-glass-shell .liquid-glass-react-pw-panel')) {
-        delete mount.dataset.lgPw;
-      } else {
-        return;
-      }
-    }
-
-    mount.dataset.lgPw = '1';
-    panel.remove();
-
-    createRoot(mount).render(
-      <div className="pw-glass-root">
-        <PasswordPanelGlass panelEl={panel} />
-      </div>
-    );
-
-    requestAnimationFrame(function () {
-      if (typeof window.focusPwInput === 'function') {
-        window.focusPwInput();
-      } else {
-        document.getElementById('pw-input')?.focus();
-      }
-    });
-  } catch (err) {
-    console.error('[liquid-glass-pw] init failed:', err);
-  }
+  return;
 }
 
 function initAll() {
   initLiquidGlassTabs();
-  initLiquidGlassPassword();
 }
 
 window.initLiquidGlassPassword = initLiquidGlassPassword;

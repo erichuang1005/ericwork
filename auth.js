@@ -10,14 +10,37 @@
   var gatePageFlag = false;
 
   function isAuthed() {
-    return sessionStorage.getItem(KEY) === '1';
+    try {
+      return sessionStorage.getItem(KEY) === '1';
+    } catch (e) {
+      return false;
+    }
+  }
+
+  function isHomePath() {
+    var path = window.location.pathname || '';
+    return path === '/' || path.endsWith('/') || /\/index\.html$/i.test(path);
   }
 
   function isHomePage() {
     if (document.body && document.body.classList.contains('page-home')) return true;
-    var path = window.location.pathname || '';
-    return path === '/' || path.endsWith('/') || /\/index\.html$/i.test(path);
+    return isHomePath();
   }
+
+  /* Hide gated pages before first paint so content never flashes. */
+  function bootGate() {
+    if (isAuthed() || isHomePath()) return;
+    document.documentElement.classList.add('portfolio-gated', 'pw-boot');
+    if (document.getElementById('pw-boot-style')) return;
+    var style = document.createElement('style');
+    style.id = 'pw-boot-style';
+    style.textContent =
+      'html.pw-boot,html.pw-boot body{background:#f9f9f8!important;min-height:100%;}' +
+      'html.pw-boot body>:not(#pw-overlay){visibility:hidden!important;opacity:0!important;pointer-events:none!important;}';
+    (document.head || document.documentElement).appendChild(style);
+  }
+
+  bootGate();
 
   function focusPwInput() {
     var input = document.getElementById('pw-input');
@@ -35,28 +58,46 @@
     return entered.localeCompare(PASSWORD, 'en', { sensitivity: 'base' }) === 0;
   }
 
+  function scrollbarGap() {
+    return Math.max(0, window.innerWidth - document.documentElement.clientWidth);
+  }
+
   function lockScroll(gatePage) {
     lockedScrollY = window.scrollY || window.pageYOffset || 0;
+    var gap = scrollbarGap();
+    document.documentElement.style.setProperty('--pw-scrollbar-gap', gap + 'px');
     document.documentElement.classList.add('portfolio-locked');
     if (gatePage) {
       document.documentElement.classList.add('portfolio-gated');
     }
+    if (!document.body) return;
     document.body.style.position = 'fixed';
     document.body.style.top = '-' + lockedScrollY + 'px';
     document.body.style.left = '0';
     document.body.style.right = '0';
     document.body.style.width = '100%';
     document.body.style.overflow = 'hidden';
+    // Keep layout width stable when the scrollbar disappears
+    if (gap > 0) {
+      document.body.style.paddingRight = gap + 'px';
+      document.documentElement.style.paddingRight = gap + 'px';
+    }
   }
 
   function unlockScroll() {
-    document.documentElement.classList.remove('portfolio-locked', 'portfolio-gated');
+    document.documentElement.classList.remove('portfolio-locked', 'portfolio-gated', 'pw-boot');
+    document.documentElement.style.removeProperty('--pw-scrollbar-gap');
+    document.documentElement.style.paddingRight = '';
+    var bootStyle = document.getElementById('pw-boot-style');
+    if (bootStyle) bootStyle.remove();
+    if (!document.body) return;
     document.body.style.position = '';
     document.body.style.top = '';
     document.body.style.left = '';
     document.body.style.right = '';
     document.body.style.width = '';
     document.body.style.overflow = '';
+    document.body.style.paddingRight = '';
     window.scrollTo(0, lockedScrollY);
   }
 
@@ -73,8 +114,7 @@
     var link = document.createElement('link');
     link.rel = 'stylesheet';
     link.href =
-      'https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400' +
-      '&family=Roboto:wght@300;400;500;700&display=swap';
+      'https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap';
     link.setAttribute('data-pw-fonts', '1');
     document.head.appendChild(link);
   }
@@ -92,7 +132,7 @@
               '<defs>' +
                 '<linearGradient id="pwDocFill" x1="0" y1="0" x2="0" y2="1">' +
                   '<stop offset="0%" stop-color="#ffffff"/>' +
-                  '<stop offset="100%" stop-color="#f4f4f5"/>' +
+                  '<stop offset="100%" stop-color="#f9f9f8"/>' +
                 '</linearGradient>' +
               '</defs>' +
               '<rect class="pw-hint-doc" x="24" y="26" width="76" height="100" rx="11" />' +
@@ -166,7 +206,8 @@
     options = options || {};
     if (!overlay) return;
 
-    overlay.style.opacity = '0';
+    overlay.classList.remove('is-open');
+    overlay.classList.add('is-closing');
     overlay.style.pointerEvents = 'none';
 
     if (overlay._keyDownHandler) {
@@ -196,7 +237,7 @@
           window.location.href = href;
         }
       }
-    }, 350);
+    }, 220);
   }
 
   function dismissOverlay() {
@@ -207,14 +248,9 @@
     closeOverlay({ navigate: false });
   }
 
-  function initLiquidGlass() {
-    if (typeof window.initLiquidGlassPassword === 'function') {
-      window.initLiquidGlassPassword();
-    }
-  }
-
   function mountModal(href, gatePage, newTab) {
     if (overlay) return;
+    if (!document.body) return;
     pendingHref = href || null;
     pendingNewTab = !!newTab;
     gatePageFlag = !!gatePage;
@@ -252,7 +288,9 @@
     overlay.querySelector('#pw-form').addEventListener('submit', function (e) {
       e.preventDefault();
       if (passwordMatches(input.value)) {
-        sessionStorage.setItem(KEY, '1');
+        try {
+          sessionStorage.setItem(KEY, '1');
+        } catch (errSet) {}
         if (gatePageFlag) {
           closeOverlay({ navigate: false });
         } else {
@@ -265,10 +303,12 @@
       }
     });
 
+    // One rAF so closed styles paint, then open at pill speed (0.32s)
     requestAnimationFrame(function () {
-      initLiquidGlass();
-      setTimeout(focusPwInput, 80);
-      setTimeout(focusPwInput, 120);
+      if (!overlay) return;
+      overlay.classList.add('is-open');
+      document.documentElement.classList.remove('pw-boot');
+      setTimeout(focusPwInput, 40);
     });
   }
 
@@ -279,7 +319,7 @@
   }
 
   var PROTECTED_LINK_SELECTOR =
-    'a.index-card[href], a.hero-nav-resume[href], a.nav-resume[href], a[href*="resume.pdf"]';
+    'a.index-card[href], a.index-bento__anchor[href], a.hero-nav-resume[href], a.nav-resume[href], a[href*="resume.pdf"]';
 
   function bindProtectedLinks() {
     document.querySelectorAll(PROTECTED_LINK_SELECTOR).forEach(function (link) {
@@ -296,7 +336,12 @@
   }
 
   function init() {
-    if (isAuthed()) return;
+    if (isAuthed()) {
+      document.documentElement.classList.remove('portfolio-gated', 'pw-boot');
+      var bootStyle = document.getElementById('pw-boot-style');
+      if (bootStyle) bootStyle.remove();
+      return;
+    }
 
     if (isHomePage()) {
       bindProtectedLinks();

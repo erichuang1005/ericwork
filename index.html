@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="auth.js?v=20260811pw7"></script>
   <link rel="icon" type="image/png" href="images/favicon-32.png" sizes="32x32" />
   <link rel="apple-touch-icon" href="images/favicon-apple.png" />
   <title>Eric Huang — Enterprise workflow &amp; agentic UX (Workday)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Roboto:wght@300;400;500;700&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=20260813r" />
+  <link rel="stylesheet" href="style.css?v=20260811sana3" />
   <link rel="stylesheet" href="material-tokens.css?v=20260748" />
-  <link rel="stylesheet" href="material-theme.css?v=20260813r" />
+  <link rel="stylesheet" href="material-theme.css?v=20260811btn1" />
   <script src="analytics.js"></script>
   <script src="site-meta.js" defer></script>
-  <script src="auth.js?v=20260724c"></script>
 </head>
 <body class="page-home">
 
@@ -224,10 +224,27 @@
     });
   })();
 
+  /* Freeze hero entrance after first play — avoids blank flash on scroll-back */
+  (function () {
+    const root = document.body;
+    if (!root || root.classList.contains('hero-settled')) return;
+    const settle = () => root.classList.add('hero-settled');
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      settle();
+      return;
+    }
+    const title = document.querySelector('.hero-title');
+    if (title) {
+      title.addEventListener('animationend', settle, { once: true });
+    }
+    window.setTimeout(settle, 1400);
+  })();
+
   /* Fixed frame: I design [noun] people actually use. */
   (function () {
     const pill = document.querySelector('[data-hero-pill]');
     const label = document.querySelector('[data-hero-pill-label]');
+    const title = document.querySelector('.hero-title');
     if (!pill || !label) return;
 
     // Mapped to case studies: Intake · Inventory DS · Compliance / admin tools
@@ -239,9 +256,13 @@
 
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const FADE_MS = 220;
-    const HOLD_MS = 2800;
+    const HOLD_MS = 2100;
     let i = 0;
     let busy = false;
+    let visible = true;
+    let timer = 0;
+    let swapTimer = 0;
+    let enterTimer = 0;
 
     const measureWidth = (text) => {
       const probe = label.cloneNode(false);
@@ -267,14 +288,19 @@
       return `${Math.max(w, 1)}px`;
     };
 
-    const apply = (item, animate) => {
-      const nextWidth = measureWidth(item.text);
+    const showItem = (item) => {
+      label.textContent = item.text;
+      pill.style.setProperty('--color-background', item.bg);
+      pill.style.setProperty('--pill-label-inline-size', measureWidth(item.text));
+      pill.classList.remove('is-swapping', 'is-entering');
+      busy = false;
+    };
 
-      if (!animate || reduceMotion) {
-        label.textContent = item.text;
-        pill.style.setProperty('--color-background', item.bg);
-        pill.style.setProperty('--pill-label-inline-size', nextWidth);
-        pill.classList.remove('is-swapping', 'is-entering');
+    const apply = (item, animate) => {
+      if (!animate || reduceMotion || !visible) {
+        window.clearTimeout(swapTimer);
+        window.clearTimeout(enterTimer);
+        showItem(item);
         return;
       }
 
@@ -282,15 +308,20 @@
       pill.classList.remove('is-entering');
       pill.classList.add('is-swapping');
 
-      window.setTimeout(() => {
+      window.clearTimeout(swapTimer);
+      window.clearTimeout(enterTimer);
+      swapTimer = window.setTimeout(() => {
+        if (!visible) {
+          showItem(item);
+          return;
+        }
         label.textContent = item.text;
         pill.style.setProperty('--color-background', item.bg);
-        pill.style.setProperty('--pill-label-inline-size', nextWidth);
-        // Next frame: fade/slide the new label in while width eases
+        pill.style.setProperty('--pill-label-inline-size', measureWidth(item.text));
         requestAnimationFrame(() => {
           pill.classList.remove('is-swapping');
           pill.classList.add('is-entering');
-          window.setTimeout(() => {
+          enterTimer = window.setTimeout(() => {
             pill.classList.remove('is-entering');
             busy = false;
           }, 320);
@@ -298,15 +329,42 @@
       }, FADE_MS);
     };
 
+    const tick = () => {
+      if (!visible || busy || reduceMotion) return;
+      i = (i + 1) % items.length;
+      apply(items[i], true);
+    };
+
+    const startLoop = () => {
+      window.clearInterval(timer);
+      if (reduceMotion) return;
+      timer = window.setInterval(tick, HOLD_MS);
+    };
+
     const start = () => {
       apply(items[0], false);
-      if (reduceMotion) return;
-      window.setInterval(() => {
-        if (busy) return;
-        i = (i + 1) % items.length;
-        apply(items[i], true);
-      }, HOLD_MS);
+      startLoop();
     };
+
+    if (title && 'IntersectionObserver' in window) {
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            visible = e.isIntersecting;
+            if (!visible) {
+              // Don't leave the label stuck at opacity 0 while off-screen
+              window.clearTimeout(swapTimer);
+              window.clearTimeout(enterTimer);
+              showItem(items[i]);
+            } else if (!reduceMotion) {
+              startLoop();
+            }
+          });
+        },
+        { threshold: 0.2 }
+      );
+      io.observe(title);
+    }
 
     if (document.fonts && document.fonts.ready) {
       document.fonts.ready.then(() => requestAnimationFrame(start));
@@ -316,7 +374,7 @@
   })();
 </script>
 
-<script src="liquid-glass-tabs.bundle.js?v=20260724"></script>
+<script src="liquid-glass-tabs.bundle.js?v=20260811pw7"></script>
 
 </body>
 </html>
