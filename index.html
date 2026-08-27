@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Roboto:wght@300;400;500;700&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css?v=20260826j" />
   <link rel="stylesheet" href="material-tokens.css?v=20260748" />
-  <link rel="stylesheet" href="material-theme.css?v=20260811btn1" />
+  <link rel="stylesheet" href="material-theme.css?v=20260826tabs1" />
   <script src="analytics.js"></script>
   <script src="site-meta.js" defer></script>
 </head>
@@ -32,7 +32,7 @@
 
 <!-- ─── CASE STUDY INDEX ─── -->
 <section id="work" class="index-section">
-  <h2 class="section-label scroll-reveal">Selected work</h2>
+  <h2 class="section-label">Selected work</h2>
   <div class="index-grid">
     <div class="index-grid__col">
     <article class="index-card index-card--visual index-card--intake index-bento">
@@ -67,7 +67,7 @@
 
         <div class="index-bento__stage" aria-hidden="true">
           <div class="index-bento__panel index-bento__panel--purchase">
-            <img class="index-bento__image" src="images/purchase-compliance/console-overview.png" alt="" width="1024" height="658" loading="lazy" decoding="async" />
+            <img class="index-bento__image" src="images/purchase-compliance/console-overview.png" alt="" width="1024" height="658" decoding="async" />
           </div>
         </div>
       </div>
@@ -175,38 +175,6 @@
   console.log('%c👋 You opened DevTools.', 'font-size:13px;font-weight:700;color:#18181B');
   console.log('%cGood instinct — inspecting systems is exactly how I work too.', 'font-size:12px;color:#52525B');
   console.log('%ceric.chakho.wong@gmail.com  ·  linkedin.com/in/zehao-eric-huang', 'font-size:12px;color:#1A56DB');
-
-  (function () {
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const revealSelector = '#work .scroll-reveal, #work .index-card';
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (!e.isIntersecting) return;
-          e.target.classList.add('scroll-reveal--visible');
-          e.target.style.opacity = '1';
-          e.target.style.transform = 'translate3d(0,0,0)';
-          observer.unobserve(e.target);
-        });
-      },
-      { threshold: 0.08, rootMargin: '0px 0px -6% 0px' }
-    );
-    document.querySelectorAll(revealSelector).forEach((el, i) => {
-      if (reduceMotion) {
-        el.style.opacity = '1';
-        el.style.transform = 'none';
-        el.classList.add('scroll-reveal--visible');
-        return;
-      }
-      el.style.opacity = '0';
-      el.style.transform = 'translate3d(0,22px,0)';
-      el.style.willChange = 'opacity, transform';
-      el.style.transition =
-        'opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1), transform 0.65s cubic-bezier(0.22, 1, 0.36, 1)';
-      el.style.transitionDelay = `${Math.min(i, 6) * 0.06}s`;
-      observer.observe(el);
-    });
-  })();
 
   /* Freeze hero entrance after first play — avoids blank flash on scroll-back */
   (function () {
@@ -358,7 +326,7 @@
   })();
 </script>
 
-<script src="liquid-glass-tabs.bundle.js?v=20260811pw7"></script>
+<script src="liquid-glass-tabs.bundle.js?v=20260826tabs1"></script>
 
 </body>
 </html>

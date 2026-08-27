@@ -3,7 +3,6 @@ import { createPortal } from 'react-dom';
 import { createRoot } from 'react-dom/client';
 import LiquidGlass from 'liquid-glass-react';
 
-const HOME_GAP = 4;
 const GLASS_Z = 110;
 const STICKY_TOP = 8;
 const GLASS_PADDING = '4px';
@@ -157,29 +156,35 @@ function measureTrack() {
   };
 }
 
+function boxFromAnchor(anchor, cached) {
+  if (!cached) return cached;
+  if (!anchor) return cached;
+  const rect = anchor.getBoundingClientRect();
+  if (rect.width < 1 || rect.height < 1) return cached;
+  return {
+    width: cached.width,
+    height: cached.height,
+    centerX: rect.left + rect.width / 2,
+    centerY: rect.top + rect.height / 2,
+  };
+}
+
 function rowBoxes(cachedHome, cachedTrack) {
   const row = document.querySelector('.m3-docs-tab-row');
   if (!row || !cachedHome || !cachedTrack) {
     return { home: cachedHome, track: cachedTrack };
   }
 
-  const rowRect = row.getBoundingClientRect();
-  const centerY = rowRect.top + rowRect.height / 2;
-  const trackLeft = rowRect.left + cachedHome.width + HOME_GAP;
+  const homeAnchor =
+    row.querySelector('.m3-home-glass-spacer') ||
+    row.querySelector('.m3-home-glass-shell');
+  const trackAnchor =
+    row.querySelector('.m3-tabs-glass-spacer') ||
+    row.querySelector('.m3-tabs-glass-shell');
 
   return {
-    home: {
-      width: cachedHome.width,
-      height: cachedHome.height,
-      centerX: rowRect.left + cachedHome.width / 2,
-      centerY,
-    },
-    track: {
-      width: cachedTrack.width,
-      height: cachedTrack.height,
-      centerX: trackLeft + cachedTrack.width / 2,
-      centerY,
-    },
+    home: boxFromAnchor(homeAnchor, cachedHome),
+    track: boxFromAnchor(trackAnchor, cachedTrack),
   };
 }
 

@@ -453,13 +453,15 @@ body.cs-m3-docs-page .breadcrumb .current {
 
 .article-tab-list {
   display: block;
+  width: 100%;
 }
 
 .article-tab-list .navigation-container {
   max-width: 1120px;
+  width: 100%;
   margin: 0 auto;
   display: flex;
-  justify-content: safe center;
+  justify-content: center;
   overflow-x: auto;
   overscroll-behavior-x: contain;
   scrollbar-width: none;
@@ -471,11 +473,23 @@ body.cs-m3-docs-page .breadcrumb .current {
 }
 
 .m3-docs-tab-row {
-  display: flex;
-  flex-wrap: nowrap;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   align-items: center;
-  gap: 4px;
-  width: max-content;
+  column-gap: 4px;
+  width: 100%;
+}
+
+.m3-docs-tab-row > .m3-home-glass-shell,
+.m3-docs-tab-row > .m3-home-glass-spacer {
+  grid-column: 1;
+  justify-self: end;
+}
+
+.m3-docs-tab-row > .m3-tabs-glass-shell,
+.m3-docs-tab-row > .m3-tabs-glass-spacer {
+  grid-column: 2;
+  justify-self: center;
 }
 
 .m3-glass-shell-wrap {
@@ -1358,6 +1372,7 @@ body.cs-m3-docs-page {
 }
 
 body.cs-m3-docs-page .cs-snapshot,
+body.cs-m3-docs-page .cs-system-path,
 body.cs-m3-docs-page .callout,
 body.cs-m3-docs-page .my-role-block,
 body.cs-m3-docs-page .reflection-block,
@@ -1371,8 +1386,17 @@ body.cs-m3-docs-page .solution-table {
   box-shadow: none;
 }
 
-body.cs-m3-docs-page .cs-snapshot {
+body.cs-m3-docs-page .cs-snapshot,
+body.cs-m3-docs-page .cs-system-path {
   padding: clamp(24px, 4vw, 36px);
+}
+
+body.cs-m3-docs-page .block.cs-system-path {
+  margin-bottom: 16px;
+}
+
+body.cs-m3-docs-page .cs-system-path + .cs-chapter-heading {
+  margin-top: 40px;
 }
 
 body.cs-m3-docs-page .cs-snapshot > .block-label,

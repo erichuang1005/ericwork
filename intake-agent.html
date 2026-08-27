@@ -10,9 +10,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=20260826l" />
+  <link rel="stylesheet" href="style.css?v=20260826af" />
   <link rel="stylesheet" href="material-tokens.css?v=20260748" />
-  <link rel="stylesheet" href="material-theme.css?v=20260811btn1" />
+  <link rel="stylesheet" href="material-theme.css?v=20260826path1" />
   <script src="analytics.js"></script>
 </head>
 <body class="cs-m3-docs-page">
@@ -66,7 +66,7 @@
       <div class="m3-docs-hero-visual">
         <div class="m3-docs-visual-bg m3-docs-visual-bg--intake" aria-hidden="true"></div>
         <figure class="m3-docs-visual-card m3-docs-visual-card--wide">
-          <img src="images/intake-agent/01-landing-quick-links.png" alt="Intake Agent landing with search and shortcuts" width="1024" height="711" decoding="async" loading="eager" />
+          <img src="images/intake-agent/sana-user-entry.png?v=20260826e" alt="Intake Orchestration Agent — one prompt, shortcuts, and request tracking" width="1440" height="900" decoding="async" loading="eager" />
         </figure>
       </div>
     </div>
@@ -78,7 +78,7 @@
         <div class="tabbed-navigation" role="tablist">
           <a href="#snapshot" role="tab" class="tab active" aria-label="30-second read" aria-selected="true" tabindex="0"><span class="material-symbols-rounded google-symbols notranslate" aria-hidden="true">schedule</span><span class="tab-label">30-second read</span></a>
           <a href="#ch-problem" role="tab" class="tab" aria-label="Problem" aria-selected="false" tabindex="-1"><span class="material-symbols-rounded google-symbols notranslate" aria-hidden="true">report</span><span class="tab-label">Problem</span></a>
-          <a href="#ch-system" role="tab" class="tab" aria-label="System" aria-selected="false" tabindex="-1"><span class="material-symbols-rounded google-symbols notranslate" aria-hidden="true">widgets</span><span class="tab-label">System</span></a>
+          <a href="#ch-system" role="tab" class="tab" aria-label="Solution" aria-selected="false" tabindex="-1"><span class="material-symbols-rounded google-symbols notranslate" aria-hidden="true">widgets</span><span class="tab-label">Solution</span></a>
           <a href="#ch-outcomes" role="tab" class="tab" aria-label="Outcomes" aria-selected="false" tabindex="-1"><span class="material-symbols-rounded google-symbols notranslate" aria-hidden="true">check_circle</span><span class="tab-label">Outcomes</span></a>
         </div>
       </div>
@@ -108,8 +108,8 @@
       <div class="cs-snapshot-beat">
         <span class="cs-snapshot-num">03</span>
         <div>
-          <strong>The system</strong>
-          <p>Intake Agent is the front door of a connected procurement loop. Compliance rules shape what the assistant says. Answers route users into catalog, forms, or approvals. Usage analytics flow back to help admins improve those rules. One thread — the whole procurement system behind it.</p>
+          <strong>The solution</strong>
+          <p>Workday kept catalog and non-catalog in chat. Sana puts a catalog canvas and a structured input modal in the thread — with admin rules behind both so answers stay in policy.</p>
         </div>
       </div>
       <div class="cs-snapshot-beat">
@@ -120,16 +120,13 @@
         </div>
       </div>
     </div>
-    <div class="cs-snapshot-gallery">
+    <div class="cs-snapshot-gallery cs-snapshot-gallery--single">
       <figure class="cs-figure">
-        <img src="images/intake-agent/sana-user-entry.png?v=20260826e" alt="Sana Intake Orchestration Agent — one prompt, shortcuts, and request tracking" width="1440" height="900" loading="lazy" decoding="async" />
-      </figure>
-      <figure class="cs-figure">
-        <img src="images/intake-agent/09-admin-routing-table.png" alt="Admin routing table controlling where each topic sends users" width="1024" height="679" loading="lazy" decoding="async" />
+        <img src="images/intake-agent/catalog-flow.poster.png?v=20260826o" alt="Catalog laptop request in chat, with the IT hardware catalog open beside the thread" width="1024" height="640" loading="lazy" decoding="async" />
       </figure>
     </div>
     <div class="cs-snapshot-cta">
-      <a href="#ch-problem" class="cs-expand-btn">Read full case study</a>
+      <a href="#ch-problem" class="cs-expand-btn">Learn more</a>
     </div>
   </div>
   <!-- ─── END SNAPSHOT ─── -->
@@ -137,7 +134,7 @@
 
   <div class="cs-chapter-heading cs-chapter-section" id="ch-problem">
     <span class="cs-chapter-num">01</span>
-    <h3>The problem</h3>
+    <h3>Problem</h3>
     <p class="cs-chapter-sub">Too many doors — no single place to get a verified answer</p>
   </div>
 
@@ -175,55 +172,12 @@
       </div>
     </div>
     <div class="cs-problem-copy">
-      <p class="cs-problem-lede">Employees asked the same procurement questions over and over. Answers lived in wikis, Slack threads, and forms — slow to find and easy to get wrong.</p>
+      <p class="cs-problem-lede">Employees asked the same questions — “How do I buy X?” and “Is this allowed?” — over and over. Answers lived in wikis, Slack threads, and forms: slow to find, easy to get wrong, and they wanted the source before acting.</p>
       <ul class="cs-problem-specs">
         <li><span class="cs-problem-spec__term">Volume</span><span class="cs-problem-spec__desc">Internal support said half their week was repeat “how do I…?” questions</span></li>
         <li><span class="cs-problem-spec__term">Freshness</span><span class="cs-problem-spec__desc">Written guides go out of date; training everyone again doesn’t scale</span></li>
         <li><span class="cs-problem-spec__term">Stakes</span><span class="cs-problem-spec__desc">Wrong buying guidance has real compliance and financial consequences</span></li>
       </ul>
-    </div>
-  </div>
-
-  <div class="cs-problem-follow">
-    <div class="cs-problem-stage">
-      <div class="cs-problem-path" role="img" aria-label="Two personas from research: employees asking procurement questions, and buyers maintaining docs and fielding repeat questions">
-        <p class="cs-problem-path__label">What we heard</p>
-        <ol class="cs-problem-sources">
-          <li class="cs-problem-persona">Employee</li>
-          <li class="cs-problem-source">
-            <img class="cs-problem-source__icon" src="images/intake-agent/problem-icon-buyer.svg" alt="" width="28" height="28" decoding="async" aria-hidden="true" />
-            <span class="cs-problem-source__label">“How do I buy X?”</span>
-          </li>
-          <li class="cs-problem-source">
-            <img class="cs-problem-source__icon" src="images/intake-agent/problem-icon-checker.svg" alt="" width="28" height="28" decoding="async" aria-hidden="true" />
-            <span class="cs-problem-source__label">“Is this allowed?”</span>
-          </li>
-          <li class="cs-problem-source">
-            <img class="cs-problem-source__icon" src="images/intake-agent/problem-icon-hunter.svg" alt="" width="28" height="28" decoding="async" aria-hidden="true" />
-            <span class="cs-problem-source__label">Hunts PDFs · Confluence · Slack</span>
-          </li>
-          <li class="cs-problem-source">
-            <img class="cs-problem-source__icon" src="images/intake-agent/problem-icon-skeptic.svg" alt="" width="28" height="28" decoding="async" aria-hidden="true" />
-            <span class="cs-problem-source__label">“Show me the source”</span>
-          </li>
-          <li class="cs-problem-persona">Buyers</li>
-          <li class="cs-problem-source">
-            <img class="cs-problem-source__icon" src="images/intake-agent/problem-icon-procurement.svg" alt="" width="28" height="28" decoding="async" aria-hidden="true" />
-            <span class="cs-problem-source__label">Maintains procurement docs</span>
-          </li>
-          <li class="cs-problem-source">
-            <img class="cs-problem-source__icon" src="images/intake-agent/problem-icon-repeat.svg" alt="" width="28" height="28" decoding="async" aria-hidden="true" />
-            <span class="cs-problem-source__label">Asked the same questions daily</span>
-          </li>
-        </ol>
-      </div>
-      <div class="cs-problem-copy">
-        <p class="cs-problem-lede">Interviews with employees buying things and the procurement team fielding their questions.</p>
-        <ul class="cs-problem-specs">
-          <li><span class="cs-problem-spec__term">Employees</span><span class="cs-problem-spec__desc">Didn’t know how to buy or what was allowed — hunted scattered docs and wanted proof before acting</span></li>
-          <li><span class="cs-problem-spec__term">Buyers</span><span class="cs-problem-spec__desc">Maintained policy in PDFs, Confluence, and Slack — but half their week was repeat “how do I…?” questions</span></li>
-        </ul>
-      </div>
     </div>
   </div>
 
@@ -310,168 +264,91 @@
 
   <div class="cs-chapter-heading cs-chapter-section" id="ch-system">
     <span class="cs-chapter-num">03</span>
-    <h3>The system</h3>
-  <p class="cs-chapter-sub">Admin side first — the rules that make the user experience possible</p>
+    <h3>Solution</h3>
+    <p class="cs-chapter-sub">Catalog, non-catalog, and the admin loop that keeps both safe</p>
   </div>
 
-  <!-- Admin console: policy, routing URLs, fallbacks, evaluation -->
-  <div class="block">
-    <div class="block-label">What admins configure</div>
+  <div class="block cs-system-path">
+    <div class="cs-system-path__title">
+      <div class="block-label">Catalog</div>
+      <strong class="block-inline-title">Canvas inside the chat.</strong>
+    </div>
     <p>
-      The assistant is only as good as its rules. Admins upload official docs (grounding answers in real policy), set routing per topic, define when the assistant must stop, then test everything in a sandbox before any employee sees it. Analytics close the loop after launch.
+      The Workday design kept catalog in conversation — a reply, a card, a button. Sana introduces a catalog canvas into agent chat so people can search, compare, and add in one place — faster, with less back-and-forth.
     </p>
+    <ol class="cs-progress cs-progress--fit" style="--prev-ar: 1.766fr; --now-ar: 1.6fr">
+      <li>
+        <span class="cs-progress__meta">Prev · Workday · Chat</span>
+        <figure class="cs-figure">
+          <img src="images/intake-agent/16-phase2-catalog-panel.png" alt="Workday Intake Agent: laptop matches as a chat card with Add to Requisition" width="1024" height="580" loading="lazy" decoding="async" />
+        </figure>
+      </li>
+      <li>
+        <span class="cs-progress__meta">Now · Sana · Canvas</span>
+        <figure class="cs-figure">
+          <img src="images/intake-agent/catalog-flow.gif?v=20260826o" alt="Sana catalog canvas in agent chat: search, filter, and add a laptop configuration" width="1024" height="640" loading="lazy" decoding="async" />
+        </figure>
+      </li>
+    </ol>
   </div>
 
-  <!-- System loop diagram -->
-  <div class="cs-loop-diagram" role="group" aria-label="System loop: admin configures rules, employees get grounded answers, analytics feed back to admin">
-    <p class="cs-loop-kicker">How the loop works</p>
-
-    <div class="cs-loop-phases">
-      <section class="cs-loop-phase cs-loop-phase--admin">
-        <header class="cs-loop-phase-head">
-          <span class="cs-loop-phase-num" aria-hidden="true">1</span>
-          <div>
-            <h4 class="cs-loop-phase-title">Admin sets the rules</h4>
-            <p class="cs-loop-phase-sub">Before anyone sees the assistant</p>
-          </div>
-        </header>
-        <ol class="cs-loop-phase-steps">
-          <li>Upload official policy docs</li>
-          <li>Route each topic to the right tool</li>
-          <li>Test answers in a sandbox</li>
-        </ol>
-      </section>
-
-      <div class="cs-loop-phase-arrow" aria-hidden="true"><span class="cs-loop-phase-arrow-icon"></span></div>
-
-      <section class="cs-loop-phase cs-loop-phase--user">
-        <header class="cs-loop-phase-head">
-          <span class="cs-loop-phase-num" aria-hidden="true">2</span>
-          <div>
-            <h4 class="cs-loop-phase-title">Employees get grounded help</h4>
-            <p class="cs-loop-phase-sub">One entry point in the live product</p>
-          </div>
-        </header>
-        <ol class="cs-loop-phase-steps">
-          <li>Ask in plain language</li>
-          <li>See the answer with sources</li>
-          <li>Take the next step in workflow</li>
-        </ol>
-      </section>
-
-      <div class="cs-loop-phase-arrow" aria-hidden="true"><span class="cs-loop-phase-arrow-icon"></span></div>
-
-      <section class="cs-loop-phase cs-loop-phase--feedback">
-        <header class="cs-loop-phase-head">
-          <span class="cs-loop-phase-num" aria-hidden="true">3</span>
-          <div>
-            <h4 class="cs-loop-phase-title">Analytics close the loop</h4>
-            <p class="cs-loop-phase-sub">Real usage goes back to admins</p>
-          </div>
-        </header>
-        <p class="cs-loop-phase-note">Admins refine routing and grounding from actual questions — then the cycle starts again.</p>
-      </section>
+  <div class="block cs-system-path">
+    <div class="cs-system-path__title">
+      <div class="block-label">Non-catalog</div>
+      <strong class="block-inline-title">A modal instead of answering in the composer.</strong>
     </div>
-  </div>
-
-
-  <div class="cs-scroll-showcase" data-scroll-showcase data-scroll-showcase-direction="rtl">
-    <div class="cs-scroll-showcase__viewport">
-      <div class="cs-gallery cs-scroll-showcase__track">
-      <figure class="cs-figure">
-        <img src="images/intake-agent/07-admin-upload-document.png" alt="Admin screen to name and upload source documents for assistant answers" width="1024" height="686" loading="lazy" decoding="async" />
-      </figure>
-      <figure class="cs-figure">
-        <img src="images/intake-agent/09-admin-routing-table.png" alt="Routing table overview showing topics, destinations, and whether each appears as a home-page shortcut" width="1024" height="679" loading="lazy" decoding="async" />
-      </figure>
-      <figure class="cs-figure">
-        <img src="images/intake-agent/12-admin-analytics-dashboard.png" alt="Analytics dashboard showing suggested-action clicks, reported issues, and frequent questions" width="1024" height="790" loading="lazy" decoding="async" />
-      </figure>
-      </div>
-    </div>
-  </div>
-
-  <!-- First ship UI — illustrates hybrid model above -->
-  <div class="block" style="margin-top: 96px;">
-    <div class="block-label">Phase 1 · first ship · 2024</div>
     <p>
-      <strong class="block-inline-title">One page, three entry points.</strong>
-      Three ways in from one screen: Quick Links for repeat tasks, direct search for anything, and a side assistant when the answer needs context. Replies cite the source document and offer the logical next step.
+      Workday collected non-catalog details through chat — the agent asked in the thread, people typed answers in the input box. Sana moves that into a structured input modal: one question at a time, then a complete request.
     </p>
-
-    <div class="cs-scroll-showcase" data-scroll-showcase data-scroll-showcase-direction="ltr">
-      <div class="cs-scroll-showcase__viewport">
-        <div class="cs-gallery cs-scroll-showcase__track">
-      <figure class="cs-figure">
-        <img src="images/intake-agent/02-search-po-query.png" alt="Landing with a typed plain-language question about how to create a purchase order" width="1024" height="711" loading="lazy" decoding="async" />
-      </figure>
-      <figure class="cs-figure">
-        <img src="images/intake-agent/04-agent-po-answer.png" alt="Assistant reply with a grounded answer, policy source citation, and a next-step action button" width="1024" height="711" loading="lazy" decoding="async" />
-      </figure>
-        </div>
-      </div>
-    </div>
+    <ol class="cs-progress cs-progress--fit" style="--prev-ar: 1.131fr; --now-ar: 1.6fr">
+      <li>
+        <span class="cs-progress__meta">Prev · Chat · Input</span>
+        <figure class="cs-figure">
+          <img src="images/intake-agent/noncatalog-chat-input.png?v=20260826w" alt="Workday chat: agent asks budget, date, and geography; the employee types the answers in the chat input" width="2000" height="1768" loading="lazy" decoding="async" />
+        </figure>
+      </li>
+      <li>
+        <span class="cs-progress__meta">Now · Sana · Modal</span>
+        <figure class="cs-figure">
+          <img src="images/intake-agent/noncatalog-flow.gif?v=20260826e" alt="Sana non-catalog request: step-by-step input modal in agent chat" width="1024" height="640" loading="lazy" decoding="async" />
+        </figure>
+      </li>
+    </ol>
   </div>
 
-  <!-- Phase 2: In-agent transactions (catalog + non-catalog forms) -->
-  <div class="block">
-    <div class="block-label">Phase 2 · requester experience</div>
-    <p>
-      <strong class="block-inline-title">Finish the task in chat.</strong>
-      Phase 2 extended the assistant into the workflow. Users submit catalog requests, fill off-catalog forms, and receive confirmations — all without leaving the thread.
-    </p>
-
-    <div class="cs-scroll-showcase" data-scroll-showcase data-scroll-showcase-direction="rtl">
-      <div class="cs-scroll-showcase__viewport">
-        <div class="cs-gallery cs-scroll-showcase__track">
-      <figure class="cs-figure">
-        <img src="images/intake-agent/catalog-flow.gif?v=20260826o" alt="Catalog laptop request: chat reply expands into the IT hardware catalog canvas, then add an item" width="1024" height="640" loading="lazy" decoding="async" />
-      </figure>
-      <figure class="cs-figure">
-        <img src="images/intake-agent/noncatalog-flow.gif?v=20260826e" alt="Non-catalog agency request: in-thread form wizard" width="1024" height="640" loading="lazy" decoding="async" />
-      </figure>
-        </div>
-      </div>
+  <div class="block cs-system-path">
+    <div class="cs-system-path__title">
+      <div class="block-label">Admin</div>
+      <strong class="block-inline-title">Upload policy. Approve the path.</strong>
     </div>
+    <p>
+      Workday admins uploaded a policy document, then typed the purchase path by hand. In Sana, the same upload drafts a compliance purchase path — admins approve it and adjust the details.
+    </p>
+    <ol class="cs-progress cs-progress--fit" style="--prev-ar: 1.492fr; --now-ar: 1.492fr">
+      <li>
+        <span class="cs-progress__meta">Prev · Workday · Manual</span>
+        <figure class="cs-figure">
+          <img src="images/intake-agent/07-admin-upload-document.png" alt="Workday admin: upload a policy document, then define the purchase path yourself" width="1024" height="686" loading="lazy" decoding="async" />
+        </figure>
+      </li>
+      <li>
+        <span class="cs-progress__meta">Now · Sana · Generated</span>
+        <figure class="cs-figure">
+          <img src="images/intake-agent/sana-admin-manage-recipes.png?v=20260826y" alt="Sana Manage: upload a policy in chat and review the drafted recipe path before publish" width="1024" height="686" loading="lazy" decoding="async" />
+        </figure>
+      </li>
+    </ol>
   </div>
 
   <div class="cs-chapter-heading cs-chapter-section" id="ch-outcomes">
     <span class="cs-chapter-num">04</span>
     <h3>Outcomes</h3>
-    <p class="cs-chapter-sub">What shipped, what we measured, and what we'd do differently</p>
+    <p class="cs-chapter-sub">What we’d do differently next time</p>
   </div>
 
-  <!-- Outcomes -->
-  <div class="cs-loop-diagram cs-outcomes-diagram" role="group" aria-label="Outcomes: what shipped and reflection">
-    <div class="cs-loop-phases cs-loop-phases--duo">
-      <section class="cs-loop-phase cs-loop-phase--shipped">
-        <header class="cs-loop-phase-head">
-          <span class="cs-loop-phase-num" aria-hidden="true">1</span>
-          <div>
-            <h4 class="cs-loop-phase-title">What shipped</h4>
-            <p class="cs-loop-phase-sub">Two major releases · 2024–2026</p>
-          </div>
-        </header>
-        <ol class="cs-loop-phase-steps">
-          <li>Hybrid landing page (2024), then in-chat catalog and forms (2026)</li>
-          <li>One consolidated entry point — policy-grounded, with explicit stop rules</li>
-          <li>Admin tooling (upload, routing, sandbox, analytics) shipped with v1</li>
-          <li>Adopted by Workday procurement; extended as a reusable assistant pattern</li>
-        </ol>
-      </section>
-
-      <section class="cs-loop-phase cs-loop-phase--reflection">
-        <header class="cs-loop-phase-head">
-          <span class="cs-loop-phase-num" aria-hidden="true">2</span>
-          <div>
-            <h4 class="cs-loop-phase-title">Reflection</h4>
-            <p class="cs-loop-phase-sub">What we’d do differently next time</p>
-          </div>
-        </header>
-        <p class="cs-loop-pullquote">“If the rules don’t match real behavior, the ‘AI’ part doesn’t matter—the experience breaks.”</p>
-        <p class="cs-loop-phase-note">Push for a live admin preview earlier. The sandbox helped, but seeing the full user-facing experience before launch would have caught more rule gaps before employees hit them.</p>
-      </section>
-    </div>
+  <div class="block">
+    <p class="cs-loop-pullquote">“If the rules don’t match real behavior, the ‘AI’ part doesn’t matter—the experience breaks.”</p>
+    <p>Push for a live admin preview earlier. The sandbox helped, but seeing the full user-facing experience before launch would have caught more rule gaps before employees hit them.</p>
   </div>
 
   <!-- More to the story -->
@@ -628,7 +505,7 @@
 
 <script src="scroll-showcase.js?v=20260807"></script>
 <script src="site-meta.js?v=20260729"></script>
-<script src="liquid-glass-tabs.bundle.js?v=20260811pw7"></script>
+<script src="liquid-glass-tabs.bundle.js?v=20260826tabs1"></script>
 
 </body>
 </html>

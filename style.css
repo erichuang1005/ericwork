@@ -5140,6 +5140,118 @@ footer a.footer-cta--secondary:hover img { opacity: 1; }
   gap: 16px;
   margin-bottom: 28px;
 }
+.cs-snapshot-gallery--single {
+  grid-template-columns: 1fr;
+}
+
+.cs-thread-stack {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(16px, 2.2vw, 24px);
+  margin-top: 24px;
+}
+
+.cs-progress {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(16px, 2.2vw, 24px);
+  margin: 24px 0 0;
+  padding: 0;
+  align-items: stretch;
+}
+
+.cs-progress > li {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.cs-progress__meta {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin: 0 0 8px;
+}
+
+@media (max-width: 640px) {
+  .cs-progress,
+  .cs-progress--fit {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cs-thread-stack .cs-figure {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  aspect-ratio: 16 / 10;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--bg-card, #fff);
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.cs-progress .cs-figure {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  aspect-ratio: 16 / 10;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--bg, #f4f4f5);
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.cs-thread-stack .cs-figure img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.cs-progress .cs-figure img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center center;
+}
+
+/* Size columns by each still's native aspect so both show full, at matching
+   height, without cover. Set --prev-ar / --now-ar (width ÷ height) per row. */
+.cs-progress--fit {
+  --prev-ar: 1fr;
+  --now-ar: 1fr;
+  grid-template-columns: minmax(0, var(--prev-ar)) minmax(0, var(--now-ar));
+  align-items: start;
+}
+
+.cs-progress--fit .cs-figure {
+  aspect-ratio: auto;
+  position: static;
+  background: var(--bg-card, #fff);
+}
+
+.cs-progress--fit .cs-figure img {
+  position: static;
+  inset: auto;
+  width: 100%;
+  height: auto;
+  object-fit: unset;
+}
 .cs-snapshot-gallery .cs-figure {
   overflow: hidden;
   border-radius: 6px;
@@ -5150,6 +5262,19 @@ footer a.footer-cta--secondary:hover img { opacity: 1; }
   aspect-ratio: 16 / 10;
   object-fit: cover;
   object-position: center top;
+}
+
+/* Lift stills off the gray card with shadow — no mat or hairline. */
+body.cs-m3-docs-page .cs-snapshot-gallery .cs-figure,
+body.cs-m3-docs-page .cs-system-path .cs-figure {
+  background: transparent;
+  padding: 0;
+  border: none;
+  box-shadow: 0 1px 2px rgba(15, 15, 15, 0.04), 0 8px 24px rgba(15, 15, 15, 0.08);
+}
+body.cs-m3-docs-page .cs-snapshot-gallery .cs-figure img,
+body.cs-m3-docs-page .cs-system-path .cs-figure img {
+  border-radius: 12px;
 }
 .cs-snapshot-proof {
   display: grid;
@@ -8059,8 +8184,41 @@ html.portfolio-gated body > :not(#pw-overlay) {
   letter-spacing: 0.04em;
 }
 
-.case-study.cs-m3-docs .cs-apple-layout .cs-chapter-heading {
+.case-study.cs-m3-docs.cs-apple-layout .cs-chapter-heading {
+  display: grid;
+  grid-template-columns: 2.25rem 1fr;
+  column-gap: 12px;
+  row-gap: 8px;
+  align-items: baseline;
+  text-align: left;
   margin-bottom: clamp(32px, 4.5vw, 44px);
+}
+
+.case-study.cs-m3-docs.cs-apple-layout .cs-chapter-num {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  margin-bottom: 0;
+  align-self: start;
+  padding-top: 0.55em;
+  line-height: 1;
+}
+
+.case-study.cs-m3-docs.cs-apple-layout .cs-chapter-heading h3,
+.case-study.cs-m3-docs.cs-apple-layout .cs-chapter-sub {
+  grid-column: 2;
+}
+
+.case-study.cs-m3-docs.cs-apple-layout .cs-chapter-sub {
+  margin-top: 0;
+  margin-left: 0;
+  margin-right: 0;
+  max-width: 52ch;
+}
+
+.case-study.cs-m3-docs .cs-appendix__summary {
+  display: grid;
+  padding: 0;
+  padding-inline: 0;
 }
 
 .case-study.cs-m3-docs .cs-apple-layout .cs-chapter-heading h3 {
@@ -8071,7 +8229,7 @@ html.portfolio-gated body > :not(#pw-overlay) {
 .case-study.cs-m3-docs .cs-apple-layout .cs-chapter-sub {
   font-weight: 400;
   color: var(--ink-muted);
-  margin-top: 12px;
+  margin-top: 0;
 }
 
 .case-study.cs-m3-docs .block h3 {
@@ -8088,6 +8246,24 @@ html.portfolio-gated body > :not(#pw-overlay) {
   letter-spacing: -0.015em;
   color: var(--ink);
   line-height: 1.35;
+}
+
+.case-study.cs-m3-docs .cs-system-path__title {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0 0.75em;
+  margin: 0 0 8px;
+}
+
+.case-study.cs-m3-docs .cs-system-path__title .block-label {
+  margin: 0;
+  flex: 0 0 auto;
+}
+
+.case-study.cs-m3-docs .cs-system-path__title .block-inline-title {
+  display: inline;
+  margin: 0;
 }
 
 .case-study.cs-m3-docs .block p {
