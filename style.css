@@ -859,6 +859,12 @@ body.cs-m3-docs-page footer a.footer-cta:not(.footer-cta--secondary) {
   gap: clamp(18px, 2.5vw, 24px);
   align-items: start;
 }
+.index-grid__col {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(18px, 2.5vw, 24px);
+  min-width: 0;
+}
 
 .index-card {
   background: var(--bg-card);
@@ -1170,6 +1176,31 @@ body.cs-m3-docs-page footer a.footer-cta:not(.footer-cta--secondary) {
     0 1px 2px rgba(15, 15, 15, 0.04),
     0 8px 24px rgba(15, 15, 15, 0.06);
   aspect-ratio: 10 / 7;
+}
+
+.index-bento__panel.index-bento__panel--intake {
+  aspect-ratio: 16 / 10;
+  background:
+    radial-gradient(ellipse 75% 65% at 15% 25%, rgba(216, 180, 254, 0.75) 0%, transparent 58%),
+    radial-gradient(ellipse 70% 55% at 85% 75%, rgba(196, 181, 253, 0.7) 0%, transparent 55%),
+    linear-gradient(145deg, #eee4f8 0%, #d9ccec 100%);
+}
+
+.index-bento__panel.index-bento__panel--intake::after {
+  display: none;
+}
+
+.index-bento__panel--intake .index-bento__image {
+  position: absolute;
+  inset: clamp(18px, 3.4vw, 32px);
+  width: auto;
+  height: auto;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 10px;
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.06),
+    0 10px 28px rgba(0, 0, 0, 0.1);
 }
 
 .index-bento__panel::after {
@@ -3628,6 +3659,13 @@ body.cs-m3-docs-page footer a.footer-cta:not(.footer-cta--secondary) {
   width: 100%;
   height: auto;
 }
+.cs-figure video,
+.cs-demo-video {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: var(--bg-card);
+}
 .cs-figure figcaption {
   padding: 12px 14px 14px;
   font-size: clamp(12px, 1.1vw + 11px, 13px);
@@ -5052,6 +5090,7 @@ footer a.footer-cta--secondary:hover img { opacity: 1; }
   margin-bottom: 20px;
   color: var(--accent);
 }
+
 .cs-snapshot-beats {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -5232,6 +5271,7 @@ footer a.footer-cta--secondary:hover img { opacity: 1; }
 /* ─── RESPONSIVE ─── */
 @media (max-width: 900px) {
   .index-grid { grid-template-columns: 1fr; }
+  .index-grid__col { display: contents; }
   .index-card.wide { grid-column: span 1; }
 }
 
@@ -7104,10 +7144,23 @@ html.portfolio-gated body > :not(#pw-overlay) {
   width: clamp(200px, 22vw, 260px);
 }
 
-.cs-scroll-showcase__track.cs-gallery:not(.cs-gallery-phone) .cs-figure img {
+.cs-scroll-showcase__track.cs-gallery:not(.cs-gallery-phone) .cs-figure {
+  flex: 0 0 auto;
+  width: clamp(280px, 42vw, 520px);
+  aspect-ratio: 16 / 10;
+  position: relative;
+}
+
+.cs-scroll-showcase__track.cs-gallery:not(.cs-gallery-phone) .cs-figure img,
+.cs-scroll-showcase__track.cs-gallery:not(.cs-gallery-phone) .cs-figure video {
+  position: absolute;
+  inset: 0;
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  background: var(--bg-card, #fff);
 }
 
 .cs-scroll-showcase__track figcaption {
@@ -7177,10 +7230,23 @@ html.portfolio-gated body > :not(#pw-overlay) {
   width: clamp(200px, 22vw, 260px);
 }
 
-.cs-scroll-showcase__track.cs-gallery:not(.cs-gallery-phone) .cs-figure img {
+.cs-scroll-showcase__track.cs-gallery:not(.cs-gallery-phone) .cs-figure {
+  flex: 0 0 auto;
+  width: clamp(280px, 42vw, 520px);
+  aspect-ratio: 16 / 10;
+  position: relative;
+}
+
+.cs-scroll-showcase__track.cs-gallery:not(.cs-gallery-phone) .cs-figure img,
+.cs-scroll-showcase__track.cs-gallery:not(.cs-gallery-phone) .cs-figure video {
+  position: absolute;
+  inset: 0;
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  background: var(--bg-card, #fff);
 }
 
 .cs-scroll-showcase__track figcaption {
@@ -8191,4 +8257,54 @@ html.portfolio-gated body > :not(#pw-overlay) {
 }
 @media (max-width: 480px) {
   .cs-lifecycle { grid-template-columns: 1fr; }
+}
+
+/* Exploration — same chapter heading as 01 / 03, collapsible */
+.case-study.cs-m3-docs.cs-apple-layout details.cs-appendix {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+}
+
+.case-study.cs-m3-docs .cs-appendix__summary {
+  cursor: pointer;
+  list-style: none;
+}
+
+.case-study.cs-m3-docs .cs-appendix__summary::-webkit-details-marker,
+.case-study.cs-m3-docs .cs-appendix__summary::marker {
+  display: none;
+  content: none;
+}
+
+.case-study.cs-m3-docs .cs-appendix__heading-text {
+  position: relative;
+}
+
+.case-study.cs-m3-docs .cs-appendix__heading-text::after {
+  content: "";
+  position: absolute;
+  left: calc(100% + 10px);
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  border-right: 1.5px solid var(--ink-muted);
+  border-bottom: 1.5px solid var(--ink-muted);
+  transform: translateY(-70%) rotate(45deg);
+  transition: transform 0.2s ease;
+}
+
+.case-study.cs-m3-docs details.cs-appendix[open] .cs-appendix__heading-text::after {
+  transform: translateY(-20%) rotate(225deg);
+}
+
+.case-study.cs-m3-docs .cs-appendix__body {
+  padding: 0;
+  border: 0;
+}
+
+.case-study.cs-m3-docs .cs-appendix__body .cs-problem-follow {
+  margin-top: 0;
 }

@@ -6,11 +6,11 @@
   <script src="auth.js?v=20260811pw7"></script>
   <link rel="icon" type="image/png" href="images/favicon-32.png" sizes="32x32" />
   <link rel="apple-touch-icon" href="images/favicon-apple.png" />
-  <title>Mobile Inventory Modernization — Pro mobile design system (Eric Huang)</title>
+  <title>Mobile Inventory — Handheld ops UX on Zebra scanners (Eric Huang)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=20260811btn1" />
+  <link rel="stylesheet" href="style.css?v=20260814terminal3" />
   <link rel="stylesheet" href="material-tokens.css?v=20260748" />
   <link rel="stylesheet" href="material-theme.css?v=20260811btn1" />
   <script src="analytics.js"></script>
@@ -47,10 +47,12 @@
         <div class="m3-docs-hero-story">
           <p class="m3-docs-eyebrow"><img class="m3-docs-brand" src="images/workday-logo.jpg" width="24" height="24" alt="" decoding="async" /> Workday · Mobile</p>
           <h1 class="m3-docs-title">Mobile Inventory Modernization</h1>
-          <p class="m3-docs-lede">Extending Canvas Web for mobile web on healthcare facility scanners — components re-proportioned in code and shipped across 21 inventory tasks.</p>
+          <p class="m3-docs-lede">Handheld ops UX for healthcare Zebra scanners — scan flow, density, and a design system that survives the floor. Operators move fast; mistakes cost time on the shift.</p>
           <p class="m3-docs-meta-line"><span class="m3-docs-meta">Lead UX Designer · 2023–2024</span></p>
           <div class="m3-docs-chips">
-            <span class="tag accent">Design systems</span>
+            <span class="tag accent">Device UX</span>
+            <span class="tag">Ops workflows</span>
+            <span class="tag">Design systems</span>
             <span class="tag">Design in code</span>
           </div>
         </div>
@@ -98,31 +100,32 @@
         <span class="cs-snapshot-num">01</span>
         <div>
           <strong>The problem</strong>
-          <p>Canvas Web is built for desktop. We run it in mobile web on Zebra scanners — and the legacy mobile stack was sunsetting.</p>
+          <p>Operators run scan-heavy inventory on Zebra handhelds — small screens, physical keys, gloves, and no time for mis-taps. Canvas Web was built for desktop; every wrong proportion slowed the line.</p>
         </div>
       </div>
       <div class="cs-snapshot-beat">
         <span class="cs-snapshot-num">02</span>
         <div>
           <strong>The bet</strong>
-          <p>Extend the design system, don't fork it. Re-proportion the shared components once — all 21 tasks inherit.</p>
+          <p>Fix shared components once so all 21 tasks feel consistent — fleet-level reliability, not one-off screen polish.</p>
         </div>
       </div>
       <div class="cs-snapshot-beat">
         <span class="cs-snapshot-num">03</span>
         <div>
           <strong>The work</strong>
-          <p>Connected Cursor to the Canvas Web repo — Figma specs to token updates in code. Proved on one task, then scaled to every component.</p>
+          <p>Proved scan flow and density on batch pick, then extended Canvas Web in code — Figma targets, Cursor in the repo, 9 PRs merged.</p>
         </div>
       </div>
       <div class="cs-snapshot-beat">
         <span class="cs-snapshot-num">04</span>
         <div>
           <strong>Shipped</strong>
-          <p>9 PRs merged to production. Component updates adopted by other mobile teams.</p>
+          <p>Operators got tighter scan-to-confirm flows on real hardware. Mobile-web variants adopted beyond inventory.</p>
         </div>
       </div>
     </div>
+
     <div class="cs-snapshot-proof" aria-label="Component updates at a glance">
       <figure class="cs-figure">
         <img src="images/inventory-picking/par-count-after.png?v=2" alt="Par count with tighter list rows" width="576" height="1024" loading="lazy" decoding="async" />

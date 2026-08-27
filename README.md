@@ -10,7 +10,9 @@ ericwork/
 ├── *.html                  ← case study pages
 ├── style.css, material-*.css
 ├── auth.js, analytics.js, liquid-glass-tabs.bundle.js
-├── resume.pdf
+├── resume.pdf              ← export from resume/resume.md for applications
+├── resume/                 ← editable resume source + snapshots
+├── job-tracker/            ← private JD match scores & trends (not on site)
 ├── images/                 ← screenshots (organized by project)
 └── hub/                    ← inventory picking demo app
 ```

@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=20260811btn1" />
+  <link rel="stylesheet" href="style.css?v=20260826l" />
   <link rel="stylesheet" href="material-tokens.css?v=20260748" />
   <link rel="stylesheet" href="material-theme.css?v=20260811btn1" />
   <script src="analytics.js"></script>
@@ -78,7 +78,6 @@
         <div class="tabbed-navigation" role="tablist">
           <a href="#snapshot" role="tab" class="tab active" aria-label="30-second read" aria-selected="true" tabindex="0"><span class="material-symbols-rounded google-symbols notranslate" aria-hidden="true">schedule</span><span class="tab-label">30-second read</span></a>
           <a href="#ch-problem" role="tab" class="tab" aria-label="Problem" aria-selected="false" tabindex="-1"><span class="material-symbols-rounded google-symbols notranslate" aria-hidden="true">report</span><span class="tab-label">Problem</span></a>
-          <a href="#ch-exploration" role="tab" class="tab" aria-label="Exploration" aria-selected="false" tabindex="-1"><span class="material-symbols-rounded google-symbols notranslate" aria-hidden="true">science</span><span class="tab-label">Exploration</span></a>
           <a href="#ch-system" role="tab" class="tab" aria-label="System" aria-selected="false" tabindex="-1"><span class="material-symbols-rounded google-symbols notranslate" aria-hidden="true">widgets</span><span class="tab-label">System</span></a>
           <a href="#ch-outcomes" role="tab" class="tab" aria-label="Outcomes" aria-selected="false" tabindex="-1"><span class="material-symbols-rounded google-symbols notranslate" aria-hidden="true">check_circle</span><span class="tab-label">Outcomes</span></a>
         </div>
@@ -123,12 +122,10 @@
     </div>
     <div class="cs-snapshot-gallery">
       <figure class="cs-figure">
-        <img src="images/intake-agent/01-landing-quick-links.png" alt="Landing page with search, shortcuts, and assistant" width="1024" height="711" loading="lazy" decoding="async" />
-        <figcaption><strong>User side</strong> — one entry point for answers, shortcuts, and tasks.</figcaption>
+        <img src="images/intake-agent/sana-user-entry.png?v=20260826e" alt="Sana Intake Orchestration Agent — one prompt, shortcuts, and request tracking" width="1440" height="900" loading="lazy" decoding="async" />
       </figure>
       <figure class="cs-figure">
         <img src="images/intake-agent/09-admin-routing-table.png" alt="Admin routing table controlling where each topic sends users" width="1024" height="679" loading="lazy" decoding="async" />
-        <figcaption><strong>System side</strong> — admins control routing, rules, and what the assistant can say.</figcaption>
       </figure>
     </div>
     <div class="cs-snapshot-cta">
@@ -231,11 +228,13 @@
   </div>
 
 
-  <div class="cs-chapter-heading cs-chapter-section" id="ch-exploration">
-    <span class="cs-chapter-num">02</span>
-    <h3>Exploration</h3>
-    <p class="cs-chapter-sub">What we tried, what we ruled out, and what held up</p>
-  </div>
+  <details class="cs-appendix" id="ch-exploration">
+    <summary class="cs-chapter-heading cs-chapter-section cs-appendix__summary">
+      <span class="cs-chapter-num">02</span>
+      <h3><span class="cs-appendix__heading-text">Exploration</span></h3>
+      <p class="cs-chapter-sub">What we tried, what we ruled out, and what held up</p>
+    </summary>
+    <div class="cs-appendix__body">
 
   <div class="cs-problem-follow">
     <div class="cs-problem-stage cs-problem-stage--rejected">
@@ -304,7 +303,9 @@
         </ul>
       </div>
     </div>
-  </div>
+    </div>
+    </div>
+  </details>
 
 
   <div class="cs-chapter-heading cs-chapter-section" id="ch-system">
@@ -424,10 +425,10 @@
       <div class="cs-scroll-showcase__viewport">
         <div class="cs-gallery cs-scroll-showcase__track">
       <figure class="cs-figure">
-        <img src="images/intake-agent/13-phase2-catalog-requisition.png" alt="Chat thread showing catalog line items, submit button, and in-thread confirmation with reference number" width="1024" height="711" loading="lazy" decoding="async" />
+        <img src="images/intake-agent/catalog-flow.gif?v=20260826o" alt="Catalog laptop request: chat reply expands into the IT hardware catalog canvas, then add an item" width="1024" height="640" loading="lazy" decoding="async" />
       </figure>
       <figure class="cs-figure">
-        <img src="images/intake-agent/14-phase2-noncatalog-request-form.png" alt="Structured request form embedded in the chat for items not in the catalog" width="1024" height="711" loading="lazy" decoding="async" />
+        <img src="images/intake-agent/noncatalog-flow.gif?v=20260826e" alt="Non-catalog agency request: in-thread form wizard" width="1024" height="640" loading="lazy" decoding="async" />
       </figure>
         </div>
       </div>
@@ -536,6 +537,17 @@
   console.log('%cGood instinct — inspecting systems is exactly how I work too.', 'font-size:12px;color:#52525B');
   console.log('%ceric.chakho.wong@gmail.com  ·  linkedin.com/in/zehao-eric-huang', 'font-size:12px;color:#1A56DB');
 
+  // Open collapsed Exploration when linked via hash
+  (function () {
+    var el = document.getElementById('ch-exploration');
+    if (!el) return;
+    function openIfHash() {
+      if (location.hash === '#ch-exploration') el.open = true;
+    }
+    openIfHash();
+    window.addEventListener('hashchange', openIfHash);
+  })();
+
   // Scroll progress bar
   (function () {
     const bar = document.getElementById('scroll-progress');
@@ -614,7 +626,6 @@
   })();
 </script>
 
-<script src="scroll-showcase.js?v=20260807"></script>
 <script src="scroll-showcase.js?v=20260807"></script>
 <script src="site-meta.js?v=20260729"></script>
 <script src="liquid-glass-tabs.bundle.js?v=20260811pw7"></script>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sana Remix — EA vs GA chat preview</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f4f4f5;
+      color: #18181b;
+      line-height: 1.5;
+      padding: 32px 24px 80px;
+    }
+    h1 { font-size: 1.5rem; font-weight: 600; margin-bottom: 8px; }
+    .lead { color: #52525b; max-width: 720px; margin-bottom: 32px; font-size: 15px; }
+    .flow { margin-bottom: 48px; }
+    .flow h2 { font-size: 1.125rem; font-weight: 600; margin-bottom: 6px; }
+    .flow p { color: #71717a; font-size: 14px; margin-bottom: 16px; max-width: 720px; }
+    .compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    @media (max-width: 900px) { .compare { grid-template-columns: 1fr; } }
+    figure {
+      background: #fff;
+      border: 1px solid #e4e4e7;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,.06);
+    }
+    figcaption {
+      padding: 10px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      border-bottom: 1px solid #f4f4f5;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .pill {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 999px;
+    }
+    .pill--ea { background: #fef9c3; color: #854d0e; }
+    .pill--ga { background: #dcfce7; color: #166534; }
+    img { width: 100%; height: auto; display: block; }
+    .note {
+      margin-top: 48px;
+      padding: 16px 20px;
+      background: #eff4ff;
+      border-radius: 10px;
+      font-size: 14px;
+      color: #1e3a8a;
+      max-width: 720px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Sana Remix — agent chat (EA vs GA)</h1>
+  <p class="lead">Captured from <code>sana-remix-5B0584ucu_2b</code> · Intake Orchestration Agent · chat interactions only. Nothing wired to the case study yet.</p>
+
+  <section class="flow">
+    <h2>Catalog — laptop for new hire (WebM)</h2>
+    <p>GA side-panel catalog · smooth autoplay loop</p>
+    <figure style="max-width:1024px;background:#fff;border:1px solid #e4e4e7;border-radius:12px;overflow:hidden">
+      <video autoplay loop muted playsinline width="1024" height="720" poster="../images/intake-agent/catalog-flow.poster.png?v=20260826" style="width:100%;height:auto;display:block">
+        <source src="../images/intake-agent/catalog-flow.webm?v=20260826" type="video/webm" />
+      </video>
+    </figure>
+  </section>
+
+  <section class="flow">
+    <h2>Non-catalog — web design agency (WebM)</h2>
+    <p>GA in-thread form wizard · smooth autoplay loop</p>
+    <figure style="max-width:1024px;background:#fff;border:1px solid #e4e4e7;border-radius:12px;overflow:hidden">
+      <video autoplay loop muted playsinline width="1024" height="720" poster="../images/intake-agent/noncatalog-flow.poster.png?v=20260826" style="width:100%;height:auto;display:block">
+        <source src="../images/intake-agent/noncatalog-flow.webm?v=20260826" type="video/webm" />
+      </video>
+    </figure>
+  </section>
+
+  <section class="flow">
+    <h2>Catalog — laptop for new hire (GIF fallback)</h2>
+    <p>GA side-panel catalog · autoplay loop · <code>images/intake-agent/catalog-flow.gif</code></p>
+    <figure style="max-width:1024px;background:#fff;border:1px solid #e4e4e7;border-radius:12px;overflow:hidden">
+      <img src="../images/intake-agent/catalog-flow.gif?v=20260826" alt="Catalog flow GIF" width="1024" height="720" style="width:100%;height:auto;display:block" />
+    </figure>
+  </section>
+
+  <section class="flow">
+    <h2>Non-catalog — web design agency (GIF)</h2>
+    <p>GA in-thread form wizard · autoplay loop · <code>images/intake-agent/noncatalog-flow.gif</code></p>
+    <figure style="max-width:1024px;background:#fff;border:1px solid #e4e4e7;border-radius:12px;overflow:hidden">
+      <img src="../images/intake-agent/noncatalog-flow.gif?v=20260826" alt="Non-catalog flow GIF" width="1024" height="720" style="width:100%;height:auto;display:block" />
+    </figure>
+  </section>
+
+  <section class="flow">
+    <h2>Q&amp;A — grounded answer + sources</h2>
+    <p>Prompt: “Who's our approved cloud vendor?” · Same content in both milestones; GA badge is green.</p>
+    <div class="compare">
+      <figure>
+        <figcaption><span class="pill pill--ea">EA</span> Multi-turn developer demo</figcaption>
+        <img src="sana-captures/ea/chat-qa.png" alt="EA Q&A response" width="1280" height="900" />
+      </figure>
+      <figure>
+        <figcaption><span class="pill pill--ga">GA</span> Product demo</figcaption>
+        <img src="sana-captures/ga/chat-qa.png" alt="GA Q&A response" width="1280" height="900" />
+      </figure>
+    </div>
+  </section>
+
+  <section class="flow">
+    <h2>Catalog — laptop for new hire</h2>
+    <p>EA: inline product cards in thread. GA: chat + side-panel catalog browse (closer to Workday panel pattern).</p>
+    <div class="compare">
+      <figure>
+        <figcaption><span class="pill pill--ea">EA</span> Inline cards + recommendation</figcaption>
+        <img src="sana-captures/ea/chat-catalog.png" alt="EA catalog flow" width="1280" height="900" />
+      </figure>
+      <figure>
+        <figcaption><span class="pill pill--ga">GA</span> Side-panel IT catalog</figcaption>
+        <img src="sana-captures/ga/chat-catalog.png" alt="GA catalog flow" width="1280" height="900" />
+      </figure>
+    </div>
+  </section>
+
+  <section class="flow">
+    <h2>Non-catalog — web design agency</h2>
+    <p>EA: multi-turn clarifying questions + CLM routing. GA: embedded 6-step request form card in thread.</p>
+    <div class="compare">
+      <figure>
+        <figcaption><span class="pill pill--ea">EA</span> Conversational intake + routing</figcaption>
+        <img src="sana-captures/ea/chat-noncatalog.png" alt="EA non-catalog flow" width="1280" height="900" />
+      </figure>
+      <figure>
+        <figcaption><span class="pill pill--ga">GA</span> In-thread form wizard</figcaption>
+        <img src="sana-captures/ga/chat-noncatalog.png" alt="GA non-catalog form" width="1280" height="900" />
+      </figure>
+    </div>
+  </section>
+
+  <p class="note">Open locally: <code>http://127.0.0.1:8766/preview/sana-intake-visuals.html</code></p>
+</body>
+</html>
