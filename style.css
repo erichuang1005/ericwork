@@ -1163,14 +1163,14 @@ body.cs-m3-docs-page footer a.footer-cta:not(.footer-cta--secondary) {
 .index-card--intake:hover .index-bento__arrow,
 .index-card--inventory:hover .index-bento__arrow,
 .index-card--purchase:hover .index-bento__arrow,
-.index-card--horizon:hover .index-bento__arrow,
+.index-card--rising:hover .index-bento__arrow,
 .index-card--orchestration:not(.coming-soon):hover .index-bento__arrow {
   transform: translate(1px, -1px);
 }
 
 .index-card--visual.index-card--inventory.index-bento,
 .index-card--visual.index-card--purchase.index-bento,
-.index-card--visual.index-card--horizon.index-bento,
+.index-card--visual.index-card--rising.index-bento,
 .index-card--visual.index-card--orchestration.index-bento {
   background: transparent;
   border: 0;
@@ -1188,7 +1188,7 @@ body.cs-m3-docs-page footer a.footer-cta:not(.footer-cta--secondary) {
 
 .index-card--visual.index-card--inventory.index-bento:hover,
 .index-card--visual.index-card--purchase.index-bento:hover,
-.index-card--visual.index-card--horizon.index-bento:hover,
+.index-card--visual.index-card--rising.index-bento:hover,
 .index-card--visual.index-card--orchestration.index-bento:not(.coming-soon):hover {
   box-shadow:
     0 4px 18px rgba(0, 0, 0, 0.04),
@@ -1352,7 +1352,7 @@ body.cs-m3-docs-page footer a.footer-cta:not(.footer-cta--secondary) {
 }
 
 .index-bento__panel.index-bento__panel--orchestration,
-.index-bento__panel.index-bento__panel--horizon {
+.index-bento__panel.index-bento__panel--rising {
   background:
     radial-gradient(ellipse 75% 65% at 15% 25%, rgba(153, 246, 228, 0.7) 0%, transparent 58%),
     radial-gradient(ellipse 70% 55% at 85% 75%, rgba(165, 243, 252, 0.75) 0%, transparent 55%),
@@ -1361,13 +1361,13 @@ body.cs-m3-docs-page footer a.footer-cta:not(.footer-cta--secondary) {
 
 .index-bento__panel.index-bento__panel--purchase::after,
 .index-bento__panel.index-bento__panel--orchestration::after,
-.index-bento__panel.index-bento__panel--horizon::after {
+.index-bento__panel.index-bento__panel--rising::after {
   display: none;
 }
 
 .index-bento__panel--purchase .index-bento__image,
 .index-bento__panel--orchestration .index-bento__image,
-.index-bento__panel--horizon .index-bento__image {
+.index-bento__panel--rising .index-bento__image {
   position: absolute;
   inset: clamp(16px, 2.8vw, 24px);
   width: auto;
@@ -3603,7 +3603,7 @@ body.cs-m3-docs-page footer a.footer-cta:not(.footer-cta--secondary) {
   .shipped-card--wide { grid-column: auto; }
 }
 
-/* ─── DEMO / HORIZON CASE ─── */
+/* ─── DEMO / RISING CASE ─── */
 .cs-demo-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -5578,7 +5578,7 @@ body.cs-m3-docs-page .cs-system-path .cs-figure img {
   .index-card--purchase { order: 1; }
   .index-card--inventory { order: 2; }
   .index-card--intake { order: 3; }
-  .index-card--horizon { order: 4; }
+  .index-card--rising { order: 4; }
 }
 
 @media (max-width: 720px) {
@@ -8666,7 +8666,7 @@ html.portfolio-gated body > :not(#pw-overlay) {
   margin-top: 0;
 }
 
-/* ─── DEMO / HORIZON CASE + TRUST GRID ─── */
+/* ─── DEMO / RISING CASE + TRUST GRID ─── */
 .cs-demo-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
