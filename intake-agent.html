@@ -6,11 +6,11 @@
   <script src="auth.js?v=20260811pw7"></script>
   <link rel="icon" type="image/png" href="images/favicon-32.png" sizes="32x32" />
   <link rel="apple-touch-icon" href="images/favicon-apple.png" />
-  <title>Intake Agent — Enterprise assistant UX (Eric Huang)</title>
+  <title>Intake Agent — Agentic procurement UX (Eric Huang)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=20260826af" />
+  <link rel="stylesheet" href="style.css?v=20260920audit1" />
   <link rel="stylesheet" href="material-tokens.css?v=20260748" />
   <link rel="stylesheet" href="material-theme.css?v=20260826path1" />
   <script src="analytics.js"></script>
@@ -47,7 +47,7 @@
         <div class="m3-docs-hero-story">
           <p class="m3-docs-eyebrow"><img class="m3-docs-brand" src="images/workday-logo.jpg" width="24" height="24" alt="" decoding="async" /> Workday · Desktop</p>
           <h1 class="m3-docs-title">Intake Agent</h1>
-          <p class="m3-docs-lede">If the rules don't match real behavior, the 'AI' part doesn't matter—the experience breaks.</p>
+          <p class="m3-docs-lede">I designed the agentic loop: grounded answers, deterministic routing, and human-in-the-loop controls — then shipped it through two major releases.</p>
         </div>
         <div class="m3-docs-hero-meta">
           <p class="m3-docs-meta-line">
@@ -56,10 +56,10 @@
             <span class="m3-docs-meta">Lead UX Designer · 2024–2026</span>
           </p>
           <div class="m3-docs-chips">
-            <span class="tag accent">Chat assistant UX</span>
-            <span class="tag">Responsible AI</span>
-            <span class="tag">Multi-step conversations</span>
-            <span class="tag">Trust &amp; transparency</span>
+            <span class="tag accent">Agentic UX</span>
+            <span class="tag">Grounded answers</span>
+            <span class="tag">Human-in-the-loop</span>
+            <span class="tag">Routing &amp; oversight</span>
           </div>
         </div>
       </div>
@@ -79,6 +79,7 @@
           <a href="#snapshot" role="tab" class="tab active" aria-label="30-second read" aria-selected="true" tabindex="0"><span class="material-symbols-rounded google-symbols notranslate" aria-hidden="true">schedule</span><span class="tab-label">30-second read</span></a>
           <a href="#ch-problem" role="tab" class="tab" aria-label="Problem" aria-selected="false" tabindex="-1"><span class="material-symbols-rounded google-symbols notranslate" aria-hidden="true">report</span><span class="tab-label">Problem</span></a>
           <a href="#ch-system" role="tab" class="tab" aria-label="Solution" aria-selected="false" tabindex="-1"><span class="material-symbols-rounded google-symbols notranslate" aria-hidden="true">widgets</span><span class="tab-label">Solution</span></a>
+          <a href="#ch-trust" role="tab" class="tab" aria-label="Trust" aria-selected="false" tabindex="-1"><span class="material-symbols-rounded google-symbols notranslate" aria-hidden="true">verified_user</span><span class="tab-label">Trust</span></a>
           <a href="#ch-outcomes" role="tab" class="tab" aria-label="Outcomes" aria-selected="false" tabindex="-1"><span class="material-symbols-rounded google-symbols notranslate" aria-hidden="true">check_circle</span><span class="tab-label">Outcomes</span></a>
         </div>
       </div>
@@ -102,21 +103,21 @@
         <span class="cs-snapshot-num">02</span>
         <div>
           <strong>The critical decision</strong>
-          <p>We rejected a pure chatbot. Procurement isn't a Q&amp;A problem — it's a workflow problem. The assistant needed to know the rules, cite its sources, and hand people off to the right next step in the existing system.</p>
+          <p>I rejected a pure chatbot. Procurement isn’t a Q&amp;A problem — it’s a workflow problem. I designed the assistant to cite sources, follow admin-configured routes, and hand people a real next step — not a confident guess.</p>
         </div>
       </div>
       <div class="cs-snapshot-beat">
         <span class="cs-snapshot-num">03</span>
         <div>
           <strong>The solution</strong>
-          <p>Workday kept catalog and non-catalog in chat. Sana puts a catalog canvas and a structured input modal in the thread — with admin rules behind both so answers stay in policy.</p>
+          <p>I kept catalog and non-catalog inside the thread, then evolved the pattern for Sana: a catalog canvas and a structured input modal, with admin rules behind both so answers stay in policy.</p>
         </div>
       </div>
       <div class="cs-snapshot-beat">
         <span class="cs-snapshot-num">04</span>
         <div>
           <strong>Shipped</strong>
-          <p>Two major releases (2024–2026). Policy-grounded answers with sources, in-chat catalog and forms, admin routing table, test sandbox, and analytics.</p>
+          <p>Two major releases (2024–2026). Policy-grounded answers with sources, in-chat catalog and forms, admin routing table, test sandbox, and analytics. Admin tooling shipped in v1 — not as a follow-on.</p>
         </div>
       </div>
     </div>
@@ -130,6 +131,59 @@
     </div>
   </div>
   <!-- ─── END SNAPSHOT ─── -->
+
+  <div class="my-role-block">
+    <div class="my-role-icon">👤</div>
+    <div class="my-role-content">
+      <div class="block-label">What I owned</div>
+      <p>I led UX from discovery through launch: the hybrid entry model, the reply primitive (answer + source + one action), deterministic routing over model inference, and the admin loop that keeps the agent honest. I argued for admin tooling in v1 when the easier call was to defer it.</p>
+      <div class="my-role-chips">
+        <span class="chip">Interaction model</span>
+        <span class="chip">Trust patterns</span>
+        <span class="chip">Human-in-the-loop</span>
+        <span class="chip">Admin / agent loop</span>
+        <span class="chip">Stakeholder decisions</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="block-label">Decisions I had to defend</div>
+    <h3>Outcome over optics</h3>
+    <p>Three calls where I pushed against the default — without formal authority — because the “AI-native” option would have failed in a governed workflow.</p>
+  </div>
+  <div class="solution-table-wrap">
+    <table class="solution-table solution-table--pr" aria-label="Decisions I owned">
+      <thead>
+        <tr>
+          <th>Decision</th>
+          <th>The push</th>
+          <th>What I did</th>
+          <th>Result</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="selected">
+          <td>Hybrid shell vs. pure chat</td>
+          <td>Chat-only felt more “AI-native”</td>
+          <td>I used research: power users needed Quick Links; new hires needed open search. I framed it as outcome over optics.</td>
+          <td>Hybrid shipped</td>
+        </tr>
+        <tr>
+          <td>Deterministic routing vs. model inference</td>
+          <td>Let the model infer the next step</td>
+          <td>I argued that for compliance paths, inference is an audit risk. High-stakes routes need an explicit admin table.</td>
+          <td>Routing table shipped</td>
+        </tr>
+        <tr>
+          <td>Admin tooling in v1 vs. later</td>
+          <td>Defer the console to protect timeline</td>
+          <td>I held the line: without upload, sandbox, and analytics, answer quality degrades the moment policy changes.</td>
+          <td>Admin loop shipped in v1</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
 
   <div class="cs-chapter-heading cs-chapter-section" id="ch-problem">
@@ -186,7 +240,7 @@
     <summary class="cs-chapter-heading cs-chapter-section cs-appendix__summary">
       <span class="cs-chapter-num">02</span>
       <h3><span class="cs-appendix__heading-text">Exploration</span></h3>
-      <p class="cs-chapter-sub">What we tried, what we ruled out, and what held up</p>
+      <p class="cs-chapter-sub">What I tried, what I ruled out, and what held up</p>
     </summary>
     <div class="cs-appendix__body">
 
@@ -249,7 +303,7 @@
         </figure>
       </div>
       <div class="cs-problem-copy">
-        <p class="cs-problem-lede">One entry point for repeat tasks, open search, and policy-heavy questions — with sources and a real next step.</p>
+        <p class="cs-problem-lede">One entry point for repeat tasks, open search, and policy-heavy questions — with sources and a real next step. I shipped the hybrid because no single door worked for every employee.</p>
         <ul class="cs-problem-specs">
           <li><span class="cs-problem-spec__term">Shortcuts</span><span class="cs-problem-spec__desc">Admin-curated Quick Links for repeat tasks</span></li>
           <li><span class="cs-problem-spec__term">Search</span><span class="cs-problem-spec__desc">Role-tuned suggestions on first load</span></li>
@@ -268,13 +322,18 @@
     <p class="cs-chapter-sub">Catalog, non-catalog, and the admin loop that keeps both safe</p>
   </div>
 
+  <div class="block block--intro">
+    <div class="block-label">The agentic model</div>
+    <p>I treated the assistant as a governed workflow, not a chat skin. Every turn had to do three things: ground the answer in policy, route to the right next step, and leave a human in control when the model shouldn’t decide.</p>
+  </div>
+
   <div class="block cs-system-path">
     <div class="cs-system-path__title">
       <div class="block-label">Catalog</div>
       <strong class="block-inline-title">Canvas inside the chat.</strong>
     </div>
     <p>
-      The Workday design kept catalog in conversation — a reply, a card, a button. Sana introduces a catalog canvas into agent chat so people can search, compare, and add in one place — faster, with less back-and-forth.
+      The Workday design kept catalog in conversation — a reply, a card, a button. For Sana I moved that into a catalog canvas inside agent chat so people can search, compare, and add in one place — faster, with less back-and-forth.
     </p>
     <ol class="cs-progress cs-progress--fit" style="--prev-ar: 1.766fr; --now-ar: 1.6fr">
       <li>
@@ -298,7 +357,7 @@
       <strong class="block-inline-title">A modal instead of answering in the composer.</strong>
     </div>
     <p>
-      Workday collected non-catalog details through chat — the agent asked in the thread, people typed answers in the input box. Sana moves that into a structured input modal: one question at a time, then a complete request.
+      Workday collected non-catalog details through chat — the agent asked in the thread, people typed answers in the input box. For Sana I moved that into a structured input modal: one question at a time, then a complete request. Structured capture beat free-text when the fields are required for compliance.
     </p>
     <ol class="cs-progress cs-progress--fit" style="--prev-ar: 1.131fr; --now-ar: 1.6fr">
       <li>
@@ -322,7 +381,7 @@
       <strong class="block-inline-title">Upload policy. Approve the path.</strong>
     </div>
     <p>
-      Workday admins uploaded a policy document, then typed the purchase path by hand. In Sana, the same upload drafts a compliance purchase path — admins approve it and adjust the details.
+      Workday admins uploaded a policy document, then typed the purchase path by hand. In Sana, the same upload drafts a compliance purchase path — admins approve it and adjust the details. I kept a human in the loop on purpose: the agent proposes, the admin publishes.
     </p>
     <ol class="cs-progress cs-progress--fit" style="--prev-ar: 1.492fr; --now-ar: 1.492fr">
       <li>
@@ -340,15 +399,81 @@
     </ol>
   </div>
 
-  <div class="cs-chapter-heading cs-chapter-section" id="ch-outcomes">
+  <div class="cs-chapter-heading cs-chapter-section" id="ch-trust">
     <span class="cs-chapter-num">04</span>
-    <h3>Outcomes</h3>
-    <p class="cs-chapter-sub">What we’d do differently next time</p>
+    <h3>Trust, routing, and failure</h3>
+    <p class="cs-chapter-sub">The agent is only as good as the oversight around it</p>
   </div>
 
   <div class="block">
+    <p>I designed three layers for when the model is wrong or out of bounds: cite the source so people can verify, route high-stakes paths through explicit admin rules, and test in a sandbox before employees ever see a change.</p>
+  </div>
+
+  <div class="cs-trust-grid">
+    <article class="cs-trust-card">
+      <img src="images/intake-agent/04-agent-po-answer.png" alt="Grounded assistant reply with a cited source and a next step" width="1024" height="711" loading="lazy" decoding="async" />
+      <div class="cs-trust-card__copy">
+        <h4>Grounded answers</h4>
+        <p>Every reply cites the policy it used. Skim the title and excerpt by default; expand for depth. Trust is designed in, not bolted on.</p>
+      </div>
+    </article>
+    <article class="cs-trust-card">
+      <img src="images/intake-agent/10-admin-routing-rules-editor.png" alt="Admin routing rules editor for purchase paths" width="1024" height="686" loading="lazy" decoding="async" />
+      <div class="cs-trust-card__copy">
+        <h4>Deterministic routing</h4>
+        <p>I kept high-stakes next steps on an admin-configured table — not model inference — so compliance paths stay auditable.</p>
+      </div>
+    </article>
+    <article class="cs-trust-card">
+      <img src="images/intake-agent/11-admin-testing-playground.png" alt="Admin testing playground for verifying agent behavior before launch" width="1024" height="686" loading="lazy" decoding="async" />
+      <div class="cs-trust-card__copy">
+        <h4>Human-in-the-loop</h4>
+        <p>Admins verify behavior in a sandbox before go-live. On Sana, generated purchase paths still require approve-and-edit before publish.</p>
+      </div>
+    </article>
+  </div>
+
+  <div class="cs-chapter-heading cs-chapter-section" id="ch-outcomes">
+    <span class="cs-chapter-num">05</span>
+    <h3>Outcomes</h3>
+    <p class="cs-chapter-sub">What shipped, what stuck, what I’d do next</p>
+  </div>
+
+  <ul class="shipped-grid" role="list">
+    <li class="shipped-card">
+      <span class="shipped-num" aria-hidden="true">01</span>
+      <div class="shipped-copy">
+        <p class="shipped-title">Two major releases</p>
+        <p class="shipped-desc">2024 hybrid landing with grounded answers; 2026 in-thread catalog, forms, and pricing — a full transaction in chat.</p>
+      </div>
+    </li>
+    <li class="shipped-card">
+      <span class="shipped-num" aria-hidden="true">02</span>
+      <div class="shipped-copy">
+        <p class="shipped-title">Admin loop in v1</p>
+        <p class="shipped-desc">Document upload, routing table, test sandbox, and analytics shipped with the user experience — not deferred.</p>
+      </div>
+    </li>
+    <li class="shipped-card">
+      <span class="shipped-num" aria-hidden="true">03</span>
+      <div class="shipped-copy">
+        <p class="shipped-title">Pattern carried forward</p>
+        <p class="shipped-desc">The reply primitive and in-thread actions moved into Sana — canvas, structured modal, generated recipes with admin approve.</p>
+      </div>
+    </li>
+    <li class="shipped-card">
+      <span class="shipped-num" aria-hidden="true">04</span>
+      <div class="shipped-copy">
+        <p class="shipped-title">Support pressure, named</p>
+        <p class="shipped-desc">Internal support said half their week was repeat “how do I…?” questions. I designed against that volume — I don’t have a public reduction number to share.</p>
+      </div>
+    </li>
+  </ul>
+
+  <div class="block">
     <p class="cs-loop-pullquote">“If the rules don’t match real behavior, the ‘AI’ part doesn’t matter—the experience breaks.”</p>
-    <p>Push for a live admin preview earlier. The sandbox helped, but seeing the full user-facing experience before launch would have caught more rule gaps before employees hit them.</p>
+    <p>I would push for a live admin preview earlier. The sandbox caught routing logic; it missed real-world edge cases until employees hit them. Next time I’d also stand up an evaluation harness so new rules get real prompts before they go live.</p>
+    <p>Customer sessions that shaped catalog overflow and off-catalog forms are in <a href="horizon-demo.html">Horizon demos</a> — buyer need, interactive prototype, then requirements back to PM and Eng.</p>
   </div>
 
   <!-- More to the story -->
