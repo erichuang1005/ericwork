@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Roboto:wght@300;400;500;700&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=20260920home1" />
+  <link rel="stylesheet" href="style.css?v=20260921hero1" />
   <link rel="stylesheet" href="material-tokens.css?v=20260748" />
   <link rel="stylesheet" href="material-theme.css?v=20260826tabs1" />
   <script src="analytics.js"></script>
@@ -20,9 +20,9 @@
 
 <header class="hero hero--home">
   <div class="hero-copy">
-    <p class="hero-eyebrow">Product designer · Workday</p>
+    <p class="hero-eyebrow">Senior Product Designer · Workday</p>
     <h1 class="hero-name">Eric Huang</h1>
-    <p class="hero-title">I design <span class="hero-product-pill" data-hero-pill style="--color-background: #e8def8; --pill-label-inline-size: max-content;"><span class="hero-product-pill__label"><span class="hero-product-pill__measure" data-hero-pill-label>AI assistants</span></span></span> for real-world use.</p>
+    <p class="hero-title">I help teams ship <span class="hero-product-pill" data-hero-pill style="--color-background: #e8def8; --pill-label-inline-size: max-content;"><span class="hero-product-pill__label"><span class="hero-product-pill__measure" data-hero-pill-label>trusted AI agents</span></span></span> with oversight.</p>
     <div class="hero-cta">
       <a class="hero-cta__primary" href="#work">View work</a>
       <a class="hero-cta__secondary" href="resume.pdf?v=20260420" target="_blank" rel="noopener">Resume</a>
@@ -192,18 +192,17 @@
     window.setTimeout(settle, 1400);
   })();
 
-  /* Fixed frame: I design [noun] people actually use. */
+  /* Fixed frame: I help teams ship [adjective + noun] with oversight. */
   (function () {
     const pill = document.querySelector('[data-hero-pill]');
     const label = document.querySelector('[data-hero-pill-label]');
     const title = document.querySelector('.hero-title');
     if (!pill || !label) return;
 
-    // Mapped to case studies: Intake · Inventory DS · Compliance / admin tools
     const items = [
-      { text: 'AI assistants', bg: '#e8def8' },
-      { text: 'Components', bg: '#d2e8e4' },
-      { text: 'Admin experiences', bg: '#d4e8f6' },
+      { text: 'trusted AI agents', bg: '#e8def8' },
+      { text: 'usable admin systems', bg: '#d2e8e4' },
+      { text: 'clear compliance flows', bg: '#d4e8f6' },
     ];
 
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
