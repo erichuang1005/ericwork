@@ -58,7 +58,7 @@
   <div class="m3-docs-body">
 
   <div class="block block--intro">
-    <p>Specialized agents help only when the handoff, the write, and the permission are explicit. In the sketch, pending actions stay with a person — an agent can draft the handoff; it doesn’t clear the queue. The shipped, single-agent version of these controls is Intake Agent. Defining what that agent owns surfaced a boundary: it assumed one item and one request. A multi-item or multi-service ask doesn’t fit the model — split it, or hand it off. That handoff is still open thinking, alongside the shipped single-agent work.</p>
+    <p>Specialized agents help only when the handoff, the write, and the permission are explicit. In the sketch, pending actions stay with a person — an agent can draft the handoff; it doesn’t clear the queue. The shipped, single-agent version of these controls is Intake Agent. Defining what that agent owns surfaced a boundary: it assumed one item and one request. A multi-item or multi-service ask doesn’t fit the model — split it, or hand it off. When a use case didn’t match at all, I redirected it to another spend or procurement agent instead of stretching Intake. That handoff is still open thinking, alongside the shipped single-agent work.</p>
   </div>
 
   <div class="cs-chapter-heading cs-chapter-section" id="failures">
@@ -105,6 +105,7 @@
   <div class="block">
     <p><strong>Agent → agent</strong> when the next step is a different skill, or the request doesn’t fit this agent’s model, and the packet is complete — a policy answer handing off to catalog lookup. Stay in one thread. Show who has it.</p>
     <p><strong>Agent → human</strong> when the stakes are spend, a policy exception, low confidence, or a tool failure. The person gets the packet and the reason, not a blank form.</p>
+    <p><strong>Role on the handoff.</strong> A requester, a manager or delegate, and an admin should not share one queue — submitted work, approval actions, or a broader view. Permission stays with the role. Still open thinking, same as the handoff.</p>
     <p>Don’t send uncertainty to another agent. Uncertainty is a human handoff.</p>
   </div>
 
