@@ -2302,14 +2302,55 @@ body.cs-m3-docs-page footer a.footer-cta:not(.footer-cta--secondary) {
 
 /* ─── BLOCKS ─── */
 .block { margin-bottom: 64px; }
-.block.cs-story-beat {
-  margin-bottom: 120px;
+.block.cs-arc {
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+  gap: clamp(28px, 4vw, 48px);
+  align-items: center;
+  margin-bottom: clamp(96px, 12vw, 140px);
 }
-.cs-story-beat .block-label {
+.cs-arc--flip {
+  grid-template-columns: minmax(0, 1.18fr) minmax(0, 0.82fr);
+}
+.cs-arc--flip .cs-arc__copy {
+  order: 2;
+}
+.cs-arc__frames {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 28px;
+  min-width: 0;
+}
+.cs-arc__frames .cs-figure--open {
+  width: 68%;
+  margin-left: 18%;
+}
+.cs-figure--open .cs-figure__well {
+  aspect-ratio: 16 / 10;
+  background: var(--tag-bg);
+}
+.cs-arc--settle {
+  grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
+  align-items: end;
+}
+.cs-arc .block-label {
   margin-bottom: 12px;
 }
-.cs-story-beat .cs-figure {
-  margin-top: 40px;
+@media (max-width: 800px) {
+  .block.cs-arc,
+  .cs-arc--flip,
+  .cs-arc--settle {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+  .cs-arc--flip .cs-arc__copy {
+    order: 0;
+  }
+  .cs-arc__frames .cs-figure--open {
+    width: 100%;
+    margin-left: 0;
+  }
 }
 /* Checklists that live inside a .block don't need inline margin/max-width */
 .block .checklist {

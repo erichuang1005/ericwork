@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=20261001story2" />
+  <link rel="stylesheet" href="style.css?v=20261001arc1" />
   <link rel="stylesheet" href="material-tokens.css?v=20260748" />
   <link rel="stylesheet" href="material-theme.css?v=20260826path1" />
   <script src="analytics.js"></script>
@@ -395,40 +395,38 @@
     </article>
   </div>
 
-  <div class="block cs-system-path cs-story-beat">
-    <div class="cs-system-path__title">
-      <div class="block-label">Hybrid entry</div>
-      <strong class="block-inline-title">Repeat buyers take a shortcut. Everyone else asks.</strong>
+  <div class="block cs-arc">
+    <div class="cs-arc__copy">
+      <div class="block-label">The door</div>
+      <h3>One door didn’t work.</h3>
+      <p>Chat-only looked more like “AI.” Repeat buyers wanted a shortcut; everyone else needed to ask. Both had to fit, so the landing does both.</p>
     </div>
     <figure class="cs-figure">
       <img src="images/intake-agent/story-entry.png" alt="Employee home asking what to purchase, with quick launch into a request" width="1080" height="620" loading="lazy" decoding="async" />
     </figure>
   </div>
 
-  <div class="block cs-system-path cs-story-beat">
-    <div class="cs-system-path__title">
-      <div class="block-label">In the thread</div>
-      <strong class="block-inline-title">The catalog check stays in the thread. Not a wall of results.</strong>
+  <div class="block cs-arc cs-arc--flip">
+    <div class="cs-arc__copy">
+      <div class="block-label">The thread</div>
+      <h3>The check stays in the thread.</h3>
+      <p>Reviews killed the floating modal and the wall of results. A few matches, then the canvas. After the check, the person still confirms. Multi-item still doesn’t work. First release, checkout is view-only.</p>
     </div>
-    <figure class="cs-figure">
-      <img src="images/intake-agent/story-catalog.png" alt="Chat checking the catalog while an order for eight ventilators is in progress" width="880" height="390" loading="lazy" decoding="async" />
-    </figure>
+    <div class="cs-arc__frames">
+      <figure class="cs-figure">
+        <img src="images/intake-agent/story-catalog.png" alt="Chat checking the catalog while an order for eight ventilators is in progress" width="880" height="390" loading="lazy" decoding="async" />
+      </figure>
+      <figure class="cs-figure cs-figure--open" data-mock-slot="intake-confirmation" aria-label="Confirmation">
+        <div class="cs-figure__well" aria-hidden="true"></div>
+      </figure>
+    </div>
   </div>
 
-  <div class="block cs-system-path cs-story-beat">
-    <div class="cs-system-path__title">
-      <div class="block-label">Admin home</div>
-      <strong class="block-inline-title">Policy comes in. The route goes out. A person still approves the spend.</strong>
-    </div>
-    <figure class="cs-figure">
-      <img src="images/intake-agent/story-policy.png" alt="Intake admin home: policy in, routing out" width="1060" height="420" loading="lazy" decoding="async" />
-    </figure>
-  </div>
-
-  <div class="block cs-system-path cs-story-beat">
-    <div class="cs-system-path__title">
+  <div class="block cs-arc cs-arc--settle">
+    <div class="cs-arc__copy">
       <div class="block-label">The citation</div>
-      <strong class="block-inline-title">A recipe can be edited. The citation has to survive that edit.</strong>
+      <h3>An edit can knock the source out.</h3>
+      <p>Recipes start read-only. Change a step and the citation can go with it. Policy still comes in and the route goes out; a person approves anything that spends money.</p>
     </div>
     <figure class="cs-figure">
       <img src="images/intake-agent/story-citation.png" alt="Recipe draft with trigger conditions and citations attached" width="1040" height="420" loading="lazy" decoding="async" />
