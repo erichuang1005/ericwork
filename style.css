@@ -2302,6 +2302,15 @@ body.cs-m3-docs-page footer a.footer-cta:not(.footer-cta--secondary) {
 
 /* ─── BLOCKS ─── */
 .block { margin-bottom: 64px; }
+.block.cs-story-beat {
+  margin-bottom: 96px;
+}
+.cs-story-beat .block-label {
+  margin-bottom: 10px;
+}
+.cs-story-beat .cs-figure {
+  margin-top: 28px;
+}
 /* Checklists that live inside a .block don't need inline margin/max-width */
 .block .checklist {
   margin-top: 16px;
