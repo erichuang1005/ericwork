@@ -47,7 +47,7 @@
         <div class="m3-docs-hero-story">
           <p class="m3-docs-eyebrow"><img class="m3-docs-brand" src="images/workday-logo.jpg" width="24" height="24" alt="" decoding="async" /> Workday · Desktop</p>
           <h1 class="m3-docs-title">Intake Agent</h1>
-          <p class="m3-docs-lede">I designed the agentic loop: grounded answers, deterministic routing, and human-in-the-loop controls — then shipped it through two major releases.</p>
+          <p class="m3-docs-lede">People ask in chat. Policy and the next step are set in admin, and a person still approves anything that spends money. Shipped across two releases.</p>
         </div>
         <div class="m3-docs-hero-meta">
           <p class="m3-docs-meta-line">
@@ -66,7 +66,7 @@
       <div class="m3-docs-hero-visual">
         <div class="m3-docs-visual-bg m3-docs-visual-bg--intake" aria-hidden="true"></div>
         <figure class="m3-docs-visual-card m3-docs-visual-card--wide">
-          <img src="images/intake-agent/sana-user-entry.png?v=20260826e" alt="Intake Orchestration Agent — one prompt, shortcuts, and request tracking" width="1440" height="900" decoding="async" loading="eager" />
+          <img src="images/intake-agent/sana-user-entry.png?v=20260826e" alt="Employee chat asking what to purchase, with the request tracked beside it" width="1440" height="900" decoding="async" loading="eager" />
         </figure>
       </div>
     </div>
@@ -103,7 +103,7 @@
         <span class="cs-snapshot-num">02</span>
         <div>
           <strong>The critical decision</strong>
-          <p>I didn’t ship chat-only. Hybrid shipped, and high-stakes routes sit on an admin table.</p>
+          <p>People ask in chat. The route sits on an admin table, and a person still approves it.</p>
         </div>
       </div>
       <div class="cs-snapshot-beat">
@@ -136,7 +136,7 @@
     <div class="my-role-icon">👤</div>
     <div class="my-role-content">
       <div class="block-label">What I owned</div>
-      <p>I led UX from discovery through launch: the hybrid entry model, the reply primitive (answer + source + one action), deterministic routing over model inference, and the admin loop that keeps the agent honest. I argued for admin tooling in v1 when the easier call was to defer it.</p>
+      <p>I led UX from discovery through launch: the chat employees use to ask, the reply (answer, source, and one action), and the admin screens that keep the route in policy. I argued for that admin UI in v1 when the easier call was to defer it.</p>
       <div class="my-role-chips">
         <span class="chip">Interaction model</span>
         <span class="chip">Trust patterns</span>
@@ -149,7 +149,7 @@
 
   <div class="block">
     <div class="block-label">Decisions I had to defend</div>
-    <p>Chat-only looked more like “AI.” It wasn’t what people needed. Hybrid shipped.</p>
+    <p>A chat with no policy behind it couldn’t be audited. I shipped the chat and the admin UI together.</p>
     <p>The risky step is not a guess. High-stakes routes sit on an admin table, and a person still approves them. I kept upload, the sandbox, and analytics in the first release — otherwise the answers go stale the moment policy changes.</p>
     <p>If the job isn’t this agent’s, I send it to another spend agent instead of stretching Intake. A requester, a manager, and an admin don’t see the same queue.</p>
   </div>
@@ -254,13 +254,13 @@
 
     <div class="cs-problem-stage cs-problem-stage--shipped">
       <div class="cs-problem-path">
-        <p class="cs-problem-path__label">Hybrid entry · shipped</p>
+        <p class="cs-problem-path__label">Governed chat · shipped</p>
         <figure class="cs-problem-shot">
-          <img src="images/intake-agent/01-landing-quick-links.png" alt="Hybrid landing with Quick Links, search, and side assistant" width="1024" height="711" loading="lazy" decoding="async" />
+          <img src="images/intake-agent/04-agent-po-answer.png" alt="Chat reply that cites the policy it used and offers a next step" width="1024" height="711" loading="lazy" decoding="async" />
         </figure>
       </div>
       <div class="cs-problem-copy">
-        <p class="cs-problem-lede">One entry point for repeat tasks, open search, and policy-heavy questions — with sources and a real next step.</p>
+        <p class="cs-problem-lede">People ask in the thread. The reply has to cite a source. The path that spends money is set in admin, and a person still approves it.</p>
       </div>
     </div>
   </div>
@@ -351,14 +351,14 @@
   </div>
 
   <div class="block">
-    <p>Repeat buyers wanted a shortcut. Everyone else needed to ask.</p>
+    <p>People ask in chat. The reply has to cite the policy it used.</p>
     <figure class="cs-figure">
-      <img src="images/intake-agent/request-start.png" alt="Employee home asking what to purchase, with quick launch into a request" width="1440" height="900" loading="lazy" decoding="async" />
+      <img src="images/intake-agent/request-start.png" alt="Employee chat asking what to purchase" width="1440" height="900" loading="lazy" decoding="async" />
     </figure>
   </div>
 
   <div class="block">
-    <p>Reviews killed the floating modal and the wall of catalog results. A few matches, then the canvas. Multi-item still doesn’t work. First release, checkout is view-only.</p>
+    <p>The catalog check stays in the thread. A few matches, then the canvas. Multi-item still doesn’t work. First release, checkout is view-only.</p>
     <figure class="cs-figure">
       <img src="images/intake-agent/catalog-check.png" alt="Chat checking the catalog while an order for eight ventilators is in progress" width="1440" height="900" loading="lazy" decoding="async" />
     </figure>
@@ -368,9 +368,16 @@
   </div>
 
   <div class="block">
+    <p>Policy comes in on this screen. The route goes out. A person still approves anything that spends money.</p>
+    <figure class="cs-figure">
+      <img src="images/intake-agent/policy-routing.png" alt="Admin home where a policy document is uploaded and routing is reviewed" width="1440" height="900" loading="lazy" decoding="async" />
+    </figure>
+  </div>
+
+  <div class="block">
     <p>Recipes start read-only. Editing one can knock out the citation.</p>
     <figure class="cs-figure">
-      <img src="images/intake-agent/recipe-draft.png" alt="Recipe draft with trigger conditions and citations attached" width="1440" height="900" loading="lazy" decoding="async" />
+      <img src="images/intake-agent/recipe-draft.png" alt="Recipe draft with trigger conditions and citations attached to each step" width="1440" height="900" loading="lazy" decoding="async" />
     </figure>
   </div>
 
@@ -385,7 +392,7 @@
       <span class="shipped-num" aria-hidden="true">01</span>
       <div class="shipped-copy">
         <p class="shipped-title">Two major releases</p>
-        <p class="shipped-desc">2024 hybrid landing with grounded answers; 2026 in-thread catalog, forms, and pricing — a full transaction in chat.</p>
+        <p class="shipped-desc">2024: the employee chat and the admin UI in one release. 2026: in-thread catalog, forms, and pricing.</p>
       </div>
     </li>
     <li class="shipped-card">
