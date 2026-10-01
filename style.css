@@ -1345,14 +1345,6 @@ body.cs-m3-docs-page footer a.footer-cta:not(.footer-cta--secondary) {
     0 10px 28px rgba(0, 0, 0, 0.1);
 }
 
-.index-card--orchestration.index-bento .index-bento__arrow {
-  opacity: 0.35;
-}
-
-.index-card--orchestration.index-bento .index-bento__anchor {
-  pointer-events: none;
-}
-
 .index-bento__image {
   position: relative;
   z-index: 0;
