@@ -3808,6 +3808,22 @@ body.cs-m3-docs-page footer a.footer-cta:not(.footer-cta--secondary) {
   border-top: 1px solid var(--border);
   background: var(--bg-card);
 }
+.cs-figure--mock {
+  box-shadow: none;
+  max-width: 520px;
+  margin-top: 8px;
+}
+.cs-gallery--mocks {
+  margin-top: 8px;
+}
+.cs-gallery--mocks .cs-figure--mock {
+  max-width: none;
+  margin-top: 0;
+}
+.cs-mock-slot {
+  aspect-ratio: 16 / 10;
+  background: var(--tag-bg);
+}
 .cs-gallery-full {
   grid-column: 1 / -1;
 }

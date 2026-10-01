@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=20260920home1" />
+  <link rel="stylesheet" href="style.css?v=20261001mock1" />
   <link rel="stylesheet" href="material-tokens.css?v=20260748" />
   <link rel="stylesheet" href="material-theme.css?v=20260826path1" />
   <script src="analytics.js"></script>
@@ -136,7 +136,7 @@
     <div class="my-role-icon">👤</div>
     <div class="my-role-content">
       <div class="block-label">What I owned</div>
-      <p>I led UX from discovery through launch: the hybrid entry model, the reply primitive (answer + source + one action), deterministic routing over model inference, and the admin loop that keeps the agent honest. I argued for admin tooling in v1 when the easier call was to defer it, and checked the work with stakeholders on interactive prototypes built in Cursor (and similar tools) and shared via GitHub Pages.</p>
+      <p>I led UX from discovery through launch: the hybrid entry model, the reply primitive (answer + source + one action), deterministic routing over model inference, and the admin loop that keeps the agent honest. I argued for admin tooling in v1 when the easier call was to defer it — prototypes in Cursor, shared on GitHub Pages.</p>
       <div class="my-role-chips">
         <span class="chip">Interaction model</span>
         <span class="chip">Trust patterns</span>
@@ -329,7 +329,7 @@
       <strong class="block-inline-title">Canvas inside the chat.</strong>
     </div>
     <p>
-      The Workday design kept catalog in conversation — a reply, a card, a button. For Sana I moved that into a catalog canvas inside agent chat so people can search, compare, and add in one place — faster, with less back-and-forth. The thread shows the top three matches; view more expands into the full canvas.
+      The Workday design kept catalog in conversation — a reply, a card, a button. For Sana I moved that into a catalog canvas inside agent chat so people can search, compare, and add in one place — faster, with less back-and-forth.
     </p>
     <ol class="cs-progress cs-progress--fit" style="--prev-ar: 1.766fr; --now-ar: 1.6fr">
       <li>
@@ -353,7 +353,7 @@
       <strong class="block-inline-title">A modal instead of answering in the composer.</strong>
     </div>
     <p>
-      Workday collected non-catalog details through chat — the agent asked in the thread, people typed answers in the input box. For Sana I moved that into a structured input modal: one question at a time, then a complete request. Structured capture beat free-text when the fields are required for compliance. That modal is for those compliance fields. Questions the agent asks moved out of a floating modal and into the thread.
+      Workday collected non-catalog details through chat — the agent asked in the thread, people typed answers in the input box. For Sana I moved that into a structured input modal: one question at a time, then a complete request. Structured capture beat free-text when the fields are required for compliance.
     </p>
     <ol class="cs-progress cs-progress--fit" style="--prev-ar: 1.131fr; --now-ar: 1.6fr">
       <li>
@@ -377,7 +377,7 @@
       <strong class="block-inline-title">Upload policy. Approve the path.</strong>
     </div>
     <p>
-      Workday admins uploaded a policy document, then typed the purchase path by hand. In Sana, the same upload drafts a compliance purchase path — admins approve it and adjust the details. The drafted recipe starts as read-only markdown. Inline editing came later; an edit can invalidate the citation. Agent-assisted editing is deferred to a later release. I kept a human in the loop on purpose: the agent proposes, the admin publishes.
+      Workday admins uploaded a policy document, then typed the purchase path by hand. In Sana, the same upload drafts a compliance purchase path — admins approve it and adjust the details. I kept a human in the loop on purpose: the agent proposes, the admin publishes.
     </p>
     <ol class="cs-progress cs-progress--fit" style="--prev-ar: 1.492fr; --now-ar: 1.492fr">
       <li>
@@ -397,16 +397,11 @@
 
   <div class="block">
     <div class="block-label">Decisions that stuck</div>
-    <p>Interaction calls on Intake Agent — what I pushed into the thread, and what I left open.</p>
   </div>
   <ul class="cs-learnings">
-    <li><strong>Inputs in the thread.</strong> I moved agent-requested inputs from a floating modal into the conversation. Structured compliance fields still use the step modal.</li>
-    <li><strong>Top three, then the canvas.</strong> Catalog results show the top three matches. View more expands into the full canvas.</li>
-    <li><strong>View-only cart.</strong> For the first release, product feedback on edit risk kept checkout view-only.</li>
-    <li><strong>Recipe edits and citations.</strong> A generated recipe starts as read-only markdown. Inline editing came later, with the caveat that an edit can invalidate the citation. Agent-assisted editing is deferred to a later release.</li>
-    <li><strong>One request was the assumption.</strong> The agent treated a prompt as a single item and a single request. I flagged multi-item and multi-service asks as an open gap — not a pattern that shipped.</li>
-    <li><strong>Same agent, different scope.</strong> In design: a requester sees what they submitted or had approved; a manager or delegate sees approval actions; an admin or operator sees a broader queue. To-dos, stats, and Manage on the admin landing stay gated by role.</li>
-    <li><strong>Don’t stretch the model.</strong> When a use case didn’t match Intake, I redirected it to another spend or procurement agent instead of forcing this one to cover it.</li>
+    <li><strong>Don’t stretch the model.</strong> When a use case didn’t match Intake, I sent it to another spend or procurement agent.</li>
+    <li><strong>Scope follows the role.</strong> Requester, manager, and admin do not see the same queue.</li>
+    <li><strong>Edits can break the citation.</strong> A generated recipe starts read-only. Inline edit came later; agent-assisted editing waited.</li>
   </ul>
 
   <div class="cs-chapter-heading cs-chapter-section" id="ch-trust">
@@ -464,8 +459,8 @@
         </tr>
         <tr>
           <td>Wrong scope</td>
-          <td>The reply uses another team’s policy, a catalog the employee can’t buy from, or several items and services treated as one cart line.</td>
-          <td>Stay inside the employee’s role and the admin’s published rules. If one prompt holds more than one intent, ask to split or capture each line — or escalate. Don’t guess a single request.</td>
+          <td>Wrong policy, a catalog they can’t buy, or several items treated as one line.</td>
+          <td>Stay in role and published rules. Multi-item: ask to split, or escalate.</td>
         </tr>
         <tr>
           <td>Low confidence</td>
@@ -474,14 +469,26 @@
         </tr>
         <tr>
           <td>Tool/API error</td>
-          <td>Catalog, policy, or form calls fail mid-flow. A silent retry and a dead end both look like the agent quit.</td>
-          <td>Graceful escalation — say what failed, keep the thread, and hand over the context already collected. HITL approval gates stay on publish and on anything that commits spend.</td>
+          <td>Catalog, policy, or form calls fail mid-flow.</td>
+          <td>Say what failed and hand over what was collected. HITL stays on publish and on spend.</td>
         </tr>
       </tbody>
     </table>
   </div>
   <div class="block">
     <p>Stakeholder reviews showed floating modals broke the chat loop and full catalog dumps overloaded the thread — I moved required inputs into the conversation and previewed the top three matches, with view more opening the canvas. The same reviews surfaced multi-item requests the agent couldn’t handle; I flagged that as an open gap rather than papering over it. For the first release I also scoped the checkout cart to view-only, after product feedback on edit risk.</p>
+  </div>
+  <div class="cs-gallery cs-gallery--mocks">
+    <figure class="cs-figure cs-figure--mock" data-mock-slot="intake-failure">
+      <!-- drop-in: images/intake-agent/mock-failure.png -->
+      <div class="cs-mock-slot" role="img" aria-label="Failure and recovery UI, mock coming"></div>
+      <figcaption>Failure / recovery UI (mock coming)</figcaption>
+    </figure>
+    <figure class="cs-figure cs-figure--mock" data-mock-slot="intake-multi-item">
+      <!-- drop-in: images/intake-agent/mock-multi-item.png -->
+      <div class="cs-mock-slot" role="img" aria-label="Multi-item gap exploration, mock coming"></div>
+      <figcaption>Multi-item gap — exploration (mock coming)</figcaption>
+    </figure>
   </div>
 
   <div class="cs-chapter-heading cs-chapter-section" id="ch-outcomes">

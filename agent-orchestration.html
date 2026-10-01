@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=20260920home1" />
+  <link rel="stylesheet" href="style.css?v=20261001mock1" />
   <link rel="stylesheet" href="material-tokens.css?v=20260748" />
   <link rel="stylesheet" href="material-theme.css?v=20260826path1" />
   <script src="analytics.js"></script>
@@ -58,13 +58,13 @@
   <div class="m3-docs-body">
 
   <div class="block block--intro">
-    <p>Specialized agents help only when the handoff, the write, and the permission are explicit. In the sketch, pending actions stay with a person — an agent can draft the handoff; it doesn’t clear the queue. The shipped, single-agent version of these controls is Intake Agent. Defining what that agent owns surfaced a boundary: it assumed one item and one request. A multi-item or multi-service ask doesn’t fit the model — split it, or hand it off. When a use case didn’t match at all, I redirected it to another spend or procurement agent instead of stretching Intake. That handoff is still open thinking, alongside the shipped single-agent work.</p>
+    <p>Intake Agent is the shipped piece: one item, one request, a person on the handoff. A multi-item ask, or a use case that doesn’t fit, goes to another spend or procurement agent. That orchestration is still open thinking.</p>
   </div>
 
   <div class="cs-chapter-heading cs-chapter-section" id="failures">
     <span class="cs-chapter-num">01</span>
-    <h3>Where multi-agent fails</h3>
-    <p class="cs-chapter-sub">Three breaks I design for before adding another agent</p>
+    <h3>Where it breaks</h3>
+    <p class="cs-chapter-sub">Handoff, conflicting writes, permission</p>
   </div>
 
   <div class="solution-table-wrap">
@@ -78,36 +78,32 @@
       </thead>
       <tbody>
         <tr>
-          <td>Handoff failures</td>
-          <td>The next agent starts blank — no decision, constraint, or source. The employee gets a new thread, not a continuation.</td>
-          <td>A handoff is a packet: intent, cited policy, open decision. The receiving agent shows what it inherited.</td>
+          <td>Handoff</td>
+          <td>The next agent starts blank.</td>
+          <td>Pass a packet — intent, cited policy, open decision — and show what was inherited.</td>
         </tr>
         <tr>
-          <td>Conflicting agent actions</td>
-          <td>Two agents write the same request. One adds a catalog line; another opens a form. The employee can’t tell which action is real.</td>
-          <td>One owner at a time. Name the active agent. The other proposes or waits. Conflicting writes don’t both commit.</td>
+          <td>Conflicting writes</td>
+          <td>Two agents act on the same request.</td>
+          <td>One owner at a time. The other waits.</td>
         </tr>
         <tr>
           <td>Permission bleed</td>
-          <td>A specialist reaches a system of record the employee can’t touch, because the orchestrator passed a wider token.</td>
-          <td>Scope travels with the task. Each agent gets the minimum for its step. More access is a request, not an inheritance.</td>
+          <td>A step inherits a wider token than it needs.</td>
+          <td>Scope travels with the task. More access is asked, not inherited.</td>
         </tr>
       </tbody>
     </table>
   </div>
 
-  <div class="cs-chapter-heading cs-chapter-section" id="escalation">
-    <span class="cs-chapter-num">02</span>
-    <h3>Escalation</h3>
-    <p class="cs-chapter-sub">Agent to agent, or agent to human</p>
-  </div>
-
   <div class="block">
-    <p><strong>Agent → agent</strong> when the next step is a different skill, or the request doesn’t fit this agent’s model, and the packet is complete — a policy answer handing off to catalog lookup. Stay in one thread. Show who has it.</p>
-    <p><strong>Agent → human</strong> when the stakes are spend, a policy exception, low confidence, or a tool failure. The person gets the packet and the reason, not a blank form.</p>
-    <p><strong>Role on the handoff.</strong> A requester, a manager or delegate, and an admin should not share one queue — submitted work, approval actions, or a broader view. Permission stays with the role. Still open thinking, same as the handoff.</p>
-    <p>Don’t send uncertainty to another agent. Uncertainty is a human handoff.</p>
+    <p>Agent → agent when the packet is complete and the next step is another skill. Agent → human for spend, low confidence, or a tool failure. Requester, manager, and admin do not share one queue.</p>
   </div>
+  <figure class="cs-figure cs-figure--mock" data-mock-slot="orchestration-handoff">
+    <!-- drop-in: images/agent-orchestration/mock-handoff.png -->
+    <div class="cs-mock-slot" role="img" aria-label="Handoff and escalation exploration, mock coming"></div>
+    <figcaption>Handoff / escalation exploration (mock coming)</figcaption>
+  </figure>
 
   </div>
 
