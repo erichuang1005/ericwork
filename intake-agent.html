@@ -402,6 +402,7 @@
   <ul class="cs-learnings">
     <li><strong>Inputs in the thread.</strong> I moved agent-requested inputs from a floating modal into the conversation. Structured compliance fields still use the step modal.</li>
     <li><strong>Top three, then the canvas.</strong> Catalog results show the top three matches. View more expands into the full canvas.</li>
+    <li><strong>View-only cart.</strong> For the first release, product feedback on edit risk kept checkout view-only.</li>
     <li><strong>Recipe edits and citations.</strong> A generated recipe starts as read-only markdown. Inline editing came later, with the caveat that an edit can invalidate the citation. Agent-assisted editing is deferred to a later release.</li>
     <li><strong>One request was the assumption.</strong> The agent treated a prompt as a single item and a single request. I flagged multi-item and multi-service asks as an open gap — not a pattern that shipped.</li>
     <li><strong>Same agent, different scope.</strong> In design: a requester sees what they submitted or had approved; a manager or delegate sees approval actions; an admin or operator sees a broader queue. To-dos, stats, and Manage on the admin landing stay gated by role.</li>
@@ -480,7 +481,7 @@
     </table>
   </div>
   <div class="block">
-    <p>Admins already check a route in the testing playground before employees see it. Reviewing those runs with stakeholders surfaced the single-item assumption, and I called multi-item and multi-service asks an unresolved gap.</p>
+    <p>Stakeholder reviews showed floating modals broke the chat loop and full catalog dumps overloaded the thread — I moved required inputs into the conversation and previewed the top three matches, with view more opening the canvas. The same reviews surfaced multi-item requests the agent couldn’t handle; I flagged that as an open gap rather than papering over it. For the first release I also scoped the checkout cart to view-only, after product feedback on edit risk.</p>
   </div>
 
   <div class="cs-chapter-heading cs-chapter-section" id="ch-outcomes">
