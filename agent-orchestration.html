@@ -58,51 +58,15 @@
   <div class="m3-docs-body">
 
   <div class="block block--intro">
-    <p>Intake Agent is the shipped piece: one item, one request, a person on the handoff. A multi-item ask, or a use case that doesn’t fit, goes to another spend or procurement agent. That orchestration is still open thinking.</p>
+    <p>Intake is what shipped: one item, one request, and a person on anything that spends money. When the ask doesn’t fit, I send it to another spend agent instead of stretching this one. How that handoff should look — what gets passed, who can see it — is still open.</p>
   </div>
-
-  <div class="cs-chapter-heading cs-chapter-section" id="failures">
-    <span class="cs-chapter-num">01</span>
-    <h3>Where it breaks</h3>
-    <p class="cs-chapter-sub">Handoff, conflicting writes, permission</p>
+  <div class="cs-snapshot-gallery cs-snapshot-gallery--single">
+    <figure class="cs-figure" data-mock-slot="orchestration-handoff">
+      <!-- drop-in: images/agent-orchestration/mock-handoff.png -->
+      <div class="cs-figure__well" aria-hidden="true"></div>
+      <figcaption>The handoff</figcaption>
+    </figure>
   </div>
-
-  <div class="solution-table-wrap">
-    <table class="solution-table solution-table--pr governance-analogy-table" aria-label="Multi-agent failure taxonomy">
-      <thead>
-        <tr>
-          <th>Failure</th>
-          <th>What breaks</th>
-          <th>Design response</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Handoff</td>
-          <td>The next agent starts blank.</td>
-          <td>Pass a packet — intent, cited policy, open decision — and show what was inherited.</td>
-        </tr>
-        <tr>
-          <td>Conflicting writes</td>
-          <td>Two agents act on the same request.</td>
-          <td>One owner at a time. The other waits.</td>
-        </tr>
-        <tr>
-          <td>Permission bleed</td>
-          <td>A step inherits a wider token than it needs.</td>
-          <td>Scope travels with the task. More access is asked, not inherited.</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="block">
-    <p>Agent → agent when the packet is complete and the next step is another skill. Agent → human for spend, low confidence, or a tool failure. Requester, manager, and admin do not share one queue.</p>
-  </div>
-  <figure class="cs-figure" data-mock-slot="orchestration-handoff">
-    <!-- drop-in: images/agent-orchestration/mock-handoff.png -->
-    <figcaption>Handoff and escalation</figcaption>
-  </figure>
 
   </div>
 
@@ -130,7 +94,7 @@
         </a>
       </div>
     </div>
-    <div class="footer-note">Eric Huang · Senior Product Designer · Workday<br />Last updated <span data-site-updated></span><br />Prototyped with Cursor · Claude — interactive prototypes checked against real model states.</div>
+    <div class="footer-note">Eric Huang · Senior Product Designer · Workday<br />Last updated <span data-site-updated></span></div>
   </div>
 </footer>
 

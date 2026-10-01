@@ -150,39 +150,9 @@
   <div class="block">
     <div class="block-label">Decisions I had to defend</div>
     <h3>Outcome over optics</h3>
-    <p>Three calls where I pushed against the default — without formal authority — because the “AI-native” option would have failed in a governed workflow.</p>
-  </div>
-  <div class="solution-table-wrap">
-    <table class="solution-table solution-table--pr" aria-label="Decisions I owned">
-      <thead>
-        <tr>
-          <th>Decision</th>
-          <th>The push</th>
-          <th>What I did</th>
-          <th>Result</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="selected">
-          <td>Hybrid shell vs. pure chat</td>
-          <td>Chat-only felt more “AI-native”</td>
-          <td>I used research: power users needed Quick Links; new hires needed open search. I framed it as outcome over optics.</td>
-          <td>Hybrid shipped</td>
-        </tr>
-        <tr>
-          <td>Deterministic routing vs. model inference</td>
-          <td>Let the model infer the next step</td>
-          <td>I argued that for compliance paths, inference is an audit risk. High-stakes routes need an explicit admin table.</td>
-          <td>Routing table shipped</td>
-        </tr>
-        <tr>
-          <td>Admin tooling in v1 vs. later</td>
-          <td>Defer the console to protect timeline</td>
-          <td>I held the line: without upload, sandbox, and analytics, answer quality degrades the moment policy changes.</td>
-          <td>Admin loop shipped in v1</td>
-        </tr>
-      </tbody>
-    </table>
+    <p>Chat-only looked more like “AI.” It wasn’t what people needed. Repeat buyers wanted a shortcut; everyone else needed to ask. Hybrid shipped because one door didn’t work.</p>
+    <p>The risky step is not a guess. High-stakes routes sit on an admin table, and a person still approves them. I kept upload, the sandbox, and analytics in the first release — otherwise the answers go stale the moment policy changes.</p>
+    <p>If the job isn’t this agent’s, I send it to another spend agent instead of stretching Intake. A requester, a manager, and an admin don’t see the same queue. Recipes start read-only; editing one can knock out the citation.</p>
   </div>
 
 
@@ -395,23 +365,10 @@
     </ol>
   </div>
 
-  <div class="block">
-    <div class="block-label">Decisions that stuck</div>
-  </div>
-  <ul class="cs-learnings">
-    <li><strong>Don’t stretch the model.</strong> When a use case didn’t match Intake, I sent it to another spend or procurement agent.</li>
-    <li><strong>Scope follows the role.</strong> Requester, manager, and admin do not see the same queue.</li>
-    <li><strong>Edits can break the citation.</strong> A generated recipe starts read-only. Inline edit came later; agent-assisted editing waited.</li>
-  </ul>
-
   <div class="cs-chapter-heading cs-chapter-section" id="ch-trust">
     <span class="cs-chapter-num">04</span>
     <h3>Trust, routing, and failure</h3>
     <p class="cs-chapter-sub">The agent is only as good as the oversight around it</p>
-  </div>
-
-  <div class="block">
-    <p>I designed three layers for when the model is wrong or out of bounds: cite the source so people can verify, route high-stakes paths through explicit admin rules, and test in a sandbox before employees ever see a change.</p>
   </div>
 
   <div class="cs-trust-grid">
@@ -439,53 +396,18 @@
   </div>
 
   <div class="block">
-    <div class="block-label">Designing for failure</div>
-    <p>Four ways a procurement agent fails an employee — and the control I put on each before money moves.</p>
+    <p>Reviews killed the floating modal and the wall of catalog results. Questions sit in the thread, with three matches and a way into the canvas. Multi-item still doesn’t work — I left it open. First release, checkout is view-only.</p>
   </div>
-  <div class="solution-table-wrap">
-    <table class="solution-table solution-table--pr governance-analogy-table" aria-label="Designing for failure">
-      <thead>
-        <tr>
-          <th>Failure mode</th>
-          <th>User risk</th>
-          <th>Design response</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Wrong action</td>
-          <td>The employee starts the wrong purchase path — a policy question becomes a requisition, or a catalog item opens as non-catalog.</td>
-          <td>Deterministic routing for high-stakes actions. The next step comes from the admin table, not the model.</td>
-        </tr>
-        <tr>
-          <td>Wrong scope</td>
-          <td>Wrong policy, a catalog they can’t buy, or several items treated as one line.</td>
-          <td>Stay in role and published rules. Multi-item: ask to split, or escalate.</td>
-        </tr>
-        <tr>
-          <td>Low confidence</td>
-          <td>A thin or conflicting source still sounds certain, and the employee acts on it.</td>
-          <td>Confidence signaling: cite the source, mark a weak match, and hold the action until a person confirms.</td>
-        </tr>
-        <tr>
-          <td>Tool/API error</td>
-          <td>Catalog, policy, or form calls fail mid-flow.</td>
-          <td>Say what failed and hand over what was collected. HITL stays on publish and on spend.</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="block">
-    <p>Stakeholder reviews showed floating modals broke the chat loop and full catalog dumps overloaded the thread — I moved required inputs into the conversation and previewed the top three matches, with view more opening the canvas. The same reviews surfaced multi-item requests the agent couldn’t handle; I flagged that as an open gap rather than papering over it. For the first release I also scoped the checkout cart to view-only, after product feedback on edit risk.</p>
-  </div>
-  <div class="cs-gallery">
+  <div class="cs-snapshot-gallery cs-snapshot-gallery--single">
     <figure class="cs-figure" data-mock-slot="intake-failure">
       <!-- drop-in: images/intake-agent/mock-failure.png -->
+      <div class="cs-figure__well" aria-hidden="true"></div>
       <figcaption>Failure and recovery</figcaption>
     </figure>
     <figure class="cs-figure" data-mock-slot="intake-multi-item">
       <!-- drop-in: images/intake-agent/mock-multi-item.png -->
-      <figcaption>Multi-item exploration</figcaption>
+      <div class="cs-figure__well" aria-hidden="true"></div>
+      <figcaption>A request with more than one item</figcaption>
     </figure>
   </div>
 
@@ -584,7 +506,7 @@
         </a>
       </div>
     </div>
-    <div class="footer-note">Eric Huang · Senior Product Designer · Workday<br />Last updated <span data-site-updated></span><br />Prototyped with Cursor · Claude — interactive prototypes checked against real model states.</div>
+    <div class="footer-note">Eric Huang · Senior Product Designer · Workday<br />Last updated <span data-site-updated></span></div>
   </div>
 </footer>
 

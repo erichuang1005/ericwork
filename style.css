@@ -3808,8 +3808,10 @@ body.cs-m3-docs-page footer a.footer-cta:not(.footer-cta--secondary) {
   border-top: 1px solid var(--border);
   background: var(--bg-card);
 }
-.cs-figure[data-mock-slot]:not(:has(img)),
-.cs-gallery:has([data-mock-slot]):not(:has(img)) {
+.cs-figure[data-mock-slot] .cs-figure__well {
+  aspect-ratio: 3 / 2;
+}
+.cs-figure[data-mock-slot]:has(img) .cs-figure__well {
   display: none;
 }
 .cs-gallery-full {
