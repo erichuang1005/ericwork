@@ -329,7 +329,7 @@
       <strong class="block-inline-title">Canvas inside the chat.</strong>
     </div>
     <p>
-      The Workday design kept catalog in conversation — a reply, a card, a button. For Sana I moved that into a catalog canvas inside agent chat so people can search, compare, and add in one place — faster, with less back-and-forth.
+      The Workday design kept catalog in conversation — a reply, a card, a button. For Sana I moved that into a catalog canvas inside agent chat so people can search, compare, and add in one place — faster, with less back-and-forth. The thread shows the top three matches; view more expands into the full canvas.
     </p>
     <ol class="cs-progress cs-progress--fit" style="--prev-ar: 1.766fr; --now-ar: 1.6fr">
       <li>
@@ -353,7 +353,7 @@
       <strong class="block-inline-title">A modal instead of answering in the composer.</strong>
     </div>
     <p>
-      Workday collected non-catalog details through chat — the agent asked in the thread, people typed answers in the input box. For Sana I moved that into a structured input modal: one question at a time, then a complete request. Structured capture beat free-text when the fields are required for compliance.
+      Workday collected non-catalog details through chat — the agent asked in the thread, people typed answers in the input box. For Sana I moved that into a structured input modal: one question at a time, then a complete request. Structured capture beat free-text when the fields are required for compliance. That modal is for those compliance fields. Questions the agent asks moved out of a floating modal and into the thread.
     </p>
     <ol class="cs-progress cs-progress--fit" style="--prev-ar: 1.131fr; --now-ar: 1.6fr">
       <li>
@@ -377,7 +377,7 @@
       <strong class="block-inline-title">Upload policy. Approve the path.</strong>
     </div>
     <p>
-      Workday admins uploaded a policy document, then typed the purchase path by hand. In Sana, the same upload drafts a compliance purchase path — admins approve it and adjust the details. I kept a human in the loop on purpose: the agent proposes, the admin publishes.
+      Workday admins uploaded a policy document, then typed the purchase path by hand. In Sana, the same upload drafts a compliance purchase path — admins approve it and adjust the details. The drafted recipe starts as read-only markdown. Inline editing came later; an edit can invalidate the citation. Agent-assisted editing is deferred to a later release. I kept a human in the loop on purpose: the agent proposes, the admin publishes.
     </p>
     <ol class="cs-progress cs-progress--fit" style="--prev-ar: 1.492fr; --now-ar: 1.492fr">
       <li>
@@ -394,6 +394,18 @@
       </li>
     </ol>
   </div>
+
+  <div class="block">
+    <div class="block-label">Decisions that stuck</div>
+    <p>Interaction calls on Intake Agent — what I pushed into the thread, and what I left open.</p>
+  </div>
+  <ul class="cs-learnings">
+    <li><strong>Inputs in the thread.</strong> I moved agent-requested inputs from a floating modal into the conversation. Structured compliance fields still use the step modal.</li>
+    <li><strong>Top three, then the canvas.</strong> Catalog results show the top three matches. View more expands into the full canvas.</li>
+    <li><strong>Recipe edits and citations.</strong> A generated recipe starts as read-only markdown. Inline editing came later, with the caveat that an edit can invalidate the citation. Agent-assisted editing is deferred to a later release.</li>
+    <li><strong>One request was the assumption.</strong> The agent treated a prompt as a single item and a single request. I flagged multi-item and multi-service asks as an open gap — not a pattern that shipped.</li>
+    <li><strong>Same agent, different scope.</strong> In design: a requester sees what they submitted or had approved; a manager or delegate sees approval actions; an admin or operator sees a broader queue. To-dos, stats, and Manage on the admin landing stay gated by role.</li>
+  </ul>
 
   <div class="cs-chapter-heading cs-chapter-section" id="ch-trust">
     <span class="cs-chapter-num">04</span>
@@ -450,8 +462,8 @@
         </tr>
         <tr>
           <td>Wrong scope</td>
-          <td>The reply uses another team’s policy, or acts on a catalog the employee can’t buy from.</td>
-          <td>Stay inside the employee’s role and the admin’s published rules. Out of scope, stop and escalate.</td>
+          <td>The reply uses another team’s policy, a catalog the employee can’t buy from, or several items and services treated as one cart line.</td>
+          <td>Stay inside the employee’s role and the admin’s published rules. If one prompt holds more than one intent, ask to split or capture each line — or escalate. Don’t guess a single request.</td>
         </tr>
         <tr>
           <td>Low confidence</td>
@@ -467,7 +479,7 @@
     </table>
   </div>
   <div class="block">
-    <p>Admins already check a route in the testing playground before employees see it. [DESCRIBE ONE EVAL-DRIVEN CHANGE]</p>
+    <p>Admins already check a route in the testing playground before employees see it. Reviewing those runs with stakeholders surfaced the single-item assumption, and I called multi-item and multi-service asks an unresolved gap.</p>
   </div>
 
   <div class="cs-chapter-heading cs-chapter-section" id="ch-outcomes">
