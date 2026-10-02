@@ -913,7 +913,8 @@ body.cs-m3-docs-page footer a.footer-cta:not(.footer-cta--secondary) {
   gap: 6px;
 }
 /* Coming soon: readable vs live tiles, still quiet and on-brand */
-.index-card.coming-soon .index-card-badge {
+.index-card.coming-soon .index-card-badge,
+.index-card--thinking .index-card-badge {
   color: var(--accent);
   font-weight: 600;
   letter-spacing: 0.11em;
@@ -923,12 +924,41 @@ body.cs-m3-docs-page footer a.footer-cta:not(.footer-cta--secondary) {
   padding: 5px 12px 5px 9px;
   width: fit-content;
   max-width: 100%;
+  text-transform: uppercase;
 }
-.index-card.coming-soon .badge-dot {
+.index-card.coming-soon .badge-dot,
+.index-card--thinking .badge-dot {
   width: 6px;
   height: 6px;
   background: var(--accent);
   opacity: 0.42;
+}
+/* Thinking note — same quiet card as the text index, not a product cover */
+.index-card--thinking {
+  gap: 10px;
+  box-shadow: none;
+}
+.index-card--thinking:hover {
+  transform: none;
+  box-shadow: var(--shadow-sm);
+  border-color: var(--border);
+}
+.index-card.index-card--thinking h3 {
+  font-weight: 600;
+  font-size: clamp(18px, 2vw, 22px);
+  letter-spacing: -0.02em;
+  padding-right: 28px;
+}
+.index-card--thinking p {
+  margin: 0;
+  max-width: 46em;
+}
+.index-card.index-card--thinking .index-card-arrow {
+  top: 28px;
+  right: 28px;
+}
+.m3-docs-hero-inner--text {
+  grid-template-columns: minmax(0, 40rem);
 }
 .badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--ink-muted); }
 .badge-dot.live { background: var(--accent-green); }
@@ -1343,14 +1373,6 @@ body.cs-m3-docs-page footer a.footer-cta:not(.footer-cta--secondary) {
   box-shadow:
     0 2px 6px rgba(0, 0, 0, 0.06),
     0 10px 28px rgba(0, 0, 0, 0.1);
-}
-
-.index-card--orchestration.index-bento .index-bento__arrow {
-  opacity: 0.35;
-}
-
-.index-card--orchestration.index-bento .index-bento__anchor {
-  pointer-events: none;
 }
 
 .index-bento__image {
@@ -2283,6 +2305,12 @@ body.cs-m3-docs-page footer a.footer-cta:not(.footer-cta--secondary) {
 
 /* ─── BLOCKS ─── */
 .block { margin-bottom: 64px; }
+.block > .cs-figure { margin-top: 20px; }
+.block > .cs-figure + .cs-figure { margin-top: 28px; }
+.cs-figure--open .cs-figure__well {
+  aspect-ratio: 16 / 10;
+  background: var(--tag-bg);
+}
 /* Checklists that live inside a .block don't need inline margin/max-width */
 .block .checklist {
   margin-top: 16px;
@@ -3815,6 +3843,12 @@ body.cs-m3-docs-page footer a.footer-cta:not(.footer-cta--secondary) {
   line-height: 1.45;
   border-top: 1px solid var(--border);
   background: var(--bg-card);
+}
+.cs-figure[data-mock-slot] .cs-figure__well {
+  aspect-ratio: 3 / 2;
+}
+.cs-figure[data-mock-slot]:has(img) .cs-figure__well {
+  display: none;
 }
 .cs-gallery-full {
   grid-column: 1 / -1;

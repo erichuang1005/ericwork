@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" class="theme-material">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="auth.js?v=20260811pw7"></script>
+  <link rel="icon" type="image/png" href="images/favicon-32.png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="images/favicon-apple.png" />
+  <title>Agent Orchestration — Eric Huang</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=20261001bar1" />
+  <link rel="stylesheet" href="material-tokens.css?v=20260748" />
+  <link rel="stylesheet" href="material-theme.css?v=20260826path1" />
+  <script src="analytics.js"></script>
+</head>
+<body class="cs-m3-docs-page">
+
+<nav class="site-header" aria-label="Site">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Eric Huang</a>
+    <ul class="nav-links">
+      <li><a href="index.html#work">Work</a></li>
+      <li><a href="resume.pdf?v=20261002staff" target="_blank" rel="noopener" class="nav-resume">Resume</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
+<div class="breadcrumb">
+  <a href="index.html"><span class="back-arrow">←</span> All projects</a>
+  <span class="sep">/</span>
+  <span class="current">Multi-agent UX</span>
+</div>
+
+<section class="case-study standalone cs-apple-layout cs-m3-docs">
+
+  <header class="m3-docs-hero">
+    <div class="m3-docs-hero-inner m3-docs-hero-inner--text">
+      <div class="m3-docs-hero-copy">
+        <div class="m3-docs-hero-story">
+          <p class="m3-docs-eyebrow">Thinking · Multi-agent UX</p>
+          <h1 class="m3-docs-title">Agent Orchestration</h1>
+          <p class="m3-docs-lede">Work in progress, alongside the Intake work that shipped.</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="m3-docs-body">
+
+  <div class="block block--intro">
+    <p>Intake is what shipped: one item, one request, and a person on anything that spends money. When the ask doesn’t fit, I send it to another spend agent instead of stretching this one. How that handoff should look — what gets passed, who can see it — is still open.</p>
+  </div>
+
+  </div>
+
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-main">
+      <div class="footer-copy">
+        <h2>Let's connect.</h2>
+        <p>Open to principal / senior IC roles in workflow-heavy and agentic enterprise UX—mobile, web, and systems thinking.</p>
+        <div class="footer-inline-links">
+          <a href="resume.pdf?v=20261002staff" target="_blank" rel="noopener">Resume PDF</a>
+          <span aria-hidden="true"> · </span>
+          <a href="mailto:Eric.chakho.wong@gmail.com">Email</a>
+          <span aria-hidden="true"> · </span>
+          <a href="https://www.linkedin.com/in/zehao-eric-huang/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+      </div>
+      <div class="footer-cta-row">
+        <a class="footer-cta" href="mailto:Eric.chakho.wong@gmail.com">Get in touch</a>
+        <a class="footer-cta footer-cta--secondary" href="https://www.instagram.com/tutu.thecorgi/" target="_blank" rel="noopener noreferrer">
+          <img src="https://cdn-icons-png.flaticon.com/256/12/12638.png" alt="" width="16" height="16" aria-hidden="true" />
+          Say hi to Tutu
+        </a>
+      </div>
+    </div>
+    <div class="footer-note">Eric Huang · Senior Product Designer · Workday<br />Last updated <span data-site-updated></span></div>
+  </div>
+</footer>
+
+<script>
+  console.log('%c👋 You opened DevTools.', 'font-size:13px;font-weight:700;color:#18181B');
+  console.log('%cGood instinct — inspecting systems is exactly how I work too.', 'font-size:12px;color:#52525B');
+  console.log('%ceric.chakho.wong@gmail.com  ·  linkedin.com/in/zehao-eric-huang', 'font-size:12px;color:#1A56DB');
+
+  (function () {
+    const bar = document.getElementById('scroll-progress');
+    if (!bar || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    let ticking = false;
+    function update() {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.width = (docHeight > 0 ? Math.min(100, (scrollTop / docHeight) * 100) : 0) + '%';
+      ticking = false;
+    }
+    window.addEventListener('scroll', function () { if (!ticking) { requestAnimationFrame(update); ticking = true; } }, { passive: true });
+  })();
+</script>
+
+<script src="site-meta.js?v=20260729"></script>
+
+</body>
+</html>
